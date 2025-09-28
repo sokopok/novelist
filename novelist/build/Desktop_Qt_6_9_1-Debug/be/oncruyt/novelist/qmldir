@@ -1,0 +1,5 @@
+module be.oncruyt.novelist
+typeinfo appnovelist.qmltypes
+prefer :/qt/qml/be/oncruyt/novelist/
+Main 1.0 src/novelist/qml/Main.qml
+

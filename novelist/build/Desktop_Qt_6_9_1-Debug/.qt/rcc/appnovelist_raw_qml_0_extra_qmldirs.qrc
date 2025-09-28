@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="/qt/qml/be/oncruyt/novelist/">
+    <file alias="src/novelist/qml/qmldir">/home/tomas/Source/novelist/novelist/build/Desktop_Qt_6_9_1-Debug/be/oncruyt/novelist/src/novelist/qml/qmldir</file>
+  </qresource>
+</RCC>
+

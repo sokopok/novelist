@@ -1,0 +1,13 @@
+<RCC>
+  <qresource prefix="/qt/qml/be/oncruyt/novelist/">
+    <file alias="src/novelist/qml/Main.qml">/home/tomas/Source/novelist/src/novelist/qml/Main.qml</file>
+    <file alias="src/novelist/qml/ai.svg">/home/tomas/Source/novelist/src/novelist/qml/ai.svg</file>
+    <file alias="src/novelist/qml/user.svg">/home/tomas/Source/novelist/src/novelist/qml/user.svg</file>
+    <file alias="src/novelist/qml/bubble-square.svg">/home/tomas/Source/novelist/src/novelist/qml/bubble-square.svg</file>
+    <file alias="src/novelist/qml/ai-square.svg">/home/tomas/Source/novelist/src/novelist/qml/ai-square.svg</file>
+    <file alias="src/novelist/qml/computer-square.svg">/home/tomas/Source/novelist/src/novelist/qml/computer-square.svg</file>
+    <file alias="src/novelist/qml/user-square.svg">/home/tomas/Source/novelist/src/novelist/qml/user-square.svg</file>
+    <file alias="src/novelist/qml/human-square.svg">/home/tomas/Source/novelist/src/novelist/qml/human-square.svg</file>
+  </qresource>
+</RCC>
+
