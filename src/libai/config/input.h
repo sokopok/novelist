@@ -9,7 +9,7 @@ namespace ai {
 class ItemReference
 {
     Q_GADGET
-    Q_PROPERTY(Type type READ type CONSTANT FINAL)
+    Q_PROPERTY(AiObjectType objectType READ objectType CONSTANT FINAL)
     Q_PROPERTY(QString id READ id WRITE setId FINAL)
     Q_PROPERTY(QJsonObject extra READ extra FINAL)
     Q_PROPERTY(bool empty READ isEmpty FINAL)
@@ -27,7 +27,7 @@ public:
         , e{extra}
     {}
 
-    [[nodiscard]] Type type() const { return Type::ItemReference; }
+    [[nodiscard]] AiObjectType objectType() const { return AiObjectType::ItemReference; }
 
     [[nodiscard]] QJsonObject extra() const { return e; }
 
@@ -176,7 +176,7 @@ public:
         : QList<InputItem>{items}
     {}
 
-    [[nodiscard]] ai::Type type() const { return ai::Type::InputItemList; }
+    [[nodiscard]] ai::AiObjectType objectType() const { return ai::AiObjectType::InputItemList; }
 
     [[nodiscard]] bool isValid() const { return !isEmpty(); }
 
@@ -330,6 +330,12 @@ public:
 
         return {items};
     }
+
+    // Input& operator=(const Input& that)
+    // {
+    //     d = that.d;
+    //     return *this;
+    // }
 };
 
 } // namespace ai

@@ -56,22 +56,39 @@ bool RequestData::readJson(const QJsonObject& json)
     return true;
 }
 
-bool RequestData::writeJson(QJsonObject& json) const
+bool RequestData::writeJson(QJsonObject& json, bool full) const
 {
-    if (!metadata().isEmpty())
+    if (full || !metadata().isEmpty())
         json[QStringLiteral("metadata")] = QJsonObject::fromVariantMap(metadata());
 
-    if (!model().isEmpty())
+    if (full || !model().isEmpty())
         json[QStringLiteral("model")] = model();
 
-    if (isStreaming()) {
+    if (full || isStreaming()) {
         json[QStringLiteral("streaming")] = isStreaming();
 
-        if (!streamOptions().isEmpty())
+        if (full || !streamOptions().isEmpty())
             json[QStringLiteral("stream_options")] = streamOptions().toJson();
     }
 
     return true;
+}
+
+Request::Request()
+    : Request(new RequestData)
+{}
+
+Request::Request(RequestData* data)
+    : d{data ? data : new RequestData}
+{
+    setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
+    setRawHeader("Authorization", "Bearer " + apiKey());
+
+    setRawHeader("Accept", isStreaming() ? "text/event-stream" : "application/json");
+
+#if QT_VERSION >= QT_VERSION_CHECK(6, 5, 0)
+    setTransferTimeout(isStreaming() ? 0 : 60000);
+#endif
 }
 
 } // namespace ai

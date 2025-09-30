@@ -16,22 +16,30 @@ class Response;
 
 class RequestData : public QSharedData
 {
+    StreamOptions mStreamOptions;
     QVariantMap mMetadata;
     QString mModel;
-    bool mStreaming = false;
-    StreamOptions mStreamOptions;
+    QString mId;
     QByteArray mApiKey;
-    QUrl mApiUrl;
+    bool mStreaming = false;
 
 public:
     [[nodiscard]] bool operator==(const RequestData& that) const
     {
         return apiKey() == that.apiKey()
-               && apiUrl() == that.apiUrl()
                && metadata() == that.metadata()
                && model() == that.model()
                && isStreaming() == that.isStreaming()
                && streamOptions() == that.streamOptions();
+    }
+
+    [[nodiscard]] QString id() const { return mId; }
+    bool setId(const QString& id)
+    {
+        if (mId == id)
+            return false;
+        mId = id;
+        return true;
     }
 
     /** metadata
@@ -117,24 +125,14 @@ public:
     }
     void resetApiKey() { setApiKey({}); }
 
-    [[nodiscard]] QUrl apiUrl() const { return mApiUrl; }
-    bool setApiUrl(const QUrl& apiUrl)
-    {
-        if (mApiUrl == apiUrl)
-            return false;
-        mApiUrl = apiUrl;
-        return true;
-    }
-    void resetApiUrl() { setApiUrl({}); }
-
-    QJsonObject toJson() const
+    QJsonObject toJson(bool full = false) const
     {
         QJsonObject json;
-        return writeJson(json) ? json : QJsonObject{};
+        return writeJson(json, full) ? json : QJsonObject{};
     }
 
     virtual bool readJson(const QJsonObject& json);
-    virtual bool writeJson(QJsonObject& json) const;
+    virtual bool writeJson(QJsonObject& json, bool full = false) const;
 };
 
 class Request : public QNetworkRequest
@@ -148,12 +146,7 @@ public:
     enum Error { NoError, NetworkError, SslError };
     Q_ENUM(Error)
 
-    Request()
-        : d{new RequestData}
-    {}
-
-    [[nodiscard]] QString id() const;
-    void setId(const QString& id);
+    Request();
 
     Request& setAttribute(QNetworkRequest::Attribute code, const QVariant& value)
     {
@@ -235,28 +228,29 @@ public:
         QNetworkRequest::setUrl(url);
         return *this;
     }
+    Request& resetUrl()
+    {
+        setUrl({});
+        return *this;
+    }
+
+    [[nodiscard]] QString id() const { return d->id(); }
+    Request& setId(const QString& id)
+    {
+        d->setId(id);
+        return *this;
+    }
 
     [[nodiscard]] QByteArray apiKey() const { return d->apiKey(); }
     Request& setApiKey(const QByteArray& apiKey)
     {
         d->setApiKey(apiKey);
+        setRawHeader("Authorization", apiKey.isEmpty() ? "" : "Bearer " + apiKey);
         return *this;
     }
     Request& resetApiKey()
     {
-        d->resetApiKey();
-        return *this;
-    }
-
-    [[nodiscard]] QUrl apiUrl() const { return d->apiUrl(); }
-    Request& setApiUrl(const QUrl& apiUrl)
-    {
-        d->setApiUrl(apiUrl);
-        return *this;
-    }
-    Request& resetApiUrl()
-    {
-        d->resetApiUrl();
+        setApiKey({});
         return *this;
     }
 
@@ -276,6 +270,12 @@ public:
     {
         return d->putMetadata(key, value);
     }
+    bool putMetadata(const QVariantMap& map)
+    {
+        for (auto it = map.begin(); it != map.end(); ++it)
+            putMetadata(it.key(), it.value());
+        return true;
+    }
     QVariant takeMetadata(const QString& key) { return d->takeMetadata(key); }
 
     [[nodiscard]] QString model() const { return d->model(); }
@@ -294,11 +294,18 @@ public:
     Request& setStreaming(bool streaming)
     {
         d->setStreaming(streaming);
+
+        setRawHeader("Accept", isStreaming() ? "text/event-stream" : "application/json");
+
+#if QT_VERSION >= QT_VERSION_CHECK(6, 5, 0)
+        setTransferTimeout(isStreaming() ? 0 : 60000);
+#endif
+
         return *this;
     }
     Request& resetStreaming()
     {
-        d->resetStreaming();
+        setStreaming(false);
         return *this;
     }
 
@@ -314,14 +321,25 @@ public:
         return *this;
     }
 
-    QJsonObject toJson() const
+    QJsonObject toJson(bool full = false) const
     {
         QJsonObject json;
-        return writeJson(json) ? json : QJsonObject{};
+        return writeJson(json, full) ? json : QJsonObject{};
     }
+    QString formattedJson(bool full = false) const { return QJsonDocument{toJson(full)}.toJson(); }
+
+protected:
+    Request(RequestData* data);
 
     virtual bool readJson(const QJsonObject& json) { return d->readJson(json); }
-    virtual bool writeJson(QJsonObject& json) const { return d->writeJson(json); }
+    virtual bool writeJson(QJsonObject& json, bool full = false) const
+    {
+        if (full) {
+            json[QStringLiteral("url")] = url().toString();
+        }
+
+        return d->writeJson(json, full);
+    }
 };
 
 } // namespace ai

@@ -8,6 +8,10 @@ namespace ai {
 class StreamOptions
 {
     Q_GADGET
+    Q_PROPERTY(AiObjectType objectType READ objectType CONSTANT FINAL)
+    Q_PROPERTY(QJsonObject extra READ extra FINAL)
+    Q_PROPERTY(bool empty READ isEmpty FINAL)
+    Q_PROPERTY(bool valid READ isValid FINAL)
     Q_PROPERTY(bool includeObfuscation READ includeObfuscation WRITE setIncludeObfuscation)
 
 public:
@@ -17,6 +21,8 @@ public:
     StreamOptions(bool includeObfuscation, const QJsonObject& extra = {})
         : d{new Data{includeObfuscation, extra}}
     {}
+
+    [[nodiscard]] AiObjectType objectType() const { return AiObjectType::StreamOptions; }
 
     [[nodiscard]] bool includeObfuscation() const { return d->includeObfuscation; }
     void setIncludeObfuscation(bool includeObfuscation)

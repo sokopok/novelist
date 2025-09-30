@@ -3,6 +3,7 @@
 
 #include <QNetworkReply>
 #include <QObject>
+#include "config.h"
 #include "request.h"
 
 class QNetworkAccessManager;
@@ -14,6 +15,8 @@ namespace ai {
 class ResponseData : public QSharedData
 {
 protected:
+    QJsonObject mExtra;
+    QString mId;
     QVariantMap mMetadata;
     QString mModel;
     bool mStreaming = false;
@@ -25,6 +28,20 @@ public:
         return metadata() == that.metadata() && model() == that.model()
                && isStreaming() == that.isStreaming() && streamOptions() == that.streamOptions();
     }
+
+    /** id
+        string
+        Unique identifier for this Response.
+        **/
+    [[nodiscard]] QString id() const { return mId; }
+    bool setId(const QString& id)
+    {
+        if (mId == id)
+            return false;
+        mId = id;
+        return true;
+    }
+    void resetId() { setId({}); }
 
     /** metadata
         map
@@ -99,14 +116,16 @@ public:
     }
     void resetStreamOptions() { setStreamOptions({}); }
 
-    QJsonObject toJson() const
+    QJsonObject toJson(bool full = false) const
     {
         QJsonObject json;
-        return writeJson(json) ? json : QJsonObject{};
+        return writeJson(json, full) ? json : QJsonObject{};
     }
+    QString formattedJson(bool full = false) const { return QJsonDocument{toJson(full)}.toJson(); }
 
-    virtual bool readJson(const QJsonObject& json);
-    virtual bool writeJson(QJsonObject& json) const;
+    // protected:
+    virtual bool readJson(const QJsonObject& json, QStringList* errors = nullptr);
+    virtual bool writeJson(QJsonObject& json, bool full = false) const;
 };
 
 class Response : public QObject
@@ -114,20 +133,19 @@ class Response : public QObject
     Q_OBJECT
 
     Request mRequest;
+    Error mError;
     QNetworkReply* mReply = nullptr;
     Client* mClient = nullptr;
     bool mSetParentToReply = true;
     bool mDeleteReplyWhenFinished = true;
 
+protected:
     QSharedDataPointer<ResponseData> d;
 
 public:
-    enum Error { NoError, NetworkError, SslError };
-    Q_ENUM(Error)
-
     Response(const Request& request, QNetworkReply* reply, Client* client);
 
-    [[nodiscard]] Error error() const;
+    [[nodiscard]] Error error() const { return mError; }
 
     void abort()
     {
@@ -141,6 +159,15 @@ public:
     [[nodiscard]] Client* client() const { return mClient; }
     [[nodiscard]] QNetworkReply* reply() const { return mReply; }
     [[nodiscard]] Request request() const { return mRequest; }
+
+    [[nodiscard]] QString id() const { return d->id(); }
+    Response& setId(const QString& id)
+    {
+        if (d->setId(id))
+            emit idChanged(QPrivateSignal{});
+        return *this;
+    }
+    void resetId() { setId({}); }
 
     [[nodiscard]] QVariantMap metadata() const { return d->metadata(); }
     Response& setMetadata(const QVariantMap& metadata)
@@ -189,13 +216,15 @@ public:
         QJsonObject json;
         return writeJson(json) ? json : QJsonObject{};
     }
+    QString formattedJson() const { return QJsonDocument{toJson()}.toJson(); }
 
 signals:
     void requestSent(QPrivateSignal);
     void readyRead(QPrivateSignal);
     void finished(QPrivateSignal);
-    void errorOccurred(ai::Response::Error error, const QString& message, QPrivateSignal);
+    void errorOccurred(const ai::Error& error, QPrivateSignal);
 
+    void idChanged(QPrivateSignal);
     void metadataChanged(QPrivateSignal);
     void modelChanged(QPrivateSignal);
     void streamingChanged(QPrivateSignal);
@@ -208,10 +237,12 @@ protected:
              QNetworkReply* reply,
              Client* client = nullptr);
 
+    void setError(const Error& error);
+
     void reset(const Request& request, QNetworkReply* reply, Client* client = nullptr);
 
-    virtual bool readJson(const QJsonObject& json) { return d->readJson(json); }
-    virtual bool writeJson(QJsonObject& json) const { return d->writeJson(json); }
+    virtual bool readJson(const QJsonObject& json, QStringList* errors = nullptr);
+    virtual bool writeJson(QJsonObject& json, bool full = false) const;
 
     void handleRequestSent();
     void handleReadyRead();

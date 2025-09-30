@@ -8,20 +8,19 @@ int main(int argc, char *argv[])
     QGuiApplication app(argc, argv);
 
     ai::responses::Request request{};
-    request.setBackground(true);
-    request.setInput({ai::InputItemList{{{{ai::MessageContent{"Hello"
-                                                              "."}}},
-                                         {ai::ItemReference{"sjqsgcjhsg"}},
-                                         {ai::Message{}}}}});
-    request.setStreaming(true);
-    request.setStreamOptions(true);
-    qDebug() << request.toJson();
+    request.setInput({"Hello!"});
 
     ai::responses::Client client;
+    QObject::connect(&client, &ai::responses::Client::errorOccurred, [](const ai::Error &e) {
+        qDebug() << e.toJson();
+    });
+
     if (auto *response = client.post(request)) {
+        QObject::connect(response, &ai::responses::Response::errorOccurred, [](const ai::Error &e) {
+            qDebug() << e.toJson();
+        });
+
         qDebug() << response->toJson();
-    } else {
-        qDebug() << "failed to post request";
     }
 
     // client.

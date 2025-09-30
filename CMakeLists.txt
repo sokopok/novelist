@@ -35,7 +35,8 @@ qt_add_qml_module(
   src/novelist/qml/computer-square.svg
   src/novelist/qml/user-square.svg
   src/novelist/qml/human-square.svg
-  SOURCES src/libai/json.h)
+  SOURCES
+  src/libai/json.h)
 
 target_include_directories(appnovelist PUBLIC src)
 
@@ -60,26 +61,29 @@ target_link_libraries(appnovelist PRIVATE Qt6::Core)
 add_library(
   libai STATIC
   src/libai/libai_nl_BE.ts
-
-
   src/libai/request.h
   src/libai/client.h
   src/libai/client.cpp
   src/libai/request.cpp
   src/libai/logging.h
   src/libai/logging.cpp
-
-
   src/libai/config/message.h
   src/libai/config/base.h
   src/libai/config/input.h
   src/libai/config/conversation.h
   src/libai/config.h
   src/libai/config/streamoptions.h
-  src/libai/responses/request.cpp src/libai/responses/request.h
-  src/libai/responses/client.cpp src/libai/responses/client.h
-  src/libai/response.h src/libai/response.cpp
-  src/libai/responses/response.h src/libai/responses/response.cpp)
+  src/libai/config/outputmessage.h
+  src/libai/responses/request.cpp
+  src/libai/responses/request.h
+  src/libai/responses/client.cpp
+  src/libai/responses/client.h
+  src/libai/response.h
+  src/libai/response.cpp
+  src/libai/responses/response.h
+  src/libai/responses/response.cpp
+  src/libai/config/reasoning.h
+  src/libai/config/output.h)
 
 target_include_directories(libai PUBLIC src)
 

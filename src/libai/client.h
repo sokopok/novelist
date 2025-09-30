@@ -10,7 +10,31 @@ class QNetworkReply;
 
 namespace ai {
 
-class TokenProvider;
+class TokenProvider
+{
+public:
+    virtual ~TokenProvider() = default;
+    virtual QByteArray apiKey() const = 0;
+    QByteArray bearerToken() const
+    {
+        const QByteArray k = apiKey();
+        return k.isEmpty() ? QByteArray() : QByteArray("Bearer ") + k;
+    }
+};
+
+class EnvironmentalTokenProvider : public QObject, public TokenProvider
+{
+public:
+    EnvironmentalTokenProvider(QObject* parent = nullptr)
+        : QObject{parent}
+    {}
+
+    QByteArray apiKey() const override
+    {
+        const auto key = qgetenv("OPENAI_API_KEY");
+        return key;
+    }
+};
 
 class Client : public QObject
 {
@@ -18,104 +42,142 @@ class Client : public QObject
 
 protected:
     QSharedDataPointer<RequestData> d;
+    QUrl mApiUrl;
+    Error mError;
 
 public:
     explicit Client(QObject* parent = nullptr);
-    virtual ~Client() = default;
 
-    virtual Q_INVOKABLE Response* post(const Request& request, QIODevice* device = nullptr);
+    [[nodiscard]] Error error() const { return mError; }
+
+    // virtual Q_INVOKABLE Response* post(const Request& request, QIODevice* device = nullptr) = 0;
 
     [[nodiscard]] QByteArray apiKey() const { return d->apiKey(); }
-    Client& setApiKey(const QByteArray& apiKey)
+    virtual Client& setApiKey(const QByteArray& apiKey)
     {
-        d->setApiKey(apiKey);
+        if (d->setApiKey(apiKey))
+            emit apiKeyChanged(QPrivateSignal{});
         return *this;
     }
-    Client& resetApiKey()
-    {
-        d->resetApiKey();
-        return *this;
-    }
+    virtual Client& resetApiKey() { return setApiKey({}); }
 
-    [[nodiscard]] QUrl apiUrl() const { return d->apiUrl(); }
-    Client& setApiUrl(const QUrl& apiUrl)
+    [[nodiscard]] QUrl apiUrl() const { return mApiUrl; }
+    virtual Client& setApiUrl(const QUrl& apiUrl)
     {
-        d->setApiUrl(apiUrl);
+        if (mApiUrl == apiUrl)
+            return *this;
+        mApiUrl = apiUrl;
+        emit apiUrlChanged(QPrivateSignal{});
         return *this;
     }
-    Client& resetApiUrl()
-    {
-        d->resetApiUrl();
-        return *this;
-    }
+    virtual Client& resetApiUrl() { return setApiUrl({}); }
 
     [[nodiscard]] QVariantMap metadata() const { return d->metadata(); }
-    Client& setMetadata(const QVariantMap& metadata)
+    virtual Client& setMetadata(const QVariantMap& metadata)
     {
-        d->setMetadata(metadata);
+        if (d->setMetadata(metadata))
+            emit metadataChanged(QPrivateSignal{});
         return *this;
     }
-    Client& resetMetadata()
-    {
-        d->resetMetadata();
-        return *this;
-    }
+    virtual Client& resetMetadata() { return setMetadata({}); }
 
     bool putMetadata(const QString& key, const QVariant& value)
     {
-        return d->putMetadata(key, value);
+        if (d->putMetadata(key, value)) {
+            emit metadataChanged(QPrivateSignal{});
+            return true;
+        }
+        return false;
     }
-    QVariant takeMetadata(const QString& key) { return d->takeMetadata(key); }
+    QVariant takeMetadata(const QString& key)
+    {
+        if (d->metadata().contains(key)) {
+            const auto v = d->takeMetadata(key);
+            emit metadataChanged(QPrivateSignal{});
+            return v;
+        }
+        return {};
+    }
 
     [[nodiscard]] QString model() const { return d->model(); }
-    Client& setModel(const QString& model)
+    virtual Client& setModel(const QString& model)
     {
-        d->setModel(model);
+        if (d->setModel(model))
+            emit modelChanged(QPrivateSignal{});
         return *this;
     }
-    Client& resetModel()
-    {
-        d->resetModel();
-        return *this;
-    }
+    virtual Client& resetModel() { return setModel("gpt-4.1-mini"); }
 
     [[nodiscard]] bool isStreaming() const { return d->isStreaming(); }
-    Client& setStreaming(bool streaming)
+    virtual Client& setStreaming(bool streaming)
     {
-        d->setStreaming(streaming);
+        if (d->setStreaming(streaming))
+            emit streamingChanged(QPrivateSignal{});
         return *this;
     }
-    Client& resetStreaming()
-    {
-        d->resetStreaming();
-        return *this;
-    }
+    virtual Client& resetStreaming() { return setStreaming(false); }
 
     [[nodiscard]] StreamOptions streamOptions() const { return d->streamOptions(); }
-    Client& setStreamOptions(const StreamOptions& streamOptions)
+    virtual Client& setStreamOptions(const StreamOptions& streamOptions)
     {
-        d->setStreamOptions(streamOptions);
+        if (d->setStreamOptions(streamOptions))
+            emit streamOptionsChanged(QPrivateSignal{});
         return *this;
     }
-    Client& resetStreamOptions()
+    virtual Client& resetStreamOptions()
     {
         d->resetStreamOptions();
         return *this;
     }
 
-    [[nodiscard]] TokenProvider* tokenProvider() const;
-    void setTokenProvider(TokenProvider* tokenProvider);
-    void resetTokenProvider();
+    [[nodiscard]] TokenProvider* tokenProvider() const { return mTokenProvider; }
+    virtual Client& setTokenProvider(TokenProvider* tokenProvider)
+    {
+        if (mTokenProvider == tokenProvider)
+            return *this;
+        mTokenProvider = tokenProvider;
+        emit tokenProviderChanged(QPrivateSignal{});
+        return *this;
+    }
+    virtual Client& resetTokenProvider()
+    {
+        setTokenProvider(new EnvironmentalTokenProvider{this});
+        return *this;
+    }
 
     [[nodiscard]] QNetworkAccessManager* networkAccessManager() const
     {
         return mNetworkAccessManager;
     }
-    void setNetworkAccessManager(QNetworkAccessManager* networkAccessManager);
-    void resetNetworkAccessManager();
+    virtual Client& setNetworkAccessManager(QNetworkAccessManager* networkAccessManager)
+    {
+        if (mNetworkAccessManager == networkAccessManager)
+            return *this;
+        mNetworkAccessManager = networkAccessManager;
+        emit networkAccessManagerChanged(QPrivateSignal{});
+        return *this;
+    }
+    virtual Client& resetNetworkAccessManager()
+    {
+        return setNetworkAccessManager(new QNetworkAccessManager{this});
+    }
+
+    QJsonObject toJson(bool full = false) const
+    {
+        QJsonObject json;
+        return writeJson(json, full) ? json : QJsonObject{};
+    }
+    QString formattedJson(bool full = false) const { return QJsonDocument{toJson(full)}.toJson(); }
 
 signals:
-    void requestDataChanged(QPrivateSignal);
+    void apiKeyChanged(QPrivateSignal);
+    void apiUrlChanged(QPrivateSignal);
+    void metadataChanged(QPrivateSignal);
+    void modelChanged(QPrivateSignal);
+    void streamingChanged(QPrivateSignal);
+    void streamOptionsChanged(QPrivateSignal);
+
+    void errorOccurred(const ai::Error& error, QPrivateSignal);
 
     void tokenProviderChanged(QPrivateSignal);
     void networkAccessManagerChanged(QPrivateSignal);
@@ -124,21 +186,36 @@ signals:
     void revived(ai::Request* request, QPrivateSignal);
 
 protected:
-    void recycle(Request* request)
+    Client(RequestData* requestData, QObject* parent = nullptr);
+
+    virtual void recycle(Request* request)
     {
         if (!request)
             return;
         recycledRequests().append(request);
         emit recycled(request, QPrivateSignal{});
     }
-    void revive(Request* request)
+    virtual void revive(Request* request)
     {
         if (!request || !recycledRequests().removeOne(request))
             return;
         emit revived(request, QPrivateSignal{});
     }
 
-    virtual Request* createRequest() { return nullptr; }
+    [[nodiscard]] virtual bool prepareRequest(Request& prep, const Request& request) const;
+    [[nodiscard]] virtual bool validateRequest(const Request& request) const;
+
+    virtual bool readJson(const QJsonObject& json) { return d->readJson(json); }
+    virtual bool writeJson(QJsonObject& json, bool full = false) const
+    {
+        if (full) {
+            json[QStringLiteral("apiUrl")] = mApiUrl.toString();
+        }
+
+        return d->writeJson(json, full);
+    }
+
+    void setError(const Error& error);
 
 private:
     QMap<QString, Request*> pendingRequests() const;
@@ -174,7 +251,6 @@ private:
     QList<Request*> mRecycledRequests;
     QNetworkAccessManager* mNetworkAccessManager = nullptr;
     TokenProvider* mTokenProvider = nullptr;
-    RequestData* mRequestData = nullptr;
 };
 
 } // namespace ai

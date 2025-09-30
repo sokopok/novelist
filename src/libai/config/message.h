@@ -8,7 +8,7 @@ namespace ai {
 class InputText
 {
     Q_GADGET
-    Q_PROPERTY(Type type READ type CONSTANT FINAL)
+    Q_PROPERTY(AiObjectType objectType READ objectType CONSTANT FINAL)
     Q_PROPERTY(QString text READ text WRITE setText FINAL)
     Q_PROPERTY(QJsonObject extra READ extra FINAL)
     Q_PROPERTY(bool empty READ isEmpty FINAL)
@@ -26,7 +26,7 @@ public:
         , e{extra}
     {}
 
-    [[nodiscard]] Type type() const { return Type::InputText; }
+    [[nodiscard]] AiObjectType objectType() const { return AiObjectType::InputText; }
 
     [[nodiscard]] QJsonObject extra() const { return e; }
 
@@ -93,7 +93,7 @@ public:
 class InputImage
 {
     Q_GADGET
-    Q_PROPERTY(Type type READ type CONSTANT FINAL)
+    Q_PROPERTY(AiObjectType objectType READ objectType CONSTANT FINAL)
     Q_PROPERTY(Detail detail READ detail WRITE setDetail FINAL)
     Q_PROPERTY(QString fileId READ fileId WRITE setFileId FINAL)
     Q_PROPERTY(QUrl imageUrl READ imageUrl WRITE setImageUrl FINAL)
@@ -127,7 +127,7 @@ public:
         , e{extra}
     {}
 
-    [[nodiscard]] Type type() const { return Type::InputImage; }
+    [[nodiscard]] AiObjectType objectType() const { return AiObjectType::InputImage; }
 
     [[nodiscard]] QJsonObject extra() const { return e; }
 
@@ -241,7 +241,7 @@ public:
 class InputFile
 {
     Q_GADGET
-    Q_PROPERTY(Type type READ type CONSTANT FINAL)
+    Q_PROPERTY(AiObjectType objectType READ objectType CONSTANT FINAL)
     Q_PROPERTY(QString fileData READ fileData WRITE setFileData FINAL)
     Q_PROPERTY(QString fileId READ fileId WRITE setFileId FINAL)
     Q_PROPERTY(QString filename READ filename WRITE setFilename FINAL)
@@ -266,7 +266,7 @@ public:
         , e{extra}
     {}
 
-    [[nodiscard]] Type type() const { return Type::InputFile; }
+    [[nodiscard]] AiObjectType objectType() const { return AiObjectType::InputFile; }
 
     [[nodiscard]] QJsonObject extra() const { return e; }
 
@@ -394,7 +394,7 @@ public:
 class InputAudio
 {
     Q_GADGET
-    Q_PROPERTY(Type type READ type CONSTANT FINAL)
+    Q_PROPERTY(AiObjectType objectType READ objectType CONSTANT FINAL)
     Q_PROPERTY(QJsonObject extra READ extra FINAL)
     Q_PROPERTY(bool empty READ isEmpty FINAL)
     Q_PROPERTY(bool valid READ isValid FINAL)
@@ -402,7 +402,7 @@ class InputAudio
     QJsonObject e;
 
 public:
-    [[nodiscard]] Type type() const { return Type::InputAudio; }
+    [[nodiscard]] AiObjectType objectType() const { return AiObjectType::InputAudio; }
 
     [[nodiscard]] QJsonObject extra() const { return e; }
 
@@ -608,7 +608,10 @@ public:
         : QList<MessageContentInputItem>{items}
     {}
 
-    [[nodiscard]] ai::Type type() const { return ai::Type::MessageContentInputItemList; }
+    [[nodiscard]] ai::AiObjectType objectType() const
+    {
+        return ai::AiObjectType::MessageContentInputItemList;
+    }
 
     [[nodiscard]] bool isValid() const { return !isEmpty(); }
 
@@ -727,7 +730,7 @@ public:
 class Message
 {
     Q_GADGET
-    Q_PROPERTY(Type type READ type CONSTANT FINAL)
+    Q_PROPERTY(AiObjectType objectType READ objectType CONSTANT FINAL)
     Q_PROPERTY(bool empty READ isEmpty FINAL)
     Q_PROPERTY(bool valid READ isValid FINAL)
     Q_PROPERTY(QString role READ role WRITE setRole FINAL)
@@ -777,8 +780,19 @@ public:
         , c{content}
         , e{extra}
     {}
+    Message(const QString& role, Status status, const QJsonObject& extra = {})
+        : r{role}
+        , s{status}
+        , e{extra}
+    {}
+    Message(const QString& role, const QString& id, Status status, const QJsonObject& extra)
+        : r{role}
+        , s{status}
+        , i{id}
+        , e{extra}
+    {}
 
-    [[nodiscard]] Type type() const { return Type::Message; }
+    [[nodiscard]] AiObjectType objectType() const { return AiObjectType::Message; }
 
     [[nodiscard]] QJsonObject extra() const { return e; }
 

@@ -8,7 +8,7 @@ namespace ai {
 class Conversation
 {
     Q_GADGET
-    Q_PROPERTY(Type type READ type CONSTANT FINAL)
+    Q_PROPERTY(AiObjectType objectType READ objectType CONSTANT FINAL)
     Q_PROPERTY(QString id READ id WRITE setId FINAL)
     Q_PROPERTY(QJsonObject extra READ extra FINAL)
     Q_PROPERTY(bool empty READ isEmpty FINAL)
@@ -26,7 +26,7 @@ public:
         , e{extra}
     {}
 
-    [[nodiscard]] Type type() const { return Type::Conversation; }
+    [[nodiscard]] AiObjectType objectType() const { return AiObjectType::Conversation; }
 
     [[nodiscard]] QJsonObject extra() const { return e; }
 
@@ -43,7 +43,7 @@ public:
     }
 
     [[nodiscard]] bool isEmpty() const { return i.isEmpty() && e.isEmpty(); }
-    [[nodiscard]] bool isValid() const { return !i.isEmpty(); }
+    [[nodiscard]] bool isValid() const { return true; }
 
     QJsonObject toJson() const
     {

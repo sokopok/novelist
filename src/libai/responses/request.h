@@ -11,7 +11,15 @@ class RequestData : public ai::RequestData
 {
     bool mBackground = false;
     Conversation mConversation;
+    IncludeList mInclude;
     Input mInput;
+    QString mInstructions;
+    int mMaxOutputTokens = 0;
+    int mMaxToolCalls = 0;
+    bool mParallelToolCalls = true;
+    QString mPreviousResponseId;
+    QString mPromptCacheKey;
+    Reasoning mReasoning;
 
 public:
     enum Truncation { TruncationAuto, TruncationDisabled };
@@ -43,7 +51,7 @@ public:
     {
         if (mConversation == conversation)
             return false;
-        mConversation = conversation;
+        mConversation.setId(conversation.id());
         return true;
     }
     void resetConversation() { setConversation({}); }
@@ -60,9 +68,15 @@ public:
             message.output_text.logprobs: Include logprobs with assistant messages.
             reasoning.encrypted_content: Includes an encrypted version of reasoning tokens in reasoning item outputs. This enables reasoning items to be used in multi-turn conversations when using the Responses API statelessly (like when the store parameter is set to false, or when an organization is enrolled in the zero data retention program).
     */
-    // [[nodiscard]] AiIncludeList include() const;
-    // bool setInclude(const AiIncludeList& include);
-    // void resetInclude() { setInclude({}); }
+    [[nodiscard]] IncludeList include() const { return mInclude; }
+    bool setInclude(const IncludeList& include)
+    {
+        if (mInclude == include)
+            return false;
+        mInclude = include;
+        return true;
+    }
+    void resetInclude() { setInclude({}); }
 
     /** input
         string or array
@@ -91,8 +105,14 @@ public:
         A system (or developer) message inserted into the model's context.
         When using along with previous_response_id, the instructions from a previous response will not be carried over to the next response. This makes it simple to swap out system (or developer) messages in new responses.
     */
-    [[nodiscard]] QString instructions() const;
-    bool setInstructions(const QString& instructions);
+    [[nodiscard]] QString instructions() const { return mInstructions; }
+    bool setInstructions(const QString& instructions)
+    {
+        if (mInstructions == instructions)
+            return false;
+        mInstructions = instructions;
+        return true;
+    }
     void resetInstructions() { setInstructions({}); }
 
     /** max_output_tokens
@@ -100,18 +120,30 @@ public:
         Optional
         An upper bound for the number of tokens that can be generated for a response, including visible output tokens and reasoning tokens.
     */
-    [[nodiscard]] int maxOutputTokens() const;
-    bool setMaxOutputTokens(int maxOutputTokens);
-    void resetMaxOutputTokens() { setMaxOutputTokens(-1); }
+    [[nodiscard]] int maxOutputTokens() const { return mMaxOutputTokens; }
+    bool setMaxOutputTokens(int maxOutputTokens)
+    {
+        if (mMaxOutputTokens == maxOutputTokens)
+            return false;
+        mMaxOutputTokens = maxOutputTokens;
+        return true;
+    }
+    void resetMaxOutputTokens() { setMaxOutputTokens(0); }
 
     /** max_tool_calls
         integer
         Optional
         The maximum number of total calls to built-in tools that can be processed in a response. This maximum number applies across all built-in tool calls, not per individual tool. Any further attempts to call a tool by the model will be ignored.
     */
-    [[nodiscard]] int maxToolCalls() const;
-    bool setMaxToolCalls(int maxToolCalls);
-    void resetMaxToolCalls() { setMaxToolCalls(-1); }
+    [[nodiscard]] int maxToolCalls() const { return mMaxToolCalls; }
+    bool setMaxToolCalls(int maxToolCalls)
+    {
+        if (mMaxToolCalls == maxToolCalls)
+            return false;
+        mMaxToolCalls = maxToolCalls;
+        return true;
+    }
+    void resetMaxToolCalls() { setMaxToolCalls(0); }
 
     /** parallel_tool_calls
         boolean
@@ -119,16 +151,28 @@ public:
         Defaults to true
         Whether to allow the model to run tool calls in parallel.
     */
-    [[nodiscard]] bool parallelToolCalls() const;
-    bool setParallelToolCalls(bool parallelToolCalls);
-    void resetParallelToolCalls();
+    [[nodiscard]] bool parallelToolCalls() const { return mParallelToolCalls; }
+    bool setParallelToolCalls(bool parallelToolCalls)
+    {
+        if (mParallelToolCalls == parallelToolCalls)
+            return false;
+        mParallelToolCalls = parallelToolCalls;
+        return true;
+    }
+    void resetParallelToolCalls() { setParallelToolCalls(true); }
     /** previous_response_id
         string
         Optional
         The unique ID of the previous response to the model. Use this to create multi-turn conversations. Learn more about conversation state. Cannot be used in conjunction with conversation.
     */
-    [[nodiscard]] QString previousResponseId() const;
-    bool setPreviousResponseId(const QString& previousResponseId);
+    [[nodiscard]] QString previousResponseId() const { return mPreviousResponseId; }
+    bool setPreviousResponseId(const QString& previousResponseId)
+    {
+        if (mPreviousResponseId == previousResponseId)
+            return false;
+        mPreviousResponseId = previousResponseId;
+        return true;
+    }
     void resetPreviousResponseId() { setPreviousResponseId({}); }
 
     /** prompt
@@ -145,8 +189,14 @@ public:
         Optional
         Used by OpenAI to cache responses for similar requests to optimize your cache hit rates. Replaces the user field. Learn more.
     */
-    [[nodiscard]] QString promptCacheKey() const;
-    bool setPromptCacheKey(const QString& promptCacheKey);
+    [[nodiscard]] QString promptCacheKey() const { return mPromptCacheKey; }
+    bool setPromptCacheKey(const QString& promptCacheKey)
+    {
+        if (mPromptCacheKey == promptCacheKey)
+            return false;
+        mPromptCacheKey = promptCacheKey;
+        return true;
+    }
     void resetPromptCacheKey() { setPromptCacheKey({}); }
 
     /** reasoning
@@ -155,9 +205,15 @@ public:
         gpt-5 and o-series models only
         Configuration options for reasoning models.
     */
-    // [[nodiscard]] AiReasoning reasoning() const;
-    // bool setReasoning(const AiReasoning& reasoning);
-    // void resetReasoning() { setReasoning({}); }
+    [[nodiscard]] Reasoning reasoning() const { return mReasoning; }
+    bool setReasoning(const Reasoning& reasoning)
+    {
+        if (mReasoning == reasoning)
+            return false;
+        mReasoning = reasoning;
+        return true;
+    }
+    void resetReasoning() { setReasoning({}); }
 
     /** safety_identifier
         string
@@ -293,8 +349,8 @@ public:
 
     bool readJson(const QJsonObject& json) override
     {
-        // if (!RequestData::readJson(json))
-        //     return false;
+        if (!ai::RequestData::readJson(json))
+            return false;
 
         if (const auto v = json.value("background"); v.isBool())
             setBackground(v.toBool());
@@ -311,18 +367,18 @@ public:
 
         return true;
     }
-    bool writeJson(QJsonObject& json) const override
+    bool writeJson(QJsonObject& json, bool full = false) const override
     {
-        // if (!RequestData::writeJson(json))
-        //     return false;
+        if (!ai::RequestData::writeJson(json, full))
+            return false;
 
-        if (const auto v = background())
+        if (const auto v = background(); full || v)
             json[QStringLiteral("background")] = v;
 
-        if (const auto v = conversation(); !v.isEmpty())
+        if (const auto v = conversation(); full || !v.isEmpty())
             json[QStringLiteral("conversation")] = v.toJson();
 
-        if (const auto v = input(); !v.isEmpty())
+        if (const auto v = input(); full || !v.isEmpty())
             json[QStringLiteral("input")] = v.toJson();
 
         return true;
@@ -333,12 +389,20 @@ class Request : public ai::Request
 {
     Q_GADGET
 
-    bool mBackground = false;
-    Conversation mConversation;
-    Input mInput;
+protected:
+    RequestData* d() { return static_cast<RequestData*>(ai::Request::d.data()); }
+    const RequestData* d() const { return static_cast<const RequestData*>(ai::Request::d.data()); }
 
 public:
     enum Truncation { TruncationAuto, TruncationDisabled };
+
+    Request();
+
+    Request& operator=(const ai::Request& rhs)
+    {
+        ai::Request::operator=(rhs);
+        return *this;
+    }
 
     /** background
         boolean
@@ -346,12 +410,10 @@ public:
         Defaults to false
         Whether to run the model response in the background. Learn more.
     */
-    [[nodiscard]] bool background() const { return mBackground; }
+    [[nodiscard]] bool background() const { return d()->background(); }
     Request& setBackground(bool background)
     {
-        if (mBackground == background)
-            return *this;
-        mBackground = background;
+        d()->setBackground(background);
         return *this;
     }
     Request& resetBackground() { return setBackground(false); }
@@ -362,12 +424,10 @@ public:
         Defaults to null
         The conversation that this response belongs to. Items from this conversation are prepended to input_items for this response request. Input items and output items from this response are automatically added to this conversation after this response completes.
     */
-    [[nodiscard]] Conversation conversation() const { return mConversation; }
+    [[nodiscard]] Conversation conversation() const { return d()->conversation(); }
     Request& setConversation(const Conversation& conversation)
     {
-        if (mConversation == conversation)
-            return *this;
-        mConversation = conversation;
+        d()->setConversation(conversation);
         return *this;
     }
     Request& resetConversation() { return setConversation({}); }
@@ -384,9 +444,13 @@ public:
             message.output_text.logprobs: Include logprobs with assistant messages.
             reasoning.encrypted_content: Includes an encrypted version of reasoning tokens in reasoning item outputs. This enables reasoning items to be used in multi-turn conversations when using the Responses API statelessly (like when the store parameter is set to false, or when an organization is enrolled in the zero data retention program).
     */
-    // [[nodiscard]] AiIncludeList include() const;
-    // Request& setInclude(const AiIncludeList& include);
-    // Request& resetInclude() { setInclude({}); }
+    [[nodiscard]] IncludeList include() const { return d()->include(); }
+    Request& setInclude(const IncludeList& include)
+    {
+        d()->setInclude(include);
+        return *this;
+    }
+    Request& resetInclude() { return setInclude({}); }
 
     /** input
         string or array
@@ -399,12 +463,10 @@ public:
             Conversation state
             Function calling
     */
-    [[nodiscard]] Input input() const { return mInput; }
+    [[nodiscard]] Input input() const { return d()->input(); }
     Request& setInput(const Input& input)
     {
-        if (mInput == input)
-            return *this;
-        mInput = input;
+        d()->setInput(input);
         return *this;
     }
     Request& resetInput() { return setInput({}); }
@@ -480,9 +542,13 @@ public:
         gpt-5 and o-series models only
         Configuration options for reasoning models.
     */
-    // [[nodiscard]] AiReasoning reasoning() const;
-    // Request& setReasoning(const AiReasoning& reasoning);
-    // Request& resetReasoning() { return setReasoning({}); }
+    [[nodiscard]] Reasoning reasoning() const { return d()->reasoning(); }
+    Request& setReasoning(const Reasoning& reasoning)
+    {
+        d()->setReasoning(reasoning);
+        return *this;
+    }
+    Request& resetReasoning() { return setReasoning({}); }
 
     /** safety_identifier
         string
@@ -616,6 +682,9 @@ public:
     Request& setTruncation(const QString& truncation);
     Request& resetTruncation() { return setTruncation(Truncation::TruncationDisabled); }
 
+protected:
+    Request(RequestData* data);
+
     bool readJson(const QJsonObject& json) override
     {
         if (!ai::Request::readJson(json))
@@ -636,24 +705,24 @@ public:
 
         return true;
     }
-    bool writeJson(QJsonObject& json) const override
+    bool writeJson(QJsonObject& json, bool full = false) const override
     {
-        if (!ai::Request::writeJson(json))
+        if (!ai::Request::writeJson(json, full))
             return false;
 
-        if (const auto v = background())
+        if (const auto v = background(); full || v)
             json[QStringLiteral("background")] = v;
 
-        if (const auto v = conversation(); !v.isEmpty())
+        if (const auto v = conversation(); full || !v.isEmpty())
             json[QStringLiteral("conversation")] = v.toJson();
 
-        if (const auto v = input(); !v.isEmpty())
+        if (const auto v = input(); full || !v.isEmpty())
             json[QStringLiteral("input")] = v.toJson();
 
         return true;
     }
 };
 
-} // namespace ai
+} // namespace ai::responses
 
 #endif // AI_RESPONSES_REQUEST_H
