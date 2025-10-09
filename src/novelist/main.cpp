@@ -2,26 +2,31 @@
 #include <QQmlApplicationEngine>
 #include "libai/responses/client.h"
 #include "libai/responses/response.h"
+#include "libnovelist/field.h"
 
 int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
 
-    ai::responses::Request request{};
-    request.setInput({"Hello!"});
+    ai::responses::Request request;
+    request.setInput({"Hello!"}).setTemperature(1.5);
 
-    ai::responses::Client client;
-    QObject::connect(&client, &ai::responses::Client::errorOccurred, [](const ai::Error &e) {
+    // qDebug() << request.toJson(true);
+
+    auto *client = ai::responses::Client::create();
+    QObject::connect(client, &ai::responses::Client::errorOccurred, [](const ai::Error &e) {
         qDebug() << e.toJson();
     });
 
-    if (auto *response = client.post(request)) {
+    if (auto *response = client->post(request)) {
         QObject::connect(response, &ai::responses::Response::errorOccurred, [](const ai::Error &e) {
             qDebug() << e.toJson();
         });
 
         qDebug() << response->toJson();
     }
+
+    novelist::Field field;
 
     // client.
 

@@ -65,15 +65,6 @@ add_library(
   src/libai/client.h
   src/libai/client.cpp
   src/libai/request.cpp
-  src/libai/logging.h
-  src/libai/logging.cpp
-  src/libai/config/message.h
-  src/libai/config/base.h
-  src/libai/config/input.h
-  src/libai/config/conversation.h
-  src/libai/config.h
-  src/libai/config/streamoptions.h
-  src/libai/config/outputmessage.h
   src/libai/responses/request.cpp
   src/libai/responses/request.h
   src/libai/responses/client.cpp
@@ -82,8 +73,24 @@ add_library(
   src/libai/response.cpp
   src/libai/responses/response.h
   src/libai/responses/response.cpp
+  src/libai/images/request.h
+  src/libai/images/request.cpp
+  src/libai/config/base.h
+  src/libai/config/conversation.h
+  src/libai/config/error.h
+  src/libai/config/includelist.h
+  src/libai/config/input.h
+  src/libai/config/inputitem.h
+  src/libai/config/itemreference.h
+  src/libai/config/message.h
+  src/libai/config/output.h
+  src/libai/config/outputmessage.h
   src/libai/config/reasoning.h
-  src/libai/config/output.h)
+  src/libai/config/refusal.h
+  src/libai/config/streamoptions.h
+  src/libai/config/stringlist.h
+  src/libai/config.h
+  src/libai/config/prompt.h)
 
 target_include_directories(libai PUBLIC src)
 
@@ -111,7 +118,13 @@ add_library(
   src/libnovelist/interfaces.h
   src/libnovelist/interfaces.cpp
   src/libnovelist/logging.h
-  src/libnovelist/logging.cpp)
+  src/libnovelist/logging.cpp
+  src/libnovelist/validator.cpp
+  src/libnovelist/validator.h
+  src/libnovelist/fieldlistmodel.cpp
+  src/libnovelist/fieldlistmodel.h
+  src/libnovelist/nodetype.h
+  src/libnovelist/nodetype.cpp)
 
 target_include_directories(libnovelist PUBLIC src)
 

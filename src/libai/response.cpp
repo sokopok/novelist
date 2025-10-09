@@ -1,7 +1,6 @@
 #include "response.h"
 #include "client.h"
 #include "config.h"
-#include "logging.h"
 
 namespace ai {
 
@@ -103,7 +102,7 @@ void Response::setError(const Error& error)
 {
     mError = error;
     if (mError.code() != Error::NoError) {
-        // qCWarning(LOGAI)
+        // qWarning()
         //     << "ERROR!"
         //     << mError.type()
         //     << mError.code()
@@ -180,22 +179,22 @@ bool Response::writeJson(QJsonObject& json, bool full) const
 
 void Response::handleRequestSent()
 {
-    // qCWarning(LOGAI) << "handleRequestSent()" << mRequest.toJson();
+    // qWarning() << "handleRequestSent()" << mRequest.toJson();
     emit requestSent(QPrivateSignal{});
 }
 
 void Response::handleReadyRead()
 {
-    // qCWarning(LOGAI) << "handleReadyRead()";
+    // qWarning() << "handleReadyRead()";
     emit readyRead(QPrivateSignal{});
 }
 
 void Response::handleFinished()
 {
-    // qCWarning(LOGAI) << "handleFinished()";
+    // qWarning() << "handleFinished()";
 
     if (!mReply) {
-        qCWarning(LOGAI) << "Reply is null";
+        qWarning() << "Reply is null";
         return;
     }
 
@@ -207,7 +206,7 @@ void Response::handleFinished()
 
     doc = QJsonDocument::fromJson(data);
     if (!doc.isObject()) {
-        qCWarning(LOGAI) << "Failed to parse response data to json: " << data;
+        qWarning() << "Failed to parse response data to json: " << data;
 
         if (!mError.isEmpty()) {
             setError({Error::UnknownErrorType, Error::UnknownError, mError.message()});
@@ -225,7 +224,7 @@ void Response::handleFinished()
     }
 
     // if (!readJson(json))
-    //     qCWarning(LOGAI) << "Failed to parse response json to response";
+    //     qWarning() << "Failed to parse response json to response";
 
     qDebug().noquote() << /*"FINAL RESPONSE JSON:" <<*/ QJsonDocument{toJson()}.toJson();
 
@@ -239,7 +238,7 @@ void Response::handleFinished()
 
 void Response::handleErrorOccurred(QNetworkReply::NetworkError error)
 {
-    // qCWarning(LOGAI) << "handleErrorOccurred()" << error;
+    // qWarning() << "handleErrorOccurred()" << error;
     setError({Error::NetworkErrorType,
               Error::NetworkError,
               mReply ? mReply->errorString()
@@ -248,7 +247,7 @@ void Response::handleErrorOccurred(QNetworkReply::NetworkError error)
 
 void Response::handleSslErrors(const QList<QSslError>& errors)
 {
-    // qCWarning(LOGAI) << "handleSslErrors()" << errors;>
+    // qWarning() << "handleSslErrors()" << errors;>
     QStringList list;
     for (const auto& e : errors)
         list.append(QStringLiteral("%1 (%2)").arg(e.errorString()).arg(e.error()));

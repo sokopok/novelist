@@ -4,6 +4,7 @@
 #include "../json.h"
 #include "input.h"
 #include "outputmessage.h"
+#include "refusal.h"
 
 namespace ai {
 

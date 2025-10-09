@@ -27,10 +27,28 @@ class Dbable
 public:
     virtual ~Dbable() = default;
 
-    [[nodiscard]] virtual quint64 rowid() const;
+    [[nodiscard]] quint64 rowid() const { return mRowid; }
+    [[nodiscard]] quint64 version() const { return mVersion; }
 
 protected:
-    virtual void setRowid(quint64 rowid);
+    virtual bool setRowid(quint64 rowid)
+    {
+        if (mRowid == rowid)
+            return false;
+        mRowid = rowid;
+        return true;
+    }
+    virtual bool setVersion(quint64 version)
+    {
+        if (mVersion == version)
+            return false;
+        mVersion = version;
+        return true;
+    }
+
+private:
+    quint64 mRowid = 0;
+    quint64 mVersion = 0;
 };
 
 class ProjectStore;

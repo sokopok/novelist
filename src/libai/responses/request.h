@@ -6,6 +6,147 @@
 namespace ai::responses {
 
 class Client;
+class RequestData;
+
+class Request : public ai::Request
+{
+    Q_GADGET
+
+protected:
+    RequestData* d();
+    const RequestData* d() const;
+
+public:
+    enum Attribute {
+        BackgroundAttribute = ai::Request::NumAttributes,
+        ConversationAttribute,
+        IncludeAttribute,
+        InputAttribute,
+        InstructionsAttribute,
+        MaxOutputTokensAttribute,
+        MaxToolCallsAttribute,
+        ParallelToolCallsAttribute,
+        PreviousResponseIdAttribute,
+        PromptAttribute,
+        PromptCacheKeyAttribute,
+        ReasoningAttribute,
+        SafetyIdentifierAttribute,
+        ServiceTierAttribute,
+        StoredAttribute,
+        TemperatureAttribute,
+        TextAttribute,
+        ToolChoiseAttribute,
+        ToolsAttribute,
+        TopLogprobsAttribute,
+        TopPAttribute,
+        TruncationAttribute,
+        NumAttributes
+    };
+    Q_ENUM(Attribute)
+
+    enum Truncation { TruncationAuto, TruncationDisabled };
+
+    Request();
+
+    Request& operator=(const ai::Request& rhs);
+
+    [[nodiscard]] bool background() const;
+    Request& setBackground(bool background);
+    Request& resetBackground();
+
+    [[nodiscard]] Conversation conversation() const;
+    Request& setConversation(const Conversation& conversation);
+    Request& resetConversation();
+
+    [[nodiscard]] IncludeList include() const;
+    Request& setInclude(const IncludeList& include);
+    Request& resetInclude();
+
+    [[nodiscard]] Input input() const;
+    Request& setInput(const Input& input);
+    Request& resetInput();
+
+    [[nodiscard]] QString instructions() const;
+    Request& setInstructions(const QString& instructions);
+    Request& resetInstructions();
+
+    [[nodiscard]] int maxOutputTokens() const;
+    Request& setMaxOutputTokens(int maxOutputTokens);
+    Request& resetMaxOutputTokens();
+
+    [[nodiscard]] int maxToolCalls() const;
+    Request& setMaxToolCalls(int maxToolCalls);
+    Request& resetMaxToolCalls();
+
+    [[nodiscard]] bool parallelToolCalls() const;
+    Request& setParallelToolCalls(bool parallelToolCalls);
+    Request& resetParallelToolCalls();
+
+    [[nodiscard]] QString previousResponseId() const;
+    Request& setPreviousResponseId(const QString& previousResponseId);
+    Request& resetPreviousResponseId();
+
+    [[nodiscard]] Prompt prompt() const;
+    Request& setPrompt(const Prompt& prompt);
+    Request& resetPrompt();
+
+    [[nodiscard]] QString promptCacheKey() const;
+    Request& setPromptCacheKey(const QString& promptCacheKey);
+    Request& resetPromptCacheKey();
+
+    [[nodiscard]] Reasoning reasoning() const;
+    Request& setReasoning(const Reasoning& reasoning);
+    Request& resetReasoning();
+
+    [[nodiscard]] QString safetyIdentifier() const;
+    Request& setSafetyIdentifier(const QString& safetyIdetifier);
+    Request& resetSafetyIdentifier();
+
+    [[nodiscard]] QString serviceTier() const;
+    Request& setServiceTier(const QString& serviceTier);
+    Request& resetServiceTier();
+
+    [[nodiscard]] bool isStored() const;
+    Request& setStored(bool store);
+    Request& resetStored();
+
+    [[nodiscard]] double temperature() const;
+    Request& setTemperature(double temperature);
+    Request& resetTemperature();
+
+    // [[nodiscard]] AiText text() const;
+    // Request& setText(const AiText& text);
+    // Request& resetText() {return  setText({}); }
+
+    // [[nodiscard]] AiToolChoice toolChoice() const;
+    // Request& setToolChoice(const AiToolChoice& toolChoice);
+    // Request& resetToolChoice() {return  setToolChoice({}); }
+
+    // [[nodiscard]] AiTools tools() const;
+    // Request& setTools(const AiTools& tools);
+    // Request& resetTools() { return setTools({}); }
+
+    [[nodiscard]] int topLogprobs() const;
+    Request& setTopLogprobs(int topLogprobs);
+    Request& resetTopLogprobs();
+
+    [[nodiscard]] double topP() const;
+    Request& setTopP(double topP);
+    Request& resetTopP();
+
+    [[nodiscard]] Truncation truncation() const;
+    Request& setTruncation(Truncation truncation);
+    Request& setTruncation(const QString& truncation);
+    Request& resetTruncation();
+
+protected:
+    Request(RequestData* data);
+
+    bool readJson(const QJsonObject& json, QStringList* errors = nullptr) override;
+    bool writeJson(QJsonObject& json, bool full = false) const override;
+
+    friend class Client;
+};
 
 class RequestData : public ai::RequestData
 {
@@ -18,709 +159,324 @@ class RequestData : public ai::RequestData
     int mMaxToolCalls = 0;
     bool mParallelToolCalls = true;
     QString mPreviousResponseId;
+    Prompt mPrompt;
     QString mPromptCacheKey;
     Reasoning mReasoning;
+    QString mSafetyIdentifier;
+    QString mServiceTier;
+    bool mStored = true;
+    double mTemperature = 1.0;
+    int mTopLogprobs = 0;
+    double mTopP = 1.0;
+    Request::Truncation mTruncation = Request::Truncation::TruncationAuto;
 
 public:
-    enum Truncation { TruncationAuto, TruncationDisabled };
 
-    /** background
-        boolean
-        Optional
-        Defaults to false
-        Whether to run the model response in the background. Learn more.
-    */
     [[nodiscard]] bool background() const { return mBackground; }
-    bool setBackground(bool background)
+    bool setBackground(bool background,
+                       Request::ExplicitHandling explicitHandling = Request::SetExplicit)
     {
+        updateExplicit(Request::BackgroundAttribute, explicitHandling);
         if (mBackground == background)
             return false;
         mBackground = background;
         return true;
     }
-    void resetBackground() { setBackground(false); }
-
-    /** conversation
-        string or object
-        Optional
-        Defaults to null
-        The conversation that this response belongs to. Items from this conversation are prepended to input_items for this response request. Input items and output items from this response are automatically added to this conversation after this response completes.
-    */
-    [[nodiscard]] Conversation conversation() const { return mConversation; }
-    bool setConversation(const Conversation& conversation)
+    void resetBackground(Request::ExplicitHandling explicitHandling = Request::ClearExplicit)
     {
+        setBackground(false, explicitHandling);
+    }
+
+    [[nodiscard]] Conversation conversation() const { return mConversation; }
+    bool setConversation(const Conversation& conversation,
+                         Request::ExplicitHandling explicitHandling = Request::SetExplicit)
+    {
+        updateExplicit(Request::ConversationAttribute, explicitHandling);
         if (mConversation == conversation)
             return false;
         mConversation.setId(conversation.id());
         return true;
     }
-    void resetConversation() { setConversation({}); }
-
-    /** include
-        array
-        Optional
-        Specify additional output data to include in the model response. Currently supported values are:
-            web_search_call.action.sources: Include the sources of the web search tool call.
-            code_interpreter_call.outputs: Includes the outputs of python code execution in code interpreter tool call items.
-            computer_call_output.output.image_url: Include image urls from the computer call output.
-            file_search_call.results: Include the search results of the file search tool call.
-            message.input_image.image_url: Include image urls from the input message.
-            message.output_text.logprobs: Include logprobs with assistant messages.
-            reasoning.encrypted_content: Includes an encrypted version of reasoning tokens in reasoning item outputs. This enables reasoning items to be used in multi-turn conversations when using the Responses API statelessly (like when the store parameter is set to false, or when an organization is enrolled in the zero data retention program).
-    */
-    [[nodiscard]] IncludeList include() const { return mInclude; }
-    bool setInclude(const IncludeList& include)
+    void resetConversation(Request::ExplicitHandling explicitHandling = Request::ClearExplicit)
     {
+        setConversation({}, explicitHandling);
+    }
+
+    [[nodiscard]] IncludeList include() const { return mInclude; }
+    bool setInclude(const IncludeList& include,
+                    Request::ExplicitHandling explicitHandling = Request::SetExplicit)
+    {
+        updateExplicit(Request::IncludeAttribute, explicitHandling);
         if (mInclude == include)
             return false;
         mInclude = include;
         return true;
     }
-    void resetInclude() { setInclude({}); }
-
-    /** input
-        string or array
-        Optional
-        Text, image, or file inputs to the model, used to generate a response.
-        Learn more:
-            Text inputs and outputs
-            Image inputs
-            File inputs
-            Conversation state
-            Function calling
-    */
-    [[nodiscard]] Input input() const { return mInput; }
-    bool setInput(const Input& input)
+    void resetInclude(Request::ExplicitHandling explicitHandling = Request::ClearExplicit)
     {
+        setInclude({}, explicitHandling);
+    }
+
+    [[nodiscard]] Input input() const { return mInput; }
+    bool setInput(const Input& input,
+                  Request::ExplicitHandling explicitHandling = Request::SetExplicit)
+    {
+        updateExplicit(Request::InputAttribute, explicitHandling);
         if (mInput == input)
             return false;
         mInput = input;
         return true;
     }
-    void resetInput() { setInput({}); }
-
-    /** instructions
-        string
-        Optional
-        A system (or developer) message inserted into the model's context.
-        When using along with previous_response_id, the instructions from a previous response will not be carried over to the next response. This makes it simple to swap out system (or developer) messages in new responses.
-    */
-    [[nodiscard]] QString instructions() const { return mInstructions; }
-    bool setInstructions(const QString& instructions)
+    void resetInput(Request::ExplicitHandling explicitHandling = Request::ClearExplicit)
     {
+        setInput({}, explicitHandling);
+    }
+
+    [[nodiscard]] QString instructions() const { return mInstructions; }
+    bool setInstructions(const QString& instructions,
+                         Request::ExplicitHandling explicitHandling = Request::SetExplicit)
+    {
+        updateExplicit(Request::InstructionsAttribute, explicitHandling);
         if (mInstructions == instructions)
             return false;
         mInstructions = instructions;
         return true;
     }
-    void resetInstructions() { setInstructions({}); }
-
-    /** max_output_tokens
-        integer
-        Optional
-        An upper bound for the number of tokens that can be generated for a response, including visible output tokens and reasoning tokens.
-    */
-    [[nodiscard]] int maxOutputTokens() const { return mMaxOutputTokens; }
-    bool setMaxOutputTokens(int maxOutputTokens)
+    void resetInstructions(Request::ExplicitHandling explicitHandling = Request::ClearExplicit)
     {
+        setInstructions({}, explicitHandling);
+    }
+
+    [[nodiscard]] int maxOutputTokens() const { return mMaxOutputTokens; }
+    bool setMaxOutputTokens(int maxOutputTokens,
+                            Request::ExplicitHandling explicitHandling = Request::SetExplicit)
+    {
+        updateExplicit(Request::MaxOutputTokensAttribute, explicitHandling);
         if (mMaxOutputTokens == maxOutputTokens)
             return false;
         mMaxOutputTokens = maxOutputTokens;
         return true;
     }
-    void resetMaxOutputTokens() { setMaxOutputTokens(0); }
-
-    /** max_tool_calls
-        integer
-        Optional
-        The maximum number of total calls to built-in tools that can be processed in a response. This maximum number applies across all built-in tool calls, not per individual tool. Any further attempts to call a tool by the model will be ignored.
-    */
-    [[nodiscard]] int maxToolCalls() const { return mMaxToolCalls; }
-    bool setMaxToolCalls(int maxToolCalls)
+    void resetMaxOutputTokens(Request::ExplicitHandling explicitHandling = Request::ClearExplicit)
     {
+        setMaxOutputTokens(0, explicitHandling);
+    }
+
+    [[nodiscard]] int maxToolCalls() const { return mMaxToolCalls; }
+    bool setMaxToolCalls(int maxToolCalls,
+                         Request::ExplicitHandling explicitHandling = Request::SetExplicit)
+    {
+        updateExplicit(Request::MaxToolCallsAttribute, explicitHandling);
         if (mMaxToolCalls == maxToolCalls)
             return false;
         mMaxToolCalls = maxToolCalls;
         return true;
     }
-    void resetMaxToolCalls() { setMaxToolCalls(0); }
-
-    /** parallel_tool_calls
-        boolean
-        Optional
-        Defaults to true
-        Whether to allow the model to run tool calls in parallel.
-    */
-    [[nodiscard]] bool parallelToolCalls() const { return mParallelToolCalls; }
-    bool setParallelToolCalls(bool parallelToolCalls)
+    void resetMaxToolCalls(Request::ExplicitHandling explicitHandling = Request::ClearExplicit)
     {
+        setMaxToolCalls(0, explicitHandling);
+    }
+
+    [[nodiscard]] bool parallelToolCalls() const { return mParallelToolCalls; }
+    bool setParallelToolCalls(bool parallelToolCalls,
+                              Request::ExplicitHandling explicitHandling = Request::SetExplicit)
+    {
+        updateExplicit(Request::ParallelToolCallsAttribute, explicitHandling);
         if (mParallelToolCalls == parallelToolCalls)
             return false;
         mParallelToolCalls = parallelToolCalls;
         return true;
     }
-    void resetParallelToolCalls() { setParallelToolCalls(true); }
-    /** previous_response_id
-        string
-        Optional
-        The unique ID of the previous response to the model. Use this to create multi-turn conversations. Learn more about conversation state. Cannot be used in conjunction with conversation.
-    */
-    [[nodiscard]] QString previousResponseId() const { return mPreviousResponseId; }
-    bool setPreviousResponseId(const QString& previousResponseId)
+    void resetParallelToolCalls(Request::ExplicitHandling explicitHandling = Request::ClearExplicit)
     {
+        setParallelToolCalls(true, explicitHandling);
+    }
+
+    [[nodiscard]] QString previousResponseId() const { return mPreviousResponseId; }
+    bool setPreviousResponseId(const QString& previousResponseId,
+                               Request::ExplicitHandling explicitHandling = Request::SetExplicit)
+    {
+        updateExplicit(Request::PreviousResponseIdAttribute, explicitHandling);
         if (mPreviousResponseId == previousResponseId)
             return false;
         mPreviousResponseId = previousResponseId;
         return true;
     }
-    void resetPreviousResponseId() { setPreviousResponseId({}); }
-
-    /** prompt
-        object
-        Optional
-        Reference to a prompt template and its variables. Learn more.
-    */
-    // [[nodiscard]] AiPrompt prompt() const;
-    // bool setPrompt(const AiPrompt& prompt);
-    // void resetPrompt() { setPrompt({}); }
-
-    /** prompt_cache_key
-        string
-        Optional
-        Used by OpenAI to cache responses for similar requests to optimize your cache hit rates. Replaces the user field. Learn more.
-    */
-    [[nodiscard]] QString promptCacheKey() const { return mPromptCacheKey; }
-    bool setPromptCacheKey(const QString& promptCacheKey)
+    void resetPreviousResponseId(Request::ExplicitHandling explicitHandling = Request::ClearExplicit)
     {
+        setPreviousResponseId({}, explicitHandling);
+    }
+
+    [[nodiscard]] Prompt prompt() const { return mPrompt; }
+    bool setPrompt(const Prompt& prompt,
+                   Request::ExplicitHandling explicitHandling = Request::SetExplicit)
+    {
+        updateExplicit(Request::PromptAttribute, explicitHandling);
+        if (mPrompt == prompt)
+            return false;
+        mPrompt = prompt;
+        return true;
+    }
+    void resetPrompt(Request::ExplicitHandling explicitHandling = Request::ClearExplicit)
+    {
+        setPrompt({}, explicitHandling);
+    }
+
+    [[nodiscard]] QString promptCacheKey() const { return mPromptCacheKey; }
+    bool setPromptCacheKey(const QString& promptCacheKey,
+                           Request::ExplicitHandling explicitHandling = Request::SetExplicit)
+    {
+        updateExplicit(Request::PromptCacheKeyAttribute, explicitHandling);
         if (mPromptCacheKey == promptCacheKey)
             return false;
         mPromptCacheKey = promptCacheKey;
         return true;
     }
-    void resetPromptCacheKey() { setPromptCacheKey({}); }
-
-    /** reasoning
-        object
-        Optional
-        gpt-5 and o-series models only
-        Configuration options for reasoning models.
-    */
-    [[nodiscard]] Reasoning reasoning() const { return mReasoning; }
-    bool setReasoning(const Reasoning& reasoning)
+    void resetPromptCacheKey(Request::ExplicitHandling explicitHandling = Request::ClearExplicit)
     {
+        setPromptCacheKey({}, explicitHandling);
+    }
+
+    [[nodiscard]] Reasoning reasoning() const { return mReasoning; }
+    bool setReasoning(const Reasoning& reasoning,
+                      Request::ExplicitHandling explicitHandling = Request::SetExplicit)
+    {
+        updateExplicit(Request::ReasoningAttribute, explicitHandling);
         if (mReasoning == reasoning)
             return false;
         mReasoning = reasoning;
         return true;
     }
-    void resetReasoning() { setReasoning({}); }
+    void resetReasoning(Request::ExplicitHandling explicitHandling = Request::ClearExplicit)
+    {
+        setReasoning({}, explicitHandling);
+    }
 
-    /** safety_identifier
-        string
-        Optional
-        A stable identifier used to help detect users of your application that may be violating OpenAI's usage policies. The IDs should be a string that uniquely identifies each user. We recommend hashing their username or email address, in order to avoid sending us any identifying information. Learn more.
-    */
-    [[nodiscard]] QString safetyIdetifier() const;
-    bool setSafetyIdetifier(const QString& safetyIdetifier);
-    void resetSafetyIdetifier() { setSafetyIdetifier({}); }
+    [[nodiscard]] QString safetyIdentifier() const { return mSafetyIdentifier; }
+    bool setSafetyIdentifier(const QString& safetyIdentifier,
+                             Request::ExplicitHandling explicitHandling = Request::SetExplicit)
+    {
+        updateExplicit(Request::SafetyIdentifierAttribute, explicitHandling);
+        if (mSafetyIdentifier == safetyIdentifier)
+            return false;
+        mSafetyIdentifier = safetyIdentifier;
+        return true;
+    }
+    void resetSafetyIdentifier(Request::ExplicitHandling explicitHandling = Request::ClearExplicit)
+    {
+        setSafetyIdentifier({}, explicitHandling);
+    }
 
-    /** service_tier
-        string
-        Optional
-        Defaults to auto
-        Specifies the processing type used for serving the request.
-            If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.
-            If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.
-            If set to 'flex' or 'priority', then the request will be processed with the corresponding service tier.
-            When not set, the default behavior is 'auto'.
-        When the service_tier parameter is set, the response body will include the service_tier value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.
-    */
-    [[nodiscard]] QString serviceTier() const;
-    bool setServiceTier(const QString& serviceTier);
-    void resetServiceTier() { setServiceTier(QStringLiteral("auto")); }
+    [[nodiscard]] QString serviceTier() const { return mServiceTier; }
+    bool setServiceTier(const QString& serviceTier,
+                        Request::ExplicitHandling explicitHandling = Request::SetExplicit)
+    {
+        updateExplicit(Request::ServiceTierAttribute, explicitHandling);
+        if (mServiceTier == serviceTier)
+            return false;
+        mServiceTier = serviceTier;
+        return true;
+    }
+    void resetServiceTier(Request::ExplicitHandling explicitHandling = Request::ClearExplicit)
+    {
+        setServiceTier(QStringLiteral("auto"), explicitHandling);
+    }
 
-    /** isStored
-        boolean
-        Optional
-        Defaults to true
-        Whether to isStored the generated model response for later retrieval via API.
-    */
-    [[nodiscard]] bool isStored() const;
-    bool setStored(bool store);
-    void resetStored();
+    [[nodiscard]] bool isStored() const { return mStored; }
+    bool setStored(bool store, Request::ExplicitHandling explicitHandling = Request::SetExplicit)
+    {
+        updateExplicit(Request::StoredAttribute, explicitHandling);
+        if (mStored == store)
+            return false;
+        mStored = store;
+        return true;
+    }
+    void resetStored(Request::ExplicitHandling explicitHandling = Request::ClearExplicit)
+    {
+        setStored(true, explicitHandling);
+    }
 
-    /** temperature
-        number
-        Optional
-        Defaults to 1
-        What sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic. We generally recommend altering this or top_p but not both.
-    */
-    [[nodiscard]] double temperature() const;
-    bool setTemperature(double temperature);
-    void resetTemperature() { setTemperature(1.0); }
+    [[nodiscard]] double temperature() const { return mTemperature; }
+    bool setTemperature(double temperature,
+                        Request::ExplicitHandling explicitHandling = Request::SetExplicit)
+    {
+        updateExplicit(Request::TemperatureAttribute, explicitHandling);
+        if (mTemperature == temperature)
+            return false;
+        mTemperature = temperature;
+        return true;
+    }
+    void resetTemperature(Request::ExplicitHandling explicitHandling = Request::ClearExplicit)
+    {
+        setTemperature(1.0, explicitHandling);
+    }
 
-    /** text
-        object
-        Optional
-        Configuration options for a text response from the model. Can be plain text or structured JSON data. Learn more:
-            Text inputs and outputs
-            Structured Outputs
-        format
-            object
-            Optional
-            An object specifying the format that the model must output.
-            Configuring { "type": "json_schema" } enables Structured Outputs, which ensures the model will match your supplied JSON schema. Learn more in the Structured Outputs guide.
-            The default format is { "type": "text" } with no additional options.
-            Not recommended for gpt-4o and newer models:
-            Setting to { "type": "json_object" } enables the older JSON mode, which ensures the message the model generates is valid JSON. Using json_schema is preferred for models that support it.
-            Text
-                object
-                Default response format. Used to generate text responses.
-            JSON schema
-                object
-                JSON Schema response format. Used to generate structured JSON responses. Learn more about Structured Outputs.
-            JSON object
-                object
-                JSON object response format. An older method of generating JSON responses. Using json_schema is recommended for models that support it. Note that the model will not generate JSON without a system or user message instructing it to do so.
-        verbosity
-            string
-            Optional
-            Defaults to medium
-            Constrains the verbosity of the model's response. Lower values will result in more concise responses, while higher values will result in more verbose responses. Currently supported values are low, medium, and high.
-    */
     // [[nodiscard]] AiText text() const;
-    // bool setText(const AiText& text);
-    // void resetText() { setText({}); }
+    // bool setText(const AiText& text,
+    // Request::ExplicitHandling explicitHandling = Request::SetExplicit);
+    // void resetText(Request::ExplicitHandling explicitHandling = Request::ClearExplicit) { setText({}); }
 
-    /** tool_choice
-        string or object
-        Optional
-        How the model should select which tool (or tools) to use when generating a response. See the tools parameter to see how to specify which tools the model can call.
-    */
     // [[nodiscard]] AiToolChoice toolChoice() const;
-    // bool setToolChoice(const AiToolChoice& toolChoice);
-    // void resetToolChoice() { setToolChoice({}); }
+    // bool setToolChoice(const AiToolChoice& toolChoice,
+    // Request::ExplicitHandling explicitHandling = Request::SetExplicit);
+    // void resetToolChoice(Request::ExplicitHandling explicitHandling = Request::ClearExplicit) { setToolChoice({}); }
 
-    /** tools
-        array
-        Optional
-        An array of tools the model may call while generating a response. You can specify which tool to use by setting the tool_choice parameter.
-        We support the following categories of tools:
-            Built-in tools: Tools that are provided by OpenAI that extend the model's capabilities, like web search or file search. Learn more about built-in tools.
-            MCP Tools: Integrations with third-party systems via custom MCP servers or predefined connectors such as Google Drive and SharePoint. Learn more about MCP Tools.
-            Function calls (custom tools): Functions that are defined by you, enabling the model to call your own code with strongly typed arguments and outputs. Learn more about function calling. You can also use custom tools to call your own code.
-    */
     // [[nodiscard]] AiTools tools() const;
-    // bool setTools(const AiTools& tools);
-    // void resetTools() { setTools({}); }
+    // bool setTools(const AiTools& tools,
+    // Request::ExplicitHandling explicitHandling = Request::SetExplicit);
+    // void resetTools(Request::ExplicitHandling explicitHandling = Request::ClearExplicit) { setTools({}); }
 
-    /** top_logprobs
-        integer
-        Optional
-        An integer between 0 and 20 specifying the number of most likely tokens to return at each token position, each with an associated log probability.
-    */
-    [[nodiscard]] int topLogprobs() const;
-    bool setTopLogprobs(int topLogprobs);
-    void resetTopLogprobs() { setTopLogprobs(0); }
-
-    /** top_p
-        number
-        Optional
-        Defaults to 1
-        An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with top_p probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered.
-        We generally recommend altering this or temperature but not both.
-    */
-    [[nodiscard]] double topP() const;
-    bool setTopP(double topP);
-    void resetTopP() { setTopP(1.0); }
-
-    /** truncation
-        string
-        Optional
-        Defaults to disabled
-        The truncation strategy to use for the model response.
-            auto: If the input to this Response exceeds the model's context window size, the model will truncate the response to fit the context window by dropping items from the beginning of the conversation.
-            disabled (default): If the input size will exceed the context window size for a model, the request will fail with a 400 error.
-    */
-    [[nodiscard]] Truncation truncation() const;
-    bool setTruncation(Truncation truncation);
-    bool setTruncation(const QString& truncation);
-    void resetTruncation() { setTruncation(Truncation::TruncationDisabled); }
-
-    bool readJson(const QJsonObject& json) override
+    [[nodiscard]] int topLogprobs() const { return mTopLogprobs; }
+    bool setTopLogprobs(int topLogprobs,
+                        Request::ExplicitHandling explicitHandling = Request::SetExplicit)
     {
-        if (!ai::RequestData::readJson(json))
+        updateExplicit(Request::TopLogprobsAttribute, explicitHandling);
+        if (mTopLogprobs == topLogprobs)
             return false;
-
-        if (const auto v = json.value("background"); v.isBool())
-            setBackground(v.toBool());
-
-        if (const auto v = json.value("conversation"); v.isString())
-            setConversation({v.toString()});
-        else if (v.isObject())
-            setConversation(Conversation::fromJson(v.toObject()));
-
-        if (const auto v = json.value("input"); v.isString())
-            setInput({v.toString()});
-        else if (v.isArray())
-            setInput(Input::fromJson(v.toArray()));
-
+        mTopLogprobs = topLogprobs;
         return true;
     }
-    bool writeJson(QJsonObject& json, bool full = false) const override
+    void resetTopLogprobs(Request::ExplicitHandling explicitHandling = Request::ClearExplicit)
     {
-        if (!ai::RequestData::writeJson(json, full))
+        setTopLogprobs(0, explicitHandling);
+    }
+
+    [[nodiscard]] double topP() const { return mTopP; }
+    bool setTopP(double topP, Request::ExplicitHandling explicitHandling = Request::SetExplicit)
+    {
+        updateExplicit(Request::TopPAttribute, explicitHandling);
+        if (mTopP == topP)
             return false;
-
-        if (const auto v = background(); full || v)
-            json[QStringLiteral("background")] = v;
-
-        if (const auto v = conversation(); full || !v.isEmpty())
-            json[QStringLiteral("conversation")] = v.toJson();
-
-        if (const auto v = input(); full || !v.isEmpty())
-            json[QStringLiteral("input")] = v.toJson();
-
+        mTopP = topP;
         return true;
     }
-};
-
-class Request : public ai::Request
-{
-    Q_GADGET
-
-protected:
-    RequestData* d() { return static_cast<RequestData*>(ai::Request::d.data()); }
-    const RequestData* d() const { return static_cast<const RequestData*>(ai::Request::d.data()); }
-
-public:
-    enum Truncation { TruncationAuto, TruncationDisabled };
-
-    Request();
-
-    Request& operator=(const ai::Request& rhs)
+    void resetTopP(Request::ExplicitHandling explicitHandling = Request::ClearExplicit)
     {
-        ai::Request::operator=(rhs);
-        return *this;
+        setTopP(1.0, explicitHandling);
     }
 
-    /** background
-        boolean
-        Optional
-        Defaults to false
-        Whether to run the model response in the background. Learn more.
-    */
-    [[nodiscard]] bool background() const { return d()->background(); }
-    Request& setBackground(bool background)
+    [[nodiscard]] Request::Truncation truncation() const { return mTruncation; }
+    bool setTruncation(Request::Truncation truncation,
+                       Request::ExplicitHandling explicitHandling = Request::SetExplicit)
     {
-        d()->setBackground(background);
-        return *this;
-    }
-    Request& resetBackground() { return setBackground(false); }
-
-    /** conversation
-        string or object
-        Optional
-        Defaults to null
-        The conversation that this response belongs to. Items from this conversation are prepended to input_items for this response request. Input items and output items from this response are automatically added to this conversation after this response completes.
-    */
-    [[nodiscard]] Conversation conversation() const { return d()->conversation(); }
-    Request& setConversation(const Conversation& conversation)
-    {
-        d()->setConversation(conversation);
-        return *this;
-    }
-    Request& resetConversation() { return setConversation({}); }
-
-    /** include
-        array
-        Optional
-        Specify additional output data to include in the model response. Currently supported values are:
-            web_search_call.action.sources: Include the sources of the web search tool call.
-            code_interpreter_call.outputs: Includes the outputs of python code execution in code interpreter tool call items.
-            computer_call_output.output.image_url: Include image urls from the computer call output.
-            file_search_call.results: Include the search results of the file search tool call.
-            message.input_image.image_url: Include image urls from the input message.
-            message.output_text.logprobs: Include logprobs with assistant messages.
-            reasoning.encrypted_content: Includes an encrypted version of reasoning tokens in reasoning item outputs. This enables reasoning items to be used in multi-turn conversations when using the Responses API statelessly (like when the store parameter is set to false, or when an organization is enrolled in the zero data retention program).
-    */
-    [[nodiscard]] IncludeList include() const { return d()->include(); }
-    Request& setInclude(const IncludeList& include)
-    {
-        d()->setInclude(include);
-        return *this;
-    }
-    Request& resetInclude() { return setInclude({}); }
-
-    /** input
-        string or array
-        Optional
-        Text, image, or file inputs to the model, used to generate a response.
-        Learn more:
-            Text inputs and outputs
-            Image inputs
-            File inputs
-            Conversation state
-            Function calling
-    */
-    [[nodiscard]] Input input() const { return d()->input(); }
-    Request& setInput(const Input& input)
-    {
-        d()->setInput(input);
-        return *this;
-    }
-    Request& resetInput() { return setInput({}); }
-
-    /** instructions
-        string
-        Optional
-        A system (or developer) message inserted into the model's context.
-        When using along with previous_response_id, the instructions from a previous response will not be carried over to the next response. This makes it simple to swap out system (or developer) messages in new responses.
-    */
-    [[nodiscard]] QString instructions() const;
-    Request& setInstructions(const QString& instructions);
-    Request& resetInstructions() { return setInstructions({}); }
-
-    /** max_output_tokens
-        integer
-        Optional
-        An upper bound for the number of tokens that can be generated for a response, including visible output tokens and reasoning tokens.
-    */
-    [[nodiscard]] int maxOutputTokens() const;
-    Request& setMaxOutputTokens(int maxOutputTokens);
-    Request& resetMaxOutputTokens() { return setMaxOutputTokens(-1); }
-
-    /** max_tool_calls
-        integer
-        Optional
-        The maximum number of total calls to built-in tools that can be processed in a response. This maximum number applies across all built-in tool calls, not per individual tool. Any further attempts to call a tool by the model will be ignored.
-    */
-    [[nodiscard]] int maxToolCalls() const;
-    Request& setMaxToolCalls(int maxToolCalls);
-    Request& resetMaxToolCalls() { return setMaxToolCalls(-1); }
-
-    /** parallel_tool_calls
-        boolean
-        Optional
-        Defaults to true
-        Whether to allow the model to run tool calls in parallel.
-    */
-    [[nodiscard]] bool parallelToolCalls() const;
-    Request& setParallelToolCalls(bool parallelToolCalls);
-    Request& resetParallelToolCalls();
-
-    /** previous_response_id
-        string
-        Optional
-        The unique ID of the previous response to the model. Use this to create multi-turn conversations. Learn more about conversation state. Cannot be used in conjunction with conversation.
-    */
-    [[nodiscard]] QString previousResponseId() const;
-    Request& setPreviousResponseId(const QString& previousResponseId);
-    Request& resetPreviousResponseId() { return setPreviousResponseId({}); }
-
-    /** prompt
-        object
-        Optional
-        Reference to a prompt template and its variables. Learn more.
-    */
-    // [[nodiscard]] AiPrompt prompt() const;
-    // Request& setPrompt(const AiPrompt& prompt);
-    // Request& resetPrompt() { return setPrompt({}); }
-
-    /** prompt_cache_key
-        string
-        Optional
-        Used by OpenAI to cache responses for similar requests to optimize your cache hit rates. Replaces the user field. Learn more.
-    */
-    [[nodiscard]] QString promptCacheKey() const;
-    Request& setPromptCacheKey(const QString& promptCacheKey);
-    Request& resetPromptCacheKey() { return setPromptCacheKey({}); }
-
-    /** reasoning
-        object
-        Optional
-        gpt-5 and o-series models only
-        Configuration options for reasoning models.
-    */
-    [[nodiscard]] Reasoning reasoning() const { return d()->reasoning(); }
-    Request& setReasoning(const Reasoning& reasoning)
-    {
-        d()->setReasoning(reasoning);
-        return *this;
-    }
-    Request& resetReasoning() { return setReasoning({}); }
-
-    /** safety_identifier
-        string
-        Optional
-        A stable identifier used to help detect users of your application that may be violating OpenAI's usage policies. The IDs should be a string that uniquely identifies each user. We recommend hashing their username or email address, in order to avoid sending us any identifying information. Learn more.
-    */
-    [[nodiscard]] QString safetyIdetifier() const;
-    Request& setSafetyIdetifier(const QString& safetyIdetifier);
-    Request& resetSafetyIdetifier() { return setSafetyIdetifier({}); }
-
-    /** service_tier
-        string
-        Optional
-        Defaults to auto
-        Specifies the processing type used for serving the request.
-            If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.
-            If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.
-            If set to 'flex' or 'priority', then the request will be processed with the corresponding service tier.
-            When not set, the default behavior is 'auto'.
-        When the service_tier parameter is set, the response body will include the service_tier value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.
-    */
-    [[nodiscard]] QString serviceTier() const;
-    Request& setServiceTier(const QString& serviceTier);
-    Request& resetServiceTier() { return setServiceTier(QStringLiteral("auto")); }
-
-    /** isStored
-        boolean
-        Optional
-        Defaults to true
-        Whether to isStored the generated model response for later retrieval via API.
-    */
-    [[nodiscard]] bool isStored() const;
-    Request& setStored(bool store);
-    Request& resetStored();
-
-    /** temperature
-        number
-        Optional
-        Defaults to 1
-        What sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic. We generally recommend altering this or top_p but not both.
-    */
-    [[nodiscard]] double temperature() const;
-    Request& setTemperature(double temperature);
-    Request& resetTemperature() { return setTemperature(1.0); }
-
-    /** text
-        object
-        Optional
-        Configuration options for a text response from the model. Can be plain text or structured JSON data. Learn more:
-            Text inputs and outputs
-            Structured Outputs
-        format
-            object
-            Optional
-            An object specifying the format that the model must output.
-            Configuring { "type": "json_schema" } enables Structured Outputs, which ensures the model will match your supplied JSON schema. Learn more in the Structured Outputs guide.
-            The default format is { "type": "text" } with no additional options.
-            Not recommended for gpt-4o and newer models:
-            Setting to { "type": "json_object" } enables the older JSON mode, which ensures the message the model generates is valid JSON. Using json_schema is preferred for models that support it.
-            Text
-                object
-                Default response format. Used to generate text responses.
-            JSON schema
-                object
-                JSON Schema response format. Used to generate structured JSON responses. Learn more about Structured Outputs.
-            JSON object
-                object
-                JSON object response format. An older method of generating JSON responses. Using json_schema is recommended for models that support it. Note that the model will not generate JSON without a system or user message instructing it to do so.
-        verbosity
-            string
-            Optional
-            Defaults to medium
-            Constrains the verbosity of the model's response. Lower values will result in more concise responses, while higher values will result in more verbose responses. Currently supported values are low, medium, and high.
-    */
-    // [[nodiscard]] AiText text() const;
-    // Request& setText(const AiText& text);
-    // Request& resetText() {return  setText({}); }
-
-    /** tool_choice
-        string or object
-        Optional
-        How the model should select which tool (or tools) to use when generating a response. See the tools parameter to see how to specify which tools the model can call.
-    */
-    // [[nodiscard]] AiToolChoice toolChoice() const;
-    // Request& setToolChoice(const AiToolChoice& toolChoice);
-    // Request& resetToolChoice() {return  setToolChoice({}); }
-
-    /** tools
-        array
-        Optional
-        An array of tools the model may call while generating a response. You can specify which tool to use by setting the tool_choice parameter.
-        We support the following categories of tools:
-            Built-in tools: Tools that are provided by OpenAI that extend the model's capabilities, like web search or file search. Learn more about built-in tools.
-            MCP Tools: Integrations with third-party systems via custom MCP servers or predefined connectors such as Google Drive and SharePoint. Learn more about MCP Tools.
-            Function calls (custom tools): Functions that are defined by you, enabling the model to call your own code with strongly typed arguments and outputs. Learn more about function calling. You can also use custom tools to call your own code.
-    */
-    // [[nodiscard]] AiTools tools() const;
-    // Request& setTools(const AiTools& tools);
-    // Request& resetTools() { return setTools({}); }
-
-    /** top_logprobs
-        integer
-        Optional
-        An integer between 0 and 20 specifying the number of most likely tokens to return at each token position, each with an associated log probability.
-    */
-    [[nodiscard]] int topLogprobs() const;
-    Request& setTopLogprobs(int topLogprobs);
-    Request& resetTopLogprobs() { return setTopLogprobs(0); }
-
-    /** top_p
-        number
-        Optional
-        Defaults to 1
-        An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with top_p probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered.
-        We generally recommend altering this or temperature but not both.
-    */
-    [[nodiscard]] double topP() const;
-    Request& setTopP(double topP);
-    Request& resetTopP() { return setTopP(1.0); }
-
-    /** truncation
-        string
-        Optional
-        Defaults to disabled
-        The truncation strategy to use for the model response.
-            auto: If the input to this Response exceeds the model's context window size, the model will truncate the response to fit the context window by dropping items from the beginning of the conversation.
-            disabled (default): If the input size will exceed the context window size for a model, the request will fail with a 400 error.
-    */
-    [[nodiscard]] Truncation truncation() const;
-    Request& setTruncation(Truncation truncation);
-    Request& setTruncation(const QString& truncation);
-    Request& resetTruncation() { return setTruncation(Truncation::TruncationDisabled); }
-
-protected:
-    Request(RequestData* data);
-
-    bool readJson(const QJsonObject& json) override
-    {
-        if (!ai::Request::readJson(json))
+        updateExplicit(Request::TruncationAttribute, explicitHandling);
+        if (mTruncation == truncation)
             return false;
-
-        if (const auto v = json.value("background"); v.isBool())
-            setBackground(v.toBool());
-
-        if (const auto v = json.value("conversation"); v.isString())
-            setConversation({v.toString()});
-        else if (v.isObject())
-            setConversation(Conversation::fromJson(v.toObject()));
-
-        if (const auto v = json.value("input"); v.isString())
-            setInput({v.toString()});
-        else if (v.isArray())
-            setInput(Input::fromJson(v.toArray()));
-
+        mTruncation = truncation;
         return true;
     }
-    bool writeJson(QJsonObject& json, bool full = false) const override
+    bool setTruncation(const QString& truncation,
+                       Request::ExplicitHandling explicitHandling = Request::SetExplicit)
     {
-        if (!ai::Request::writeJson(json, full))
-            return false;
-
-        if (const auto v = background(); full || v)
-            json[QStringLiteral("background")] = v;
-
-        if (const auto v = conversation(); full || !v.isEmpty())
-            json[QStringLiteral("conversation")] = v.toJson();
-
-        if (const auto v = input(); full || !v.isEmpty())
-            json[QStringLiteral("input")] = v.toJson();
-
-        return true;
+        return setTruncation(Request::TruncationAuto);
     }
+    void resetTruncation(Request::ExplicitHandling explicitHandling = Request::ClearExplicit)
+    {
+        setTruncation(Request::Truncation::TruncationDisabled, explicitHandling);
+    }
+
+    bool readJson(const QJsonObject& json, QStringList* errors = nullptr) override;
+    bool writeJson(QJsonObject& json, bool full = false) const override;
 };
 
 } // namespace ai::responses

@@ -2,6 +2,7 @@
 #define AI_CONFIG_OUTPUTMESSAGE_H
 
 #include "message.h"
+#include "refusal.h"
 
 namespace ai {
 

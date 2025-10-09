@@ -43,7 +43,7 @@ public:
     }
 
     [[nodiscard]] bool isEmpty() const { return i.isEmpty() && e.isEmpty(); }
-    [[nodiscard]] bool isValid() const { return true; }
+    [[nodiscard]] bool isValid() const { return !i.isEmpty(); }
 
     QJsonObject toJson() const
     {

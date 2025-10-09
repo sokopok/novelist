@@ -1,5 +1,4 @@
 #include "client.h"
-#include "logging.h"
 #include "response.h"
 
 namespace ai {
@@ -11,32 +10,67 @@ Client::Client(QObject *parent)
 Client::Client(RequestData *requestData, QObject *parent)
     : QObject{parent}
     , d{requestData ? requestData : new RequestData}
-{
-    resetNetworkAccessManager();
-    resetTokenProvider();
-    resetApiKey();
-    resetApiUrl();
-    resetMetadata();
-    resetModel();
-    resetStreaming();
-    resetStreamOptions();
+{}
 
-    // setApiUrl(QUrl{"https://api.openai.com/v1/responses"});
-    // setApiKey(QByteArray{"sk-proj-BIMS9hXqa-TurELZofPOGNECAULkl3f2L3atzXyaeXDU1uVVCvBb0Txg4sBH_"
-    //                      "KQOL4kVZaWMXvT3BlbkFJW0NTHPaxqjSjvqfbDGAE7_xSOFurIWZ61iq4pTp-"
-    //                      "8tS9Qe0bLHSjlATLLfhtt8A7oz2ujE9aYA"});
+Client *Client::create(QObject *parent)
+{
+    Client *client = new Client{parent};
+    client->initialize();
+    return client;
 }
 
-bool Client::prepareRequest(Request &prep, const Request &request) const
+bool Client::prepareRequest(Request *request)
 {
-    prep.setUrl(request.url().isEmpty() ? apiUrl() : request.url());
-    prep.setApiKey(request.apiKey().isEmpty() ? apiKey() : request.apiKey());
-    prep.setMetadata(metadata());
-    prep.putMetadata(request.metadata());
-    prep.setModel(request.model().isEmpty() ? model() : request.model());
-    prep.setStreaming(request.isStreaming());
-    prep.setStreamOptions(request.streamOptions().isEmpty() ? streamOptions()
-                                                            : request.streamOptions());
+    if (!request->isExplicit(Request::UrlAttribute)) {
+        if (d->isExplicit(Request::UrlAttribute))
+            request->setUrl(apiUrl());
+        else {
+            setError({Error::InternalErrorType, Error::InternalError, "prepareRequest", "url"});
+            return false;
+        }
+    }
+
+    if (!request->isExplicit(Request::ApiKeyAttribute)) {
+        if (d->isExplicit(Request::ApiKeyAttribute))
+            request->setApiKey(apiKey());
+        else {
+            setError({Error::InternalErrorType, Error::InternalError, "prepareRequest", "apiKey"});
+            return false;
+        }
+    }
+
+    if (!request->isExplicit(Request::MetadataAttribute)) {
+        if (d->isExplicit(Request::MetadataAttribute))
+            request->setMetadata(metadata());
+    } else if (d->isExplicit(Request::MetadataAttribute)) {
+        auto md = metadata();
+        for (auto it = request->metadata().begin(), end = request->metadata().end(); it != end; ++it)
+            md[it.key()] = it.value();
+        request->setMetadata(md);
+    }
+
+    if (!request->isExplicit(Request::ModelAttribute)) {
+        if (d->isExplicit(Request::ModelAttribute))
+            request->setModel(model());
+        else {
+            setError({Error::InternalErrorType, Error::InternalError, "prepareRequest", "model"});
+            return false;
+        }
+    }
+
+    if (!request->isExplicit(Request::StreamingAttribute)) {
+        if (d->isExplicit(Request::StreamingAttribute))
+            request->setStreaming(isStreaming());
+        else {
+            setError({Error::InternalErrorType, Error::InternalError, "prepareRequest", "stream"});
+            return false;
+        }
+    }
+
+    if (!request->isExplicit(Request::StreamOptionsAttribute)
+        && d->isExplicit(Request::StreamOptionsAttribute))
+        request->setStreamOptions(streamOptions());
+
     return true;
 }
 
@@ -75,6 +109,23 @@ void Client::setError(const Error &error)
     }
 }
 
+void Client::initialize()
+{
+    resetNetworkAccessManager();
+    resetTokenProvider();
+    resetApiKey();
+    resetApiUrl();
+    resetMetadata();
+    resetModel();
+    resetStreaming();
+    resetStreamOptions();
+
+    // setApiUrl(QUrl{"https://api.openai.com/v1/responses"});
+    // setApiKey(QByteArray{"sk-proj-BIMS9hXqa-TurELZofPOGNECAULkl3f2L3atzXyaeXDU1uVVCvBb0Txg4sBH_"
+    //                      "KQOL4kVZaWMXvT3BlbkFJW0NTHPaxqjSjvqfbDGAE7_xSOFurIWZ61iq4pTp-"
+    //                      "8tS9Qe0bLHSjlATLLfhtt8A7oz2ujE9aYA"});
+}
+
 // Response *Client::post(const Request &request, QIODevice *device)
 // {
 //     if (auto *network = networkAccessManager()) {
@@ -108,7 +159,7 @@ QMap<QString, Request *> &Client::pendingRequests()
 void Client::addRecycledRequest(Request *request)
 {
     if (!request) {
-        qCWarning(LOGAI) << "No request";
+        qWarning() << "No request";
         return;
     }
     recycledRequests().append(request);

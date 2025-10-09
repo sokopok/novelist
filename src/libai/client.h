@@ -46,7 +46,7 @@ protected:
     Error mError;
 
 public:
-    explicit Client(QObject* parent = nullptr);
+    [[nodiscard]] static Client* create(QObject* parent = nullptr);
 
     [[nodiscard]] Error error() const { return mError; }
 
@@ -55,7 +55,7 @@ public:
     [[nodiscard]] QByteArray apiKey() const { return d->apiKey(); }
     virtual Client& setApiKey(const QByteArray& apiKey)
     {
-        if (d->setApiKey(apiKey))
+        if (d->setApiKey(apiKey, Request::SetExplicit))
             emit apiKeyChanged(QPrivateSignal{});
         return *this;
     }
@@ -64,18 +64,23 @@ public:
     [[nodiscard]] QUrl apiUrl() const { return mApiUrl; }
     virtual Client& setApiUrl(const QUrl& apiUrl)
     {
+        d->explicits().setBit(Request::UrlAttribute);
         if (mApiUrl == apiUrl)
             return *this;
         mApiUrl = apiUrl;
         emit apiUrlChanged(QPrivateSignal{});
         return *this;
     }
-    virtual Client& resetApiUrl() { return setApiUrl({}); }
+    virtual Client& resetApiUrl()
+    {
+        d->explicits().clearBit(Request::UrlAttribute);
+        return setApiUrl({});
+    }
 
     [[nodiscard]] QVariantMap metadata() const { return d->metadata(); }
     virtual Client& setMetadata(const QVariantMap& metadata)
     {
-        if (d->setMetadata(metadata))
+        if (d->setMetadata(metadata, Request::SetExplicit))
             emit metadataChanged(QPrivateSignal{});
         return *this;
     }
@@ -83,7 +88,7 @@ public:
 
     bool putMetadata(const QString& key, const QVariant& value)
     {
-        if (d->putMetadata(key, value)) {
+        if (d->putMetadata(key, value, Request::SetExplicit)) {
             emit metadataChanged(QPrivateSignal{});
             return true;
         }
@@ -92,7 +97,7 @@ public:
     QVariant takeMetadata(const QString& key)
     {
         if (d->metadata().contains(key)) {
-            const auto v = d->takeMetadata(key);
+            const auto v = d->takeMetadata(key, Request::SetExplicit);
             emit metadataChanged(QPrivateSignal{});
             return v;
         }
@@ -102,31 +107,41 @@ public:
     [[nodiscard]] QString model() const { return d->model(); }
     virtual Client& setModel(const QString& model)
     {
-        if (d->setModel(model))
+        if (d->setModel(model, Request::SetExplicit))
             emit modelChanged(QPrivateSignal{});
         return *this;
     }
-    virtual Client& resetModel() { return setModel("gpt-4.1-mini"); }
+    virtual Client& setModel(Request::Model model)
+    {
+        if (d->setModel(model, Request::SetExplicit))
+            emit modelChanged(QPrivateSignal{});
+        return *this;
+    }
+    virtual Client& resetModel() { return setModel(Request::Gpt41MiniModel); }
 
     [[nodiscard]] bool isStreaming() const { return d->isStreaming(); }
     virtual Client& setStreaming(bool streaming)
     {
-        if (d->setStreaming(streaming))
+        if (d->setStreaming(streaming, Request::SetExplicit))
             emit streamingChanged(QPrivateSignal{});
         return *this;
     }
-    virtual Client& resetStreaming() { return setStreaming(false); }
+    virtual Client& resetStreaming()
+    {
+        d->resetStreaming(Request::SetExplicit);
+        return *this;
+    }
 
     [[nodiscard]] StreamOptions streamOptions() const { return d->streamOptions(); }
     virtual Client& setStreamOptions(const StreamOptions& streamOptions)
     {
-        if (d->setStreamOptions(streamOptions))
+        if (d->setStreamOptions(streamOptions, Request::SetExplicit))
             emit streamOptionsChanged(QPrivateSignal{});
         return *this;
     }
     virtual Client& resetStreamOptions()
     {
-        d->resetStreamOptions();
+        d->resetStreamOptions(Request::ClearExplicit);
         return *this;
     }
 
@@ -186,7 +201,8 @@ signals:
     void revived(ai::Request* request, QPrivateSignal);
 
 protected:
-    Client(RequestData* requestData, QObject* parent = nullptr);
+    explicit Client(QObject* parent = nullptr);
+    explicit Client(RequestData* requestData, QObject* parent = nullptr);
 
     virtual void recycle(Request* request)
     {
@@ -202,7 +218,7 @@ protected:
         emit revived(request, QPrivateSignal{});
     }
 
-    [[nodiscard]] virtual bool prepareRequest(Request& prep, const Request& request) const;
+    [[nodiscard]] virtual bool prepareRequest(Request* request);
     [[nodiscard]] virtual bool validateRequest(const Request& request) const;
 
     virtual bool readJson(const QJsonObject& json) { return d->readJson(json); }
@@ -216,6 +232,8 @@ protected:
     }
 
     void setError(const Error& error);
+
+    virtual void initialize();
 
 private:
     QMap<QString, Request*> pendingRequests() const;

@@ -2,205 +2,9 @@
 #define AI_CONFIG_INPUT_H
 
 #include "../json.h"
-#include "message.h"
+#include "inputitem.h"
 
 namespace ai {
-
-class ItemReference
-{
-    Q_GADGET
-    Q_PROPERTY(AiObjectType objectType READ objectType CONSTANT FINAL)
-    Q_PROPERTY(QString id READ id WRITE setId FINAL)
-    Q_PROPERTY(QJsonObject extra READ extra FINAL)
-    Q_PROPERTY(bool empty READ isEmpty FINAL)
-    Q_PROPERTY(bool valid READ isValid FINAL)
-
-    QString i;
-    QJsonObject e;
-
-public:
-    ItemReference(const QJsonObject& extra = {})
-        : ItemReference{{}, extra}
-    {}
-    ItemReference(const QString& id, const QJsonObject& extra = {})
-        : i{id}
-        , e{extra}
-    {}
-
-    [[nodiscard]] AiObjectType objectType() const { return AiObjectType::ItemReference; }
-
-    [[nodiscard]] QJsonObject extra() const { return e; }
-
-    [[nodiscard]] QString id() const { return i; }
-    ItemReference& setId(const QString& id)
-    {
-        i = id;
-        return *this;
-    }
-
-    [[nodiscard]] bool operator==(const ItemReference& that) const
-    {
-        return i == that.i && e == that.e;
-    }
-
-    [[nodiscard]] bool isEmpty() const { return i.isEmpty() && e.isEmpty(); }
-    [[nodiscard]] bool isValid() const { return !i.isEmpty(); }
-
-    QJsonObject toJson() const
-    {
-        QJsonObject json = e;
-        json.insert(QStringLiteral("id"), i);
-        json.insert(QStringLiteral("type"), QStringLiteral("item_reference"));
-        return json;
-    }
-
-    static ItemReference fromJson(const QJsonObject& json, bool* ok = nullptr)
-    {
-        if (ok)
-            *ok = true;
-
-        if (json.value(QStringLiteral("type")).toString() != QStringLiteral("item_reference")) {
-            if (ok)
-                *ok = false;
-            return {json};
-        }
-
-        QJsonObject extra = json;
-        extra.remove(QStringLiteral("type"));
-
-        QString id;
-
-        if (const auto v = json.value(QStringLiteral("id")); v.isString()) {
-            extra.remove(QStringLiteral("id"));
-            id = v.toString();
-        }
-
-        else if (ok)
-            *ok = false;
-
-        return {id, extra};
-    }
-};
-
-class InputItem
-{
-    using Variant = std::variant<Empty, Message, ItemReference>;
-    Variant d;
-    QJsonObject e;
-
-public:
-    InputItem(const QJsonObject& extra = {})
-        : InputItem{{}, extra}
-    {}
-    InputItem(const Variant& item, const QJsonObject& extra = {})
-        : d{item}
-        , e{extra}
-    {}
-
-    [[nodiscard]] QJsonObject extra() const { return e; }
-
-    [[nodiscard]] bool isMessage() const { return d.index() == 1; }
-    [[nodiscard]] bool isItemReference() const { return d.index() == 2; }
-
-    [[nodiscard]] Message message() const { return std::get<1>(d); }
-    InputItem& setMessage(const Message& message)
-    {
-        std::get<1>(d) = message;
-        return *this;
-    }
-
-    [[nodiscard]] ItemReference itemReference() const { return std::get<2>(d); }
-    InputItem& setItemReference(const ItemReference& itemReference)
-    {
-        std::get<2>(d) = itemReference;
-        return *this;
-    }
-
-    [[nodiscard]] bool operator==(const InputItem& that) const
-    {
-        return d == that.d && e == that.e;
-    }
-
-    [[nodiscard]] bool isEmpty() const
-    {
-        if (isMessage())
-            return message().isEmpty() && e.isEmpty();
-
-        if (isItemReference())
-            return itemReference().isEmpty() && e.isEmpty();
-
-        return e.isEmpty();
-    }
-    [[nodiscard]] bool isValid() const
-    {
-        if (isMessage())
-            return message().isValid();
-
-        if (isItemReference())
-            return itemReference().isValid();
-
-        return false;
-    }
-
-    QJsonValue toJson() const
-    {
-        if (isMessage())
-            return message().toJson();
-
-        if (isItemReference())
-            return itemReference().toJson();
-
-        return e;
-    }
-
-    static InputItem fromJson(const QJsonObject& json, bool* ok = nullptr)
-    {
-        if (ok)
-            *ok = true;
-
-        if (const auto v = json.value(QStringLiteral("type")).toString();
-            v == QStringLiteral("message"))
-            return {Message::fromJson(json, ok)};
-
-        else if (v == QStringLiteral("item_reference"))
-            return {ItemReference::fromJson(json, ok)};
-
-        return {{}, json};
-    }
-};
-
-class InputItemList : public QList<InputItem>
-{
-public:
-    InputItemList(const QList<InputItem>& items = {})
-        : QList<InputItem>{items}
-    {}
-
-    [[nodiscard]] ai::AiObjectType objectType() const { return ai::AiObjectType::InputItemList; }
-
-    [[nodiscard]] bool isValid() const { return !isEmpty(); }
-
-    QJsonArray toJson() const
-    {
-        QJsonArray array;
-        for (const auto& item : *this)
-            array.append(item.toJson());
-        return array;
-    }
-
-    static InputItemList fromJson(const QJsonArray& json, bool* ok = nullptr)
-    {
-        if (ok)
-            *ok = true;
-
-        InputItemList list;
-
-        for (const auto& i : json)
-            list.append(InputItem::fromJson(i.toObject(), ok));
-
-        return list;
-    }
-};
 
 class Input
 {
@@ -227,8 +31,11 @@ class Input
 
 public:
     Input()
-        : Input{{}}
+        : Input{Empty{}}
     {}
+    // Input(const QString& data)
+    //     : d{data}
+    // {}
     Input(const Variant& data)
         : d{data}
     {}
@@ -280,7 +87,7 @@ public:
 
     [[nodiscard]] bool operator==(const Input& that) const { return d == that.d; }
 
-    [[nodiscard]] bool isEmpty() const { return !isText() && !isInputItemList(); }
+    [[nodiscard]] bool isEmpty() const { return !isValid(); }
     [[nodiscard]] bool isValid() const
     {
         return (isText() && !text().isEmpty()) || (isInputItemList() && items().isValid());
@@ -331,6 +138,19 @@ public:
         return {items};
     }
 
+    Input merge(const Input& that) const
+    {
+        InputItemList list = items();
+        if (isText())
+            list.append({Message{{text()}, QStringLiteral("user")}});
+
+        if (that.isText())
+            list.append({Message{{that.text()}, QStringLiteral("user")}});
+        else
+            list.append(that.items());
+
+        return {list};
+    }
     // Input& operator=(const Input& that)
     // {
     //     d = that.d;

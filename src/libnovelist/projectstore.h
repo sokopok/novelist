@@ -2,6 +2,7 @@
 #define NOVELIST_PROJECTSTORE_H
 
 #include <QHash>
+#include <QMap>
 #include <QObject>
 
 namespace novelist {
@@ -10,6 +11,7 @@ class Node;
 class Element;
 class Field;
 class Project;
+class NodeType;
 
 class ProjectStore : public QObject
 {
@@ -36,38 +38,44 @@ public:
     Field* loadField(const QString& type, const QString& id, double version = NAN);
     Element* loadElement(const QString& type, const QString& id, double version = NAN);
 
-    Project* loadProject(const QString& type, const QString& id, double version = NAN);
-    bool reloadProject(Project* project);
-    bool saveProject(Project* project);
-    bool saveProjectAs(Project* project, const QString& filename);
+    // Project* loadProject(const QString& type, const QString& id, double version = NAN);
+    bool reloadProject(Project* project) { return false; }
+    bool saveProject(Project* project) { return false; }
+    // bool saveProjectAs(Project* project, const QString& filename);
 
     void recycle(Node* node);
+    [[nodiscard]] Node* wakeup(int type);
+    [[nodiscard]] Node* create(int type);
+    [[nodiscard]] Node* wakeupOrCreate(int type)
+    {
+        if (Node* node = wakeup(type))
+            return node;
+        return create(type);
+    }
+
+    [[nodiscard]] Project* project() const { return mProject; }
+    void setProject(Project* project);
 
 signals:
     void filenameChanged();
+    void projectChanged();
 
 protected:
-    [[nodiscard]] bool loadType(int type) const;
+    [[nodiscard]] NodeType* loadType(int type) const;
 
-    [[nodiscard]] Node* wakeupOrCreate(int type)
-    {
-        if (mNodeCache.contains(type)) {
-            QList<Node*>& nodes = mNodeCache[type];
-            if (!nodes.isEmpty()) {
-                return nodes.takeLast();
-            }
-        }
-
-        QMetaType metaType{type};
-        Node* node = static_cast<Node*>(metaType.create());
-        return node;
-    }
+    bool reloadElement(Element* element);
+    bool reloadField(Field* field);
+    bool saveElement(Element* element);
+    bool saveField(Field* field);
 
 private:
     QString mFilename;
     QHash<int, QList<Node*>> mNodeCache;
+    QMap<int, NodeType*> mNodeTypes;
+    Project* mProject = nullptr;
 
     Q_PROPERTY(QString filename READ filename WRITE setFilename NOTIFY filenameChanged FINAL)
+    Q_PROPERTY(Project* project READ project WRITE setProject NOTIFY projectChanged FINAL)
 };
 
 } // namespace novelist
