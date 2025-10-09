@@ -13,8 +13,8 @@ class Client : public ai::Client
     Q_OBJECT
 
 protected:
-    RequestData* d() { return static_cast<RequestData*>(ai::Client::d.data()); }
-    const RequestData* d() const { return static_cast<const RequestData*>(ai::Client::d.data()); }
+    RequestData* d() { return static_cast<RequestData*>(ai::Client::d); }
+    const RequestData* d() const { return static_cast<const RequestData*>(ai::Client::d); }
 
     explicit Client(QObject* parent = nullptr);
 

@@ -51,7 +51,7 @@ public:
     Q_ENUM(Model)
 
 protected:
-    QSharedDataPointer<RequestData> d;
+    RequestData* d = nullptr;
     QMap<int, QVariant> mAttributes;
     ExplicitHandling mExplicitHandling = LeaveExplicit;
     inline static const QMap<Model, QString> ModelKV = {
@@ -60,6 +60,11 @@ protected:
 
 public:
     Request();
+    Request(const Request& other);
+    Request(Request&& other) noexcept;
+    Request& operator=(const Request& other);
+    Request& operator=(Request&& other) noexcept;
+    virtual ~Request();
 
     [[nodiscard]] QVariant attribute(Attribute code) const;
     Request& setAttribute(Attribute code, const QVariant& value);
@@ -147,7 +152,7 @@ protected:
     friend class Client;
 };
 
-class RequestData : public QSharedData
+class RequestData
 {
     StreamOptions mStreamOptions;
     QVariantMap mMetadata;
@@ -160,6 +165,10 @@ class RequestData : public QSharedData
     QBitArray mExplicits{32};
 
 public:
+    virtual ~RequestData() = default;
+
+    [[nodiscard]] virtual RequestData* clone() const { return new RequestData{*this}; }
+
     [[nodiscard]] bool operator==(const RequestData& that) const
     {
         return apiKey() == that.apiKey() && metadata() == that.metadata() && model() == that.model()

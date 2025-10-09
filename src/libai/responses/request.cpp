@@ -77,12 +77,12 @@ bool RequestData::writeJson(QJsonObject &json, bool full) const
 
 RequestData *Request::d()
 {
-    return static_cast<RequestData *>(ai::Request::d.data());
+    return static_cast<RequestData *>(ai::Request::d);
 }
 
 const RequestData *Request::d() const
 {
-    return static_cast<const RequestData *>(ai::Request::d.data());
+    return static_cast<const RequestData *>(ai::Request::d);
 }
 
 Request::Request()

@@ -41,12 +41,14 @@ class Client : public QObject
     Q_OBJECT
 
 protected:
-    QSharedDataPointer<RequestData> d;
+    RequestData* d = nullptr;
     QUrl mApiUrl;
     Error mError;
 
 public:
     [[nodiscard]] static Client* create(QObject* parent = nullptr);
+
+    ~Client() override;
 
     [[nodiscard]] Error error() const { return mError; }
 

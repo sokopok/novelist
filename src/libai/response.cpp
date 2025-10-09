@@ -98,6 +98,11 @@ Response::Response(ResponseData* data, const Request& request, QNetworkReply* re
     reset(request, reply, client);
 }
 
+Response::~Response()
+{
+    delete d;
+}
+
 void Response::setError(const Error& error)
 {
     mError = error;

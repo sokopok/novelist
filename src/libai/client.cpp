@@ -12,6 +12,11 @@ Client::Client(RequestData *requestData, QObject *parent)
     , d{requestData ? requestData : new RequestData}
 {}
 
+Client::~Client()
+{
+    delete d;
+}
+
 Client *Client::create(QObject *parent)
 {
     Client *client = new Client{parent};

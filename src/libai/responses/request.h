@@ -172,6 +172,8 @@ class RequestData : public ai::RequestData
 
 public:
 
+    RequestData* clone() const override { return new RequestData{*this}; }
+
     [[nodiscard]] bool background() const { return mBackground; }
     bool setBackground(bool background,
                        Request::ExplicitHandling explicitHandling = Request::SetExplicit)

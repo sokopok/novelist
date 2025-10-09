@@ -318,6 +318,8 @@ class RequestData : public ai::RequestData
     bool mStreaming = false;
 
 public:
+    RequestData* clone() const override { return new RequestData{*this}; }
+
     /** prompt
         string
         Required
