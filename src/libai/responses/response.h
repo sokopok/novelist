@@ -11,6 +11,8 @@ class Client;
 class ResponseData : public ai::ResponseData
 {
 public:
+    ResponseData* clone() const override { return new ResponseData{*this}; }
+
     enum Truncation { TruncationAuto, TruncationDisabled };
 
 protected:
@@ -447,10 +449,10 @@ class Response : public ai::Response
     Request mRequest;
 
 protected:
-    ResponseData* d() { return static_cast<ResponseData*>(ai::Response::d.data()); }
+    ResponseData* d() { return static_cast<ResponseData*>(ai::Response::d); }
     const ResponseData* d() const
     {
-        return static_cast<const ResponseData*>(ai::Response::d.data());
+        return static_cast<const ResponseData*>(ai::Response::d);
     }
 
 public:

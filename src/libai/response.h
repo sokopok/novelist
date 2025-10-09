@@ -12,7 +12,7 @@ class QNetworkReply;
 
 namespace ai {
 
-class ResponseData : public QSharedData
+class ResponseData
 {
 protected:
     QJsonObject mExtra;
@@ -23,6 +23,10 @@ protected:
     StreamOptions mStreamOptions;
 
 public:
+    virtual ~ResponseData() = default;
+
+    [[nodiscard]] virtual ResponseData* clone() const { return new ResponseData{*this}; }
+
     [[nodiscard]] bool operator==(const ResponseData& that) const
     {
         return metadata() == that.metadata() && model() == that.model()
@@ -140,10 +144,12 @@ class Response : public QObject
     bool mDeleteReplyWhenFinished = true;
 
 protected:
-    QSharedDataPointer<ResponseData> d;
+    ResponseData* d = nullptr;
 
 public:
     Response(const Request& request, QNetworkReply* reply, Client* client);
+
+    ~Response() override;
 
     [[nodiscard]] Error error() const { return mError; }
 

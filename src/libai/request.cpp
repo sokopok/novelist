@@ -1,6 +1,8 @@
 #include "request.h"
 #include "client.h"
 
+#include <utility>
+
 namespace ai {
 
 // bool Request::start()
@@ -111,6 +113,53 @@ bool RequestData::writeJson(QJsonObject& json, bool full) const
 Request::Request()
     : Request(new RequestData)
 {}
+
+Request::Request(const Request& other)
+    : QNetworkRequest{other}
+    , d{other.d ? other.d->clone() : new RequestData}
+    , mAttributes{other.mAttributes}
+    , mExplicitHandling{other.mExplicitHandling}
+{}
+
+Request::Request(Request&& other) noexcept
+    : QNetworkRequest{std::move(other)}
+    , d{other.d}
+    , mAttributes{std::move(other.mAttributes)}
+    , mExplicitHandling{other.mExplicitHandling}
+{
+    other.d = nullptr;
+}
+
+Request& Request::operator=(const Request& other)
+{
+    if (this != &other) {
+        QNetworkRequest::operator=(other);
+        auto* newData = other.d ? other.d->clone() : new RequestData;
+        delete d;
+        d = newData;
+        mAttributes = other.mAttributes;
+        mExplicitHandling = other.mExplicitHandling;
+    }
+    return *this;
+}
+
+Request& Request::operator=(Request&& other) noexcept
+{
+    if (this != &other) {
+        QNetworkRequest::operator=(std::move(other));
+        delete d;
+        d = other.d;
+        other.d = nullptr;
+        mAttributes = std::move(other.mAttributes);
+        mExplicitHandling = other.mExplicitHandling;
+    }
+    return *this;
+}
+
+Request::~Request()
+{
+    delete d;
+}
 
 QVariant Request::attribute(Attribute code) const
 {
