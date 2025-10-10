@@ -1,14 +1,14 @@
 #ifndef AI_CONFIG_STREAMOPTIONS_H
 #define AI_CONFIG_STREAMOPTIONS_H
 
-#include "base.h"
+#include "common.h"
 
-namespace ai {
+namespace ai::config {
 
 class StreamOptions
 {
     Q_GADGET
-    Q_PROPERTY(AiObjectType objectType READ objectType CONSTANT FINAL)
+    Q_PROPERTY(ai::config::Type objectType READ objectType CONSTANT FINAL)
     Q_PROPERTY(QJsonObject extra READ extra FINAL)
     Q_PROPERTY(bool empty READ isEmpty FINAL)
     Q_PROPERTY(bool valid READ isValid FINAL)
@@ -22,7 +22,7 @@ public:
         : d{new Data{includeObfuscation, extra}}
     {}
 
-    [[nodiscard]] AiObjectType objectType() const { return AiObjectType::StreamOptions; }
+    [[nodiscard]] ai::config::Type objectType() const { return ai::config::Type::Type_StreamOptions; }
 
     [[nodiscard]] bool includeObfuscation() const { return d->includeObfuscation; }
     void setIncludeObfuscation(bool includeObfuscation)
@@ -81,6 +81,6 @@ private:
     QSharedPointer<Data> d;
 };
 
-} // namespace ai
+} // namespace ai::config
 
 #endif // AI_CONFIG_STREAMOPTIONS_H

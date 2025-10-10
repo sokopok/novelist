@@ -8,6 +8,14 @@
 
 namespace novelist {
 
+class ElementType;
+
+}
+
+Q_DECLARE_OPAQUE_POINTER(novelist::ElementType *)
+
+namespace novelist {
+
 class Element : public Node
 {
     Q_OBJECT
@@ -18,13 +26,19 @@ public:
     {}
     explicit Element(const QString &type, QObject *parent = nullptr);
 
+    [[nodiscard]] ElementType *elementType() const;
+    void setNodeType(ElementType *nodeType);
+
     // [[nodiscard]] QString id() const { return mId; }
     // void setId(const QString &id);
 
     [[nodiscard]] QList<Field *> fields() const { return mFields; }
     [[nodiscard]] Field *field(int index) const { return mFields.value(index); }
     [[nodiscard]] Field *field(const QString &name) const { return mFieldMap.value(name); }
-    Q_INVOKABLE Field *appendField(Field *field);
+    Q_INVOKABLE int insertField(int index, Field *field);
+    Q_INVOKABLE int appendField(Field *field);
+    Q_INVOKABLE bool removeField(int index);
+    Q_INVOKABLE bool removeField(Field *field);
 
     [[nodiscard]] FieldListModel *fieldListModel() const { return mFieldListModel; }
 

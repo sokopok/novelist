@@ -1,7 +1,7 @@
 #include "element.h"
 #include "field.h"
 #include "fieldlistmodel.h"
-#include "project.h"
+#include "nodetype.h"
 
 namespace novelist {
 
@@ -28,6 +28,16 @@ Element::Element(const QString &type, QObject *parent)
     , mFieldListModel{new FieldListModel{this}}
 {}
 
+ElementType *Element::elementType() const
+{
+    return static_cast<ElementType *>(nodeType());
+}
+
+void Element::setNodeType(ElementType *nodeType)
+{
+    Node::setNodeType(nodeType);
+}
+
 void Element::setType(const QString &type)
 {
     if (mType == type)
@@ -37,13 +47,35 @@ void Element::setType(const QString &type)
     emit typeChanged(QPrivateSignal{});
 }
 
-Field *Element::appendField(Field *field)
+int Element::insertField(int index, Field *field)
 {
-    mFields.append(field);
+    if (field == nullptr || index < 0 || index > mFields.size())
+        return -1;
+    mFields.insert(index, field);
     mFieldMap[field->name()] = field;
     field->setElement(this);
     emit fieldsChanged(QPrivateSignal{});
-    return field;
+    return index;
+}
+
+int Element::appendField(Field *field)
+{
+    return insertField(mFields.size(), field);
+}
+
+bool Element::removeField(int index)
+{
+    if (Field *f = mFields.takeAt(index)) {
+        mFieldMap.remove(f->name());
+        emit fieldsChanged(QPrivateSignal{});
+        return true;
+    }
+    return false;
+}
+
+bool Element::removeField(Field *field)
+{
+    return removeField(mFields.indexOf(field));
 }
 
 QJsonObject Element::toJson(bool *error) const
@@ -71,26 +103,23 @@ QJsonObject Element::toJson(bool *error) const
 
 bool Element::setJson(const QJsonObject &json)
 {
-    if (json["type"].toString() != mType) {
+    if (json.value("type").toString() != mType) {
         setError({ai::Error::InternalErrorType,
                   ai::Error::InternalError,
                   "Element::setJson",
-                  json["type"].toString()});
+                  json.value("type").toString()});
         return false;
     }
 
     if (!Node::setJson(json))
         return false;
 
-    if (const auto v = json["fields"]; v.isArray()) {
+    if (const auto v = json.value("fields"); v.isArray()) {
         const auto a = v.toArray();
         for (const auto v : a) {
             QJsonObject f = v.toObject();
 
-            if (f["type"].toString() != "field")
-                return false;
-
-            else if (Field *F = field(f.value("name").toString()); !F)
+            if (Field *F = field(f.value("name").toString()); !F)
                 return false;
 
             else if (!F->setJson(f))

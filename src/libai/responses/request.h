@@ -6,15 +6,10 @@
 namespace ai::responses {
 
 class Client;
-class RequestData;
 
 class Request : public ai::Request
 {
     Q_GADGET
-
-protected:
-    RequestData* d();
-    const RequestData* d() const;
 
 public:
     enum Attribute {
@@ -25,6 +20,8 @@ public:
         InstructionsAttribute,
         MaxOutputTokensAttribute,
         MaxToolCallsAttribute,
+        MetadataAttribute,
+        ModelAttribute,
         ParallelToolCallsAttribute,
         PreviousResponseIdAttribute,
         PromptAttribute,
@@ -33,9 +30,11 @@ public:
         SafetyIdentifierAttribute,
         ServiceTierAttribute,
         StoredAttribute,
+        StreamingAttribute,
+        StreamOptionsAttribute,
         TemperatureAttribute,
         TextAttribute,
-        ToolChoiseAttribute,
+        ToolChoiceAttribute,
         ToolsAttribute,
         TopLogprobsAttribute,
         TopPAttribute,
@@ -44,441 +43,408 @@ public:
     };
     Q_ENUM(Attribute)
 
-    enum Truncation { TruncationAuto, TruncationDisabled };
+    enum Model {
+        Model_Gpt5,
+        Model_Gpt5Nano,
+        Model_Gpt5Mini,
+        Model_Gpt5Pro,
+        Model_Gpt41,
+        Model_Gpt41Mini,
+        Model_Custom
+    };
+    Q_ENUM(Model)
+
+    enum ServiceTier {
+        ServiceTier_Auto,
+        ServiceTier_Default,
+        ServiceTier_Flex,
+        ServiceTier_Priority,
+        ServiceTier_Custom
+    };
+    Q_ENUM(ServiceTier)
+
+    enum Truncation { Truncation_Auto, Truncation_Disabled, Truncation_Custom };
+    Q_ENUM(Truncation)
 
     Request();
 
     Request& operator=(const ai::Request& rhs);
 
-    [[nodiscard]] bool background() const;
-    Request& setBackground(bool background);
-    Request& resetBackground();
-
-    [[nodiscard]] Conversation conversation() const;
-    Request& setConversation(const Conversation& conversation);
-    Request& resetConversation();
-
-    [[nodiscard]] IncludeList include() const;
-    Request& setInclude(const IncludeList& include);
-    Request& resetInclude();
-
-    [[nodiscard]] Input input() const;
-    Request& setInput(const Input& input);
-    Request& resetInput();
-
-    [[nodiscard]] QString instructions() const;
-    Request& setInstructions(const QString& instructions);
-    Request& resetInstructions();
-
-    [[nodiscard]] int maxOutputTokens() const;
-    Request& setMaxOutputTokens(int maxOutputTokens);
-    Request& resetMaxOutputTokens();
-
-    [[nodiscard]] int maxToolCalls() const;
-    Request& setMaxToolCalls(int maxToolCalls);
-    Request& resetMaxToolCalls();
-
-    [[nodiscard]] bool parallelToolCalls() const;
-    Request& setParallelToolCalls(bool parallelToolCalls);
-    Request& resetParallelToolCalls();
-
-    [[nodiscard]] QString previousResponseId() const;
-    Request& setPreviousResponseId(const QString& previousResponseId);
-    Request& resetPreviousResponseId();
-
-    [[nodiscard]] Prompt prompt() const;
-    Request& setPrompt(const Prompt& prompt);
-    Request& resetPrompt();
-
-    [[nodiscard]] QString promptCacheKey() const;
-    Request& setPromptCacheKey(const QString& promptCacheKey);
-    Request& resetPromptCacheKey();
-
-    [[nodiscard]] Reasoning reasoning() const;
-    Request& setReasoning(const Reasoning& reasoning);
-    Request& resetReasoning();
-
-    [[nodiscard]] QString safetyIdentifier() const;
-    Request& setSafetyIdentifier(const QString& safetyIdetifier);
-    Request& resetSafetyIdentifier();
-
-    [[nodiscard]] QString serviceTier() const;
-    Request& setServiceTier(const QString& serviceTier);
-    Request& resetServiceTier();
-
-    [[nodiscard]] bool isStored() const;
-    Request& setStored(bool store);
-    Request& resetStored();
-
-    [[nodiscard]] double temperature() const;
-    Request& setTemperature(double temperature);
-    Request& resetTemperature();
-
-    // [[nodiscard]] AiText text() const;
-    // Request& setText(const AiText& text);
-    // Request& resetText() {return  setText({}); }
-
-    // [[nodiscard]] AiToolChoice toolChoice() const;
-    // Request& setToolChoice(const AiToolChoice& toolChoice);
-    // Request& resetToolChoice() {return  setToolChoice({}); }
-
-    // [[nodiscard]] AiTools tools() const;
-    // Request& setTools(const AiTools& tools);
-    // Request& resetTools() { return setTools({}); }
-
-    [[nodiscard]] int topLogprobs() const;
-    Request& setTopLogprobs(int topLogprobs);
-    Request& resetTopLogprobs();
-
-    [[nodiscard]] double topP() const;
-    Request& setTopP(double topP);
-    Request& resetTopP();
-
-    [[nodiscard]] Truncation truncation() const;
-    Request& setTruncation(Truncation truncation);
-    Request& setTruncation(const QString& truncation);
-    Request& resetTruncation();
-
-protected:
-    Request(RequestData* data);
-
-    bool readJson(const QJsonObject& json, QStringList* errors = nullptr) override;
-    bool writeJson(QJsonObject& json, bool full = false) const override;
-
-    friend class Client;
-};
-
-class RequestData : public ai::RequestData
-{
-    bool mBackground = false;
-    Conversation mConversation;
-    IncludeList mInclude;
-    Input mInput;
-    QString mInstructions;
-    int mMaxOutputTokens = 0;
-    int mMaxToolCalls = 0;
-    bool mParallelToolCalls = true;
-    QString mPreviousResponseId;
-    Prompt mPrompt;
-    QString mPromptCacheKey;
-    Reasoning mReasoning;
-    QString mSafetyIdentifier;
-    QString mServiceTier;
-    bool mStored = true;
-    double mTemperature = 1.0;
-    int mTopLogprobs = 0;
-    double mTopP = 1.0;
-    Request::Truncation mTruncation = Request::Truncation::TruncationAuto;
-
-public:
-
-    RequestData* clone() const override { return new RequestData{*this}; }
-
     [[nodiscard]] bool background() const { return mBackground; }
-    bool setBackground(bool background,
-                       Request::ExplicitHandling explicitHandling = Request::SetExplicit)
+    bool setBackground(bool background)
     {
-        updateExplicit(Request::BackgroundAttribute, explicitHandling);
         if (mBackground == background)
             return false;
         mBackground = background;
         return true;
     }
-    void resetBackground(Request::ExplicitHandling explicitHandling = Request::ClearExplicit)
-    {
-        setBackground(false, explicitHandling);
-    }
+    bool resetBackground() { return setBackground(false); }
 
     [[nodiscard]] Conversation conversation() const { return mConversation; }
-    bool setConversation(const Conversation& conversation,
-                         Request::ExplicitHandling explicitHandling = Request::SetExplicit)
+    bool setConversation(const Conversation& conversation)
     {
-        updateExplicit(Request::ConversationAttribute, explicitHandling);
         if (mConversation == conversation)
             return false;
-        mConversation.setId(conversation.id());
+        mConversation = conversation;
         return true;
     }
-    void resetConversation(Request::ExplicitHandling explicitHandling = Request::ClearExplicit)
-    {
-        setConversation({}, explicitHandling);
-    }
+    bool resetConversation() { return setConversation({}); }
 
     [[nodiscard]] IncludeList include() const { return mInclude; }
-    bool setInclude(const IncludeList& include,
-                    Request::ExplicitHandling explicitHandling = Request::SetExplicit)
+    bool setInclude(const IncludeList& include)
     {
-        updateExplicit(Request::IncludeAttribute, explicitHandling);
         if (mInclude == include)
             return false;
         mInclude = include;
         return true;
     }
-    void resetInclude(Request::ExplicitHandling explicitHandling = Request::ClearExplicit)
-    {
-        setInclude({}, explicitHandling);
-    }
+    bool resetInclude() { return setInclude({}); }
 
     [[nodiscard]] Input input() const { return mInput; }
-    bool setInput(const Input& input,
-                  Request::ExplicitHandling explicitHandling = Request::SetExplicit)
+    bool setInput(const Input& input)
     {
-        updateExplicit(Request::InputAttribute, explicitHandling);
         if (mInput == input)
             return false;
         mInput = input;
         return true;
     }
-    void resetInput(Request::ExplicitHandling explicitHandling = Request::ClearExplicit)
-    {
-        setInput({}, explicitHandling);
-    }
+    bool resetInput() { return setInput({}); }
 
     [[nodiscard]] QString instructions() const { return mInstructions; }
-    bool setInstructions(const QString& instructions,
-                         Request::ExplicitHandling explicitHandling = Request::SetExplicit)
+    bool setInstructions(const QString& instructions)
     {
-        updateExplicit(Request::InstructionsAttribute, explicitHandling);
         if (mInstructions == instructions)
             return false;
         mInstructions = instructions;
         return true;
     }
-    void resetInstructions(Request::ExplicitHandling explicitHandling = Request::ClearExplicit)
-    {
-        setInstructions({}, explicitHandling);
-    }
+    bool resetInstructions() { return setInstructions({}); }
 
     [[nodiscard]] int maxOutputTokens() const { return mMaxOutputTokens; }
-    bool setMaxOutputTokens(int maxOutputTokens,
-                            Request::ExplicitHandling explicitHandling = Request::SetExplicit)
+    bool setMaxOutputTokens(int maxOutputTokens)
     {
-        updateExplicit(Request::MaxOutputTokensAttribute, explicitHandling);
+        maxOutputTokens = std::max(0, std::min(1024 * 1024, maxOutputTokens));
         if (mMaxOutputTokens == maxOutputTokens)
             return false;
         mMaxOutputTokens = maxOutputTokens;
         return true;
     }
-    void resetMaxOutputTokens(Request::ExplicitHandling explicitHandling = Request::ClearExplicit)
-    {
-        setMaxOutputTokens(0, explicitHandling);
-    }
+    bool resetMaxOutputTokens() { return setMaxOutputTokens(0); }
 
     [[nodiscard]] int maxToolCalls() const { return mMaxToolCalls; }
-    bool setMaxToolCalls(int maxToolCalls,
-                         Request::ExplicitHandling explicitHandling = Request::SetExplicit)
+    bool setMaxToolCalls(int maxToolCalls)
     {
-        updateExplicit(Request::MaxToolCallsAttribute, explicitHandling);
+        maxToolCalls = std::max(0, std::min(1024 * 1024, maxToolCalls));
         if (mMaxToolCalls == maxToolCalls)
             return false;
         mMaxToolCalls = maxToolCalls;
         return true;
     }
-    void resetMaxToolCalls(Request::ExplicitHandling explicitHandling = Request::ClearExplicit)
+    bool resetMaxToolCalls() { return setMaxToolCalls(0); }
+
+    [[nodiscard]] QVariantMap metadata() const { return mMetadata; }
+    bool setMetadata(const QVariantMap& metadata)
     {
-        setMaxToolCalls(0, explicitHandling);
+        if (mMetadata == metadata)
+            return false;
+        mMetadata = metadata;
+        return true;
     }
+    bool resetMetadata() { return setMetadata({}); }
+
+    [[nodiscard]] QVariant metadata(const QString& key) const { return mMetadata.value(key); }
+    bool putMetadata(const QString& key, const QVariant& value)
+    {
+        if (key.isEmpty())
+            return false;
+        mMetadata[key] = value;
+        return true;
+    }
+    bool putMetadata(const QVariantMap& map)
+    {
+        for (auto it = map.constBegin(); it != map.constEnd(); ++it)
+            if (!putMetadata(it.key(), it.value()))
+                return false;
+        return true;
+    }
+    QVariant takeMetadata(const QString& key) { return mMetadata.take(key); }
+
+    [[nodiscard]] Model model() const { return mModel; }
+    [[nodiscard]] QString modelAsString() const
+    {
+        return mModel != Model_Custom ? modelToString(mModel)
+                                      : mExtra.value(QStringLiteral("model")).toString();
+    }
+    bool setModel(const QString& model)
+    {
+        if (modelAsString() == model)
+            return false;
+        if (const auto m = stringToModel(model); m != Model_Custom)
+            return setModel(m);
+        extra().insert(QStringLiteral("model"), model);
+        return setModel(Model_Custom);
+    }
+    bool setModel(Model model)
+    {
+        if (mModel == model)
+            return false;
+        mModel = model;
+        if (mModel != Model_Custom)
+            extra().remove(QStringLiteral("model"));
+        return true;
+    }
+    bool resetModel() { return setModel(Model_Gpt41Mini); }
 
     [[nodiscard]] bool parallelToolCalls() const { return mParallelToolCalls; }
-    bool setParallelToolCalls(bool parallelToolCalls,
-                              Request::ExplicitHandling explicitHandling = Request::SetExplicit)
+    bool setParallelToolCalls(bool parallelToolCalls)
     {
-        updateExplicit(Request::ParallelToolCallsAttribute, explicitHandling);
         if (mParallelToolCalls == parallelToolCalls)
             return false;
         mParallelToolCalls = parallelToolCalls;
         return true;
     }
-    void resetParallelToolCalls(Request::ExplicitHandling explicitHandling = Request::ClearExplicit)
-    {
-        setParallelToolCalls(true, explicitHandling);
-    }
+    bool resetParallelToolCalls() { return setParallelToolCalls(true); }
 
     [[nodiscard]] QString previousResponseId() const { return mPreviousResponseId; }
-    bool setPreviousResponseId(const QString& previousResponseId,
-                               Request::ExplicitHandling explicitHandling = Request::SetExplicit)
+    bool setPreviousResponseId(const QString& previousResponseId)
     {
-        updateExplicit(Request::PreviousResponseIdAttribute, explicitHandling);
         if (mPreviousResponseId == previousResponseId)
             return false;
         mPreviousResponseId = previousResponseId;
         return true;
     }
-    void resetPreviousResponseId(Request::ExplicitHandling explicitHandling = Request::ClearExplicit)
-    {
-        setPreviousResponseId({}, explicitHandling);
-    }
+    bool resetPreviousResponseId() { return setPreviousResponseId({}); }
 
     [[nodiscard]] Prompt prompt() const { return mPrompt; }
-    bool setPrompt(const Prompt& prompt,
-                   Request::ExplicitHandling explicitHandling = Request::SetExplicit)
+    bool setPrompt(const Prompt& prompt)
     {
-        updateExplicit(Request::PromptAttribute, explicitHandling);
         if (mPrompt == prompt)
             return false;
         mPrompt = prompt;
         return true;
     }
-    void resetPrompt(Request::ExplicitHandling explicitHandling = Request::ClearExplicit)
-    {
-        setPrompt({}, explicitHandling);
-    }
+    bool resetPrompt() { return setPrompt({}); }
 
     [[nodiscard]] QString promptCacheKey() const { return mPromptCacheKey; }
-    bool setPromptCacheKey(const QString& promptCacheKey,
-                           Request::ExplicitHandling explicitHandling = Request::SetExplicit)
+    bool setPromptCacheKey(const QString& promptCacheKey)
     {
-        updateExplicit(Request::PromptCacheKeyAttribute, explicitHandling);
         if (mPromptCacheKey == promptCacheKey)
             return false;
         mPromptCacheKey = promptCacheKey;
         return true;
     }
-    void resetPromptCacheKey(Request::ExplicitHandling explicitHandling = Request::ClearExplicit)
-    {
-        setPromptCacheKey({}, explicitHandling);
-    }
+    bool resetPromptCacheKey() { return setPromptCacheKey({}); }
 
     [[nodiscard]] Reasoning reasoning() const { return mReasoning; }
-    bool setReasoning(const Reasoning& reasoning,
-                      Request::ExplicitHandling explicitHandling = Request::SetExplicit)
+    bool setReasoning(const Reasoning& reasoning)
     {
-        updateExplicit(Request::ReasoningAttribute, explicitHandling);
         if (mReasoning == reasoning)
             return false;
         mReasoning = reasoning;
         return true;
     }
-    void resetReasoning(Request::ExplicitHandling explicitHandling = Request::ClearExplicit)
-    {
-        setReasoning({}, explicitHandling);
-    }
+    bool resetReasoning() { return setReasoning({}); }
 
     [[nodiscard]] QString safetyIdentifier() const { return mSafetyIdentifier; }
-    bool setSafetyIdentifier(const QString& safetyIdentifier,
-                             Request::ExplicitHandling explicitHandling = Request::SetExplicit)
+    bool setSafetyIdentifier(const QString& safetyIdetifier)
     {
-        updateExplicit(Request::SafetyIdentifierAttribute, explicitHandling);
-        if (mSafetyIdentifier == safetyIdentifier)
+        if (mSafetyIdentifier == safetyIdetifier)
             return false;
-        mSafetyIdentifier = safetyIdentifier;
+        mSafetyIdentifier = safetyIdetifier;
         return true;
     }
-    void resetSafetyIdentifier(Request::ExplicitHandling explicitHandling = Request::ClearExplicit)
-    {
-        setSafetyIdentifier({}, explicitHandling);
-    }
+    bool resetSafetyIdentifier() { return setSafetyIdentifier({}); }
 
-    [[nodiscard]] QString serviceTier() const { return mServiceTier; }
-    bool setServiceTier(const QString& serviceTier,
-                        Request::ExplicitHandling explicitHandling = Request::SetExplicit)
+    [[nodiscard]] ServiceTier serviceTier() const { return mServiceTier; }
+    [[nodiscard]] QString serviceTierAsString() const
     {
-        updateExplicit(Request::ServiceTierAttribute, explicitHandling);
+        return mServiceTier != ServiceTier_Custom
+                   ? serviceTierToString(mServiceTier)
+                   : mExtra.value(QStringLiteral("service_tier")).toString();
+    }
+    bool setServiceTier(const QString& serviceTier)
+    {
+        if (serviceTierAsString() == serviceTier)
+            return false;
+        if (const auto t = stringToServiceTier(serviceTier); t != ServiceTier_Custom)
+            return setServiceTier(t);
+        extra().insert(QStringLiteral("service_tier"), serviceTier);
+        return setServiceTier(ServiceTier_Custom);
+    }
+    bool setServiceTier(ServiceTier serviceTier)
+    {
         if (mServiceTier == serviceTier)
             return false;
         mServiceTier = serviceTier;
+        if (mServiceTier != ServiceTier_Custom)
+            extra().remove(QStringLiteral("service_tier"));
         return true;
     }
-    void resetServiceTier(Request::ExplicitHandling explicitHandling = Request::ClearExplicit)
-    {
-        setServiceTier(QStringLiteral("auto"), explicitHandling);
-    }
+    bool resetServiceTier() { return setServiceTier(ServiceTier_Auto); }
 
-    [[nodiscard]] bool isStored() const { return mStored; }
-    bool setStored(bool store, Request::ExplicitHandling explicitHandling = Request::SetExplicit)
+    [[nodiscard]] bool isStored() const { return mStore; }
+    bool setStored(bool store)
     {
-        updateExplicit(Request::StoredAttribute, explicitHandling);
-        if (mStored == store)
+        if (mStore == store)
             return false;
-        mStored = store;
+        mStore = store;
         return true;
     }
-    void resetStored(Request::ExplicitHandling explicitHandling = Request::ClearExplicit)
+    bool resetStored() { return setStored(true); }
+
+    [[nodiscard]] bool isStreaming() const { return mStream; }
+    bool setStreaming(bool streaming)
     {
-        setStored(true, explicitHandling);
+        if (mStream == streaming)
+            return false;
+        mStream = streaming;
+        setRawHeader("Accept", mStream ? "text/event-stream" : "application/json");
+        setTransferTimeout(mStream ? 0 : 60000);
+        return true;
     }
+    bool resetStreaming() { return setStreaming(false); }
+
+    [[nodiscard]] StreamOptions streamOptions() const { return mStreamOptions; }
+    bool setStreamOptions(const StreamOptions& streamOptions)
+    {
+        if (mStreamOptions == streamOptions)
+            return false;
+        mStreamOptions = streamOptions;
+        return true;
+    }
+    bool resetStreamOptions() { return setStreamOptions({}); }
 
     [[nodiscard]] double temperature() const { return mTemperature; }
-    bool setTemperature(double temperature,
-                        Request::ExplicitHandling explicitHandling = Request::SetExplicit)
+    bool setTemperature(double temperature)
     {
-        updateExplicit(Request::TemperatureAttribute, explicitHandling);
+        temperature = std::max(0.0, std::min(2.0, temperature));
         if (mTemperature == temperature)
             return false;
         mTemperature = temperature;
         return true;
     }
-    void resetTemperature(Request::ExplicitHandling explicitHandling = Request::ClearExplicit)
-    {
-        setTemperature(1.0, explicitHandling);
-    }
+    bool resetTemperature() { return setTemperature(1.0); }
 
     // [[nodiscard]] AiText text() const;
-    // bool setText(const AiText& text,
-    // Request::ExplicitHandling explicitHandling = Request::SetExplicit);
-    // void resetText(Request::ExplicitHandling explicitHandling = Request::ClearExplicit) { setText({}); }
+    // bool setText(const AiText& text);
+    // bool resetText() {return  setText({}); }
 
     // [[nodiscard]] AiToolChoice toolChoice() const;
-    // bool setToolChoice(const AiToolChoice& toolChoice,
-    // Request::ExplicitHandling explicitHandling = Request::SetExplicit);
-    // void resetToolChoice(Request::ExplicitHandling explicitHandling = Request::ClearExplicit) { setToolChoice({}); }
+    // bool setToolChoice(const AiToolChoice& toolChoice);
+    // bool resetToolChoice() {return  setToolChoice({}); }
 
     // [[nodiscard]] AiTools tools() const;
-    // bool setTools(const AiTools& tools,
-    // Request::ExplicitHandling explicitHandling = Request::SetExplicit);
-    // void resetTools(Request::ExplicitHandling explicitHandling = Request::ClearExplicit) { setTools({}); }
+    // bool setTools(const AiTools& tools);
+    // bool resetTools() { return setTools({}); }
 
     [[nodiscard]] int topLogprobs() const { return mTopLogprobs; }
-    bool setTopLogprobs(int topLogprobs,
-                        Request::ExplicitHandling explicitHandling = Request::SetExplicit)
+    bool setTopLogprobs(int topLogprobs)
     {
-        updateExplicit(Request::TopLogprobsAttribute, explicitHandling);
+        topLogprobs = std::max(0, std::min(20, topLogprobs));
         if (mTopLogprobs == topLogprobs)
             return false;
         mTopLogprobs = topLogprobs;
         return true;
     }
-    void resetTopLogprobs(Request::ExplicitHandling explicitHandling = Request::ClearExplicit)
-    {
-        setTopLogprobs(0, explicitHandling);
-    }
+    bool resetTopLogprobs() { return setTopLogprobs(0); }
 
     [[nodiscard]] double topP() const { return mTopP; }
-    bool setTopP(double topP, Request::ExplicitHandling explicitHandling = Request::SetExplicit)
+    bool setTopP(double topP)
     {
-        updateExplicit(Request::TopPAttribute, explicitHandling);
+        topP = std::max(0.0, std::min(1.0, topP));
         if (mTopP == topP)
             return false;
         mTopP = topP;
         return true;
     }
-    void resetTopP(Request::ExplicitHandling explicitHandling = Request::ClearExplicit)
-    {
-        setTopP(1.0, explicitHandling);
-    }
+    bool resetTopP() { return setTopP(1.0); }
 
-    [[nodiscard]] Request::Truncation truncation() const { return mTruncation; }
-    bool setTruncation(Request::Truncation truncation,
-                       Request::ExplicitHandling explicitHandling = Request::SetExplicit)
+    [[nodiscard]] Truncation truncation() const { return mTruncation; }
+    [[nodiscard]] QString truncationAsString() const
     {
-        updateExplicit(Request::TruncationAttribute, explicitHandling);
+        return mTruncation != Truncation_Custom
+                   ? truncationToString(mTruncation)
+                   : mExtra.value(QStringLiteral("truncation")).toString();
+    }
+    bool setTruncation(const QString& truncation)
+    {
+        if (truncationAsString() == truncation)
+            return false;
+        if (const auto t = stringToTruncation(truncation); t != Truncation_Custom)
+            return setTruncation(t);
+        extra().insert(QStringLiteral("truncation"), truncation);
+        return setTruncation(Truncation_Custom);
+    }
+    bool setTruncation(Truncation truncation)
+    {
         if (mTruncation == truncation)
             return false;
         mTruncation = truncation;
+        if (mTruncation != Truncation_Custom)
+            extra().remove(QStringLiteral("truncation"));
         return true;
     }
-    bool setTruncation(const QString& truncation,
-                       Request::ExplicitHandling explicitHandling = Request::SetExplicit)
+    bool resetTruncation() { return setTruncation(Truncation_Disabled); }
+
+    [[nodiscard]] static Model stringToModel(const QString& value)
     {
-        return setTruncation(Request::TruncationAuto);
+        return Model(ModelKV.key(value, Model_Custom));
     }
-    void resetTruncation(Request::ExplicitHandling explicitHandling = Request::ClearExplicit)
+    [[nodiscard]] static QString modelToString(Model model) { return ModelKV.value(model); }
+
+    [[nodiscard]] static ServiceTier stringToServiceTier(const QString& value)
     {
-        setTruncation(Request::Truncation::TruncationDisabled, explicitHandling);
+        return ServiceTier(ServiceTierKV.key(value, ServiceTier_Custom));
+    }
+    [[nodiscard]] static QString serviceTierToString(ServiceTier serviceTier)
+    {
+        return ServiceTierKV.value(serviceTier);
     }
 
+    [[nodiscard]] static Truncation stringToTruncation(const QString& value)
+    {
+        return Truncation(TruncationKV.key(value, Truncation_Custom));
+    }
+    [[nodiscard]] static QString truncationToString(Truncation truncation)
+    {
+        return TruncationKV.value(truncation);
+    }
+
+protected:
     bool readJson(const QJsonObject& json, QStringList* errors = nullptr) override;
     bool writeJson(QJsonObject& json, bool full = false) const override;
+
+    static const QMap<int, QString> ModelKV;
+    static const QMap<int, QString> ServiceTierKV;
+    static const QMap<int, QString> TruncationKV;
+
+    friend class Client;
+
+    QVariantMap mMetadata;
+    QString mId;
+    QString mInstructions;
+    QString mPreviousResponseId;
+    QString mPromptCacheKey;
+    QString mSafetyIdentifier;
+    QByteArray mApiKey;
+    Conversation mConversation;
+    IncludeList mInclude;
+    Input mInput;
+    StreamOptions mStreamOptions;
+    Prompt mPrompt;
+    Reasoning mReasoning;
+    double mTemperature = 1.0;
+    double mTopP = 1.0;
+    int mMaxOutputTokens = 0;
+    int mMaxToolCalls = 0;
+    int mTopLogprobs = 0;
+    Model mModel = Model_Gpt41Mini;
+    ServiceTier mServiceTier = ServiceTier_Auto;
+    Truncation mTruncation = Truncation_Disabled;
+    bool mBackground = false;
+    bool mParallelToolCalls = true;
+    bool mStore = true;
+    bool mStream = false;
 };
 
 } // namespace ai::responses

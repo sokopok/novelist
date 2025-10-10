@@ -1,6 +1,6 @@
 #include "field.h"
 #include "element.h"
-#include "project.h"
+#include "nodetype.h"
 #include "validator.h"
 
 namespace novelist {
@@ -22,12 +22,26 @@ namespace novelist {
 //         return field;
 // }
 
+FieldType *Field::fieldType() const
+{
+    return static_cast<FieldType *>(nodeType());
+}
+
+void Field::setNodeType(FieldType *nodeType)
+{
+    Node::setNodeType(nodeType);
+}
+
 void Field::setElement(Element *element)
 {
     if (mElement == element)
         return;
+    if (mElement)
+        mElement->disconnect(this);
     mElement = element;
-    setParent(element);
+    setParent(mElement);
+    if (mElement)
+        ;
     emit elementChanged(QPrivateSignal{});
 }
 

@@ -1,14 +1,14 @@
 #ifndef AI_CONFIG_REASONING_H
 #define AI_CONFIG_REASONING_H
 
-#include "base.h"
+#include "common.h"
 
-namespace ai {
+namespace ai::config {
 
 class Reasoning
 {
     Q_GADGET
-    Q_PROPERTY(AiObjectType objectType READ objectType CONSTANT FINAL)
+    Q_PROPERTY(ai::config::Type objectType READ objectType CONSTANT FINAL)
     Q_PROPERTY(QJsonObject extra READ extra FINAL)
     Q_PROPERTY(bool empty READ isEmpty FINAL)
     Q_PROPERTY(bool valid READ isValid FINAL)
@@ -53,7 +53,7 @@ public:
         , x(extra)
     {}
 
-    [[nodiscard]] AiObjectType objectType() const { return AiObjectType::Reasoning; }
+    [[nodiscard]] ai::config::Type objectType() const { return ai::config::Type::Type_Reasoning; }
 
     [[nodiscard]] Effort effort() const { return e; }
     void setEffort(Effort effort) { e = effort; }
@@ -128,6 +128,6 @@ public:
     }
 };
 
-} // namespace ai
+} // namespace ai::config
 
 #endif // AI_CONFIG_REASONING_H

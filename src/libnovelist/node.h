@@ -7,7 +7,14 @@
 #include <QVariantMap>
 #include "../libai/config/error.h"
 #include "interfaces.h"
-#include "libnovelist/nodetype.h"
+
+namespace novelist {
+
+class NodeType;
+
+}
+
+Q_DECLARE_OPAQUE_POINTER(novelist::NodeType *)
 
 namespace novelist {
 

@@ -1,14 +1,14 @@
 #ifndef AI_CONFIG_REFUSAL_H
 #define AI_CONFIG_REFUSAL_H
 
-#include "base.h"
+#include "common.h"
 
-namespace ai {
+namespace ai::config {
 
 class Refusal
 {
     Q_GADGET
-    Q_PROPERTY(AiObjectType objectType READ objectType CONSTANT FINAL)
+    Q_PROPERTY(ai::config::Type objectType READ objectType CONSTANT FINAL)
     Q_PROPERTY(QString refusal READ refusal WRITE setRefusal FINAL)
     Q_PROPERTY(QJsonObject extra READ extra FINAL)
     Q_PROPERTY(bool empty READ isEmpty FINAL)
@@ -26,7 +26,7 @@ public:
         , e{extra}
     {}
 
-    [[nodiscard]] AiObjectType objectType() const { return AiObjectType::Refusal; }
+    [[nodiscard]] ai::config::Type objectType() const { return ai::config::Type::Type_Refusal; }
 
     [[nodiscard]] QJsonObject extra() const { return e; }
 
@@ -78,6 +78,6 @@ public:
     }
 };
 
-} // namespace ai
+} // namespace ai::config
 
 #endif // AI_CONFIG_REFUSAL_H

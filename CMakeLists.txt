@@ -14,6 +14,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(Qt6 REQUIRED COMPONENTS Core Gui Quick Network Sql LinguistTools)
 find_package(Qt6 REQUIRED COMPONENTS Core)
 find_package(Qt6 REQUIRED COMPONENTS Core)
+find_package(Qt6 REQUIRED COMPONENTS Core)
 
 qt_standard_project_setup(REQUIRES 6.8)
 
@@ -75,7 +76,7 @@ add_library(
   src/libai/responses/response.cpp
   src/libai/images/request.h
   src/libai/images/request.cpp
-  src/libai/config/base.h
+  src/libai/config/common.h
   src/libai/config/conversation.h
   src/libai/config/error.h
   src/libai/config/includelist.h
@@ -90,12 +91,19 @@ add_library(
   src/libai/config/streamoptions.h
   src/libai/config/stringlist.h
   src/libai/config.h
-  src/libai/config/prompt.h)
+  src/libai/config/prompt.h
+  src/libai/images/client.h src/libai/images/client.cpp
+  src/libai/images/response.cpp src/libai/images/response.h
+  src/libai/config/tools.h
+
+  src/libai/config/conversation.cpp
+  src/libai/config/empty.h)
 
 target_include_directories(libai PUBLIC src)
 
 target_link_libraries(libai PRIVATE Qt6::Core Qt6::Gui Qt6::Quick Qt6::Network
                                     Qt6::Sql)
+target_link_libraries(libai PRIVATE Qt6::Core)
 target_link_libraries(libai PRIVATE Qt6::Core)
 
 target_compile_definitions(libai PRIVATE LIBAI_LIBRARY)

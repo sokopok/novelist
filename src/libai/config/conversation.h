@@ -1,86 +1,85 @@
 #ifndef AI_CONFIG_CONVERSATION_H
 #define AI_CONFIG_CONVERSATION_H
 
-#include "base.h"
+#include "common.h"
 
-namespace ai {
+namespace ai::config {
+
+class ConversationData;
 
 class Conversation
 {
     Q_GADGET
-    Q_PROPERTY(AiObjectType objectType READ objectType CONSTANT FINAL)
+    Q_PROPERTY(Type objectType READ objectType CONSTANT FINAL)
     Q_PROPERTY(QString id READ id WRITE setId FINAL)
     Q_PROPERTY(QJsonObject extra READ extra FINAL)
     Q_PROPERTY(bool empty READ isEmpty FINAL)
     Q_PROPERTY(bool valid READ isValid FINAL)
 
-    QString i;
-    QJsonObject e;
-
 public:
-    Conversation(const QJsonObject& extra = {})
-        : e{extra}
-    {}
-    Conversation(const QString& id, const QJsonObject& extra = {})
-        : i{id}
-        , e{extra}
-    {}
+    Conversation(const QJsonObject& extra = {});
+    Conversation(const QString& id, const QJsonObject& extra = {});
+    Conversation(const Conversation&);
+    Conversation(Conversation&&);
+    Conversation& operator=(const Conversation&);
+    Conversation& operator=(Conversation&&);
+    ~Conversation();
 
-    [[nodiscard]] AiObjectType objectType() const { return AiObjectType::Conversation; }
-
-    [[nodiscard]] QJsonObject extra() const { return e; }
-
-    [[nodiscard]] QString id() const { return i; }
-    Conversation& setId(const QString& id)
+    [[nodiscard]] ai::config::Type objectType() const
     {
-        i = id;
-        return *this;
+        return ai::config::Type::Type_Conversation;
     }
+
+    [[nodiscard]] QJsonObject extra() const;
+    bool setExtra(const QJsonObject& extra);
+
+    [[nodiscard]] QString id() const;
+    bool setId(const QString& id);
 
     [[nodiscard]] bool operator==(const Conversation& that) const
     {
-        return i == that.i && e == that.e;
+        return id() == that.id() && extra() == that.extra();
     }
 
-    [[nodiscard]] bool isEmpty() const { return i.isEmpty() && e.isEmpty(); }
-    [[nodiscard]] bool isValid() const { return !i.isEmpty(); }
+    [[nodiscard]] bool isEmpty() const { return id().isEmpty(); }
+    [[nodiscard]] bool isValid() const { return !id().isEmpty(); }
 
-    QJsonObject toJson() const
+    QJsonObject toJson() const;
+
+    static Conversation fromJson(const QJsonObject& json, QStringList* errors = nullptr)
     {
-        QJsonObject json = e;
-        json[QStringLiteral("id")] = i;
-        json[QStringLiteral("type")] = QStringLiteral("conversation");
-        return json;
-    }
+        QJsonObject x = json;
 
-    static Conversation fromJson(const QJsonObject& json, bool* ok = nullptr)
-    {
-        if (ok)
-            *ok = true;
-
-        if (json.value(QStringLiteral("type")).toString() != QStringLiteral("conversation")) {
-            if (ok)
-                *ok = false;
-            return {json};
+        if (x.value(QStringLiteral("type")).toString() != QStringLiteral("conversation")) {
+            if (errors)
+                errors->append(QStringLiteral("not a converation"));
+            return {x};
         }
 
-        QJsonObject extra = json;
-        extra.remove(QStringLiteral("type"));
+        x.remove(QStringLiteral("type"));
 
         QString id;
 
-        if (const auto v = json.value(QStringLiteral("id")); v.isString())
-            id = v.toString();
+        if (x.contains(QStringLiteral("id"))) {
+            if (const auto v = x.value(QStringLiteral("id")); !v.isString()) {
+                if (errors)
+                    errors->append(QStringLiteral("id is not a string"));
+            } else if (id = v.toString(); id.isEmpty()) {
+                if (errors)
+                    errors->append(QStringLiteral("id is empty"));
+            } else {
+                id = v.toString();
+                x.remove(QStringLiteral("id"));
+            }
+        }
 
-        else if (ok)
-            *ok = false;
-
-        extra.remove(QStringLiteral("id"));
-
-        return {id, extra};
+        return {id, x};
     }
+
+private:
+    QSharedDataPointer<ConversationData> d;
 };
 
-} // namespace ai
+} // namespace ai::config
 
 #endif // AI_CONFIG_CONVERSATION_H

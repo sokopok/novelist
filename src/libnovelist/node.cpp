@@ -1,4 +1,5 @@
 #include "node.h"
+#include "nodetype.h"
 #include "project.h"
 #include "projectstore.h"
 
@@ -83,6 +84,10 @@ void Node::setNodeType(NodeType *nodeType)
     if (mNodeType == nodeType)
         return;
     mNodeType = nodeType;
+    mName = mNodeType ? mNodeType->name() : "";
+    mLabel = mNodeType ? mNodeType->label() : "";
+    mDescription = mNodeType ? mNodeType->description() : "";
+    mIcon = mNodeType ? mNodeType->icon() : "";
     emit nodeTypeChanged();
 }
 

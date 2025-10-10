@@ -42,6 +42,7 @@ signals:
 
 private:
     Element *mElement = nullptr;
+
     Q_PROPERTY(Element *element READ element WRITE setElement NOTIFY elementChanged FINAL)
     Q_PROPERTY(int rowCount READ rowCount NOTIFY rowCountChanged FINAL)
 };

@@ -3,7 +3,7 @@
 
 #include "stringlist.h"
 
-namespace ai {
+namespace ai::config {
 
 class IncludeList : public StringList
 {
@@ -30,7 +30,7 @@ public:
     }
     [[nodiscard]] static QString toString(Include include) { return includeKV.value(include); }
 
-    static StringList fromJson(const QJsonArray& json, bool* ok = nullptr)
+    static IncludeList fromJson(const QJsonArray& json, bool* ok = nullptr)
     {
         if (ok)
             *ok = true;
@@ -43,7 +43,7 @@ public:
         return list;
     }
 
-    [[nodiscard]] ai::AiObjectType objectType() const { return ai::AiObjectType::StringList; }
+    [[nodiscard]] ai::config::Type objectType() const { return ai::config::Type::Type_StringList; }
 
     [[nodiscard]] bool isValid() const { return !isEmpty(); }
 
@@ -92,6 +92,6 @@ private:
            {IncludeComputerCallOutputImageUrl, "computer_call_output.output.image_url"}};
 };
 
-} // namespace ai
+} // namespace ai::config
 
 #endif // AI_CONFIG_INCLUDELIST_H

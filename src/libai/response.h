@@ -33,10 +33,6 @@ public:
                && isStreaming() == that.isStreaming() && streamOptions() == that.streamOptions();
     }
 
-    /** id
-        string
-        Unique identifier for this Response.
-        **/
     [[nodiscard]] QString id() const { return mId; }
     bool setId(const QString& id)
     {
@@ -47,12 +43,6 @@ public:
     }
     void resetId() { setId({}); }
 
-    /** metadata
-        map
-        Optional
-        Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format, and querying for objects via API or the dashboard.
-        Keys are strings with a maximum length of 64 characters. Values are strings with a maximum length of 512 characters.
-    */
     [[nodiscard]] QVariantMap metadata() const { return mMetadata; }
     bool setMetadata(const QVariantMap& metadata)
     {
@@ -73,11 +63,6 @@ public:
     }
     QVariant takeMetadata(const QString& key) { return mMetadata.take(key); }
 
-    /** model
-        string
-        Optional
-        Model ID used to generate the response, like gpt-4o or o3. OpenAI offers a wide range of models with different capabilities, performance characteristics, and price points. Refer to the model guide to browse and compare available models.
-    */
     [[nodiscard]] QString model() const { return mModel; }
     bool setModel(const QString& model)
     {
@@ -88,12 +73,6 @@ public:
     }
     void resetModel() { setModel({}); }
 
-    /** stream
-        boolean
-        Optional
-        Defaults to false
-        If set to true, the model response data will be streamed to the client as it is generated using server-sent events. See the Streaming section below for more information.
-    */
     [[nodiscard]] bool isStreaming() const { return mStreaming; }
     bool setStreaming(bool streaming)
     {
@@ -104,12 +83,6 @@ public:
     }
     void resetStreaming() { setStreaming(false); }
 
-    /** stream_options
-        object
-        Optional
-        Defaults to null
-        Options for streaming responses. Only set this when you set stream: true.
-    */
     [[nodiscard]] StreamOptions streamOptions() const { return mStreamOptions; }
     bool setStreamOptions(const StreamOptions& streamOptions)
     {
@@ -136,20 +109,11 @@ class Response : public QObject
 {
     Q_OBJECT
 
-    Request mRequest;
-    Error mError;
-    QNetworkReply* mReply = nullptr;
-    Client* mClient = nullptr;
-    bool mSetParentToReply = true;
-    bool mDeleteReplyWhenFinished = true;
-
-protected:
-    ResponseData* d = nullptr;
-
 public:
-    Response(const Request& request, QNetworkReply* reply, Client* client);
+    enum Attribute { IdAttribute, NumAttributes };
+    Q_ENUM(Attribute)
 
-    ~Response() override;
+    virtual ~Response();
 
     [[nodiscard]] Error error() const { return mError; }
 
@@ -164,65 +128,27 @@ public:
 
     [[nodiscard]] Client* client() const { return mClient; }
     [[nodiscard]] QNetworkReply* reply() const { return mReply; }
-    [[nodiscard]] Request request() const { return mRequest; }
+    [[nodiscard]] const Request& request() const { return mRequest; }
 
-    [[nodiscard]] QString id() const { return d->id(); }
-    Response& setId(const QString& id)
+    [[nodiscard]] QString id() const { return mId; }
+    bool setId(const QString& id)
     {
-        if (d->setId(id))
-            emit idChanged(QPrivateSignal{});
-        return *this;
+        if (mId == id)
+            return false;
+        mId = id;
+        emit idChanged(QPrivateSignal{});
+        return true;
     }
-    void resetId() { setId({}); }
+    bool resetId() { return setId({}); }
 
-    [[nodiscard]] QVariantMap metadata() const { return d->metadata(); }
-    Response& setMetadata(const QVariantMap& metadata)
-    {
-        if (d->setMetadata(metadata))
-            emit metadataChanged(QPrivateSignal{});
-        return *this;
-    }
-    void resetMetadata() { d->resetMetadata(); }
+    [[nodiscard]] QJsonObject extra() const { return mExtra; }
 
-    bool putMetadata(const QString& key, const QVariant& value)
-    {
-        return d->putMetadata(key, value);
-    }
-    QVariant takeMetadata(const QString& key) { return d->takeMetadata(key); }
-
-    [[nodiscard]] QString model() const { return d->model(); }
-    Response& setModel(const QString& model)
-    {
-        if (d->setModel(model))
-            emit modelChanged(QPrivateSignal{});
-        return *this;
-    }
-    void resetModel() { d->resetModel(); }
-
-    [[nodiscard]] bool isStreaming() const { return d->isStreaming(); }
-    Response& setStreaming(bool streaming)
-    {
-        if (d->setStreaming(streaming))
-            emit streamingChanged(QPrivateSignal{});
-        return *this;
-    }
-    void resetStreaming() { d->resetStreaming(); }
-
-    [[nodiscard]] StreamOptions streamOptions() const { return d->streamOptions(); }
-    Response& setStreamOptions(const StreamOptions& streamOptions)
-    {
-        if (d->setStreamOptions(streamOptions))
-            emit streamOptionsChanged(QPrivateSignal{});
-        return *this;
-    }
-    void resetStreamOptions() { d->resetStreamOptions(); }
-
-    virtual QJsonObject toJson() const
+    QJsonObject toJson() const
     {
         QJsonObject json;
         return writeJson(json) ? json : QJsonObject{};
     }
-    QString formattedJson() const { return QJsonDocument{toJson()}.toJson(); }
+    QByteArray prettyJson() const { return QJsonDocument{toJson()}.toJson(); }
 
 signals:
     void requestSent(QPrivateSignal);
@@ -231,17 +157,11 @@ signals:
     void errorOccurred(const ai::Error& error, QPrivateSignal);
 
     void idChanged(QPrivateSignal);
-    void metadataChanged(QPrivateSignal);
-    void modelChanged(QPrivateSignal);
-    void streamingChanged(QPrivateSignal);
-    void streamOptionsChanged(QPrivateSignal);
-    void apiUrlChanged(QPrivateSignal);
 
 protected:
-    Response(ResponseData* data,
-             const Request& request,
-             QNetworkReply* reply,
-             Client* client = nullptr);
+    Response(const Request& request, QNetworkReply* reply, Client* client);
+
+    [[nodiscard]] QJsonObject& extra() { return mExtra; }
 
     void setError(const Error& error);
 
@@ -255,6 +175,15 @@ protected:
     void handleFinished();
     void handleErrorOccurred(QNetworkReply::NetworkError error);
     void handleSslErrors(const QList<QSslError>& errors);
+
+    QJsonObject mExtra;
+    QString mId;
+    Request mRequest;
+    Error mError;
+    QNetworkReply* mReply = nullptr;
+    Client* mClient = nullptr;
+
+    friend class Client;
 };
 
 } // namespace ai

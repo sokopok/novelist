@@ -1,7 +1,7 @@
 #ifndef AI_CONFIG_H
 #define AI_CONFIG_H
 
-#include "config/base.h"
+#include "config/common.h"
 #include "config/conversation.h"
 #include "config/error.h"
 #include "config/includelist.h"

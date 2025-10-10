@@ -6,8 +6,9 @@ namespace novelist {
 
 FieldListModel::FieldListModel(QObject *parent)
     : QAbstractListModel{parent}
-    , mElement{qobject_cast<Element *>(parent)}
 {
+    setElement(qobject_cast<Element *>(parent));
+
     connect(this, &FieldListModel::rowsInserted, this, [this]() { emit rowCountChanged(); });
     connect(this, &FieldListModel::rowsRemoved, this, [this]() { emit rowCountChanged(); });
 }
@@ -19,16 +20,16 @@ int FieldListModel::rowCount(const QModelIndex &parent) const
 
 QVariant FieldListModel::data(const QModelIndex &index, int role) const
 {
-    if (!index.isValid())
+    if (!index.isValid() || !mElement)
         return {};
 
-    Field *field = mElement->field(index.row());
-
-    switch (role) {
-    case LabelRole:
-        return field->label();
-    case ValueRole:
-        return field->value();
+    if (Field *field = mElement->field(index.row())) {
+        switch (role) {
+        case LabelRole:
+            return field->label();
+        case ValueRole:
+            return field->value();
+        }
     }
 
     return {};
@@ -36,23 +37,23 @@ QVariant FieldListModel::data(const QModelIndex &index, int role) const
 
 bool FieldListModel::setData(const QModelIndex &index, const QVariant &value, int role)
 {
-    if (!index.isValid())
-        return {};
+    if (!index.isValid() || !mElement)
+        return false;
 
-    Field *field = mElement->field(index.row());
-
-    switch (role) {
-    case LabelRole:
-        if (field->label() != value.toString()) {
-            field->setLabel(value.toString());
-            emit dataChanged(index, index, {role});
-            return true;
-        }
-    case ValueRole:
-        if (field->value() != value.toString()) {
-            field->setValue(value.toString());
-            emit dataChanged(index, index, {role});
-            return true;
+    if (Field *field = mElement->field(index.row())) {
+        switch (role) {
+        case LabelRole:
+            if (field->label() != value.toString()) {
+                field->setLabel(value.toString());
+                emit dataChanged(index, index, {role});
+                return true;
+            }
+        case ValueRole:
+            if (field->value() != value.toString()) {
+                field->setValue(value.toString());
+                emit dataChanged(index, index, {role});
+                return true;
+            }
         }
     }
 
@@ -71,9 +72,16 @@ void FieldListModel::setElement(Element *element)
 {
     if (mElement == element)
         return;
+    if (mElement)
+        mElement->disconnect(this);
     beginResetModel();
     mElement = element;
     endResetModel();
+    if (mElement)
+        connect(mElement, &Element::fieldsChanged, this, [this]() {
+            beginResetModel();
+            endResetModel();
+        });
     emit elementChanged();
 }
 

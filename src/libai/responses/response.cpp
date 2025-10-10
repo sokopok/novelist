@@ -3,18 +3,18 @@
 
 namespace ai::responses {
 
-bool ResponseData::readJson(const QJsonObject &json, QStringList *errors)
+bool Response::readJson(const QJsonObject &json, QStringList *errors)
 {
     if (json.value(QStringLiteral("object")).toString() != QStringLiteral("response"))
         return false;
 
-    if (!ai::ResponseData::readJson(json, errors))
+    if (!ai::Response::readJson(json, errors))
         return false;
 
-    if (mExtra.contains(QStringLiteral("background"))) {
-        if (const auto v = mExtra.value(QStringLiteral("background")); v.isBool()) {
+    if (extra().contains(QStringLiteral("background"))) {
+        if (const auto v = extra().value(QStringLiteral("background")); v.isBool()) {
             setBackground(v.toBool());
-            mExtra.remove(QStringLiteral("background"));
+            extra().remove(QStringLiteral("background"));
         } else if (errors) {
             errors->append(QStringLiteral("background is not a boolean"));
             return false;
@@ -22,13 +22,13 @@ bool ResponseData::readJson(const QJsonObject &json, QStringList *errors)
             return false;
     }
 
-    if (mExtra.contains(QStringLiteral("conversation"))) {
-        if (const auto v = mExtra.value(QStringLiteral("conversation")); v.isObject()) {
+    if (extra().contains(QStringLiteral("conversation"))) {
+        if (const auto v = extra().value(QStringLiteral("conversation")); v.isObject()) {
             setConversation(Conversation::fromJson(v.toObject()));
-            mExtra.remove(QStringLiteral("conversation"));
+            extra().remove(QStringLiteral("conversation"));
         } else if (const auto v = json.value("conversation"); v.isString()) {
             setConversation({v.toString()});
-            mExtra.remove(QStringLiteral("conversation"));
+            extra().remove(QStringLiteral("conversation"));
         } else if (errors) {
             errors->append(QStringLiteral("conversation is not a string or object"));
             return false;
@@ -36,24 +36,24 @@ bool ResponseData::readJson(const QJsonObject &json, QStringList *errors)
             return false;
     }
 
-    if (mExtra.contains(QStringLiteral("input"))) {
-        if (const auto v = mExtra.value(QStringLiteral("input")); v.isArray()) {
-            setInput(Input::fromJson(v.toArray()));
-            mExtra.remove(QStringLiteral("input"));
-        } else if (const auto v = json.value("input"); v.isString()) {
-            setInput({v.toString()});
-            mExtra.remove(QStringLiteral("input"));
-        } else if (errors) {
-            errors->append(QStringLiteral("input is not a string or array"));
-            return false;
-        } else
-            return false;
-    }
+    // if (extra().contains(QStringLiteral("input"))) {
+    //     if (const auto v = extra().value(QStringLiteral("input")); v.isArray()) {
+    //         setInput(Input::fromJson(v.toArray()));
+    //         extra().remove(QStringLiteral("input"));
+    //     } else if (const auto v = json.value("input"); v.isString()) {
+    //         setInput({v.toString()});
+    //         extra().remove(QStringLiteral("input"));
+    //     } else if (errors) {
+    //         errors->append(QStringLiteral("input is not a string or array"));
+    //         return false;
+    //     } else
+    //         return false;
+    // }
 
-    if (mExtra.contains(QStringLiteral("instructions"))) {
-        if (const auto v = mExtra.value(QStringLiteral("instructions")); v.isString()) {
+    if (extra().contains(QStringLiteral("instructions"))) {
+        if (const auto v = extra().value(QStringLiteral("instructions")); v.isString()) {
             setInstructions({v.toString()});
-            mExtra.remove(QStringLiteral("instructions"));
+            extra().remove(QStringLiteral("instructions"));
         } else if (errors) {
             errors->append(QStringLiteral("instructions is not a string"));
             return false;
@@ -61,10 +61,10 @@ bool ResponseData::readJson(const QJsonObject &json, QStringList *errors)
             return false;
     }
 
-    if (mExtra.contains(QStringLiteral("max_output_tokens"))) {
-        if (const auto v = mExtra.value(QStringLiteral("max_output_tokens")); v.isDouble()) {
+    if (extra().contains(QStringLiteral("max_output_tokens"))) {
+        if (const auto v = extra().value(QStringLiteral("max_output_tokens")); v.isDouble()) {
             setMaxOutputTokens(v.toInt());
-            mExtra.remove(QStringLiteral("max_output_tokens"));
+            extra().remove(QStringLiteral("max_output_tokens"));
         } else if (errors) {
             errors->append(QStringLiteral("max_output_tokens is not an integer"));
             return false;
@@ -72,10 +72,10 @@ bool ResponseData::readJson(const QJsonObject &json, QStringList *errors)
             return false;
     }
 
-    if (mExtra.contains(QStringLiteral("max_tool_calls"))) {
-        if (const auto v = mExtra.value(QStringLiteral("max_tool_calls")); v.isDouble()) {
+    if (extra().contains(QStringLiteral("max_tool_calls"))) {
+        if (const auto v = extra().value(QStringLiteral("max_tool_calls")); v.isDouble()) {
             setMaxToolCalls(v.toInt());
-            mExtra.remove(QStringLiteral("max_tool_calls"));
+            extra().remove(QStringLiteral("max_tool_calls"));
         } else if (errors) {
             errors->append(QStringLiteral("max_tool_calls is not an integer"));
             return false;
@@ -83,10 +83,10 @@ bool ResponseData::readJson(const QJsonObject &json, QStringList *errors)
             return false;
     }
 
-    if (mExtra.contains(QStringLiteral("output"))) {
-        if (const auto v = mExtra.value(QStringLiteral("output")); v.isArray()) {
+    if (extra().contains(QStringLiteral("output"))) {
+        if (const auto v = extra().value(QStringLiteral("output")); v.isArray()) {
             setOutput(Output::fromJson(v.toArray()));
-            mExtra.remove(QStringLiteral("output"));
+            extra().remove(QStringLiteral("output"));
         } else if (errors) {
             errors->append(QStringLiteral("output is not a an array"));
             return false;
@@ -94,10 +94,10 @@ bool ResponseData::readJson(const QJsonObject &json, QStringList *errors)
             return false;
     }
 
-    if (mExtra.contains(QStringLiteral("parallel_tool_calls"))) {
-        if (const auto v = mExtra.value(QStringLiteral("parallel_tool_calls")); v.isBool()) {
+    if (extra().contains(QStringLiteral("parallel_tool_calls"))) {
+        if (const auto v = extra().value(QStringLiteral("parallel_tool_calls")); v.isBool()) {
             setParallelToolCalls(v.toBool());
-            mExtra.remove(QStringLiteral("parallel_tool_calls"));
+            extra().remove(QStringLiteral("parallel_tool_calls"));
         } else if (errors) {
             errors->append(QStringLiteral("max_tool_calls is not a boolean"));
             return false;
@@ -105,10 +105,10 @@ bool ResponseData::readJson(const QJsonObject &json, QStringList *errors)
             return false;
     }
 
-    if (mExtra.contains(QStringLiteral("previous_response_id"))) {
-        if (const auto v = mExtra.value(QStringLiteral("previous_response_id")); v.isString()) {
+    if (extra().contains(QStringLiteral("previous_response_id"))) {
+        if (const auto v = extra().value(QStringLiteral("previous_response_id")); v.isString()) {
             setPreviousResponseId(v.toString());
-            mExtra.remove(QStringLiteral("previous_response_id"));
+            extra().remove(QStringLiteral("previous_response_id"));
         } else if (errors) {
             errors->append(QStringLiteral("previous_response_id is not a string"));
             return false;
@@ -116,10 +116,10 @@ bool ResponseData::readJson(const QJsonObject &json, QStringList *errors)
             return false;
     }
 
-    if (mExtra.contains(QStringLiteral("prompt_cache_key"))) {
-        if (const auto v = mExtra.value(QStringLiteral("prompt_cache_key")); v.isString()) {
+    if (extra().contains(QStringLiteral("prompt_cache_key"))) {
+        if (const auto v = extra().value(QStringLiteral("prompt_cache_key")); v.isString()) {
             setPromptCacheKey(v.toString());
-            mExtra.remove(QStringLiteral("prompt_cache_key"));
+            extra().remove(QStringLiteral("prompt_cache_key"));
         } else if (errors) {
             errors->append(QStringLiteral("prompt_cache_key is not a string"));
             return false;
@@ -127,10 +127,10 @@ bool ResponseData::readJson(const QJsonObject &json, QStringList *errors)
             return false;
     }
 
-    if (mExtra.contains(QStringLiteral("safety_identifier"))) {
-        if (const auto v = mExtra.value(QStringLiteral("safety_identifier")); v.isString()) {
-            setSafetyIdetifier(v.toString());
-            mExtra.remove(QStringLiteral("safety_identifier"));
+    if (extra().contains(QStringLiteral("safety_identifier"))) {
+        if (const auto v = extra().value(QStringLiteral("safety_identifier")); v.isString()) {
+            setSafetyIdentifier(v.toString());
+            extra().remove(QStringLiteral("safety_identifier"));
         } else if (errors) {
             errors->append(QStringLiteral("safety_identifier is not a string"));
             return false;
@@ -138,10 +138,10 @@ bool ResponseData::readJson(const QJsonObject &json, QStringList *errors)
             return false;
     }
 
-    if (mExtra.contains(QStringLiteral("service_tier"))) {
-        if (const auto v = mExtra.value(QStringLiteral("service_tier")); v.isString()) {
+    if (extra().contains(QStringLiteral("service_tier"))) {
+        if (const auto v = extra().value(QStringLiteral("service_tier")); v.isString()) {
             setServiceTier(v.toString());
-            mExtra.remove(QStringLiteral("service_tier"));
+            extra().remove(QStringLiteral("service_tier"));
         } else if (errors) {
             errors->append(QStringLiteral("service_tier is not a string"));
             return false;
@@ -149,21 +149,21 @@ bool ResponseData::readJson(const QJsonObject &json, QStringList *errors)
             return false;
     }
 
-    if (mExtra.contains(QStringLiteral("stored"))) {
-        if (const auto v = mExtra.value(QStringLiteral("stored")); v.isBool()) {
+    if (extra().contains(QStringLiteral("store"))) {
+        if (const auto v = extra().value(QStringLiteral("store")); v.isBool()) {
             setStored(v.toBool());
-            mExtra.remove(QStringLiteral("stored"));
+            extra().remove(QStringLiteral("store"));
         } else if (errors) {
-            errors->append(QStringLiteral("stored is not a boolean"));
+            errors->append(QStringLiteral("store is not a boolean"));
             return false;
         } else
             return false;
     }
 
-    if (mExtra.contains(QStringLiteral("temperature"))) {
-        if (const auto v = mExtra.value(QStringLiteral("temperature")); v.isDouble()) {
+    if (extra().contains(QStringLiteral("temperature"))) {
+        if (const auto v = extra().value(QStringLiteral("temperature")); v.isDouble()) {
             setTemperature(v.toInt());
-            mExtra.remove(QStringLiteral("temperature"));
+            extra().remove(QStringLiteral("temperature"));
         } else if (errors) {
             errors->append(QStringLiteral("temperature is not a double"));
             return false;
@@ -171,10 +171,10 @@ bool ResponseData::readJson(const QJsonObject &json, QStringList *errors)
             return false;
     }
 
-    if (mExtra.contains(QStringLiteral("top_logprobs"))) {
-        if (const auto v = mExtra.value(QStringLiteral("top_logprobs")); v.isDouble()) {
+    if (extra().contains(QStringLiteral("top_logprobs"))) {
+        if (const auto v = extra().value(QStringLiteral("top_logprobs")); v.isDouble()) {
             setTopLogprobs(v.toInt());
-            mExtra.remove(QStringLiteral("top_logprobs"));
+            extra().remove(QStringLiteral("top_logprobs"));
         } else if (errors) {
             errors->append(QStringLiteral("top_logprobs is not an integer"));
             return false;
@@ -182,10 +182,10 @@ bool ResponseData::readJson(const QJsonObject &json, QStringList *errors)
             return false;
     }
 
-    if (mExtra.contains(QStringLiteral("top_p"))) {
-        if (const auto v = mExtra.value(QStringLiteral("top_p")); v.isDouble()) {
+    if (extra().contains(QStringLiteral("top_p"))) {
+        if (const auto v = extra().value(QStringLiteral("top_p")); v.isDouble()) {
             setTopP(v.toDouble());
-            mExtra.remove(QStringLiteral("top_p"));
+            extra().remove(QStringLiteral("top_p"));
         } else if (errors) {
             errors->append(QStringLiteral("top_p is not a double"));
             return false;
@@ -193,15 +193,12 @@ bool ResponseData::readJson(const QJsonObject &json, QStringList *errors)
             return false;
     }
 
-    if (mExtra.contains(QStringLiteral("truncation"))) {
-        if (const auto v = mExtra.value(QStringLiteral("truncation")); v.isDouble()) {
-            setTruncation(toTruncation(v.toInt()));
-            mExtra.remove(QStringLiteral("truncation"));
-        } else if (v.isString()) {
+    if (extra().contains(QStringLiteral("truncation"))) {
+        if (const auto v = extra().value(QStringLiteral("truncation")); v.isString()) {
             setTruncation(v.toString());
-            mExtra.remove(QStringLiteral("truncation"));
+            extra().remove(QStringLiteral("truncation"));
         } else if (errors) {
-            errors->append(QStringLiteral("truncation is not a string or integer"));
+            errors->append(QStringLiteral("truncation is not a string"));
             return false;
         } else
             return false;
@@ -210,9 +207,9 @@ bool ResponseData::readJson(const QJsonObject &json, QStringList *errors)
     return true;
 }
 
-bool ResponseData::writeJson(QJsonObject &json, bool full) const
+bool Response::writeJson(QJsonObject &json, bool full) const
 {
-    if (!ai::ResponseData::writeJson(json, full))
+    if (!ai::Response::writeJson(json, full))
         return false;
 
     if (const auto v = background(); full || v)
@@ -221,8 +218,8 @@ bool ResponseData::writeJson(QJsonObject &json, bool full) const
     if (const auto v = conversation(); full || !v.isEmpty())
         json[QStringLiteral("conversation")] = v.toJson();
 
-    if (const auto v = input(); full || !v.isEmpty())
-        json[QStringLiteral("input")] = v.toJson();
+    // if (const auto v = input(); full || !v.isEmpty())
+    //     json[QStringLiteral("input")] = v.toJson();
 
     if (const auto v = instructions(); full || !v.isEmpty())
         json[QStringLiteral("instructions")] = v;
@@ -248,15 +245,15 @@ bool ResponseData::writeJson(QJsonObject &json, bool full) const
     if (const auto v = safetyIdentifier(); full || !v.isEmpty())
         json[QStringLiteral("safety_identifier")] = v;
 
-    if (const auto v = serviceTier(); full || !v.isEmpty())
-        json[QStringLiteral("service_tier")] = v;
+    if (const auto v = serviceTier(); full || v != Request::ServiceTier_Auto)
+        json[QStringLiteral("service_tier")] = serviceTierAsString();
 
-    json[QStringLiteral("stored")] = isStored();
+    json[QStringLiteral("store")] = isStored();
 
     json[QStringLiteral("temperature")] = temperature();
     json[QStringLiteral("top_logprobs")] = topLogprobs();
     json[QStringLiteral("top_p")] = topP();
-    json[QStringLiteral("truncation")] = toString(truncation());
+    json[QStringLiteral("truncation")] = truncationAsString();
 
     if (const auto v = safetyIdentifier(); full || !v.isEmpty())
         json[QStringLiteral("safety_identifier")] = v;
@@ -270,12 +267,21 @@ bool ResponseData::writeJson(QJsonObject &json, bool full) const
     return true;
 }
 
-Response::Response(const Request &request, QNetworkReply *reply, Client *client)
-    : Response(new ResponseData, request, reply, client)
-{}
+const QMap<int, QString> Response::StatusKV{{Status_Cancelled, QStringLiteral("cancelled")},
+                                            {Status_Completed, QStringLiteral("completed")},
+                                            {Status_Failed, QStringLiteral("failed")},
+                                            {Status_InProgress, QStringLiteral("in_progress")},
+                                            {Status_Incomplete, QStringLiteral("incomplete")},
+                                            {Status_Queued, QStringLiteral("queued")}};
 
-Response::Response(ResponseData *data, const Request &request, QNetworkReply *reply, Client *client)
-    : ai::Response{data ? data : new ResponseData, request, reply, client}
+Client *Response::client() const
+{
+    return qobject_cast<Client *>(ai::Response::client());
+}
+
+Response::Response(const Request &request, QNetworkReply *reply, Client *client)
+    : ai::Response(request, reply, client)
+    , mRequest{request}
 {}
 
 // bool Response::readJson(const QJsonObject &json)

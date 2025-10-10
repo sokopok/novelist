@@ -1,10 +1,11 @@
 #ifndef AI_CONFIG_INPUTITEM_H
 #define AI_CONFIG_INPUTITEM_H
 
+#include "empty.h"
 #include "itemreference.h"
 #include "message.h"
 
-namespace ai {
+namespace ai::config {
 
 class InputItem
 {
@@ -100,7 +101,7 @@ public:
         : QList<InputItem>{items}
     {}
 
-    [[nodiscard]] ai::AiObjectType objectType() const { return ai::AiObjectType::InputItemList; }
+    [[nodiscard]] ai::config::Type objectType() const { return ai::config::Type::Type_InputItemList; }
 
     [[nodiscard]] bool isValid() const { return !isEmpty(); }
 
@@ -126,6 +127,6 @@ public:
     }
 };
 
-} // namespace ai
+} // namespace ai::config
 
 #endif // AI_CONFIG_INPUTITEM_H

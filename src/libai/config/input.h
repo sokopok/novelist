@@ -1,10 +1,10 @@
 #ifndef AI_CONFIG_INPUT_H
 #define AI_CONFIG_INPUT_H
 
-#include "../json.h"
+#include "empty.h"
 #include "inputitem.h"
 
-namespace ai {
+namespace ai::config {
 
 class Input
 {
@@ -158,6 +158,6 @@ public:
     // }
 };
 
-} // namespace ai
+} // namespace ai::config
 
 #endif // AI_CONFIG_INPUT_H

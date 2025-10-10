@@ -1,14 +1,14 @@
 #ifndef AI_CONFIG_PROMPT_H
 #define AI_CONFIG_PROMPT_H
 
-#include "base.h"
+#include "common.h"
 
-namespace ai {
+namespace ai::config {
 
 class Prompt
 {
     Q_GADGET
-    Q_PROPERTY(AiObjectType objectType READ objectType CONSTANT FINAL)
+    Q_PROPERTY(ai::config::Type objectType READ objectType CONSTANT FINAL)
     Q_PROPERTY(QJsonObject extra READ extra FINAL)
     Q_PROPERTY(bool empty READ isEmpty FINAL)
     Q_PROPERTY(bool valid READ isValid FINAL)
@@ -37,7 +37,7 @@ public:
         , e{extra}
     {}
 
-    [[nodiscard]] AiObjectType objectType() const { return AiObjectType::Prompt; }
+    [[nodiscard]] ai::config::Type objectType() const { return ai::config::Type::Type_Prompt; }
 
     [[nodiscard]] QJsonObject extra() const { return e; }
 
@@ -132,6 +132,6 @@ public:
     }
 };
 
-} // namespace ai
+} // namespace ai::config
 
 #endif // AI_CONFIG_PROMPT_H

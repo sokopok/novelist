@@ -7,6 +7,14 @@
 
 namespace novelist {
 
+class FieldType;
+
+}
+
+Q_DECLARE_OPAQUE_POINTER(novelist::FieldType *)
+
+namespace novelist {
+
 class Validator;
 
 class Field : public Node
@@ -23,6 +31,9 @@ public:
         , mType{type}
         , mTypes{{type}}
     {}
+
+    [[nodiscard]] FieldType *fieldType() const;
+    void setNodeType(FieldType *nodeType);
 
     [[nodiscard]] Element *element() const { return mElement; }
     void setElement(Element *element);
@@ -65,7 +76,7 @@ public:
 
     [[nodiscard]] QVariant value() const { return mValue; }
     void setValue(const QVariant &value) { setValue(value, SetExplicit); }
-    void resetValue() { resetValue(SetExplicit); }
+    void resetValue() { resetValue(UnsetExplicit); }
 
     virtual void setValue(const QVariant &value, ExplicitHandling e);
     virtual void resetValue(ExplicitHandling e) { setValue(defaultValue(), e); }
@@ -208,9 +219,8 @@ private:
     QVariant mDefaultValue;
     QString mType;
     QStringList mTypes;
-    int mVersion = 0;
-    QDateTime mLastModified;
-    QString mAuthor;
+    // QDateTime mLastModified;
+    // QString mAuthor;
     QMap<QString, Validator *> mValidators;
 
     Q_PROPERTY(Element *element READ element WRITE setElement NOTIFY elementChanged FINAL)

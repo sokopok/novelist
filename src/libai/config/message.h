@@ -1,14 +1,14 @@
 #ifndef AI_CONFIG_MESSAGE_H
 #define AI_CONFIG_MESSAGE_H
 
-#include "base.h"
+#include "empty.h"
 
-namespace ai {
+namespace ai::config {
 
 class InputText
 {
     Q_GADGET
-    Q_PROPERTY(AiObjectType objectType READ objectType CONSTANT FINAL)
+    Q_PROPERTY(ai::config::Type objectType READ objectType CONSTANT FINAL)
     Q_PROPERTY(QString text READ text WRITE setText FINAL)
     Q_PROPERTY(QJsonObject extra READ extra FINAL)
     Q_PROPERTY(bool empty READ isEmpty FINAL)
@@ -26,7 +26,10 @@ public:
         , e{extra}
     {}
 
-    [[nodiscard]] AiObjectType objectType() const { return AiObjectType::InputText; }
+    [[nodiscard]] ai::config::Type objectType() const
+    {
+        return ai::config::Type::Type_Type_InputText;
+    }
 
     [[nodiscard]] QJsonObject extra() const { return e; }
 
@@ -93,7 +96,7 @@ public:
 class InputImage
 {
     Q_GADGET
-    Q_PROPERTY(AiObjectType objectType READ objectType CONSTANT FINAL)
+    Q_PROPERTY(ai::config::Type objectType READ objectType CONSTANT FINAL)
     Q_PROPERTY(Detail detail READ detail WRITE setDetail FINAL)
     Q_PROPERTY(QString fileId READ fileId WRITE setFileId FINAL)
     Q_PROPERTY(QUrl imageUrl READ imageUrl WRITE setImageUrl FINAL)
@@ -127,7 +130,10 @@ public:
         , e{extra}
     {}
 
-    [[nodiscard]] AiObjectType objectType() const { return AiObjectType::InputImage; }
+    [[nodiscard]] ai::config::Type objectType() const
+    {
+        return ai::config::Type::Type_Type_InputImage;
+    }
 
     [[nodiscard]] QJsonObject extra() const { return e; }
 
@@ -241,7 +247,7 @@ public:
 class InputFile
 {
     Q_GADGET
-    Q_PROPERTY(AiObjectType objectType READ objectType CONSTANT FINAL)
+    Q_PROPERTY(ai::config::Type objectType READ objectType CONSTANT FINAL)
     Q_PROPERTY(QString fileData READ fileData WRITE setFileData FINAL)
     Q_PROPERTY(QString fileId READ fileId WRITE setFileId FINAL)
     Q_PROPERTY(QString filename READ filename WRITE setFilename FINAL)
@@ -266,7 +272,10 @@ public:
         , e{extra}
     {}
 
-    [[nodiscard]] AiObjectType objectType() const { return AiObjectType::InputFile; }
+    [[nodiscard]] ai::config::Type objectType() const
+    {
+        return ai::config::Type::Type_Type_InputFile;
+    }
 
     [[nodiscard]] QJsonObject extra() const { return e; }
 
@@ -394,7 +403,7 @@ public:
 class InputAudio
 {
     Q_GADGET
-    Q_PROPERTY(AiObjectType objectType READ objectType CONSTANT FINAL)
+    Q_PROPERTY(ai::config::Type objectType READ objectType CONSTANT FINAL)
     Q_PROPERTY(QJsonObject extra READ extra FINAL)
     Q_PROPERTY(bool empty READ isEmpty FINAL)
     Q_PROPERTY(bool valid READ isValid FINAL)
@@ -402,7 +411,10 @@ class InputAudio
     QJsonObject e;
 
 public:
-    [[nodiscard]] AiObjectType objectType() const { return AiObjectType::InputAudio; }
+    [[nodiscard]] ai::config::Type objectType() const
+    {
+        return ai::config::Type::Type_Type_InputAudio;
+    }
 
     [[nodiscard]] QJsonObject extra() const { return e; }
 
@@ -608,9 +620,9 @@ public:
         : QList<MessageContentInputItem>{items}
     {}
 
-    [[nodiscard]] ai::AiObjectType objectType() const
+    [[nodiscard]] ai::config::Type objectType() const
     {
-        return ai::AiObjectType::MessageContentInputItemList;
+        return ai::config::Type::Type_MessageContentInputItemList;
     }
 
     [[nodiscard]] bool isValid() const { return !isEmpty(); }
@@ -730,7 +742,7 @@ public:
 class Message
 {
     Q_GADGET
-    Q_PROPERTY(AiObjectType objectType READ objectType CONSTANT FINAL)
+    Q_PROPERTY(ai::config::Type objectType READ objectType CONSTANT FINAL)
     Q_PROPERTY(bool empty READ isEmpty FINAL)
     Q_PROPERTY(bool valid READ isValid FINAL)
     Q_PROPERTY(QString role READ role WRITE setRole FINAL)
@@ -792,7 +804,7 @@ public:
         , e{extra}
     {}
 
-    [[nodiscard]] AiObjectType objectType() const { return AiObjectType::Message; }
+    [[nodiscard]] ai::config::Type objectType() const { return ai::config::Type::Type_Message; }
 
     [[nodiscard]] QJsonObject extra() const { return e; }
 
@@ -921,6 +933,6 @@ public:
     }
 };
 
-} // namespace ai
+} // namespace ai::config
 
 #endif // AI_CONFIG_MESSAGE_H

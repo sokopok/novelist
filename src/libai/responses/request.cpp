@@ -1,438 +1,220 @@
 #include "request.h"
-#include "client.h"
 
 namespace ai::responses {
 
-bool RequestData::readJson(const QJsonObject &json, QStringList *errors)
-{
-    bool ok = ai::RequestData::readJson(json);
-
-    if (json.contains(QStringLiteral("background"))) {
-        if (const auto v = json.value(QStringLiteral("background")); v.isBool()) {
-            setBackground(v.toBool());
-            extra().remove(QStringLiteral("background"));
-        } else {
-            if (errors)
-                errors->append("background is not a boolean");
-            ok = false;
-        }
-    }
-
-    if (json.contains(QStringLiteral("conversation"))) {
-        if (const auto v = json.value(QStringLiteral("conversation")); v.isString()) {
-            setConversation(v.toString());
-            extra().remove(QStringLiteral("conversation"));
-        } else if (v.isObject()) {
-            setConversation(Conversation::fromJson(v.toObject()));
-            extra().remove(QStringLiteral("conversation"));
-        } else {
-            if (errors)
-                errors->append("conversation is not a string or object");
-            ok = false;
-        }
-    }
-
-    if (json.contains(QStringLiteral("input"))) {
-        if (const auto v = json.value(QStringLiteral("input")); v.isString()) {
-            setInput({v.toString()});
-            extra().remove(QStringLiteral("input"));
-        } else if (v.isArray()) {
-            setInput(Input::fromJson(v.toArray()));
-            extra().remove(QStringLiteral("input"));
-        } else {
-            if (errors)
-                errors->append("input is not a string or array");
-            ok = false;
-        }
-    }
-
-    return ok;
-}
-
-bool RequestData::writeJson(QJsonObject &json, bool full) const
-{
-    if (!ai::RequestData::writeJson(json, full))
-        return false;
-
-    if (full || background())
-        json[QStringLiteral("background")] = background();
-
-    if (full || conversation().isValid())
-        json[QStringLiteral("conversation")] = conversation().toJson();
-
-    if (full || input().isValid())
-        json[QStringLiteral("input")] = input().toJson();
-
-    if (full || !instructions().isEmpty())
-        json[QStringLiteral("instructions")] = instructions();
-
-    if (full || !isStored())
-        json[QStringLiteral("store")] = isStored();
-
-    if (full || temperature() != 1.0)
-        json[QStringLiteral("temperature")] = temperature();
-
-    return true;
-}
-
-RequestData *Request::d()
-{
-    return static_cast<RequestData *>(ai::Request::d);
-}
-
-const RequestData *Request::d() const
-{
-    return static_cast<const RequestData *>(ai::Request::d);
-}
-
-Request::Request()
-    : Request(new RequestData)
-{}
-
-// Request &Request::operator=(const Request &rhs)
-// {
-//     ai::Request::operator=(rhs);
-//     return *this;
-// }
-
-bool Request::background() const
-{
-    return d()->background();
-}
-
-Request &Request::setBackground(bool background)
-{
-    d()->setBackground(background);
-    return *this;
-}
-
-Request &Request::resetBackground()
-{
-    d()->resetBackground();
-    return *this;
-}
-
-Conversation Request::conversation() const
-{
-    return d()->conversation();
-}
-
-Request &Request::setConversation(const Conversation &conversation)
-{
-    d()->setConversation(conversation);
-    return *this;
-}
-
-Request &Request::resetConversation()
-{
-    d()->resetConversation();
-    return *this;
-}
-
-IncludeList Request::include() const
-{
-    return d()->include();
-}
-
-Request &Request::setInclude(const IncludeList &include)
-{
-    d()->setInclude(include);
-    return *this;
-}
-
-Request &Request::resetInclude()
-{
-    d()->resetInclude();
-    return *this;
-}
-
-Input Request::input() const
-{
-    return d()->input();
-}
-
-Request &Request::setInput(const Input &input)
-{
-    d()->setInput(input);
-    return *this;
-}
-
-Request &Request::resetInput()
-{
-    d()->resetInput();
-    return *this;
-}
-
-QString Request::instructions() const
-{
-    return d()->instructions();
-}
-
-Request &Request::setInstructions(const QString &instructions)
-{
-    d()->setInstructions(instructions);
-    return *this;
-}
-
-Request &Request::resetInstructions()
-{
-    d()->resetInstructions();
-    return *this;
-}
-
-int Request::maxOutputTokens() const
-{
-    return d()->maxOutputTokens();
-}
-
-Request &Request::setMaxOutputTokens(int maxOutputTokens)
-{
-    d()->setMaxOutputTokens(maxOutputTokens);
-    return *this;
-}
-
-Request &Request::resetMaxOutputTokens()
-{
-    d()->resetMaxOutputTokens();
-    return *this;
-}
-
-int Request::maxToolCalls() const
-{
-    return d()->maxToolCalls();
-}
-
-Request &Request::setMaxToolCalls(int maxToolCalls)
-{
-    d()->setMaxToolCalls(maxToolCalls);
-    return *this;
-}
-
-Request &Request::resetMaxToolCalls()
-{
-    d()->resetMaxToolCalls();
-    return *this;
-}
-
-bool Request::parallelToolCalls() const
-{
-    return d()->parallelToolCalls();
-}
-
-Request &Request::setParallelToolCalls(bool parallelToolCalls)
-{
-    d()->setParallelToolCalls(parallelToolCalls);
-    return *this;
-}
-
-Request &Request::resetParallelToolCalls()
-{
-    d()->resetParallelToolCalls();
-    return *this;
-}
-
-QString Request::previousResponseId() const
-{
-    return d()->previousResponseId();
-}
-
-Request &Request::setPreviousResponseId(const QString &previousResponseId)
-{
-    d()->setPreviousResponseId(previousResponseId);
-    return *this;
-}
-
-Request &Request::resetPreviousResponseId()
-{
-    d()->resetPreviousResponseId();
-    return *this;
-}
-
-Prompt Request::prompt() const
-{
-    return d()->prompt();
-}
-
-Request &Request::setPrompt(const Prompt &prompt)
-{
-    d()->setPrompt(prompt);
-    return *this;
-}
-
-Request &Request::resetPrompt()
-{
-    d()->resetPrompt();
-    return *this;
-}
-
-QString Request::promptCacheKey() const
-{
-    return d()->promptCacheKey();
-}
-
-Request &Request::setPromptCacheKey(const QString &promptCacheKey)
-{
-    d()->setPromptCacheKey(promptCacheKey);
-    return *this;
-}
-
-Request &Request::resetPromptCacheKey()
-{
-    d()->resetPromptCacheKey();
-    return *this;
-}
-
-Reasoning Request::reasoning() const
-{
-    return d()->reasoning();
-}
-
-Request &Request::setReasoning(const Reasoning &reasoning)
-{
-    d()->setReasoning(reasoning);
-    return *this;
-}
-
-Request &Request::resetReasoning()
-{
-    d()->resetReasoning();
-    return *this;
-}
-
-QString Request::safetyIdentifier() const
-{
-    return d()->safetyIdentifier();
-}
-
-Request &Request::setSafetyIdentifier(const QString &safetyIdentifier)
-{
-    d()->setSafetyIdentifier(safetyIdentifier);
-    return *this;
-}
-
-Request &Request::resetSafetyIdentifier()
-{
-    d()->resetSafetyIdentifier();
-    return *this;
-}
-
-QString Request::serviceTier() const
-{
-    return d()->serviceTier();
-}
-
-Request &Request::setServiceTier(const QString &serviceTier)
-{
-    d()->setServiceTier(serviceTier);
-    return *this;
-}
-
-Request &Request::resetServiceTier()
-{
-    d()->resetServiceTier();
-    return *this;
-}
-
-bool Request::isStored() const
-{
-    return d()->isStored();
-}
-
-Request &Request::setStored(bool store)
-{
-    d()->setStored(store);
-    return *this;
-}
-
-Request &Request::resetStored()
-{
-    d()->resetStored();
-    return *this;
-}
-
-double Request::temperature() const
-{
-    return d()->temperature();
-}
-
-Request &Request::setTemperature(double temperature)
-{
-    d()->setTemperature(temperature);
-    return *this;
-}
-
-Request &Request::resetTemperature()
-{
-    d()->resetTemperature();
-    return *this;
-}
-
-int Request::topLogprobs() const
-{
-    return d()->topLogprobs();
-}
-
-Request &Request::setTopLogprobs(int topLogprobs)
-{
-    d()->setTopLogprobs(topLogprobs);
-    return *this;
-}
-
-Request &Request::resetTopLogprobs()
-{
-    d()->resetTopLogprobs();
-    return *this;
-}
-
-double Request::topP() const
-{
-    return d()->topP();
-}
-
-Request &Request::setTopP(double topP)
-{
-    d()->setTopP(topP);
-    return *this;
-}
-
-Request &Request::resetTopP()
-{
-    d()->resetTopP();
-    return *this;
-}
-
-Request::Truncation Request::truncation() const
-{
-    return d()->truncation();
-}
-
-Request &Request::setTruncation(Truncation truncation)
-{
-    d()->setTruncation(truncation);
-    return *this;
-}
-
-Request &Request::setTruncation(const QString &truncation)
-{
-    d()->setTruncation(truncation);
-    return *this;
-}
-
-Request &Request::resetTruncation()
-{
-    d()->resetTruncation();
-    return *this;
-}
-
-Request::Request(RequestData* data)
-    : ai::Request{data ? data : new RequestData}
-{}
+Request::Request() {}
 
 bool Request::readJson(const QJsonObject &json, QStringList *errors)
 {
-    if (!ai::Request::readJson(json, errors))
-        return false;
-    return d()->readJson(json, errors);
+    bool ok = ai::Request::readJson(json);
+
+    if (mExtra.contains(QStringLiteral("background"))) {
+        if (const auto v = mExtra.value(QStringLiteral("background")); v.isBool()) {
+            setBackground(v.toBool());
+            mExtra.remove(QStringLiteral("background"));
+        } else {
+            if (errors)
+                errors->append("background is not a bool");
+            ok = false;
+        }
+    }
+
+    if (mExtra.contains(QStringLiteral("conversation"))) {
+        if (const auto v = mExtra.value(QStringLiteral("conversation")); v.isObject()) {
+            setConversation(Conversation::fromJson(v.toObject()));
+            mExtra.remove(QStringLiteral("conversation"));
+        } else {
+            if (errors)
+                errors->append("conversation is not an object");
+            ok = false;
+        }
+    }
+
+    if (mExtra.contains(QStringLiteral("include"))) {
+        if (const auto v = mExtra.value(QStringLiteral("include")); v.isArray()) {
+            setInclude(IncludeList::fromJson(v.toArray()));
+            mExtra.remove(QStringLiteral("include"));
+        } else {
+            if (errors)
+                errors->append("include is not an array");
+            ok = false;
+        }
+    }
+
+    if (mExtra.contains(QStringLiteral("input"))) {
+        if (const auto v = mExtra.value(QStringLiteral("input")); v.isObject()) {
+            setInput(Input::fromJson(v.toObject()));
+            mExtra.remove(QStringLiteral("input"));
+        } else {
+            if (errors)
+                errors->append("input is not an object");
+            ok = false;
+        }
+    }
+
+    if (mExtra.contains(QStringLiteral("instructions"))) {
+        if (const auto v = mExtra.value(QStringLiteral("instructions")); v.isString()) {
+            setInstructions(v.toString());
+            mExtra.remove(QStringLiteral("instructions"));
+        } else {
+            if (errors)
+                errors->append("instructions is not a string");
+            ok = false;
+        }
+    }
+
+    if (mExtra.contains(QStringLiteral("max_output_tokens"))) {
+        if (const auto v = mExtra.value(QStringLiteral("max_output_tokens")); v.isDouble()) {
+            setMaxOutputTokens(v.toInt());
+            mExtra.remove(QStringLiteral("max_output_tokens"));
+        } else {
+            if (errors)
+                errors->append("max_output_tokens is not an int");
+            ok = false;
+        }
+    }
+
+    if (mExtra.contains(QStringLiteral("max_tool_calls"))) {
+        if (const auto v = mExtra.value(QStringLiteral("max_tool_calls")); v.isDouble()) {
+            setMaxToolCalls(v.toInt());
+            mExtra.remove(QStringLiteral("max_tool_calls"));
+        } else {
+            if (errors)
+                errors->append("max_tool_calls is not an int");
+            ok = false;
+        }
+    }
+
+    if (mExtra.contains(QStringLiteral("metadata"))) {
+        if (const auto v = mExtra.value(QStringLiteral("metadata")); v.isObject()) {
+            setMetadata(v.toObject().toVariantMap());
+            mExtra.remove(QStringLiteral("metadata"));
+        } else {
+            if (errors)
+                errors->append("metadata is not an object");
+            ok = false;
+        }
+    }
+
+    if (mExtra.contains(QStringLiteral("model"))) {
+        if (const auto v = mExtra.value(QStringLiteral("model")); v.isString()) {
+            setModel(v.toString());
+            mExtra.remove(QStringLiteral("model"));
+        } else {
+            if (errors)
+                errors->append("model is not a string");
+            ok = false;
+        }
+    }
+
+    if (mExtra.contains(QStringLiteral("parallel_tool_calls"))) {
+        if (const auto v = mExtra.value(QStringLiteral("parallel_tool_calls")); v.isBool()) {
+            setParallelToolCalls(v.toBool());
+            mExtra.remove(QStringLiteral("parallel_tool_calls"));
+        } else {
+            if (errors)
+                errors->append("parallel_tool_calls is not a boolean");
+            ok = false;
+        }
+    }
+
+    if (mExtra.contains(QStringLiteral("previous_response_id"))) {
+        if (const auto v = mExtra.value(QStringLiteral("previous_response_id")); v.isString()) {
+            setPreviousResponseId(v.toString());
+            mExtra.remove(QStringLiteral("previous_response_id"));
+        } else {
+            if (errors)
+                errors->append("previous_response_id is not a string");
+            ok = false;
+        }
+    }
+
+    if (mExtra.contains(QStringLiteral("prompt"))) {
+        if (const auto v = mExtra.value(QStringLiteral("prompt")); v.isObject()) {
+            setPrompt(Prompt::fromJson(v.toObject()));
+            mExtra.remove(QStringLiteral("prompt"));
+        } else {
+            if (errors)
+                errors->append("prompt is not an object");
+            ok = false;
+        }
+    }
+
+    if (mExtra.contains(QStringLiteral("reasoning"))) {
+        if (const auto v = mExtra.value(QStringLiteral("reasoning")); v.isObject()) {
+            setReasoning(Reasoning::fromJson(v.toObject()));
+            mExtra.remove(QStringLiteral("reasoning"));
+        } else {
+            if (errors)
+                errors->append("reasoning is not an object");
+            ok = false;
+        }
+    }
+
+    if (mExtra.contains(QStringLiteral("safety_identifier"))) {
+        if (const auto v = mExtra.value(QStringLiteral("safety_identifier")); v.isString()) {
+            setSafetyIdentifier(v.toString());
+            mExtra.remove(QStringLiteral("safety_identifier"));
+        } else {
+            if (errors)
+                errors->append("safety_identifier is not a string");
+            ok = false;
+        }
+    }
+
+    if (mExtra.contains(QStringLiteral("service_tier"))) {
+        if (const auto v = mExtra.value(QStringLiteral("service_tier")); v.isString()) {
+            setServiceTier(v.toString());
+            mExtra.remove(QStringLiteral("service_tier"));
+        } else {
+            if (errors)
+                errors->append("service_tier is not a string");
+            ok = false;
+        }
+    }
+
+    if (mExtra.contains(QStringLiteral("store"))) {
+        if (const auto v = mExtra.value(QStringLiteral("store")); v.isBool()) {
+            setStored(v.toBool());
+            mExtra.remove(QStringLiteral("store"));
+        } else {
+            if (errors)
+                errors->append("store is not a boolean");
+            ok = false;
+        }
+    }
+
+    if (mExtra.contains(QStringLiteral("stream"))) {
+        if (const auto v = mExtra.value(QStringLiteral("stream")); v.isBool()) {
+            setStreaming(v.toBool());
+            mExtra.remove(QStringLiteral("stream"));
+        } else {
+            if (errors)
+                errors->append("stream is not a boolean");
+            ok = false;
+        }
+    }
+
+    if (mExtra.contains(QStringLiteral("stream_options"))) {
+        if (const auto v = mExtra.value(QStringLiteral("stream_options")); v.isObject()) {
+            setStreamOptions(StreamOptions::fromJson(v.toObject()));
+            mExtra.remove(QStringLiteral("stream_options"));
+        } else {
+            if (errors)
+                errors->append("stream_options is not an object");
+            ok = false;
+        }
+    }
+
+    // TemperatureAttribute,
+    //     TextAttribute,
+    //     ToolChoiceAttribute,
+    //     ToolsAttribute,
+    //     TopLogprobsAttribute,
+    //     TopPAttribute,
+    //     TruncationAttribute,
+
+    return ok;
 }
 
 bool Request::writeJson(QJsonObject &json, bool full) const
@@ -440,8 +222,91 @@ bool Request::writeJson(QJsonObject &json, bool full) const
     if (!ai::Request::writeJson(json, full))
         return false;
 
-    const ai::responses::RequestData *D = (const ai::responses::RequestData *) d();
-    return D->ai::responses::RequestData ::writeJson(json, full);
+    if (full || mBackground)
+        json[QStringLiteral("background")] = mBackground;
+
+    if (full || !mConversation.isEmpty())
+        json[QStringLiteral("conversation")] = mConversation.toJson();
+
+    if (full || !mInclude.isEmpty())
+        json[QStringLiteral("include")] = mInclude.toJson();
+
+    if (full || !mInput.isEmpty())
+        json[QStringLiteral("input")] = mInput.toJson();
+
+    if (full || !mInstructions.isEmpty())
+        json[QStringLiteral("instructions")] = mInstructions;
+
+    if (full || mMaxOutputTokens != 0)
+        json[QStringLiteral("max_output_tokens")] = mMaxOutputTokens;
+
+    if (full || mMaxToolCalls != 0)
+        json[QStringLiteral("max_tool_calls")] = mMaxToolCalls;
+
+    if (full || !mMetadata.isEmpty())
+        json[QStringLiteral("metadata")] = QJsonObject::fromVariantMap(mMetadata);
+
+    if (const auto model = modelAsString(); full || !model.isEmpty())
+        json[QStringLiteral("model")] = model;
+
+    if (full || mParallelToolCalls != 0)
+        json[QStringLiteral("parallel_tool_calls")] = mParallelToolCalls;
+
+    if (full || !mPreviousResponseId.isEmpty())
+        json[QStringLiteral("previous_response_id")] = mPreviousResponseId;
+
+    if (full || !mPrompt.isEmpty())
+        json[QStringLiteral("prompt")] = mPrompt.toJson();
+
+    if (full || !mPromptCacheKey.isEmpty())
+        json[QStringLiteral("prompt_cache_key")] = mPromptCacheKey;
+
+    if (full || !mReasoning.isEmpty())
+        json[QStringLiteral("reasoning")] = mReasoning.toJson();
+
+    if (full || !mSafetyIdentifier.isEmpty())
+        json[QStringLiteral("safety_identifier")] = mSafetyIdentifier;
+
+    if (full || mServiceTier != ServiceTier_Auto)
+        json[QStringLiteral("service_tier")] = serviceTierAsString();
+
+    if (full || !mStore)
+        json[QStringLiteral("store")] = mStore;
+
+    if (full || mStream)
+        json[QStringLiteral("stream")] = mStream;
+
+    if (full || !mStreamOptions.isEmpty())
+        json[QStringLiteral("stream_options")] = mStreamOptions.toJson();
+
+    if (full || mTemperature != 1.0)
+        json[QStringLiteral("temperature")] = mTemperature;
+
+    if (full || mTopLogprobs != 0)
+        json[QStringLiteral("top_logprobs")] = mTopLogprobs;
+
+    if (full || mTopP != 1.0)
+        json[QStringLiteral("top_p")] = mTopP;
+
+    if (full || mTruncation != Truncation_Disabled)
+        json[QStringLiteral("truncation")] = truncationAsString();
+
+    return true;
 }
+
+const QMap<int, QString> Request::ModelKV{{Model_Gpt5, QStringLiteral("gpt-5")},
+                                          {Model_Gpt5Nano, QStringLiteral("gpt-5-nano")},
+                                          {Model_Gpt5Mini, QStringLiteral("gpt-5-mini")},
+                                          {Model_Gpt5Pro, QStringLiteral("gpt-5-pro")},
+                                          {Model_Gpt41, QStringLiteral("gpt-4.1")},
+                                          {Model_Gpt41Mini, QStringLiteral("gpt-4.1-mini")}};
+
+const QMap<int, QString> Request::ServiceTierKV{{ServiceTier_Auto, QStringLiteral("auto")},
+                                                {ServiceTier_Default, QStringLiteral("default")},
+                                                {ServiceTier_Flex, QStringLiteral("flex")},
+                                                {ServiceTier_Priority, QStringLiteral("priority")}};
+
+const QMap<int, QString> Request::TruncationKV{{Truncation_Auto, QStringLiteral("auto")},
+                                               {Truncation_Disabled, QStringLiteral("disabled")}};
 
 } // namespace ai::responses
