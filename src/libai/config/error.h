@@ -1,9 +1,14 @@
 #ifndef AI_CONFIG_ERROR_H
 #define AI_CONFIG_ERROR_H
 
+#include <QMap>
+#include <QSharedDataPointer>
+
 #include "common.h"
 
 namespace ai {
+
+class ErrorData;
 
 class Error
 {
@@ -38,88 +43,50 @@ public:
     Q_ENUM(Type)
 
 private:
-    QString m;
-    QString p;
-    Type t = NoErrorType;
-    Code c = NoError;
-    QJsonObject e;
-
     inline static QMap<Code, QString> codeKV = {{NoError, "no_error"},
                                                 {MissingRequiredParameter,
                                                  "missing_required_parameter"}};
     inline static QMap<Type, QString> typeKV = {{NoErrorType, "no_error"},
                                                 {NetworkErrorType, "network_error"},
                                                 {InvalidRequestErrorType, "invalid_request_error"}};
+    QSharedDataPointer<ErrorData> d;
 
 public:
-    Error(const QJsonObject& extra = {})
-        : e{extra}
-    {}
+    Error(const QJsonObject& extra = {});
     Error(Type type,
           Code code = NoError,
           const QString& message = {},
           const QString& param = {},
-          const QJsonObject& extra = {})
-        : m{message}
-        , p{param}
-        , t{type}
-        , c{code}
-        , e{extra}
-    {}
+          const QJsonObject& extra = {});
+    Error(const Error&);
+    Error(Error&&);
+    Error& operator=(const Error&);
+    Error& operator=(Error&&);
+    ~Error();
 
     [[nodiscard]] ai::UtilityType utilityType() const { return UtilityType_Error; }
 
-    [[nodiscard]] QJsonObject extra() const { return e; }
+    [[nodiscard]] QJsonObject extra() const;
 
-    [[nodiscard]] QString message() const { return m; }
-    Error& setMessage(const QString& message)
-    {
-        m = message;
-        return *this;
-    }
+    [[nodiscard]] QString message() const;
+    Error& setMessage(const QString& message);
 
-    [[nodiscard]] QString param() const { return p; }
-    Error& setParam(const QString& param)
-    {
-        p = param;
-        return *this;
-    }
+    [[nodiscard]] QString param() const;
+    Error& setParam(const QString& param);
 
-    [[nodiscard]] Code code() const { return c; }
-    Error& setCode(Code code)
-    {
-        c = code;
-        return *this;
-    }
-    Error& setCode(const QString& code)
-    {
-        c = Code(QMetaEnum::fromType<Code>().keyToValue(code.toUtf8()));
-        return *this;
-    }
+    [[nodiscard]] Code code() const;
+    Error& setCode(Code code);
+    Error& setCode(const QString& code);
 
-    [[nodiscard]] Type type() const { return t; }
-    Error& setType(Type type)
-    {
-        t = type;
-        return *this;
-    }
-    Error& setType(const QString& type)
-    {
-        t = Type(QMetaEnum::fromType<Type>().keyToValue(type.toUtf8()));
-        return *this;
-    }
+    [[nodiscard]] Type type() const;
+    Error& setType(Type type);
+    Error& setType(const QString& type);
 
-    [[nodiscard]] bool operator==(const Error& that) const
-    {
-        return c == that.c && t == that.t && m == that.m && p == that.p && e == that.e;
-    }
+    [[nodiscard]] bool operator==(const Error& that) const;
 
-    [[nodiscard]] bool isError() const { return t != NoErrorType || c != NoError; }
-    [[nodiscard]] bool isEmpty() const
-    {
-        return c == 0 && t == 0 && m.isEmpty() && p.isEmpty() && e.isEmpty();
-    }
-    [[nodiscard]] bool isValid() const { return c != 0 || t != 0 || !m.isEmpty() || !p.isEmpty(); }
+    [[nodiscard]] bool isError() const;
+    [[nodiscard]] bool isEmpty() const;
+    [[nodiscard]] bool isValid() const;
 
     static Code toCode(const QString& code) { return Code(codeKV.key(code, Code::NoError)); }
     static Code toCode(int code)
@@ -145,24 +112,7 @@ public:
     static QString toString(Type type) { return typeKV.value(type, QString::number(type)); }
     static int toInt(Type type) { return std::to_underlying(type); }
 
-    QJsonObject toJson() const
-    {
-        QJsonObject json = e;
-
-        if (c != 0)
-            json.insert(QStringLiteral("code"), toString(c));
-
-        if (t != 0)
-            json.insert(QStringLiteral("type"), toString(t));
-
-        if (!m.isEmpty())
-            json.insert(QStringLiteral("text"), m);
-
-        if (!p.isEmpty())
-            json.insert(QStringLiteral("param"), p);
-
-        return json;
-    }
+    QJsonObject toJson() const;
 
     static Error fromJson(const QJsonObject& json, bool* ok = nullptr)
     {
