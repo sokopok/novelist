@@ -4,12 +4,12 @@
 #include "message.h"
 #include "refusal.h"
 
-namespace ai::config {
+namespace ai {
 
 class OutputText
 {
     Q_GADGET
-    Q_PROPERTY(ai::config::Type objectType READ objectType CONSTANT FINAL)
+    Q_PROPERTY(ai::UtilityType utilityType READ utilityType CONSTANT FINAL)
     Q_PROPERTY(QString text READ text WRITE setText FINAL)
     Q_PROPERTY(QJsonObject extra READ extra FINAL)
     Q_PROPERTY(bool empty READ isEmpty FINAL)
@@ -29,7 +29,7 @@ public:
         , e{extra}
     {}
 
-    [[nodiscard]] ai::config::Type objectType() const { return ai::config::Type::Type_OutputText; }
+    [[nodiscard]] ai::UtilityType utilityType() const { return UtilityType_OutputText; }
 
     [[nodiscard]] QJsonObject extra() const { return e; }
 
@@ -197,9 +197,9 @@ public:
         : QList<OutputMessageContent>{items}
     {}
 
-    [[nodiscard]] ai::config::Type objectType() const
+    [[nodiscard]] ai::UtilityType utilityType() const
     {
-        return ai::config::Type::Type_OutputMessageContentList;
+        return UtilityType_OutputMessageContentList;
     }
 
     [[nodiscard]] bool isValid() const { return !isEmpty(); }
@@ -254,9 +254,9 @@ public:
         , c{content}
     {}
 
-    [[nodiscard]] ai::config::Type objectType() const
+    [[nodiscard]] ai::UtilityType utilityType() const
     {
-        return ai::config::Type::Type_OutputMessage;
+        return UtilityType_OutputMessage;
     }
 
     [[nodiscard]] OutputMessageContentList content() const { return c; }
@@ -345,6 +345,6 @@ public:
     }
 };
 
-} // namespace ai::config
+} // namespace ai
 
 #endif // AI_CONFIG_OUTPUTMESSAGE_H

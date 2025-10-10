@@ -3,12 +3,12 @@
 
 #include "empty.h"
 
-namespace ai::config {
+namespace ai {
 
 class InputText
 {
     Q_GADGET
-    Q_PROPERTY(ai::config::Type objectType READ objectType CONSTANT FINAL)
+    Q_PROPERTY(ai::UtilityType utilityType READ utilityType CONSTANT FINAL)
     Q_PROPERTY(QString text READ text WRITE setText FINAL)
     Q_PROPERTY(QJsonObject extra READ extra FINAL)
     Q_PROPERTY(bool empty READ isEmpty FINAL)
@@ -26,10 +26,7 @@ public:
         , e{extra}
     {}
 
-    [[nodiscard]] ai::config::Type objectType() const
-    {
-        return ai::config::Type::Type_Type_InputText;
-    }
+    [[nodiscard]] ai::UtilityType utilityType() const { return UtilityType_InputText; }
 
     [[nodiscard]] QJsonObject extra() const { return e; }
 
@@ -96,7 +93,7 @@ public:
 class InputImage
 {
     Q_GADGET
-    Q_PROPERTY(ai::config::Type objectType READ objectType CONSTANT FINAL)
+    Q_PROPERTY(ai::UtilityType utilityType READ utilityType CONSTANT FINAL)
     Q_PROPERTY(Detail detail READ detail WRITE setDetail FINAL)
     Q_PROPERTY(QString fileId READ fileId WRITE setFileId FINAL)
     Q_PROPERTY(QUrl imageUrl READ imageUrl WRITE setImageUrl FINAL)
@@ -130,10 +127,7 @@ public:
         , e{extra}
     {}
 
-    [[nodiscard]] ai::config::Type objectType() const
-    {
-        return ai::config::Type::Type_Type_InputImage;
-    }
+    [[nodiscard]] ai::UtilityType utilityType() const { return UtilityType_InputImage; }
 
     [[nodiscard]] QJsonObject extra() const { return e; }
 
@@ -247,7 +241,7 @@ public:
 class InputFile
 {
     Q_GADGET
-    Q_PROPERTY(ai::config::Type objectType READ objectType CONSTANT FINAL)
+    Q_PROPERTY(ai::UtilityType utilityType READ utilityType CONSTANT FINAL)
     Q_PROPERTY(QString fileData READ fileData WRITE setFileData FINAL)
     Q_PROPERTY(QString fileId READ fileId WRITE setFileId FINAL)
     Q_PROPERTY(QString filename READ filename WRITE setFilename FINAL)
@@ -272,10 +266,7 @@ public:
         , e{extra}
     {}
 
-    [[nodiscard]] ai::config::Type objectType() const
-    {
-        return ai::config::Type::Type_Type_InputFile;
-    }
+    [[nodiscard]] ai::UtilityType utilityType() const { return UtilityType_InputFile; }
 
     [[nodiscard]] QJsonObject extra() const { return e; }
 
@@ -403,7 +394,7 @@ public:
 class InputAudio
 {
     Q_GADGET
-    Q_PROPERTY(ai::config::Type objectType READ objectType CONSTANT FINAL)
+    Q_PROPERTY(ai::UtilityType utilityType READ utilityType CONSTANT FINAL)
     Q_PROPERTY(QJsonObject extra READ extra FINAL)
     Q_PROPERTY(bool empty READ isEmpty FINAL)
     Q_PROPERTY(bool valid READ isValid FINAL)
@@ -411,10 +402,7 @@ class InputAudio
     QJsonObject e;
 
 public:
-    [[nodiscard]] ai::config::Type objectType() const
-    {
-        return ai::config::Type::Type_Type_InputAudio;
-    }
+    [[nodiscard]] ai::UtilityType utilityType() const { return UtilityType_InputAudio; }
 
     [[nodiscard]] QJsonObject extra() const { return e; }
 
@@ -620,9 +608,9 @@ public:
         : QList<MessageContentInputItem>{items}
     {}
 
-    [[nodiscard]] ai::config::Type objectType() const
+    [[nodiscard]] ai::UtilityType utilityType() const
     {
-        return ai::config::Type::Type_MessageContentInputItemList;
+        return UtilityType_MessageContentInputItemList;
     }
 
     [[nodiscard]] bool isValid() const { return !isEmpty(); }
@@ -742,7 +730,7 @@ public:
 class Message
 {
     Q_GADGET
-    Q_PROPERTY(ai::config::Type objectType READ objectType CONSTANT FINAL)
+    Q_PROPERTY(ai::UtilityType utilityType READ utilityType CONSTANT FINAL)
     Q_PROPERTY(bool empty READ isEmpty FINAL)
     Q_PROPERTY(bool valid READ isValid FINAL)
     Q_PROPERTY(QString role READ role WRITE setRole FINAL)
@@ -804,7 +792,7 @@ public:
         , e{extra}
     {}
 
-    [[nodiscard]] ai::config::Type objectType() const { return ai::config::Type::Type_Message; }
+    [[nodiscard]] ai::UtilityType utilityType() const { return UtilityType_Message; }
 
     [[nodiscard]] QJsonObject extra() const { return e; }
 
@@ -933,6 +921,6 @@ public:
     }
 };
 
-} // namespace ai::config
+} // namespace ai
 
 #endif // AI_CONFIG_MESSAGE_H

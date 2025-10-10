@@ -3,7 +3,7 @@
 
 #include "common.h"
 
-namespace ai::config {
+namespace ai {
 
 class StringList : public QStringList
 {
@@ -12,7 +12,7 @@ public:
         : QStringList{items}
     {}
 
-    [[nodiscard]] ai::config::Type objectType() const { return ai::config::Type::Type_StringList; }
+    [[nodiscard]] ai::UtilityType utilityType() const { return UtilityType_StringList; }
 
     [[nodiscard]] bool isValid() const { return !isEmpty(); }
 
@@ -38,6 +38,6 @@ public:
     }
 };
 
-} // namespace ai::config
+} // namespace ai
 
 #endif // AI_CONFIG_STRINGIST_H

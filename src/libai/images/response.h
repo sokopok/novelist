@@ -11,7 +11,7 @@ class Client;
 class ImageResponseData
 {
     Q_GADGET
-    Q_PROPERTY(ai::config::Type objectType READ objectType CONSTANT FINAL)
+    Q_PROPERTY(ai::UtilityType utilityType READ utilityType CONSTANT FINAL)
     Q_PROPERTY(QJsonObject extra READ extra FINAL)
     Q_PROPERTY(bool empty READ isEmpty FINAL)
     Q_PROPERTY(bool valid READ isValid FINAL)
@@ -38,7 +38,7 @@ public:
         , e{extra}
     {}
 
-    [[nodiscard]] ai::config::Type objectType() const { return ai::config::Type::ImageResponseData; }
+    [[nodiscard]] ai::UtilityType utilityType() const { return UtilityType_ImageResponseData; }
 
     [[nodiscard]] QJsonObject extra() const { return e; }
 
@@ -138,7 +138,7 @@ public:
 class ImageResponseUsage
 {
     Q_GADGET
-    Q_PROPERTY(ai::config::Type objectType READ objectType CONSTANT FINAL)
+    Q_PROPERTY(ai::UtilityType utilityType READ utilityType CONSTANT FINAL)
     Q_PROPERTY(QJsonObject extra READ extra FINAL)
     Q_PROPERTY(bool empty READ isEmpty FINAL)
     Q_PROPERTY(bool valid READ isValid FINAL)
@@ -171,7 +171,7 @@ public:
         , e{extra}
     {}
 
-    [[nodiscard]] ai::config::Type objectType() const { return ai::config::Type::ImageResponseUsage; }
+    [[nodiscard]] ai::UtilityType utilityType() const { return UtilityType_ImageResponseUsage; }
 
     [[nodiscard]] QJsonObject extra() const { return e; }
 

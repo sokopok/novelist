@@ -7,38 +7,38 @@
 #include <QMetaEnum>
 #include <QObject>
 
-namespace ai::config {
+namespace ai {
 
-enum struct Type {
-    Type_Empty,
-    Type_Error,
-    Type_ImageResponseData,
-    Type_ImageResponseUsage,
-    Type_InputText,
-    Type_InputImage,
-    Type_OutputMessageContentList,
-    Type_InputFile,
-    Type_InputAudio,
-    Type_MessageContentInputItemList,
-    Type_InputItemList,
-    Type_OutputItemList,
-    Type_Refusal,
-    Type_Prompt,
-    Type_OutputText,
-    Type_OutputMessageContentItemList,
-    Type_OutputMessageContentItem,
-    Type_OutputMessage,
-    Type_ImageGenerationCall,
-    Type_ItemReference,
-    Type_Conversation,
-    Type_ImageGenerationTool,
-    Type_Message,
-    Type_Reasoning,
-    Type_StreamOptions,
-    Type_StringList,
-    Type_IncludeList
+enum UtilityType {
+    UtilityType_Empty,
+    UtilityType_Error,
+    UtilityType_ImageResponseData,
+    UtilityType_ImageResponseUsage,
+    UtilityType_InputText,
+    UtilityType_InputImage,
+    UtilityType_OutputMessageContentList,
+    UtilityType_InputFile,
+    UtilityType_InputAudio,
+    UtilityType_MessageContentInputItemList,
+    UtilityType_InputItemList,
+    UtilityType_OutputItemList,
+    UtilityType_Refusal,
+    UtilityType_Prompt,
+    UtilityType_OutputText,
+    UtilityType_OutputMessageContentItemList,
+    UtilityType_OutputMessageContentItem,
+    UtilityType_OutputMessage,
+    UtilityType_ImageGenerationCall,
+    UtilityType_ItemReference,
+    UtilityType_Conversation,
+    UtilityType_ImageGenerationTool,
+    UtilityType_Message,
+    UtilityType_Reasoning,
+    UtilityType_StreamOptions,
+    UtilityType_StringList,
+    UtilityType_IncludeList
 };
 
-} // namespace ai::config
+} // namespace ai
 
 #endif // AI_CONFIG_COMMON_H

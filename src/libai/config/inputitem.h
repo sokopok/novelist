@@ -5,7 +5,7 @@
 #include "itemreference.h"
 #include "message.h"
 
-namespace ai::config {
+namespace ai {
 
 class InputItem
 {
@@ -101,7 +101,7 @@ public:
         : QList<InputItem>{items}
     {}
 
-    [[nodiscard]] ai::config::Type objectType() const { return ai::config::Type::Type_InputItemList; }
+    [[nodiscard]] ai::UtilityType utilityType() const { return UtilityType_InputItemList; }
 
     [[nodiscard]] bool isValid() const { return !isEmpty(); }
 
@@ -127,6 +127,6 @@ public:
     }
 };
 
-} // namespace ai::config
+} // namespace ai
 
 #endif // AI_CONFIG_INPUTITEM_H

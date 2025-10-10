@@ -3,13 +3,13 @@
 
 #include "empty.h"
 
-namespace ai::config {
+namespace ai {
 
 /*
 class ImageGenerationTool
 {
     Q_GADGET
-    Q_PROPERTY(ai::config::Type objectType READ objectType CONSTANT FINAL)
+    Q_PROPERTY(ai::UtilityType utilityType READ utilityType CONSTANT FINAL)
     Q_PROPERTY(QString type READ type CONSTANT FINAL)
     Q_PROPERTY(QString refusal READ refusal WRITE setImageGenerationTool FINAL)
     Q_PROPERTY(QJsonObject extra READ extra FINAL)
@@ -33,7 +33,7 @@ public:
 
     [[nodiscard]] QString type() const { return QStringLiteral("image_generation"); }
 
-    [[nodiscard]] ai::config::Type objectType() const { return ai::config::Type::ImageGenerationTool; }
+    [[nodiscard]] ai::Type utilityType() const { return UtilityType_ImageGenerationTool; }
 
     [[nodiscard]] QJsonObject extra() const { return x; }
 
@@ -212,6 +212,6 @@ class Tools : public QList<Tool>
 };
 */
 
-} // namespace ai::config
+} // namespace ai
 
 #endif // AI_CONFIG_TOOLS_H

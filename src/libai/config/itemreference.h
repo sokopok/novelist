@@ -3,12 +3,12 @@
 
 #include "common.h"
 
-namespace ai::config {
+namespace ai {
 
 class ItemReference
 {
     Q_GADGET
-    Q_PROPERTY(ai::config::Type objectType READ objectType CONSTANT FINAL)
+    Q_PROPERTY(ai::UtilityType utilityType READ utilityType CONSTANT FINAL)
     Q_PROPERTY(QString id READ id WRITE setId FINAL)
     Q_PROPERTY(QJsonObject extra READ extra FINAL)
     Q_PROPERTY(bool empty READ isEmpty FINAL)
@@ -26,9 +26,9 @@ public:
         , e{extra}
     {}
 
-    [[nodiscard]] ai::config::Type objectType() const
+    [[nodiscard]] ai::UtilityType utilityType() const
     {
-        return ai::config::Type::Type_ItemReference;
+        return UtilityType_ItemReference;
     }
 
     [[nodiscard]] QJsonObject extra() const { return e; }
@@ -84,6 +84,6 @@ public:
     }
 };
 
-} // namespace ai::config
+} // namespace ai
 
 #endif // AI_CONFIG_ITEMREFERENCE_H

@@ -3,12 +3,12 @@
 
 #include "common.h"
 
-namespace ai::config {
+namespace ai {
 
 class Empty
 {
     Q_GADGET
-    Q_PROPERTY(Type objectType READ objectType CONSTANT FINAL)
+    Q_PROPERTY(ai::UtilityType utilityType READ utilityType CONSTANT FINAL)
     Q_PROPERTY(QJsonObject extra READ extra FINAL)
     Q_PROPERTY(bool empty READ isEmpty FINAL)
     Q_PROPERTY(bool valid READ isValid FINAL)
@@ -18,7 +18,7 @@ public:
         : x{extra}
     {}
 
-    [[nodiscard]] ai::config::Type objectType() const { return ai::config::Type::Type_Empty; }
+    [[nodiscard]] ai::UtilityType utilityType() const { return UtilityType_Empty; }
 
     [[nodiscard]] QJsonObject extra() const { return x; }
 
@@ -39,6 +39,6 @@ private:
     QJsonObject x;
 };
 
-} // namespace ai::config
+} // namespace ai
 
 #endif // AI_CONFIG_EMPTY_H

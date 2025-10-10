@@ -6,12 +6,12 @@
 #include "outputmessage.h"
 #include "refusal.h"
 
-namespace ai::config {
+namespace ai {
 
 class ImageGenerationCall
 {
     Q_GADGET
-    Q_PROPERTY(ai::config::Type objectType READ objectType CONSTANT FINAL)
+    Q_PROPERTY(ai::UtilityType utilityType READ utilityType CONSTANT FINAL)
     Q_PROPERTY(QString id READ id WRITE setId FINAL)
     Q_PROPERTY(QString status READ status WRITE setStatus FINAL)
     Q_PROPERTY(QString result READ result WRITE setResult FINAL)
@@ -38,9 +38,9 @@ public:
         , e{extra}
     {}
 
-    [[nodiscard]] ai::config::Type objectType() const
+    [[nodiscard]] ai::UtilityType utilityType() const
     {
-        return ai::config::Type::Type_ImageGenerationCall;
+        return UtilityType_ImageGenerationCall;
     }
 
     [[nodiscard]] QJsonObject extra() const { return e; }
@@ -222,7 +222,7 @@ public:
         : QList<OutputItem>{items}
     {}
 
-    [[nodiscard]] ai::config::Type objectType() const { return ai::config::Type::Type_OutputItemList; }
+    [[nodiscard]] ai::UtilityType utilityType() const { return UtilityType_OutputItemList; }
 
     [[nodiscard]] bool isValid() const { return !isEmpty(); }
 
@@ -258,6 +258,6 @@ public:
     {}
 };
 
-} // namespace ai::config
+} // namespace ai
 
 #endif // AI_CONFIG_OUTPUT_H

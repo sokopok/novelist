@@ -3,12 +3,12 @@
 
 #include "common.h"
 
-namespace ai::config {
+namespace ai {
 
 class Error
 {
     Q_GADGET
-    Q_PROPERTY(ai::config::Type objectType READ objectType CONSTANT FINAL)
+    Q_PROPERTY(ai::UtilityType utilityType READ utilityType CONSTANT FINAL)
     Q_PROPERTY(QJsonObject extra READ extra FINAL)
     Q_PROPERTY(bool empty READ isEmpty FINAL)
     Q_PROPERTY(bool valid READ isValid FINAL)
@@ -67,7 +67,7 @@ public:
         , e{extra}
     {}
 
-    [[nodiscard]] ai::config::Type objectType() const { return ai::config::Type::Type_Error; }
+    [[nodiscard]] ai::UtilityType utilityType() const { return UtilityType_Error; }
 
     [[nodiscard]] QJsonObject extra() const { return e; }
 
@@ -140,7 +140,7 @@ public:
         for (int i = 0; i < metaEnum.keyCount(); ++i)
             if (metaEnum.value(i) == type)
                 return Type(i);
-        return ai::config::Type::Type_UnknownErrorType;
+        return UnknownErrorType;
     }
     static QString toString(Type type) { return typeKV.value(type, QString::number(type)); }
     static int toInt(Type type) { return std::to_underlying(type); }
@@ -239,6 +239,6 @@ public:
     }
 };
 
-} // namespace ai::config
+} // namespace ai
 
 #endif // AI_CONFIG_ERROR_H

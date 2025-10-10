@@ -4,7 +4,7 @@
 #include "empty.h"
 #include "inputitem.h"
 
-namespace ai::config {
+namespace ai {
 
 class Input
 {
@@ -158,6 +158,6 @@ public:
     // }
 };
 
-} // namespace ai::config
+} // namespace ai
 
 #endif // AI_CONFIG_INPUT_H

@@ -3,7 +3,7 @@
 
 #include "stringlist.h"
 
-namespace ai::config {
+namespace ai {
 
 class IncludeList : public StringList
 {
@@ -43,7 +43,7 @@ public:
         return list;
     }
 
-    [[nodiscard]] ai::config::Type objectType() const { return ai::config::Type::Type_StringList; }
+    [[nodiscard]] ai::UtilityType utilityType() const { return UtilityType_StringList; }
 
     [[nodiscard]] bool isValid() const { return !isEmpty(); }
 
@@ -92,6 +92,6 @@ private:
            {IncludeComputerCallOutputImageUrl, "computer_call_output.output.image_url"}};
 };
 
-} // namespace ai::config
+} // namespace ai
 
 #endif // AI_CONFIG_INCLUDELIST_H

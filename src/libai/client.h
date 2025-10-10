@@ -2,6 +2,7 @@
 #define AI_CLIENT_H
 
 #include <QObject>
+#include "config/error.h"
 #include "request.h"
 
 class QNetworkAccessManager;

@@ -3,14 +3,14 @@
 
 #include "common.h"
 
-namespace ai::config {
+namespace ai {
 
 class ConversationData;
 
 class Conversation
 {
     Q_GADGET
-    Q_PROPERTY(Type objectType READ objectType CONSTANT FINAL)
+    Q_PROPERTY(ai::UtilityType utilityType READ utilityType CONSTANT FINAL)
     Q_PROPERTY(QString id READ id WRITE setId FINAL)
     Q_PROPERTY(QJsonObject extra READ extra FINAL)
     Q_PROPERTY(bool empty READ isEmpty FINAL)
@@ -25,10 +25,7 @@ public:
     Conversation& operator=(Conversation&&);
     ~Conversation();
 
-    [[nodiscard]] ai::config::Type objectType() const
-    {
-        return ai::config::Type::Type_Conversation;
-    }
+    [[nodiscard]] ai::UtilityType utilityType() const { return UtilityType_Conversation; }
 
     [[nodiscard]] QJsonObject extra() const;
     bool setExtra(const QJsonObject& extra);
@@ -80,6 +77,6 @@ private:
     QSharedDataPointer<ConversationData> d;
 };
 
-} // namespace ai::config
+} // namespace ai
 
 #endif // AI_CONFIG_CONVERSATION_H

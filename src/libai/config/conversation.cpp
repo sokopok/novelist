@@ -1,7 +1,7 @@
 #include "conversation.h"
 #include <utility>
 
-namespace ai::config {
+namespace ai {
 
 class ConversationData : public QSharedData
 {
@@ -73,4 +73,4 @@ QJsonObject Conversation::toJson() const
     return json;
 }
 
-} // namespace ai::config
+} // namespace ai
