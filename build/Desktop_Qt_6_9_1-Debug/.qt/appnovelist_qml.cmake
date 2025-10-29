@@ -1,0 +1,43 @@
+
+set(target "appnovelist")
+set(working_dir "/home/tomas/Source/novelist/new")
+set(src_and_dest_list
+    "/home/tomas/Source/novelist/new/qml/Main.qml"
+    "/home/tomas/Source/novelist/new/build/Desktop_Qt_6_9_1-Debug/appnovelist/qml/Main.qml"
+    "/home/tomas/Source/novelist/new/qml/SettingsPage.qml"
+    "/home/tomas/Source/novelist/new/build/Desktop_Qt_6_9_1-Debug/appnovelist/qml/SettingsPage.qml"
+    "/home/tomas/Source/novelist/new/qml/ChatPage.qml"
+    "/home/tomas/Source/novelist/new/build/Desktop_Qt_6_9_1-Debug/appnovelist/qml/ChatPage.qml"
+    "/home/tomas/Source/novelist/new/qml/RoundButton.qml"
+    "/home/tomas/Source/novelist/new/build/Desktop_Qt_6_9_1-Debug/appnovelist/qml/RoundButton.qml"
+    "/home/tomas/Source/novelist/new/qml/util.js"
+    "/home/tomas/Source/novelist/new/build/Desktop_Qt_6_9_1-Debug/appnovelist/qml/util.js"
+    "/home/tomas/Source/novelist/new/qml/SquareBubble.qml"
+    "/home/tomas/Source/novelist/new/build/Desktop_Qt_6_9_1-Debug/appnovelist/qml/SquareBubble.qml"
+    "/home/tomas/Source/novelist/new/qml/ChatOutput.qml"
+    "/home/tomas/Source/novelist/new/build/Desktop_Qt_6_9_1-Debug/appnovelist/qml/ChatOutput.qml"
+    "/home/tomas/Source/novelist/new/qml/FieldListView.qml"
+    "/home/tomas/Source/novelist/new/build/Desktop_Qt_6_9_1-Debug/appnovelist/qml/FieldListView.qml"
+    "/home/tomas/Source/novelist/new/qml/NodeListView.qml"
+    "/home/tomas/Source/novelist/new/build/Desktop_Qt_6_9_1-Debug/appnovelist/qml/NodeListView.qml"
+    "/home/tomas/Source/novelist/new/qml/ValueListView.qml"
+    "/home/tomas/Source/novelist/new/build/Desktop_Qt_6_9_1-Debug/appnovelist/qml/ValueListView.qml"
+    "/home/tomas/Source/novelist/new/qml/Dot.qml"
+    "/home/tomas/Source/novelist/new/build/Desktop_Qt_6_9_1-Debug/appnovelist/qml/Dot.qml"
+    "/home/tomas/Source/novelist/new/qml/FieldTypeListView.qml"
+    "/home/tomas/Source/novelist/new/build/Desktop_Qt_6_9_1-Debug/appnovelist/qml/FieldTypeListView.qml"
+    "/home/tomas/Source/novelist/new/qml/ValueTypeListView.qml"
+    "/home/tomas/Source/novelist/new/build/Desktop_Qt_6_9_1-Debug/appnovelist/qml/ValueTypeListView.qml"
+    "/home/tomas/Source/novelist/new/qml/FieldTypeListViewDelegateRow.qml"
+    "/home/tomas/Source/novelist/new/build/Desktop_Qt_6_9_1-Debug/appnovelist/qml/FieldTypeListViewDelegateRow.qml"
+    "/home/tomas/Source/novelist/new/qml/ElementTreeView.qml"
+    "/home/tomas/Source/novelist/new/build/Desktop_Qt_6_9_1-Debug/appnovelist/qml/ElementTreeView.qml"
+    "/home/tomas/Source/novelist/new/qml/ElementTreeviewDelegateLabel.qml"
+    "/home/tomas/Source/novelist/new/build/Desktop_Qt_6_9_1-Debug/appnovelist/qml/ElementTreeviewDelegateLabel.qml"
+    "/home/tomas/Source/novelist/new/qml/ElementTreeviewDelegateValue.qml"
+    "/home/tomas/Source/novelist/new/build/Desktop_Qt_6_9_1-Debug/appnovelist/qml/ElementTreeviewDelegateValue.qml"
+    "/home/tomas/Source/novelist/new/qml/ElementTypeTableView.qml"
+    "/home/tomas/Source/novelist/new/build/Desktop_Qt_6_9_1-Debug/appnovelist/qml/ElementTypeTableView.qml"
+
+)
+set(timestamp_file "/home/tomas/Source/novelist/new/build/Desktop_Qt_6_9_1-Debug/.qt/appnovelist_qml.txt")

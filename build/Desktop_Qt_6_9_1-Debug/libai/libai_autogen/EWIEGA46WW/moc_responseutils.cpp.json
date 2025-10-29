@@ -1,0 +1,209 @@
+{
+    "classes": [
+        {
+            "className": "Empty",
+            "gadget": true,
+            "lineNumber": 50,
+            "properties": [
+                {
+                    "constant": true,
+                    "designable": true,
+                    "final": true,
+                    "index": 0,
+                    "name": "utilityType",
+                    "read": "utilityType",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "ai::UtilityType",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 1,
+                    "name": "extra",
+                    "read": "extra",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QJsonObject",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 2,
+                    "name": "empty",
+                    "read": "isEmpty",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "bool",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 3,
+                    "name": "valid",
+                    "read": "isValid",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "bool",
+                    "user": false
+                }
+            ],
+            "qualifiedClassName": "ai::Empty"
+        },
+        {
+            "className": "Error",
+            "enums": [
+                {
+                    "isClass": false,
+                    "isFlag": false,
+                    "name": "Code",
+                    "values": [
+                        "NoError",
+                        "UnknownError",
+                        "InternalError",
+                        "NetworkError",
+                        "SslError",
+                        "MissingRequiredParameter"
+                    ]
+                },
+                {
+                    "isClass": false,
+                    "isFlag": false,
+                    "name": "Type",
+                    "values": [
+                        "NoErrorType",
+                        "UnknownErrorType",
+                        "InternalErrorType",
+                        "NetworkErrorType",
+                        "InvalidRequestErrorType"
+                    ]
+                }
+            ],
+            "gadget": true,
+            "lineNumber": 85,
+            "properties": [
+                {
+                    "constant": true,
+                    "designable": true,
+                    "final": true,
+                    "index": 0,
+                    "name": "utilityType",
+                    "read": "utilityType",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "ai::UtilityType",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 1,
+                    "name": "extra",
+                    "read": "extra",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QJsonObject",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 2,
+                    "name": "empty",
+                    "read": "isEmpty",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "bool",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 3,
+                    "name": "valid",
+                    "read": "isValid",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "bool",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 4,
+                    "name": "type",
+                    "read": "type",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "Type",
+                    "user": false,
+                    "write": "setType"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 5,
+                    "name": "code",
+                    "read": "code",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "Code",
+                    "user": false,
+                    "write": "setCode"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 6,
+                    "name": "message",
+                    "read": "message",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false,
+                    "write": "setMessage"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 7,
+                    "name": "param",
+                    "read": "param",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false,
+                    "write": "setParam"
+                }
+            ],
+            "qualifiedClassName": "ai::Error"
+        }
+    ],
+    "inputFile": "responseutils.h",
+    "outputRevision": 69
+}

@@ -1,0 +1,85 @@
+{
+    "classes": [
+        {
+            "classInfos": [
+                {
+                    "name": "QML.Element",
+                    "value": "auto"
+                }
+            ],
+            "className": "NodeListModel",
+            "enums": [
+                {
+                    "isClass": false,
+                    "isFlag": false,
+                    "name": "Role",
+                    "values": [
+                        "NodeRole",
+                        "NameRole",
+                        "LabelRole",
+                        "InfoRole",
+                        "IconRole",
+                        "UserRole"
+                    ]
+                }
+            ],
+            "lineNumber": 9,
+            "object": true,
+            "properties": [
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 0,
+                    "name": "nodes",
+                    "notify": "nodesChanged",
+                    "read": "nodes",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QList<Node*>",
+                    "user": false,
+                    "write": "setNodes"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 1,
+                    "name": "node",
+                    "notify": "nodeChanged",
+                    "read": "node",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "Node*",
+                    "user": false,
+                    "write": "setNode"
+                }
+            ],
+            "qualifiedClassName": "NodeListModel",
+            "signals": [
+                {
+                    "access": "public",
+                    "index": 0,
+                    "name": "nodesChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 1,
+                    "name": "nodeChanged",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QAbstractListModel"
+                }
+            ]
+        }
+    ],
+    "inputFile": "nodelistmodel.h",
+    "outputRevision": 69
+}

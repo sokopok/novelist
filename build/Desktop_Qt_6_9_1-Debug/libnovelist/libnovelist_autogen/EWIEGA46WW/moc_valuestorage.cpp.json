@@ -1,0 +1,126 @@
+{
+    "classes": [
+        {
+            "classInfos": [
+                {
+                    "name": "QML.Element",
+                    "value": "auto"
+                }
+            ],
+            "className": "ValueStorage",
+            "lineNumber": 7,
+            "methods": [
+                {
+                    "access": "public",
+                    "index": 0,
+                    "name": "value",
+                    "returnType": "Value*"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "rowid",
+                            "type": "int"
+                        }
+                    ],
+                    "index": 1,
+                    "name": "value",
+                    "returnType": "Value*"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "nodeType",
+                            "type": "ValueType*"
+                        },
+                        {
+                            "name": "label",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "info",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "icon",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 2,
+                    "name": "createValue",
+                    "returnType": "Value*"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "nodeType",
+                            "type": "ValueType*"
+                        },
+                        {
+                            "name": "label",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "info",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 3,
+                    "isCloned": true,
+                    "name": "createValue",
+                    "returnType": "Value*"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "nodeType",
+                            "type": "ValueType*"
+                        },
+                        {
+                            "name": "label",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 4,
+                    "isCloned": true,
+                    "name": "createValue",
+                    "returnType": "Value*"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "nodeType",
+                            "type": "ValueType*"
+                        }
+                    ],
+                    "index": 5,
+                    "isCloned": true,
+                    "name": "createValue",
+                    "returnType": "Value*"
+                },
+                {
+                    "access": "public",
+                    "index": 6,
+                    "isCloned": true,
+                    "name": "createValue",
+                    "returnType": "Value*"
+                }
+            ],
+            "object": true,
+            "qualifiedClassName": "ValueStorage",
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "BaseStorage"
+                }
+            ]
+        }
+    ],
+    "inputFile": "valuestorage.h",
+    "outputRevision": 69
+}

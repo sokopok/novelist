@@ -1,0 +1,75 @@
+{
+    "classes": [
+        {
+            "classInfos": [
+                {
+                    "name": "QML.Element",
+                    "value": "auto"
+                }
+            ],
+            "className": "ProjectStorage",
+            "lineNumber": 7,
+            "methods": [
+                {
+                    "access": "public",
+                    "index": 0,
+                    "name": "project",
+                    "returnType": "Project*"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "rowid",
+                            "type": "int"
+                        }
+                    ],
+                    "index": 1,
+                    "name": "project",
+                    "returnType": "Project*"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "type",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 2,
+                    "name": "createProject",
+                    "returnType": "Project*"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "nodeType",
+                            "type": "ProjectType*"
+                        }
+                    ],
+                    "index": 3,
+                    "name": "createProject",
+                    "returnType": "Project*"
+                },
+                {
+                    "access": "public",
+                    "index": 4,
+                    "isCloned": true,
+                    "name": "createProject",
+                    "returnType": "Project*"
+                }
+            ],
+            "object": true,
+            "qualifiedClassName": "ProjectStorage",
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "BaseStorage"
+                }
+            ]
+        }
+    ],
+    "inputFile": "projectstorage.h",
+    "outputRevision": 69
+}

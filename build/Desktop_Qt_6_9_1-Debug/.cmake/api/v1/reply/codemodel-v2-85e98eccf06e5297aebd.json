@@ -1,0 +1,509 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2
+					],
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						46
+					]
+				},
+				{
+					"build" : "libai",
+					"jsonFile" : "directory-libai-Debug-511cf3784a68ce754f04.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "libai",
+					"targetIndexes" : 
+					[
+						16,
+						17,
+						18,
+						19,
+						20,
+						21,
+						22,
+						23,
+						24,
+						25,
+						26,
+						27,
+						28,
+						29,
+						30
+					]
+				},
+				{
+					"build" : "libnovelist",
+					"jsonFile" : "directory-libnovelist-Debug-b9e896342f54a0a6b350.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "libnovelist",
+					"targetIndexes" : 
+					[
+						31,
+						32,
+						33,
+						34,
+						35,
+						36,
+						37,
+						38,
+						39,
+						40,
+						41,
+						42,
+						43,
+						44,
+						45
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						2
+					],
+					"name" : "novelist",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17,
+						18,
+						19,
+						20,
+						21,
+						22,
+						23,
+						24,
+						25,
+						26,
+						27,
+						28,
+						29,
+						30,
+						31,
+						32,
+						33,
+						34,
+						35,
+						36,
+						37,
+						38,
+						39,
+						40,
+						41,
+						42,
+						43,
+						44,
+						45,
+						46
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "all_aotstats::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-all_aotstats-Debug-9574a1b123b27160ae65.json",
+					"name" : "all_aotstats",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "all_qmllint::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-all_qmllint-Debug-7a22e9aae78aff349aed.json",
+					"name" : "all_qmllint",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "all_qmllint_json::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-all_qmllint_json-Debug-c7b4be99c83fc39493c1.json",
+					"name" : "all_qmllint_json",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "all_qmllint_module::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-all_qmllint_module-Debug-e53705b6aeb021491e4a.json",
+					"name" : "all_qmllint_module",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "all_qmltyperegistrations::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-all_qmltyperegistrations-Debug-b717a6a3493e41e08482.json",
+					"name" : "all_qmltyperegistrations",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "appnovelist::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-appnovelist-Debug-d0a1fdebed458101d3b0.json",
+					"name" : "appnovelist",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "appnovelist_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-appnovelist_autogen-Debug-fe091f4d3db6d57beb11.json",
+					"name" : "appnovelist_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "appnovelist_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-appnovelist_autogen_timestamp_deps-Debug-e36f23e9ddfd78762d89.json",
+					"name" : "appnovelist_autogen_timestamp_deps",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "appnovelist_copy_qml::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-appnovelist_copy_qml-Debug-86d3c523d9e44f283abb.json",
+					"name" : "appnovelist_copy_qml",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "appnovelist_copy_res::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-appnovelist_copy_res-Debug-e9089480336d53a605ce.json",
+					"name" : "appnovelist_copy_res",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "appnovelist_generate_qmlls_ini_file::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-appnovelist_generate_qmlls_ini_file-Debug-2117f3a0eec473ee1e44.json",
+					"name" : "appnovelist_generate_qmlls_ini_file",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "appnovelist_qmlimportscan::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-appnovelist_qmlimportscan-Debug-1b50159e900cfe6a1aa4.json",
+					"name" : "appnovelist_qmlimportscan",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "appnovelist_qmllint::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-appnovelist_qmllint-Debug-87be5cb12884ee1cbdd2.json",
+					"name" : "appnovelist_qmllint",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "appnovelist_qmllint_json::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-appnovelist_qmllint_json-Debug-6380dd4a05c8d171fd71.json",
+					"name" : "appnovelist_qmllint_json",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "appnovelist_qmllint_module::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-appnovelist_qmllint_module-Debug-cffe06c808196e39bd71.json",
+					"name" : "appnovelist_qmllint_module",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "appnovelist_qmltyperegistration::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-appnovelist_qmltyperegistration-Debug-8250204832a8dc1d7c1a.json",
+					"name" : "appnovelist_qmltyperegistration",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "libai::@291a53915bf01762ee4a",
+					"jsonFile" : "target-libai-Debug-6947968833ec6f43caef.json",
+					"name" : "libai",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "libai_autogen::@291a53915bf01762ee4a",
+					"jsonFile" : "target-libai_autogen-Debug-4bc057ed6535ef9adcea.json",
+					"name" : "libai_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "libai_autogen_timestamp_deps::@291a53915bf01762ee4a",
+					"jsonFile" : "target-libai_autogen_timestamp_deps-Debug-c5d79c0aac79a6b52379.json",
+					"name" : "libai_autogen_timestamp_deps",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "libai_copy_qml::@291a53915bf01762ee4a",
+					"jsonFile" : "target-libai_copy_qml-Debug-f04f7c45bdd256ad97eb.json",
+					"name" : "libai_copy_qml",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "libai_copy_res::@291a53915bf01762ee4a",
+					"jsonFile" : "target-libai_copy_res-Debug-54e5fad12e1e7d9a0f9a.json",
+					"name" : "libai_copy_res",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "libai_generate_qmlls_ini_file::@291a53915bf01762ee4a",
+					"jsonFile" : "target-libai_generate_qmlls_ini_file-Debug-8f72d51a5633f5e87ca2.json",
+					"name" : "libai_generate_qmlls_ini_file",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "libai_qmltyperegistration::@291a53915bf01762ee4a",
+					"jsonFile" : "target-libai_qmltyperegistration-Debug-14c7e2dabe28ea05015e.json",
+					"name" : "libai_qmltyperegistration",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "libai_resources_1::@291a53915bf01762ee4a",
+					"jsonFile" : "target-libai_resources_1-Debug-5a262d5cea44d103ec30.json",
+					"name" : "libai_resources_1",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "libai_resources_2::@291a53915bf01762ee4a",
+					"jsonFile" : "target-libai_resources_2-Debug-ef5bb7de0f553d0625aa.json",
+					"name" : "libai_resources_2",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "libaiplugin::@291a53915bf01762ee4a",
+					"jsonFile" : "target-libaiplugin-Debug-ba782d6b263c93e499cc.json",
+					"name" : "libaiplugin",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "libaiplugin_autogen::@291a53915bf01762ee4a",
+					"jsonFile" : "target-libaiplugin_autogen-Debug-aad66bafd9d9314916bb.json",
+					"name" : "libaiplugin_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "libaiplugin_autogen_timestamp_deps::@291a53915bf01762ee4a",
+					"jsonFile" : "target-libaiplugin_autogen_timestamp_deps-Debug-38351caa4c4ebbff5a7a.json",
+					"name" : "libaiplugin_autogen_timestamp_deps",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "libaiplugin_init::@291a53915bf01762ee4a",
+					"jsonFile" : "target-libaiplugin_init-Debug-ac6f205498016c2b8e90.json",
+					"name" : "libaiplugin_init",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "libaiplugin_init_autogen::@291a53915bf01762ee4a",
+					"jsonFile" : "target-libaiplugin_init_autogen-Debug-3fbf79e88245f1f142e6.json",
+					"name" : "libaiplugin_init_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "libaiplugin_init_autogen_timestamp_deps::@291a53915bf01762ee4a",
+					"jsonFile" : "target-libaiplugin_init_autogen_timestamp_deps-Debug-a37900cc11159df25739.json",
+					"name" : "libaiplugin_init_autogen_timestamp_deps",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "libnovelist::@1b824b7f2526f8fa12f5",
+					"jsonFile" : "target-libnovelist-Debug-a7374ab9e68d600cfe84.json",
+					"name" : "libnovelist",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "libnovelist_autogen::@1b824b7f2526f8fa12f5",
+					"jsonFile" : "target-libnovelist_autogen-Debug-9ba91665b87425705de1.json",
+					"name" : "libnovelist_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "libnovelist_autogen_timestamp_deps::@1b824b7f2526f8fa12f5",
+					"jsonFile" : "target-libnovelist_autogen_timestamp_deps-Debug-4eb56774456719ff365b.json",
+					"name" : "libnovelist_autogen_timestamp_deps",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "libnovelist_copy_qml::@1b824b7f2526f8fa12f5",
+					"jsonFile" : "target-libnovelist_copy_qml-Debug-760aa607c30be748e715.json",
+					"name" : "libnovelist_copy_qml",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "libnovelist_copy_res::@1b824b7f2526f8fa12f5",
+					"jsonFile" : "target-libnovelist_copy_res-Debug-82ce2f977e9b78e2ab86.json",
+					"name" : "libnovelist_copy_res",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "libnovelist_generate_qmlls_ini_file::@1b824b7f2526f8fa12f5",
+					"jsonFile" : "target-libnovelist_generate_qmlls_ini_file-Debug-b6b6ee9210cbc62a81d1.json",
+					"name" : "libnovelist_generate_qmlls_ini_file",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "libnovelist_qmltyperegistration::@1b824b7f2526f8fa12f5",
+					"jsonFile" : "target-libnovelist_qmltyperegistration-Debug-7c1320fc8d1594b98d97.json",
+					"name" : "libnovelist_qmltyperegistration",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "libnovelist_resources_1::@1b824b7f2526f8fa12f5",
+					"jsonFile" : "target-libnovelist_resources_1-Debug-c409ef08a3728f88592b.json",
+					"name" : "libnovelist_resources_1",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "libnovelist_resources_2::@1b824b7f2526f8fa12f5",
+					"jsonFile" : "target-libnovelist_resources_2-Debug-469035ac1cdf081822a2.json",
+					"name" : "libnovelist_resources_2",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "libnovelistplugin::@1b824b7f2526f8fa12f5",
+					"jsonFile" : "target-libnovelistplugin-Debug-3e9af316f9d4aaed5596.json",
+					"name" : "libnovelistplugin",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "libnovelistplugin_autogen::@1b824b7f2526f8fa12f5",
+					"jsonFile" : "target-libnovelistplugin_autogen-Debug-4e384b9c72f05ecf57d3.json",
+					"name" : "libnovelistplugin_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "libnovelistplugin_autogen_timestamp_deps::@1b824b7f2526f8fa12f5",
+					"jsonFile" : "target-libnovelistplugin_autogen_timestamp_deps-Debug-1fa17c78b06e7c6ca91e.json",
+					"name" : "libnovelistplugin_autogen_timestamp_deps",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "libnovelistplugin_init::@1b824b7f2526f8fa12f5",
+					"jsonFile" : "target-libnovelistplugin_init-Debug-7747ccf25a15b4912060.json",
+					"name" : "libnovelistplugin_init",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "libnovelistplugin_init_autogen::@1b824b7f2526f8fa12f5",
+					"jsonFile" : "target-libnovelistplugin_init_autogen-Debug-13bbc266543990cac66e.json",
+					"name" : "libnovelistplugin_init_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "libnovelistplugin_init_autogen_timestamp_deps::@1b824b7f2526f8fa12f5",
+					"jsonFile" : "target-libnovelistplugin_init_autogen_timestamp_deps-Debug-077004b0eabdfaa54b10.json",
+					"name" : "libnovelistplugin_init_autogen_timestamp_deps",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "module_appnovelist_aotstats_target::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-module_appnovelist_aotstats_target-Debug-b850a6051f09eafb9155.json",
+					"name" : "module_appnovelist_aotstats_target",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/tomas/Source/novelist/new/build/Desktop_Qt_6_9_1-Debug",
+		"source" : "/home/tomas/Source/novelist/new"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 7
+	}
+}

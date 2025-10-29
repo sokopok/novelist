@@ -1,0 +1,126 @@
+{
+    "classes": [
+        {
+            "classInfos": [
+                {
+                    "name": "QML.Element",
+                    "value": "auto"
+                }
+            ],
+            "className": "ElementStorage",
+            "lineNumber": 9,
+            "methods": [
+                {
+                    "access": "public",
+                    "index": 0,
+                    "name": "element",
+                    "returnType": "Element*"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "rowid",
+                            "type": "int"
+                        }
+                    ],
+                    "index": 1,
+                    "name": "element",
+                    "returnType": "Element*"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "nodeType",
+                            "type": "ElementType*"
+                        },
+                        {
+                            "name": "label",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "info",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "icon",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 2,
+                    "name": "createElement",
+                    "returnType": "Element*"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "nodeType",
+                            "type": "ElementType*"
+                        },
+                        {
+                            "name": "label",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "info",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 3,
+                    "isCloned": true,
+                    "name": "createElement",
+                    "returnType": "Element*"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "nodeType",
+                            "type": "ElementType*"
+                        },
+                        {
+                            "name": "label",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 4,
+                    "isCloned": true,
+                    "name": "createElement",
+                    "returnType": "Element*"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "nodeType",
+                            "type": "ElementType*"
+                        }
+                    ],
+                    "index": 5,
+                    "isCloned": true,
+                    "name": "createElement",
+                    "returnType": "Element*"
+                },
+                {
+                    "access": "public",
+                    "index": 6,
+                    "isCloned": true,
+                    "name": "createElement",
+                    "returnType": "Element*"
+                }
+            ],
+            "object": true,
+            "qualifiedClassName": "ElementStorage",
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "BaseStorage"
+                }
+            ]
+        }
+    ],
+    "inputFile": "elementstorage.h",
+    "outputRevision": 69
+}

@@ -1,0 +1,102 @@
+{
+    "classes": [
+        {
+            "classInfos": [
+                {
+                    "name": "QML.Element",
+                    "value": "auto"
+                },
+                {
+                    "name": "QML.Creatable",
+                    "value": "false"
+                },
+                {
+                    "name": "QML.UncreatableReason",
+                    "value": ""
+                }
+            ],
+            "className": "ElementType",
+            "lineNumber": 10,
+            "object": true,
+            "properties": [
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 0,
+                    "name": "fieldTypes",
+                    "notify": "fieldTypesChanged",
+                    "read": "fieldTypes",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QList<FieldType*>",
+                    "user": false,
+                    "write": "setFieldTypes"
+                },
+                {
+                    "constant": true,
+                    "designable": true,
+                    "final": true,
+                    "index": 1,
+                    "name": "fieldTypeListModel",
+                    "read": "fieldTypeListModel",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "FieldTypeListModel*",
+                    "user": false
+                }
+            ],
+            "qualifiedClassName": "ElementType",
+            "signals": [
+                {
+                    "access": "public",
+                    "index": 0,
+                    "name": "fieldTypesChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "first",
+                            "type": "int"
+                        },
+                        {
+                            "name": "last",
+                            "type": "int"
+                        }
+                    ],
+                    "index": 1,
+                    "name": "fieldTypesAdded",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "first",
+                            "type": "int"
+                        },
+                        {
+                            "name": "last",
+                            "type": "int"
+                        }
+                    ],
+                    "index": 2,
+                    "name": "fieldTypesRemoved",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "NodeType"
+                }
+            ]
+        }
+    ],
+    "inputFile": "elementtype.h",
+    "outputRevision": 69
+}

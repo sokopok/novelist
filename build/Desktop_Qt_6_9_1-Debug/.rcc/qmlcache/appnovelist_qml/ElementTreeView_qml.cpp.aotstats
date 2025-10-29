@@ -1,0 +1,20 @@
+[
+    {
+        "moduleFiles": [
+            {
+                "entries": [
+                    {
+                        "codegenSuccessful": false,
+                        "column": 21,
+                        "durationMicroseconds": 34,
+                        "errorMessage": "Cannot access value for name delegate",
+                        "functionName": "source",
+                        "line": 17
+                    }
+                ],
+                "filePath": "/home/tomas/Source/novelist/new/qml/ElementTreeView.qml"
+            }
+        ],
+        "moduleId": "appnovelist(appnovelist)"
+    }
+]

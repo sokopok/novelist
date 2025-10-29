@@ -1,0 +1,287 @@
+{
+    "classes": [
+        {
+            "className": "ReasoningOutput",
+            "enums": [
+                {
+                    "isClass": false,
+                    "isFlag": false,
+                    "name": "Status",
+                    "values": [
+                        "Status_InProgress",
+                        "Status_Incomplete",
+                        "Status_Completed",
+                        "Status_Custom"
+                    ]
+                }
+            ],
+            "gadget": true,
+            "lineNumber": 12,
+            "properties": [
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 0,
+                    "name": "status",
+                    "read": "status",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "Status",
+                    "user": false,
+                    "write": "setStatus"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 1,
+                    "name": "statusAsString",
+                    "read": "statusAsString",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false,
+                    "write": "setStatus"
+                }
+            ],
+            "qualifiedClassName": "ai::ReasoningOutput",
+            "superClasses": [
+                {
+                    "access": "public",
+                    "fullyQualifiedName": "ai::Base",
+                    "name": "Base"
+                }
+            ]
+        },
+        {
+            "className": "ImageGenerationCall",
+            "enums": [
+                {
+                    "isClass": false,
+                    "isFlag": false,
+                    "name": "Status",
+                    "values": [
+                        "Status_Custom"
+                    ]
+                }
+            ],
+            "gadget": true,
+            "lineNumber": 215,
+            "properties": [
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 0,
+                    "name": "id",
+                    "read": "id",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false,
+                    "write": "setId"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 1,
+                    "name": "status",
+                    "read": "status",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "Status",
+                    "user": false,
+                    "write": "setStatus"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 2,
+                    "name": "result",
+                    "read": "result",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QImage",
+                    "user": false,
+                    "write": "setResult"
+                }
+            ],
+            "qualifiedClassName": "ai::ImageGenerationCall",
+            "superClasses": [
+                {
+                    "access": "public",
+                    "fullyQualifiedName": "ai::Base",
+                    "name": "Base"
+                }
+            ]
+        },
+        {
+            "className": "OutputText",
+            "gadget": true,
+            "lineNumber": 373,
+            "properties": [
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 0,
+                    "name": "text",
+                    "read": "text",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false,
+                    "write": "setText"
+                }
+            ],
+            "qualifiedClassName": "ai::OutputText",
+            "superClasses": [
+                {
+                    "access": "public",
+                    "fullyQualifiedName": "ai::Base",
+                    "name": "Base"
+                }
+            ]
+        },
+        {
+            "className": "OutputMessageContent",
+            "gadget": true,
+            "lineNumber": 448,
+            "properties": [
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 0,
+                    "name": "text",
+                    "read": "text",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "OutputText",
+                    "user": false,
+                    "write": "setText"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 1,
+                    "name": "refusal",
+                    "read": "refusal",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "Refusal",
+                    "user": false,
+                    "write": "setRefusal"
+                }
+            ],
+            "qualifiedClassName": "ai::OutputMessageContent",
+            "superClasses": [
+                {
+                    "access": "public",
+                    "fullyQualifiedName": "ai::Base",
+                    "name": "Base"
+                }
+            ]
+        },
+        {
+            "className": "OutputMessage",
+            "gadget": true,
+            "lineNumber": 548,
+            "properties": [
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 0,
+                    "name": "content",
+                    "read": "content",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QList<OutputMessageContent>",
+                    "user": false,
+                    "write": "setContent"
+                }
+            ],
+            "qualifiedClassName": "ai::OutputMessage",
+            "superClasses": [
+                {
+                    "access": "public",
+                    "fullyQualifiedName": "ai::Message",
+                    "name": "Message"
+                }
+            ]
+        },
+        {
+            "className": "OutputItem",
+            "gadget": true,
+            "lineNumber": 640,
+            "properties": [
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 0,
+                    "name": "message",
+                    "read": "message",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "OutputMessage",
+                    "user": false,
+                    "write": "setMessage"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 1,
+                    "name": "imageGenerationCall",
+                    "read": "imageGenerationCall",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "ImageGenerationCall",
+                    "user": false,
+                    "write": "setImageGenerationCall"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 2,
+                    "name": "reasoning",
+                    "read": "reasoning",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "ReasoningOutput",
+                    "user": false,
+                    "write": "setReasoning"
+                }
+            ],
+            "qualifiedClassName": "ai::OutputItem",
+            "superClasses": [
+                {
+                    "access": "public",
+                    "fullyQualifiedName": "ai::Base",
+                    "name": "Base"
+                }
+            ]
+        }
+    ],
+    "inputFile": "responsesresponseutils.h",
+    "outputRevision": 69
+}

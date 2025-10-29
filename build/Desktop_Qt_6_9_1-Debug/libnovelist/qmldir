@@ -1,0 +1,7 @@
+module libnovelist
+linktarget libnovelistplugin
+optional plugin libnovelistplugin
+classname libnovelistPlugin
+typeinfo libnovelist.qmltypes
+prefer :/qt/qml/libnovelist/
+

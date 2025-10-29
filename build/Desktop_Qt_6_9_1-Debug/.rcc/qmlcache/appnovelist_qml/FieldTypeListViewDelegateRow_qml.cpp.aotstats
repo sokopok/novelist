@@ -1,0 +1,60 @@
+[
+    {
+        "moduleFiles": [
+            {
+                "entries": [
+                    {
+                        "codegenSuccessful": true,
+                        "column": 32,
+                        "durationMicroseconds": 57,
+                        "errorMessage": "",
+                        "functionName": "dot",
+                        "line": 13
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 35,
+                        "durationMicroseconds": 30,
+                        "errorMessage": "",
+                        "functionName": "icon",
+                        "line": 14
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 36,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Cannot resolve property type Label for binding on label.",
+                        "functionName": "label",
+                        "line": 15
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 25,
+                        "durationMicroseconds": 35,
+                        "errorMessage": "",
+                        "functionName": "implicitHeight",
+                        "line": 22
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 24,
+                        "durationMicroseconds": 18,
+                        "errorMessage": "",
+                        "functionName": "implicitWidth",
+                        "line": 23
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 28,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Could not find property \"verticalAlignment\".",
+                        "functionName": "verticalAlignment",
+                        "line": 39
+                    }
+                ],
+                "filePath": "/home/tomas/Source/novelist/new/qml/FieldTypeListViewDelegateRow.qml"
+            }
+        ],
+        "moduleId": "appnovelist(appnovelist)"
+    }
+]

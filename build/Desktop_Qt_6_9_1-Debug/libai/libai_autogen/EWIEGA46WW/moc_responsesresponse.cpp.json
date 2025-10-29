@@ -1,0 +1,160 @@
+{
+    "classes": [
+        {
+            "classInfos": [
+                {
+                    "name": "QML.Element",
+                    "value": "ResponsesResponse"
+                },
+                {
+                    "name": "QML.Creatable",
+                    "value": "false"
+                },
+                {
+                    "name": "QML.UncreatableReason",
+                    "value": "ResponsesResponse is created internally"
+                }
+            ],
+            "className": "ResponsesResponse",
+            "enums": [
+                {
+                    "isClass": false,
+                    "isFlag": false,
+                    "name": "Attribute",
+                    "values": [
+                        "BackgroundAttribute",
+                        "ConversationAttribute",
+                        "CreatedAtAttribute",
+                        "ErrorAttribute",
+                        "IncompleteDetailsAttribute",
+                        "InstructionsAttribute",
+                        "MaxOutputTokensAttribute",
+                        "MaxToolCallsAttribute",
+                        "MetadataAttribute",
+                        "ModelAttribute",
+                        "ObjectAttribute",
+                        "OutputAttribute",
+                        "OutputTextAttribute",
+                        "ParallelToolCallsAttribute",
+                        "PreviousResponseIdAttribute",
+                        "PromptAttribute",
+                        "PromptCacheKeyAttribute",
+                        "ReasoningAttribute",
+                        "SafetyIdentifierAttribute",
+                        "ServiceTierAttribute",
+                        "StatusAttribute",
+                        "TemperatureAttribute",
+                        "TextAttribute",
+                        "ToolChoiceAttribute",
+                        "ToolsAttribute",
+                        "TopLogprobsAttribute",
+                        "TopPAttribute",
+                        "TruncationAttribute",
+                        "UsageAttribute",
+                        "NumAttributes"
+                    ]
+                },
+                {
+                    "isClass": false,
+                    "isFlag": false,
+                    "name": "Status",
+                    "values": [
+                        "Status_Completed",
+                        "Status_Failed",
+                        "Status_InProgress",
+                        "Status_Cancelled",
+                        "Status_Queued",
+                        "Status_Incomplete",
+                        "Status_Custom"
+                    ]
+                }
+            ],
+            "lineNumber": 12,
+            "object": true,
+            "qualifiedClassName": "ai::ResponsesResponse",
+            "signals": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "text",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 0,
+                    "name": "textGenerated",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "image",
+                            "type": "QImage"
+                        }
+                    ],
+                    "index": 1,
+                    "name": "imageGenerated",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 2,
+                    "name": "backgroundChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 3,
+                    "name": "conversationChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 4,
+                    "name": "inputChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 5,
+                    "name": "reasoningChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 6,
+                    "name": "metadataChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 7,
+                    "name": "modelChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 8,
+                    "name": "streamingChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 9,
+                    "name": "streamOptionsChanged",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "fullyQualifiedName": "ai::Response",
+                    "name": "Response"
+                }
+            ]
+        }
+    ],
+    "inputFile": "responsesresponse.h",
+    "outputRevision": 69
+}

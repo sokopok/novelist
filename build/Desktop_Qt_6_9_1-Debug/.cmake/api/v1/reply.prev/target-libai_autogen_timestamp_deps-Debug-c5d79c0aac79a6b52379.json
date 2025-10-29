@@ -1,0 +1,96 @@
+{
+	"backtrace" : 0,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_dependencies",
+			"_qt_internal_qml_copy_files_to_build_dir",
+			"qt6_target_qml_sources",
+			"qt6_add_qml_module",
+			"qt_add_qml_module"
+		],
+		"files" : 
+		[
+			"libai/CMakeLists.txt",
+			"/home/tomas/Apps/Qt/6.9.1/gcc_64/lib/cmake/Qt6Qml/Qt6QmlMacros.cmake"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 10,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 1,
+				"line" : 1252,
+				"parent" : 1
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 916,
+				"parent" : 2
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 3497,
+				"parent" : 3
+			},
+			{
+				"command" : 0,
+				"file" : 1,
+				"line" : 2860,
+				"parent" : 4
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 3503,
+				"parent" : 3
+			},
+			{
+				"command" : 0,
+				"file" : 1,
+				"line" : 2860,
+				"parent" : 6
+			}
+		]
+	},
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 5,
+			"id" : "libai_copy_qml::@291a53915bf01762ee4a"
+		},
+		{
+			"backtrace" : 7,
+			"id" : "libai_copy_res::@291a53915bf01762ee4a"
+		},
+		{
+			"backtrace" : 0,
+			"id" : "libai_generate_qmlls_ini_file::@291a53915bf01762ee4a"
+		}
+	],
+	"folder" : 
+	{
+		"name" : "QtInternalTargets"
+	},
+	"id" : "libai_autogen_timestamp_deps::@291a53915bf01762ee4a",
+	"isGeneratorProvided" : true,
+	"name" : "libai_autogen_timestamp_deps",
+	"paths" : 
+	{
+		"build" : "libai",
+		"source" : "libai"
+	},
+	"sources" : [],
+	"type" : "UTILITY"
+}

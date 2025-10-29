@@ -1,0 +1,41 @@
+<RCC>
+  <qresource prefix="/qt/qml/appnovelist/">
+    <file alias="qml/Main.qml">/home/tomas/Source/novelist/new/qml/Main.qml</file>
+    <file alias="qml/SettingsPage.qml">/home/tomas/Source/novelist/new/qml/SettingsPage.qml</file>
+    <file alias="qml/ChatPage.qml">/home/tomas/Source/novelist/new/qml/ChatPage.qml</file>
+    <file alias="qml/RoundButton.qml">/home/tomas/Source/novelist/new/qml/RoundButton.qml</file>
+    <file alias="qml/util.js">/home/tomas/Source/novelist/new/qml/util.js</file>
+    <file alias="qml/SquareBubble.qml">/home/tomas/Source/novelist/new/qml/SquareBubble.qml</file>
+    <file alias="qml/ChatOutput.qml">/home/tomas/Source/novelist/new/qml/ChatOutput.qml</file>
+    <file alias="qml/FieldListView.qml">/home/tomas/Source/novelist/new/qml/FieldListView.qml</file>
+    <file alias="qml/NodeListView.qml">/home/tomas/Source/novelist/new/qml/NodeListView.qml</file>
+    <file alias="qml/ValueListView.qml">/home/tomas/Source/novelist/new/qml/ValueListView.qml</file>
+    <file alias="qml/Dot.qml">/home/tomas/Source/novelist/new/qml/Dot.qml</file>
+    <file alias="qml/FieldTypeListView.qml">/home/tomas/Source/novelist/new/qml/FieldTypeListView.qml</file>
+    <file alias="qml/ValueTypeListView.qml">/home/tomas/Source/novelist/new/qml/ValueTypeListView.qml</file>
+    <file alias="qml/FieldTypeListViewDelegateRow.qml">/home/tomas/Source/novelist/new/qml/FieldTypeListViewDelegateRow.qml</file>
+    <file alias="qml/ElementTreeView.qml">/home/tomas/Source/novelist/new/qml/ElementTreeView.qml</file>
+    <file alias="qml/ElementTreeviewDelegateLabel.qml">/home/tomas/Source/novelist/new/qml/ElementTreeviewDelegateLabel.qml</file>
+    <file alias="qml/ElementTreeviewDelegateValue.qml">/home/tomas/Source/novelist/new/qml/ElementTreeviewDelegateValue.qml</file>
+    <file alias="qml/ElementTypeTableView.qml">/home/tomas/Source/novelist/new/qml/ElementTypeTableView.qml</file>
+    <file alias="qml/ai.svg">/home/tomas/Source/novelist/new/qml/ai.svg</file>
+    <file alias="qml/user.svg">/home/tomas/Source/novelist/new/qml/user.svg</file>
+    <file alias="qml/bubble-square.svg">/home/tomas/Source/novelist/new/qml/bubble-square.svg</file>
+    <file alias="qml/ai-square.svg">/home/tomas/Source/novelist/new/qml/ai-square.svg</file>
+    <file alias="qml/computer-square.svg">/home/tomas/Source/novelist/new/qml/computer-square.svg</file>
+    <file alias="qml/user-square.svg">/home/tomas/Source/novelist/new/qml/user-square.svg</file>
+    <file alias="qml/human-square.svg">/home/tomas/Source/novelist/new/qml/human-square.svg</file>
+    <file alias="qml/element.svg">/home/tomas/Source/novelist/new/qml/element.svg</file>
+    <file alias="qml/field.svg">/home/tomas/Source/novelist/new/qml/field.svg</file>
+    <file alias="qml/node.svg">/home/tomas/Source/novelist/new/qml/node.svg</file>
+    <file alias="qml/modified.svg">/home/tomas/Source/novelist/new/qml/modified.svg</file>
+    <file alias="qml/value.svg">/home/tomas/Source/novelist/new/qml/value.svg</file>
+    <file alias="qml/element-modified.svg">/home/tomas/Source/novelist/new/qml/element-modified.svg</file>
+    <file alias="qml/field-modified.svg">/home/tomas/Source/novelist/new/qml/field-modified.svg</file>
+    <file alias="qml/value-modified.svg">/home/tomas/Source/novelist/new/qml/value-modified.svg</file>
+    <file alias="qml/elementtype.svg">/home/tomas/Source/novelist/new/qml/elementtype.svg</file>
+    <file alias="qml/fieldtype.svg">/home/tomas/Source/novelist/new/qml/fieldtype.svg</file>
+    <file alias="qml/valuetype.svg">/home/tomas/Source/novelist/new/qml/valuetype.svg</file>
+  </qresource>
+</RCC>
+

@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="/qt/qml/libai">
+    <file alias="qmldir">/home/tomas/Source/novelist/new/build/Desktop_Qt_6_9_1-Debug/libai/qmldir</file>
+  </qresource>
+</RCC>
+

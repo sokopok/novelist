@@ -1,0 +1,204 @@
+[
+    {
+        "moduleFiles": [
+            {
+                "entries": [
+                    {
+                        "codegenSuccessful": true,
+                        "column": 16,
+                        "durationMicroseconds": 97,
+                        "errorMessage": "",
+                        "functionName": "width",
+                        "line": 12
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 17,
+                        "durationMicroseconds": 56,
+                        "errorMessage": "",
+                        "functionName": "height",
+                        "line": 13
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 20,
+                        "durationMicroseconds": 64,
+                        "errorMessage": "",
+                        "functionName": "loops",
+                        "line": 29
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 25,
+                        "durationMicroseconds": 46,
+                        "errorMessage": "",
+                        "functionName": "target",
+                        "line": 31
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 27,
+                        "durationMicroseconds": 88,
+                        "errorMessage": "",
+                        "functionName": "duration",
+                        "line": 33
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 23,
+                        "durationMicroseconds": 58,
+                        "errorMessage": "",
+                        "functionName": "from",
+                        "line": 35
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 30,
+                        "durationMicroseconds": 44,
+                        "errorMessage": "",
+                        "functionName": "type",
+                        "line": 34
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 27,
+                        "durationMicroseconds": 80,
+                        "errorMessage": "",
+                        "functionName": "duration",
+                        "line": 39
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 25,
+                        "durationMicroseconds": 45,
+                        "errorMessage": "",
+                        "functionName": "target",
+                        "line": 42
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 27,
+                        "durationMicroseconds": 77,
+                        "errorMessage": "",
+                        "functionName": "duration",
+                        "line": 44
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 21,
+                        "durationMicroseconds": 46,
+                        "errorMessage": "",
+                        "functionName": "to",
+                        "line": 47
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 30,
+                        "durationMicroseconds": 42,
+                        "errorMessage": "",
+                        "functionName": "type",
+                        "line": 45
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 27,
+                        "durationMicroseconds": 78,
+                        "errorMessage": "",
+                        "functionName": "duration",
+                        "line": 50
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 20,
+                        "durationMicroseconds": 42,
+                        "errorMessage": "",
+                        "functionName": "loops",
+                        "line": 54
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 25,
+                        "durationMicroseconds": 45,
+                        "errorMessage": "",
+                        "functionName": "target",
+                        "line": 56
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 27,
+                        "durationMicroseconds": 79,
+                        "errorMessage": "",
+                        "functionName": "duration",
+                        "line": 58
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 21,
+                        "durationMicroseconds": 45,
+                        "errorMessage": "",
+                        "functionName": "to",
+                        "line": 61
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 30,
+                        "durationMicroseconds": 42,
+                        "errorMessage": "",
+                        "functionName": "type",
+                        "line": 59
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 27,
+                        "durationMicroseconds": 76,
+                        "errorMessage": "",
+                        "functionName": "duration",
+                        "line": 64
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 25,
+                        "durationMicroseconds": 43,
+                        "errorMessage": "",
+                        "functionName": "target",
+                        "line": 67
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 27,
+                        "durationMicroseconds": 75,
+                        "errorMessage": "",
+                        "functionName": "duration",
+                        "line": 69
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 23,
+                        "durationMicroseconds": 54,
+                        "errorMessage": "",
+                        "functionName": "from",
+                        "line": 71
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 30,
+                        "durationMicroseconds": 41,
+                        "errorMessage": "",
+                        "functionName": "type",
+                        "line": 70
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 27,
+                        "durationMicroseconds": 76,
+                        "errorMessage": "",
+                        "functionName": "duration",
+                        "line": 75
+                    }
+                ],
+                "filePath": "/home/tomas/Source/novelist/new/qml/SquareBubble.qml"
+            }
+        ],
+        "moduleId": "appnovelist(appnovelist)"
+    }
+]

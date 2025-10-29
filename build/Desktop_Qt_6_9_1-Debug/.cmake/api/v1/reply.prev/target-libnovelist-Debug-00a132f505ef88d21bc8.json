@@ -1,0 +1,1179 @@
+{
+	"archive" : {},
+	"artifacts" : 
+	[
+		{
+			"path" : "libnovelist/liblibnovelist.a"
+		}
+	],
+	"backtrace" : 4,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_library",
+			"_qt_internal_add_library",
+			"qt6_add_library",
+			"qt_add_library",
+			"target_link_libraries",
+			"add_dependencies",
+			"_qt_internal_qml_copy_files_to_build_dir",
+			"qt6_target_qml_sources",
+			"qt6_add_qml_module",
+			"qt_add_qml_module",
+			"_populate_qmlls_ini_file",
+			"_qt_internal_write_deferred_qmlls_ini_file",
+			"target_include_directories",
+			"_qt_internal_qml_type_registration",
+			"target_sources",
+			"qt6_extract_metatypes",
+			"__qt_propagate_generated_resource",
+			"_qt_internal_process_resource",
+			"qt6_add_resources",
+			"_qt_internal_expose_deferred_files_to_ide",
+			"qt6_finalize_target"
+		],
+		"files" : 
+		[
+			"/home/tomas/Apps/Qt/6.9.1/gcc_64/lib/cmake/Qt6Core/Qt6CoreMacros.cmake",
+			"libnovelist/CMakeLists.txt",
+			"/home/tomas/Apps/Qt/6.9.1/gcc_64/lib/cmake/Qt6Qml/Qt6QmlMacros.cmake",
+			"/home/tomas/Apps/Qt/6.9.1/gcc_64/lib/cmake/Qt6Qml/Qt6QmlMacros.cmake:1017:EVAL",
+			"/home/tomas/Apps/Qt/6.9.1/gcc_64/lib/cmake/Qt6Core/Qt6CoreMacros.cmake:787:EVAL"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 1
+			},
+			{
+				"command" : 3,
+				"file" : 1,
+				"line" : 8,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 2804,
+				"parent" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 2692,
+				"parent" : 2
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 2779,
+				"parent" : 3
+			},
+			{
+				"command" : 4,
+				"file" : 1,
+				"line" : 96,
+				"parent" : 0
+			},
+			{
+				"command" : 9,
+				"file" : 1,
+				"line" : 9,
+				"parent" : 0
+			},
+			{
+				"command" : 8,
+				"file" : 2,
+				"line" : 1252,
+				"parent" : 6
+			},
+			{
+				"command" : 7,
+				"file" : 2,
+				"line" : 916,
+				"parent" : 7
+			},
+			{
+				"command" : 6,
+				"file" : 2,
+				"line" : 3497,
+				"parent" : 8
+			},
+			{
+				"command" : 5,
+				"file" : 2,
+				"line" : 2860,
+				"parent" : 9
+			},
+			{
+				"command" : 6,
+				"file" : 2,
+				"line" : 3503,
+				"parent" : 8
+			},
+			{
+				"command" : 5,
+				"file" : 2,
+				"line" : 2860,
+				"parent" : 11
+			},
+			{
+				"file" : 1,
+				"line" : -1,
+				"parent" : 0
+			},
+			{
+				"command" : 11,
+				"file" : 3,
+				"line" : 1,
+				"parent" : 13
+			},
+			{
+				"command" : 10,
+				"file" : 2,
+				"line" : 1243,
+				"parent" : 14
+			},
+			{
+				"command" : 5,
+				"file" : 2,
+				"line" : 1310,
+				"parent" : 15
+			},
+			{
+				"command" : 4,
+				"file" : 2,
+				"line" : 596,
+				"parent" : 7
+			},
+			{
+				"command" : 13,
+				"file" : 2,
+				"line" : 796,
+				"parent" : 7
+			},
+			{
+				"command" : 12,
+				"file" : 2,
+				"line" : 3879,
+				"parent" : 18
+			},
+			{
+				"command" : 12,
+				"file" : 2,
+				"line" : 3904,
+				"parent" : 18
+			},
+			{
+				"command" : 15,
+				"file" : 2,
+				"line" : 3704,
+				"parent" : 18
+			},
+			{
+				"command" : 14,
+				"file" : 0,
+				"line" : 1486,
+				"parent" : 21
+			},
+			{
+				"command" : 14,
+				"file" : 2,
+				"line" : 3870,
+				"parent" : 18
+			},
+			{
+				"command" : 18,
+				"file" : 2,
+				"line" : 850,
+				"parent" : 7
+			},
+			{
+				"command" : 17,
+				"file" : 0,
+				"line" : 401,
+				"parent" : 24
+			},
+			{
+				"command" : 16,
+				"file" : 0,
+				"line" : 2528,
+				"parent" : 25
+			},
+			{
+				"command" : 14,
+				"file" : 0,
+				"line" : 2072,
+				"parent" : 26
+			},
+			{
+				"command" : 14,
+				"file" : 2,
+				"line" : 897,
+				"parent" : 7
+			},
+			{
+				"command" : 18,
+				"file" : 2,
+				"line" : 3519,
+				"parent" : 8
+			},
+			{
+				"command" : 17,
+				"file" : 0,
+				"line" : 401,
+				"parent" : 29
+			},
+			{
+				"command" : 16,
+				"file" : 0,
+				"line" : 2528,
+				"parent" : 30
+			},
+			{
+				"command" : 14,
+				"file" : 0,
+				"line" : 2072,
+				"parent" : 31
+			},
+			{
+				"command" : 20,
+				"file" : 4,
+				"line" : 1,
+				"parent" : 13
+			},
+			{
+				"command" : 19,
+				"file" : 0,
+				"line" : 812,
+				"parent" : 33
+			},
+			{
+				"command" : 14,
+				"file" : 0,
+				"line" : 2197,
+				"parent" : 34
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "-DQT_QML_DEBUG -g -std=gnu++23 -fdiagnostics-color=always"
+				},
+				{
+					"backtrace" : 17,
+					"fragment" : "-fPIC"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 17,
+					"define" : "QT_CORE_LIB"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "QT_GUI_LIB"
+				},
+				{
+					"backtrace" : 17,
+					"define" : "QT_NETWORK_LIB"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "QT_OPENGL_LIB"
+				},
+				{
+					"backtrace" : 17,
+					"define" : "QT_QMLINTEGRATION_LIB"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "QT_QMLMETA_LIB"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "QT_QMLMODELS_LIB"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "QT_QMLWORKERSCRIPT_LIB"
+				},
+				{
+					"backtrace" : 17,
+					"define" : "QT_QML_LIB"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "QT_QUICK_LIB"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "QT_SQL_LIB"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 0,
+					"path" : "/home/tomas/Source/novelist/new/build/Desktop_Qt_6_9_1-Debug/libnovelist/libnovelist_autogen/include"
+				},
+				{
+					"backtrace" : 19,
+					"path" : "/home/tomas/Source/novelist/new/libnovelist"
+				},
+				{
+					"backtrace" : 20,
+					"path" : "/home/tomas/Apps/Qt/6.9.1/gcc_64/include/QtQml/6.9.1"
+				},
+				{
+					"backtrace" : 20,
+					"path" : "/home/tomas/Apps/Qt/6.9.1/gcc_64/include/QtQml/6.9.1/QtQml"
+				},
+				{
+					"backtrace" : 20,
+					"path" : "/home/tomas/Apps/Qt/6.9.1/gcc_64/include/QtCore/6.9.1"
+				},
+				{
+					"backtrace" : 20,
+					"path" : "/home/tomas/Apps/Qt/6.9.1/gcc_64/include/QtCore/6.9.1/QtCore"
+				},
+				{
+					"backtrace" : 20,
+					"isSystem" : true,
+					"path" : "/home/tomas/Apps/Qt/6.9.1/gcc_64/include/QtCore"
+				},
+				{
+					"backtrace" : 20,
+					"isSystem" : true,
+					"path" : "/home/tomas/Apps/Qt/6.9.1/gcc_64/include"
+				},
+				{
+					"backtrace" : 20,
+					"isSystem" : true,
+					"path" : "/home/tomas/Apps/Qt/6.9.1/gcc_64/mkspecs/linux-g++"
+				},
+				{
+					"backtrace" : 20,
+					"isSystem" : true,
+					"path" : "/home/tomas/Apps/Qt/6.9.1/gcc_64/include/QtQml"
+				},
+				{
+					"backtrace" : 20,
+					"isSystem" : true,
+					"path" : "/home/tomas/Apps/Qt/6.9.1/gcc_64/include/QtQmlIntegration"
+				},
+				{
+					"backtrace" : 20,
+					"isSystem" : true,
+					"path" : "/home/tomas/Apps/Qt/6.9.1/gcc_64/include/QtNetwork"
+				},
+				{
+					"backtrace" : 5,
+					"isSystem" : true,
+					"path" : "/home/tomas/Apps/Qt/6.9.1/gcc_64/include/QtQuick"
+				},
+				{
+					"backtrace" : 5,
+					"isSystem" : true,
+					"path" : "/home/tomas/Apps/Qt/6.9.1/gcc_64/include/QtGui"
+				},
+				{
+					"backtrace" : 5,
+					"isSystem" : true,
+					"path" : "/home/tomas/Apps/Qt/6.9.1/gcc_64/include/QtQmlMeta"
+				},
+				{
+					"backtrace" : 5,
+					"isSystem" : true,
+					"path" : "/home/tomas/Apps/Qt/6.9.1/gcc_64/include/QtQmlModels"
+				},
+				{
+					"backtrace" : 5,
+					"isSystem" : true,
+					"path" : "/home/tomas/Apps/Qt/6.9.1/gcc_64/include/QtQmlWorkerScript"
+				},
+				{
+					"backtrace" : 5,
+					"isSystem" : true,
+					"path" : "/home/tomas/Apps/Qt/6.9.1/gcc_64/include/QtOpenGL"
+				},
+				{
+					"backtrace" : 5,
+					"isSystem" : true,
+					"path" : "/home/tomas/Apps/Qt/6.9.1/gcc_64/include/QtSql"
+				}
+			],
+			"language" : "CXX",
+			"languageStandard" : 
+			{
+				"backtraces" : 
+				[
+					17,
+					17
+				],
+				"standard" : "23"
+			},
+			"sourceIndexes" : 
+			[
+				0,
+				2,
+				3,
+				4,
+				7,
+				8,
+				11,
+				13,
+				15,
+				17,
+				20,
+				22,
+				24,
+				26,
+				28,
+				30,
+				33,
+				35,
+				37,
+				39,
+				41,
+				43,
+				45,
+				47,
+				49,
+				51,
+				53,
+				55,
+				56,
+				59,
+				61,
+				63,
+				65,
+				67,
+				69,
+				71,
+				72
+			]
+		}
+	],
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 5,
+			"id" : "libai::@291a53915bf01762ee4a"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "libai_resources_1::@291a53915bf01762ee4a"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "libaiplugin::@291a53915bf01762ee4a"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "libai_resources_2::@291a53915bf01762ee4a"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "libaiplugin_init::@291a53915bf01762ee4a"
+		},
+		{
+			"backtrace" : 10,
+			"id" : "libnovelist_copy_qml::@1b824b7f2526f8fa12f5"
+		},
+		{
+			"backtrace" : 12,
+			"id" : "libnovelist_copy_res::@1b824b7f2526f8fa12f5"
+		},
+		{
+			"backtrace" : 16,
+			"id" : "libnovelist_generate_qmlls_ini_file::@1b824b7f2526f8fa12f5"
+		},
+		{
+			"id" : "libnovelist_autogen_timestamp_deps::@1b824b7f2526f8fa12f5"
+		},
+		{
+			"backtrace" : 0,
+			"id" : "libnovelist_autogen::@1b824b7f2526f8fa12f5"
+		}
+	],
+	"id" : "libnovelist::@1b824b7f2526f8fa12f5",
+	"name" : "libnovelist",
+	"nameOnDisk" : "liblibnovelist.a",
+	"paths" : 
+	{
+		"build" : "libnovelist",
+		"source" : "libnovelist"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files\\Generated",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				3,
+				72,
+				73,
+				74,
+				75,
+				77
+			]
+		},
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				4,
+				7,
+				8,
+				11,
+				13,
+				15,
+				17,
+				20,
+				22,
+				24,
+				26,
+				28,
+				30,
+				33,
+				35,
+				37,
+				39,
+				41,
+				43,
+				45,
+				47,
+				49,
+				51,
+				53,
+				55,
+				56,
+				59,
+				61,
+				63,
+				65,
+				67,
+				69,
+				71
+			]
+		},
+		{
+			"name" : "Header Files",
+			"sourceIndexes" : 
+			[
+				5,
+				6,
+				9,
+				10,
+				12,
+				14,
+				16,
+				18,
+				19,
+				21,
+				23,
+				25,
+				27,
+				29,
+				31,
+				32,
+				34,
+				36,
+				38,
+				40,
+				42,
+				44,
+				46,
+				48,
+				50,
+				52,
+				54,
+				57,
+				58,
+				60,
+				62,
+				64,
+				66,
+				68,
+				70
+			]
+		},
+		{
+			"name" : "",
+			"sourceIndexes" : 
+			[
+				76,
+				84,
+				85,
+				86,
+				87,
+				88,
+				89,
+				90,
+				91,
+				92,
+				93,
+				94,
+				95
+			]
+		},
+		{
+			"name" : "CMake Rules",
+			"sourceIndexes" : 
+			[
+				78,
+				79,
+				80,
+				81,
+				82,
+				83
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 0,
+			"compileGroupIndex" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_9_1-Debug/libnovelist/libnovelist_autogen/mocs_compilation.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 22,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_9_1-Debug/libnovelist/meta_types/qt6libnovelist_debug_metatypes.json.gen",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 23,
+			"compileGroupIndex" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_9_1-Debug/libnovelist/libnovelist_qmltyperegistrations.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 27,
+			"compileGroupIndex" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_9_1-Debug/libnovelist/.qt/rcc/qrc_qmake_libnovelist.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 28,
+			"compileGroupIndex" : 0,
+			"path" : "libnovelist/novelist.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 28,
+			"path" : "libnovelist/novelist.h",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 28,
+			"path" : "libnovelist/logging.h",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 28,
+			"compileGroupIndex" : 0,
+			"path" : "libnovelist/logging.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 28,
+			"compileGroupIndex" : 0,
+			"path" : "libnovelist/validator.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 28,
+			"path" : "libnovelist/validator.h",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 28,
+			"path" : "libnovelist/storable.h",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 28,
+			"compileGroupIndex" : 0,
+			"path" : "libnovelist/storable.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 28,
+			"path" : "libnovelist/node.h",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 28,
+			"compileGroupIndex" : 0,
+			"path" : "libnovelist/node.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 28,
+			"path" : "libnovelist/element.h",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 28,
+			"compileGroupIndex" : 0,
+			"path" : "libnovelist/element.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 28,
+			"path" : "libnovelist/storage.h",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 28,
+			"compileGroupIndex" : 0,
+			"path" : "libnovelist/storage.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 28,
+			"path" : "libnovelist/errorhandler.h",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 28,
+			"path" : "libnovelist/field.h",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 28,
+			"compileGroupIndex" : 0,
+			"path" : "libnovelist/field.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 28,
+			"path" : "libnovelist/nodetype.h",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 28,
+			"compileGroupIndex" : 0,
+			"path" : "libnovelist/nodetype.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 28,
+			"path" : "libnovelist/elementtype.h",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 28,
+			"compileGroupIndex" : 0,
+			"path" : "libnovelist/elementtype.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 28,
+			"path" : "libnovelist/fieldtype.h",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 28,
+			"compileGroupIndex" : 0,
+			"path" : "libnovelist/fieldtype.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 28,
+			"path" : "libnovelist/value.h",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 28,
+			"compileGroupIndex" : 0,
+			"path" : "libnovelist/value.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 28,
+			"path" : "libnovelist/valuetype.h",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 28,
+			"compileGroupIndex" : 0,
+			"path" : "libnovelist/valuetype.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 28,
+			"path" : "libnovelist/jsonable.h",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 28,
+			"path" : "libnovelist/nodelistmodel.h",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 28,
+			"compileGroupIndex" : 0,
+			"path" : "libnovelist/nodelistmodel.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 28,
+			"path" : "libnovelist/fieldlistmodel.h",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 28,
+			"compileGroupIndex" : 0,
+			"path" : "libnovelist/fieldlistmodel.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 28,
+			"path" : "libnovelist/valuelistmodel.h",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 28,
+			"compileGroupIndex" : 0,
+			"path" : "libnovelist/valuelistmodel.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 28,
+			"path" : "libnovelist/elementstorage.h",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 28,
+			"compileGroupIndex" : 0,
+			"path" : "libnovelist/elementstorage.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 28,
+			"path" : "libnovelist/nodestorage.h",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 28,
+			"compileGroupIndex" : 0,
+			"path" : "libnovelist/nodestorage.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 28,
+			"path" : "libnovelist/fieldstorage.h",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 28,
+			"compileGroupIndex" : 0,
+			"path" : "libnovelist/fieldstorage.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 28,
+			"path" : "libnovelist/valuestorage.h",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 28,
+			"compileGroupIndex" : 0,
+			"path" : "libnovelist/valuestorage.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 28,
+			"path" : "libnovelist/elementtypestorage.h",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 28,
+			"compileGroupIndex" : 0,
+			"path" : "libnovelist/elementtypestorage.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 28,
+			"path" : "libnovelist/nodetypestorage.h",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 28,
+			"compileGroupIndex" : 0,
+			"path" : "libnovelist/nodetypestorage.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 28,
+			"path" : "libnovelist/fieldtypestorage.h",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 28,
+			"compileGroupIndex" : 0,
+			"path" : "libnovelist/fieldtypestorage.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 28,
+			"path" : "libnovelist/valuetypestorage.h",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 28,
+			"compileGroupIndex" : 0,
+			"path" : "libnovelist/valuetypestorage.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 28,
+			"path" : "libnovelist/valuetypelistmodel.h",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 28,
+			"compileGroupIndex" : 0,
+			"path" : "libnovelist/valuetypelistmodel.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 28,
+			"compileGroupIndex" : 0,
+			"path" : "libnovelist/fieldtypelistmodel.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 28,
+			"path" : "libnovelist/fieldtypelistmodel.h",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 28,
+			"path" : "libnovelist/elementtypelistmodel.h",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 28,
+			"compileGroupIndex" : 0,
+			"path" : "libnovelist/elementtypelistmodel.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 28,
+			"path" : "libnovelist/elementtypetreemodel.h",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 28,
+			"compileGroupIndex" : 0,
+			"path" : "libnovelist/elementtypetreemodel.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 28,
+			"path" : "libnovelist/elementtypetablemodel.h",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 28,
+			"compileGroupIndex" : 0,
+			"path" : "libnovelist/elementtypetablemodel.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 28,
+			"path" : "libnovelist/project.h",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 28,
+			"compileGroupIndex" : 0,
+			"path" : "libnovelist/project.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 28,
+			"path" : "libnovelist/projecttype.h",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 28,
+			"compileGroupIndex" : 0,
+			"path" : "libnovelist/projecttype.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 28,
+			"path" : "libnovelist/projecttypestorage.h",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 28,
+			"compileGroupIndex" : 0,
+			"path" : "libnovelist/projecttypestorage.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 28,
+			"path" : "libnovelist/projectstorage.h",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 28,
+			"compileGroupIndex" : 0,
+			"path" : "libnovelist/projectstorage.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 32,
+			"compileGroupIndex" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_9_1-Debug/libnovelist/.qt/rcc/qrc_libnovelist_raw_qml_0.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 35,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_9_1-Debug/libnovelist/.qt/rcc/qmake_libnovelist.qrc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 35,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_9_1-Debug/libnovelist/qmldir",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 35,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_9_1-Debug/libnovelist/.qt/rcc/libnovelist_raw_qml_0.qrc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 35,
+			"path" : "libnovelist/libnovelist_nl_BE.ts",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_9_1-Debug/libnovelist/libnovelist_autogen/timestamp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_9_1-Debug/libnovelist/meta_types/qt6libnovelist_debug_metatypes.json.gen.rule",
+			"sourceGroupIndex" : 4
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_9_1-Debug/libnovelist/libnovelist_qmltyperegistrations.cpp.rule",
+			"sourceGroupIndex" : 4
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_9_1-Debug/libnovelist/.qt/rcc/qrc_qmake_libnovelist.cpp.rule",
+			"sourceGroupIndex" : 4
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_9_1-Debug/libnovelist/.qt/rcc/qrc_libnovelist_raw_qml_0.cpp.rule",
+			"sourceGroupIndex" : 4
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_9_1-Debug/libnovelist/libnovelist_autogen/timestamp.rule",
+			"sourceGroupIndex" : 4
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_9_1-Debug/libnovelist/meta_types/libnovelist_json_file_list.txt.rule",
+			"sourceGroupIndex" : 4
+		},
+		{
+			"backtrace" : 17,
+			"path" : "/home/tomas/Apps/Qt/6.9.1/gcc_64/metatypes/qt6qml_relwithdebinfo_metatypes.json",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 17,
+			"path" : "/home/tomas/Apps/Qt/6.9.1/gcc_64/metatypes/qt6core_relwithdebinfo_metatypes.json",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 17,
+			"path" : "/home/tomas/Apps/Qt/6.9.1/gcc_64/metatypes/qt6network_relwithdebinfo_metatypes.json",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 5,
+			"path" : "/home/tomas/Apps/Qt/6.9.1/gcc_64/metatypes/qt6quick_relwithdebinfo_metatypes.json",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 5,
+			"path" : "/home/tomas/Apps/Qt/6.9.1/gcc_64/metatypes/qt6gui_relwithdebinfo_metatypes.json",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 5,
+			"path" : "/home/tomas/Apps/Qt/6.9.1/gcc_64/metatypes/qt6qmlmeta_relwithdebinfo_metatypes.json",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 5,
+			"path" : "/home/tomas/Apps/Qt/6.9.1/gcc_64/metatypes/qt6qmlmodels_relwithdebinfo_metatypes.json",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 5,
+			"path" : "/home/tomas/Apps/Qt/6.9.1/gcc_64/metatypes/qt6qmlworkerscript_relwithdebinfo_metatypes.json",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 5,
+			"path" : "/home/tomas/Apps/Qt/6.9.1/gcc_64/metatypes/qt6opengl_relwithdebinfo_metatypes.json",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 5,
+			"path" : "/home/tomas/Apps/Qt/6.9.1/gcc_64/metatypes/qt6sql_relwithdebinfo_metatypes.json",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 5,
+			"path" : "build/Desktop_Qt_6_9_1-Debug/libai/meta_types/qt6libai_debug_metatypes.json",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 5,
+			"path" : "build/Desktop_Qt_6_9_1-Debug/libai/meta_types/qt6libaiplugin_init_debug_metatypes.json",
+			"sourceGroupIndex" : 3
+		}
+	],
+	"type" : "STATIC_LIBRARY"
+}

@@ -1,0 +1,1 @@
+/home/tomas/Source/novelist/new/build/Desktop_Qt_6_9_1-Debug/appnovelist_autogen/include/../EWIEGA46WW/moc_textareautils.cpp.json

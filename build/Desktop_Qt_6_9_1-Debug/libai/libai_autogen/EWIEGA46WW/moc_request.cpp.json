@@ -1,0 +1,99 @@
+{
+    "classes": [
+        {
+            "classInfos": [
+                {
+                    "name": "QML.Element",
+                    "value": "request"
+                },
+                {
+                    "name": "QML.Creatable",
+                    "value": "true"
+                },
+                {
+                    "name": "QML.CreationMethod",
+                    "value": "construct"
+                }
+            ],
+            "className": "Request",
+            "enums": [
+                {
+                    "isClass": false,
+                    "isFlag": false,
+                    "name": "Attribute",
+                    "values": [
+                        "IdAttribute",
+                        "ApiKeyAttribute",
+                        "UrlAttribute",
+                        "NumAttributes"
+                    ]
+                },
+                {
+                    "isClass": false,
+                    "isFlag": false,
+                    "name": "Error",
+                    "values": [
+                        "NoError",
+                        "NetworkError",
+                        "SslError"
+                    ]
+                }
+            ],
+            "gadget": true,
+            "lineNumber": 18,
+            "properties": [
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 0,
+                    "name": "url",
+                    "read": "url",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QUrl",
+                    "user": false,
+                    "write": "setUrl"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 1,
+                    "name": "id",
+                    "read": "id",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false,
+                    "write": "setId"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 2,
+                    "name": "apiKey",
+                    "read": "apiKey",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QByteArray",
+                    "user": false,
+                    "write": "setApiKey"
+                }
+            ],
+            "qualifiedClassName": "ai::Request",
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QNetworkRequest"
+                }
+            ]
+        }
+    ],
+    "inputFile": "request.h",
+    "outputRevision": 69
+}

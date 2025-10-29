@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="/">
+    <file alias="/qt/qml/appnovelist">/home/tomas/Source/novelist/new/build/Desktop_Qt_6_9_1-Debug/appnovelist</file>
+
+  </qresource>
+</RCC>

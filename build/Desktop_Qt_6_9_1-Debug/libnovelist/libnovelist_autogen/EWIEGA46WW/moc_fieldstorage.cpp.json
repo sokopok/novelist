@@ -1,0 +1,126 @@
+{
+    "classes": [
+        {
+            "classInfos": [
+                {
+                    "name": "QML.Element",
+                    "value": "auto"
+                }
+            ],
+            "className": "FieldStorage",
+            "lineNumber": 7,
+            "methods": [
+                {
+                    "access": "public",
+                    "index": 0,
+                    "name": "field",
+                    "returnType": "Field*"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "rowid",
+                            "type": "int"
+                        }
+                    ],
+                    "index": 1,
+                    "name": "field",
+                    "returnType": "Field*"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "nodeType",
+                            "type": "FieldType*"
+                        },
+                        {
+                            "name": "label",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "info",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "icon",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 2,
+                    "name": "createField",
+                    "returnType": "Field*"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "nodeType",
+                            "type": "FieldType*"
+                        },
+                        {
+                            "name": "label",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "info",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 3,
+                    "isCloned": true,
+                    "name": "createField",
+                    "returnType": "Field*"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "nodeType",
+                            "type": "FieldType*"
+                        },
+                        {
+                            "name": "label",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 4,
+                    "isCloned": true,
+                    "name": "createField",
+                    "returnType": "Field*"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "nodeType",
+                            "type": "FieldType*"
+                        }
+                    ],
+                    "index": 5,
+                    "isCloned": true,
+                    "name": "createField",
+                    "returnType": "Field*"
+                },
+                {
+                    "access": "public",
+                    "index": 6,
+                    "isCloned": true,
+                    "name": "createField",
+                    "returnType": "Field*"
+                }
+            ],
+            "object": true,
+            "qualifiedClassName": "FieldStorage",
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "BaseStorage"
+                }
+            ]
+        }
+    ],
+    "inputFile": "fieldstorage.h",
+    "outputRevision": 69
+}

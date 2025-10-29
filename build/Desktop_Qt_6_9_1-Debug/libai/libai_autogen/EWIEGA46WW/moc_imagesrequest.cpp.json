@@ -1,0 +1,114 @@
+{
+    "classes": [
+        {
+            "className": "ImagesRequest",
+            "enums": [
+                {
+                    "isClass": false,
+                    "isFlag": false,
+                    "name": "Background",
+                    "values": [
+                        "Background_Auto",
+                        "Background_Transparent",
+                        "Background_Opaque",
+                        "Background_Custom"
+                    ]
+                },
+                {
+                    "isClass": false,
+                    "isFlag": false,
+                    "name": "Model",
+                    "values": [
+                        "Model_DallE2",
+                        "Model_DallE3",
+                        "Model_GptImage1",
+                        "Model_Custom"
+                    ]
+                },
+                {
+                    "isClass": false,
+                    "isFlag": false,
+                    "name": "Moderation",
+                    "values": [
+                        "Moderation_Auto",
+                        "Moderation_Low",
+                        "Moderation_Custom"
+                    ]
+                },
+                {
+                    "isClass": false,
+                    "isFlag": false,
+                    "name": "OutputFormat",
+                    "values": [
+                        "OutputFormat_Png",
+                        "OutputFormat_Jpeg",
+                        "OutputFormat_Webp",
+                        "OutputFormat_Custom"
+                    ]
+                },
+                {
+                    "isClass": false,
+                    "isFlag": false,
+                    "name": "Quality",
+                    "values": [
+                        "Quality_Auto",
+                        "Quality_Low",
+                        "Quality_Medium",
+                        "Quality_High",
+                        "Quality_Hd",
+                        "Quality_Standard",
+                        "Quality_Custom"
+                    ]
+                },
+                {
+                    "isClass": false,
+                    "isFlag": false,
+                    "name": "ResponseFormat",
+                    "values": [
+                        "ResponseFormat_Url",
+                        "ResponseFormat_B64Json",
+                        "ResponseFormat_Custom"
+                    ]
+                },
+                {
+                    "isClass": false,
+                    "isFlag": false,
+                    "name": "Size",
+                    "values": [
+                        "Size_Auto",
+                        "Size_256x256",
+                        "Size_512x512",
+                        "Size_1024x1024",
+                        "Size_1536x1024",
+                        "Size_1024x1536",
+                        "Size_1792x1024",
+                        "Size_1024x1792",
+                        "Size_Custom"
+                    ]
+                },
+                {
+                    "isClass": false,
+                    "isFlag": false,
+                    "name": "Style",
+                    "values": [
+                        "Style_Vivid",
+                        "Style_Natural",
+                        "Style_Custom"
+                    ]
+                }
+            ],
+            "gadget": true,
+            "lineNumber": 10,
+            "qualifiedClassName": "ai::ImagesRequest",
+            "superClasses": [
+                {
+                    "access": "public",
+                    "fullyQualifiedName": "ai::Request",
+                    "name": "Request"
+                }
+            ]
+        }
+    ],
+    "inputFile": "imagesrequest.h",
+    "outputRevision": 69
+}

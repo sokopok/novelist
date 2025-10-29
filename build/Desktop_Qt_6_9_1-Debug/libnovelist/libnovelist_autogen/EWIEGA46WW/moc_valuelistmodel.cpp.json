@@ -1,0 +1,154 @@
+{
+    "classes": [
+        {
+            "classInfos": [
+                {
+                    "name": "QML.Element",
+                    "value": "auto"
+                }
+            ],
+            "className": "ValueListModel",
+            "enums": [
+                {
+                    "isClass": false,
+                    "isFlag": false,
+                    "name": "Role",
+                    "values": [
+                        "ValueRole",
+                        "NameRole",
+                        "LabelRole",
+                        "InfoRole",
+                        "IconRole",
+                        "ValueTypeRole",
+                        "ValueValueRole",
+                        "UserRole"
+                    ]
+                }
+            ],
+            "lineNumber": 9,
+            "methods": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "parent",
+                            "type": "QModelIndex"
+                        }
+                    ],
+                    "index": 2,
+                    "isConst": true,
+                    "name": "rowCount",
+                    "returnType": "int"
+                },
+                {
+                    "access": "public",
+                    "index": 3,
+                    "isCloned": true,
+                    "isConst": true,
+                    "name": "rowCount",
+                    "returnType": "int"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "index",
+                            "type": "QModelIndex"
+                        },
+                        {
+                            "name": "role",
+                            "type": "int"
+                        }
+                    ],
+                    "index": 4,
+                    "isConst": true,
+                    "name": "data",
+                    "returnType": "QVariant"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "index",
+                            "type": "QModelIndex"
+                        }
+                    ],
+                    "index": 5,
+                    "isCloned": true,
+                    "isConst": true,
+                    "name": "data",
+                    "returnType": "QVariant"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "index",
+                            "type": "int"
+                        }
+                    ],
+                    "index": 6,
+                    "isConst": true,
+                    "name": "value",
+                    "returnType": "Value*"
+                }
+            ],
+            "object": true,
+            "properties": [
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 0,
+                    "name": "values",
+                    "notify": "valuesChanged",
+                    "read": "values",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QList<Value*>",
+                    "user": false,
+                    "write": "setValues"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 1,
+                    "name": "field",
+                    "notify": "fieldChanged",
+                    "read": "field",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "Field*",
+                    "user": false,
+                    "write": "setField"
+                }
+            ],
+            "qualifiedClassName": "ValueListModel",
+            "signals": [
+                {
+                    "access": "public",
+                    "index": 0,
+                    "name": "valuesChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 1,
+                    "name": "fieldChanged",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QAbstractListModel"
+                }
+            ]
+        }
+    ],
+    "inputFile": "valuelistmodel.h",
+    "outputRevision": 69
+}

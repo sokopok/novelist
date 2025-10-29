@@ -1,0 +1,135 @@
+{
+    "classes": [
+        {
+            "classInfos": [
+                {
+                    "name": "QML.Element",
+                    "value": "auto"
+                }
+            ],
+            "className": "ElementTypeListModel",
+            "enums": [
+                {
+                    "isClass": false,
+                    "isFlag": false,
+                    "name": "Role",
+                    "values": [
+                        "ElementTypeRole",
+                        "NameRole",
+                        "LabelRole",
+                        "InfoRole",
+                        "IconRole",
+                        "MinOccursRole",
+                        "MaxOccursRole",
+                        "AllowesTypesRole",
+                        "FieldTypesRole",
+                        "UserRole"
+                    ]
+                }
+            ],
+            "lineNumber": 11,
+            "methods": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "parent",
+                            "type": "QModelIndex"
+                        }
+                    ],
+                    "index": 1,
+                    "isConst": true,
+                    "name": "rowCount",
+                    "returnType": "int"
+                },
+                {
+                    "access": "public",
+                    "index": 2,
+                    "isCloned": true,
+                    "isConst": true,
+                    "name": "rowCount",
+                    "returnType": "int"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "index",
+                            "type": "QModelIndex"
+                        },
+                        {
+                            "name": "role",
+                            "type": "int"
+                        }
+                    ],
+                    "index": 3,
+                    "isConst": true,
+                    "name": "data",
+                    "returnType": "QVariant"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "index",
+                            "type": "QModelIndex"
+                        }
+                    ],
+                    "index": 4,
+                    "isCloned": true,
+                    "isConst": true,
+                    "name": "data",
+                    "returnType": "QVariant"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "index",
+                            "type": "int"
+                        }
+                    ],
+                    "index": 5,
+                    "isConst": true,
+                    "name": "elementType",
+                    "returnType": "ElementType*"
+                }
+            ],
+            "object": true,
+            "properties": [
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 0,
+                    "name": "elementTypes",
+                    "notify": "elementTypesChanged",
+                    "read": "elementTypes",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QList<ElementType*>",
+                    "user": false,
+                    "write": "setElementTypes"
+                }
+            ],
+            "qualifiedClassName": "ElementTypeListModel",
+            "signals": [
+                {
+                    "access": "public",
+                    "index": 0,
+                    "name": "elementTypesChanged",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QAbstractListModel"
+                }
+            ]
+        }
+    ],
+    "inputFile": "elementtypelistmodel.h",
+    "outputRevision": 69
+}

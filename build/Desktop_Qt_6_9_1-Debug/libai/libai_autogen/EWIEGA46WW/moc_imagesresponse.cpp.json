@@ -1,0 +1,264 @@
+{
+    "classes": [
+        {
+            "className": "ImageResponseData",
+            "gadget": true,
+            "lineNumber": 11,
+            "properties": [
+                {
+                    "constant": true,
+                    "designable": true,
+                    "final": true,
+                    "index": 0,
+                    "name": "utilityType",
+                    "read": "utilityType",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "ai::UtilityType",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 1,
+                    "name": "extra",
+                    "read": "extra",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QJsonObject",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 2,
+                    "name": "empty",
+                    "read": "isEmpty",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "bool",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 3,
+                    "name": "valid",
+                    "read": "isValid",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "bool",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 4,
+                    "name": "b64Json",
+                    "read": "b64Json",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false,
+                    "write": "setB64Json"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 5,
+                    "name": "revisedPrompt",
+                    "read": "revisedPrompt",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false,
+                    "write": "setRevisedPrompt"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 6,
+                    "name": "url",
+                    "read": "url",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false,
+                    "write": "setUrl"
+                }
+            ],
+            "qualifiedClassName": "ai::ImageResponseData"
+        },
+        {
+            "className": "ImageResponseUsage",
+            "gadget": true,
+            "lineNumber": 138,
+            "properties": [
+                {
+                    "constant": true,
+                    "designable": true,
+                    "final": true,
+                    "index": 0,
+                    "name": "utilityType",
+                    "read": "utilityType",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "ai::UtilityType",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 1,
+                    "name": "extra",
+                    "read": "extra",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QJsonObject",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 2,
+                    "name": "empty",
+                    "read": "isEmpty",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "bool",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 3,
+                    "name": "valid",
+                    "read": "isValid",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "bool",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 4,
+                    "name": "inputTokens",
+                    "read": "inputTokens",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "int",
+                    "user": false,
+                    "write": "setInputTokens"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 5,
+                    "name": "imageTokens",
+                    "read": "imageTokens",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "int",
+                    "user": false,
+                    "write": "setImageTokens"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 6,
+                    "name": "textTokens",
+                    "read": "textTokens",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "int",
+                    "user": false,
+                    "write": "setTextTokens"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 7,
+                    "name": "outputTokens",
+                    "read": "outputTokens",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "int",
+                    "user": false,
+                    "write": "setOutputTokens"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 8,
+                    "name": "totalTokens",
+                    "read": "totalTokens",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "int",
+                    "user": false,
+                    "write": "setTotalTokens"
+                }
+            ],
+            "qualifiedClassName": "ai::ImageResponseUsage"
+        },
+        {
+            "classInfos": [
+                {
+                    "name": "QML.Element",
+                    "value": "ImagesResponse"
+                },
+                {
+                    "name": "QML.Creatable",
+                    "value": "false"
+                },
+                {
+                    "name": "QML.UncreatableReason",
+                    "value": "ImagesResponse is created internally"
+                }
+            ],
+            "className": "ImagesResponse",
+            "lineNumber": 306,
+            "object": true,
+            "qualifiedClassName": "ai::ImagesResponse",
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "ai::Response"
+                }
+            ]
+        }
+    ],
+    "inputFile": "imagesresponse.h",
+    "outputRevision": 69
+}

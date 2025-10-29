@@ -1,0 +1,131 @@
+{
+    "classes": [
+        {
+            "classInfos": [
+                {
+                    "name": "QML.Element",
+                    "value": "auto"
+                }
+            ],
+            "className": "FieldTypeStorage",
+            "lineNumber": 7,
+            "methods": [
+                {
+                    "access": "public",
+                    "index": 0,
+                    "name": "fieldType",
+                    "returnType": "FieldType*"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "rowid",
+                            "type": "int"
+                        }
+                    ],
+                    "index": 1,
+                    "name": "fieldType",
+                    "returnType": "FieldType*"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "name",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 2,
+                    "name": "fieldType",
+                    "returnType": "FieldType*"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "name",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "label",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "info",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "icon",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 3,
+                    "name": "createFieldType",
+                    "returnType": "FieldType*"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "name",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "label",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "info",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 4,
+                    "isCloned": true,
+                    "name": "createFieldType",
+                    "returnType": "FieldType*"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "name",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "label",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 5,
+                    "isCloned": true,
+                    "name": "createFieldType",
+                    "returnType": "FieldType*"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "name",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 6,
+                    "isCloned": true,
+                    "name": "createFieldType",
+                    "returnType": "FieldType*"
+                }
+            ],
+            "object": true,
+            "qualifiedClassName": "FieldTypeStorage",
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "BaseTypeStorage"
+                }
+            ]
+        }
+    ],
+    "inputFile": "fieldtypestorage.h",
+    "outputRevision": 69
+}

@@ -1,0 +1,156 @@
+{
+    "classes": [
+        {
+            "classInfos": [
+                {
+                    "name": "QML.Element",
+                    "value": "auto"
+                }
+            ],
+            "className": "FieldListModel",
+            "enums": [
+                {
+                    "isClass": false,
+                    "isFlag": false,
+                    "name": "Role",
+                    "values": [
+                        "FieldRole",
+                        "NameRole",
+                        "LabelRole",
+                        "InfoRole",
+                        "IconRole",
+                        "MinOccursRole",
+                        "MaxOccursRole",
+                        "AllowesTypesRole",
+                        "ValuesRole",
+                        "UserRole"
+                    ]
+                }
+            ],
+            "lineNumber": 13,
+            "methods": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "parent",
+                            "type": "QModelIndex"
+                        }
+                    ],
+                    "index": 2,
+                    "isConst": true,
+                    "name": "rowCount",
+                    "returnType": "int"
+                },
+                {
+                    "access": "public",
+                    "index": 3,
+                    "isCloned": true,
+                    "isConst": true,
+                    "name": "rowCount",
+                    "returnType": "int"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "index",
+                            "type": "QModelIndex"
+                        },
+                        {
+                            "name": "role",
+                            "type": "int"
+                        }
+                    ],
+                    "index": 4,
+                    "isConst": true,
+                    "name": "data",
+                    "returnType": "QVariant"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "index",
+                            "type": "QModelIndex"
+                        }
+                    ],
+                    "index": 5,
+                    "isCloned": true,
+                    "isConst": true,
+                    "name": "data",
+                    "returnType": "QVariant"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "index",
+                            "type": "int"
+                        }
+                    ],
+                    "index": 6,
+                    "isConst": true,
+                    "name": "field",
+                    "returnType": "Field*"
+                }
+            ],
+            "object": true,
+            "properties": [
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 0,
+                    "name": "fields",
+                    "notify": "fieldsChanged",
+                    "read": "fields",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QList<Field*>",
+                    "user": false,
+                    "write": "setFields"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 1,
+                    "name": "element",
+                    "notify": "elementChanged",
+                    "read": "element",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "Element*",
+                    "user": false,
+                    "write": "setElement"
+                }
+            ],
+            "qualifiedClassName": "FieldListModel",
+            "signals": [
+                {
+                    "access": "public",
+                    "index": 0,
+                    "name": "fieldsChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 1,
+                    "name": "elementChanged",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QAbstractListModel"
+                }
+            ]
+        }
+    ],
+    "inputFile": "fieldlistmodel.h",
+    "outputRevision": 69
+}

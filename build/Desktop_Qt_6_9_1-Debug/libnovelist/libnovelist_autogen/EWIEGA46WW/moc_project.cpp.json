@@ -1,0 +1,55 @@
+{
+    "classes": [
+        {
+            "classInfos": [
+                {
+                    "name": "QML.Element",
+                    "value": "auto"
+                }
+            ],
+            "className": "Project",
+            "lineNumber": 11,
+            "object": true,
+            "properties": [
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 0,
+                    "name": "databaseName",
+                    "notify": "databaseNameChanged",
+                    "read": "databaseName",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false,
+                    "write": "setDatabaseName"
+                }
+            ],
+            "qualifiedClassName": "Project",
+            "signals": [
+                {
+                    "access": "public",
+                    "index": 0,
+                    "name": "storageChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 1,
+                    "name": "databaseNameChanged",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "Element"
+                }
+            ]
+        }
+    ],
+    "inputFile": "project.h",
+    "outputRevision": 69
+}

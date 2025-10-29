@@ -1,0 +1,39 @@
+{
+    "classes": [
+        {
+            "classInfos": [
+                {
+                    "name": "QML.Element",
+                    "value": "ResponsesClient"
+                }
+            ],
+            "className": "ResponsesClient",
+            "lineNumber": 9,
+            "methods": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "request",
+                            "type": "ResponsesRequest"
+                        }
+                    ],
+                    "index": 0,
+                    "name": "post",
+                    "returnType": "ResponsesResponse*"
+                }
+            ],
+            "object": true,
+            "qualifiedClassName": "ai::ResponsesClient",
+            "superClasses": [
+                {
+                    "access": "public",
+                    "fullyQualifiedName": "ai::Client",
+                    "name": "Client"
+                }
+            ]
+        }
+    ],
+    "inputFile": "responsesclient.h",
+    "outputRevision": 69
+}

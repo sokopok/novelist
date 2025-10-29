@@ -1,0 +1,43 @@
+
+set(target "appnovelist")
+set(working_dir "/home/tomas/Source/novelist/new")
+set(src_and_dest_list
+    "/home/tomas/Source/novelist/new/qml/ai.svg"
+    "/home/tomas/Source/novelist/new/build/Desktop_Qt_6_9_1-Debug/appnovelist/qml/ai.svg"
+    "/home/tomas/Source/novelist/new/qml/user.svg"
+    "/home/tomas/Source/novelist/new/build/Desktop_Qt_6_9_1-Debug/appnovelist/qml/user.svg"
+    "/home/tomas/Source/novelist/new/qml/bubble-square.svg"
+    "/home/tomas/Source/novelist/new/build/Desktop_Qt_6_9_1-Debug/appnovelist/qml/bubble-square.svg"
+    "/home/tomas/Source/novelist/new/qml/ai-square.svg"
+    "/home/tomas/Source/novelist/new/build/Desktop_Qt_6_9_1-Debug/appnovelist/qml/ai-square.svg"
+    "/home/tomas/Source/novelist/new/qml/computer-square.svg"
+    "/home/tomas/Source/novelist/new/build/Desktop_Qt_6_9_1-Debug/appnovelist/qml/computer-square.svg"
+    "/home/tomas/Source/novelist/new/qml/user-square.svg"
+    "/home/tomas/Source/novelist/new/build/Desktop_Qt_6_9_1-Debug/appnovelist/qml/user-square.svg"
+    "/home/tomas/Source/novelist/new/qml/human-square.svg"
+    "/home/tomas/Source/novelist/new/build/Desktop_Qt_6_9_1-Debug/appnovelist/qml/human-square.svg"
+    "/home/tomas/Source/novelist/new/qml/element.svg"
+    "/home/tomas/Source/novelist/new/build/Desktop_Qt_6_9_1-Debug/appnovelist/qml/element.svg"
+    "/home/tomas/Source/novelist/new/qml/field.svg"
+    "/home/tomas/Source/novelist/new/build/Desktop_Qt_6_9_1-Debug/appnovelist/qml/field.svg"
+    "/home/tomas/Source/novelist/new/qml/node.svg"
+    "/home/tomas/Source/novelist/new/build/Desktop_Qt_6_9_1-Debug/appnovelist/qml/node.svg"
+    "/home/tomas/Source/novelist/new/qml/modified.svg"
+    "/home/tomas/Source/novelist/new/build/Desktop_Qt_6_9_1-Debug/appnovelist/qml/modified.svg"
+    "/home/tomas/Source/novelist/new/qml/value.svg"
+    "/home/tomas/Source/novelist/new/build/Desktop_Qt_6_9_1-Debug/appnovelist/qml/value.svg"
+    "/home/tomas/Source/novelist/new/qml/element-modified.svg"
+    "/home/tomas/Source/novelist/new/build/Desktop_Qt_6_9_1-Debug/appnovelist/qml/element-modified.svg"
+    "/home/tomas/Source/novelist/new/qml/field-modified.svg"
+    "/home/tomas/Source/novelist/new/build/Desktop_Qt_6_9_1-Debug/appnovelist/qml/field-modified.svg"
+    "/home/tomas/Source/novelist/new/qml/value-modified.svg"
+    "/home/tomas/Source/novelist/new/build/Desktop_Qt_6_9_1-Debug/appnovelist/qml/value-modified.svg"
+    "/home/tomas/Source/novelist/new/qml/elementtype.svg"
+    "/home/tomas/Source/novelist/new/build/Desktop_Qt_6_9_1-Debug/appnovelist/qml/elementtype.svg"
+    "/home/tomas/Source/novelist/new/qml/fieldtype.svg"
+    "/home/tomas/Source/novelist/new/build/Desktop_Qt_6_9_1-Debug/appnovelist/qml/fieldtype.svg"
+    "/home/tomas/Source/novelist/new/qml/valuetype.svg"
+    "/home/tomas/Source/novelist/new/build/Desktop_Qt_6_9_1-Debug/appnovelist/qml/valuetype.svg"
+
+)
+set(timestamp_file "/home/tomas/Source/novelist/new/build/Desktop_Qt_6_9_1-Debug/.qt/appnovelist_res.txt")

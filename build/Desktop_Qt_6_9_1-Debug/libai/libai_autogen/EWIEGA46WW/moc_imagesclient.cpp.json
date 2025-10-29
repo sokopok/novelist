@@ -1,0 +1,33 @@
+{
+    "classes": [
+        {
+            "className": "ImagesClient",
+            "lineNumber": 9,
+            "methods": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "request",
+                            "type": "ImagesRequest"
+                        }
+                    ],
+                    "index": 0,
+                    "name": "post",
+                    "returnType": "ImagesResponse*"
+                }
+            ],
+            "object": true,
+            "qualifiedClassName": "ai::ImagesClient",
+            "superClasses": [
+                {
+                    "access": "public",
+                    "fullyQualifiedName": "ai::Client",
+                    "name": "Client"
+                }
+            ]
+        }
+    ],
+    "inputFile": "imagesclient.h",
+    "outputRevision": 69
+}

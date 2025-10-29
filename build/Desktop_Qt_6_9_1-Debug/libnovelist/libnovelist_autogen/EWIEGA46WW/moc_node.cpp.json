@@ -1,0 +1,227 @@
+{
+    "classes": [
+        {
+            "classInfos": [
+                {
+                    "name": "QML.Element",
+                    "value": "auto"
+                },
+                {
+                    "name": "QML.Creatable",
+                    "value": "false"
+                },
+                {
+                    "name": "QML.UncreatableReason",
+                    "value": "Node is a base class"
+                }
+            ],
+            "className": "Node",
+            "lineNumber": 11,
+            "object": true,
+            "properties": [
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 0,
+                    "name": "name",
+                    "notify": "nameChanged",
+                    "read": "name",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false,
+                    "write": "setName"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 1,
+                    "name": "label",
+                    "notify": "labelChanged",
+                    "read": "label",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false,
+                    "write": "setLabel"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 2,
+                    "name": "info",
+                    "notify": "infoChanged",
+                    "read": "info",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false,
+                    "write": "setInfo"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 3,
+                    "name": "icon",
+                    "notify": "iconChanged",
+                    "read": "icon",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false,
+                    "write": "setIcon"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 4,
+                    "name": "nodeType",
+                    "notify": "nodeTypeChanged",
+                    "read": "nodeType",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "NodeType*",
+                    "user": false
+                },
+                {
+                    "constant": true,
+                    "designable": true,
+                    "final": true,
+                    "index": 5,
+                    "name": "nodeListModel",
+                    "read": "nodeListModel",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "NodeListModel*",
+                    "user": false
+                }
+            ],
+            "qualifiedClassName": "Node",
+            "signals": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "newName",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "oldName",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 0,
+                    "name": "nameChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "newLabel",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "oldLabel",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 1,
+                    "name": "labelChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "newInfo",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "oldInfo",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 2,
+                    "name": "infoChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "newIcon",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "oldIcon",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 3,
+                    "name": "iconChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "newNodeType",
+                            "type": "NodeType*"
+                        },
+                        {
+                            "name": "oldNodeType",
+                            "type": "NodeType*"
+                        }
+                    ],
+                    "index": 4,
+                    "name": "nodeTypeChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "newChild",
+                            "type": "Node*"
+                        }
+                    ],
+                    "index": 5,
+                    "name": "childNodeAdded",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "oldChild",
+                            "type": "Node*"
+                        }
+                    ],
+                    "index": 6,
+                    "name": "childNodeRemoved",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "Storable"
+                }
+            ]
+        }
+    ],
+    "inputFile": "node.h",
+    "outputRevision": 69
+}

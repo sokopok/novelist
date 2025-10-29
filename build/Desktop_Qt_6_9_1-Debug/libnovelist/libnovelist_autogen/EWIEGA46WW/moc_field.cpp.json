@@ -1,0 +1,216 @@
+{
+    "classes": [
+        {
+            "classInfos": [
+                {
+                    "name": "QML.Element",
+                    "value": "auto"
+                },
+                {
+                    "name": "QML.Creatable",
+                    "value": "false"
+                },
+                {
+                    "name": "QML.UncreatableReason",
+                    "value": ""
+                }
+            ],
+            "className": "Field",
+            "lineNumber": 18,
+            "methods": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "element",
+                            "type": "Element*"
+                        }
+                    ],
+                    "index": 7,
+                    "isConst": true,
+                    "name": "indexIn",
+                    "returnType": "int"
+                }
+            ],
+            "object": true,
+            "properties": [
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 0,
+                    "name": "elements",
+                    "notify": "elementsChanged",
+                    "read": "elements",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QList<Element*>",
+                    "user": false,
+                    "write": "setElements"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 1,
+                    "name": "values",
+                    "notify": "valuesChanged",
+                    "read": "values",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QList<Value*>",
+                    "user": false,
+                    "write": "setValues"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 2,
+                    "name": "allowedTypes",
+                    "notify": "allowedTypesChanged",
+                    "read": "allowedTypes",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QList<int>",
+                    "user": false,
+                    "write": "setAllowedTypes"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 3,
+                    "name": "allowedTypeNames",
+                    "notify": "allowedTypesChanged",
+                    "read": "allowedTypeNames",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QStringList",
+                    "user": false,
+                    "write": "setAllowedTypeNames"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 4,
+                    "name": "minOccurs",
+                    "notify": "minOccursChanged",
+                    "read": "minOccurs",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "int",
+                    "user": false,
+                    "write": "setMinOccurs"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 5,
+                    "name": "maxOccurs",
+                    "notify": "maxOccursChanged",
+                    "read": "maxOccurs",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "int",
+                    "user": false,
+                    "write": "setMaxOccurs"
+                },
+                {
+                    "constant": true,
+                    "designable": true,
+                    "final": true,
+                    "index": 6,
+                    "name": "valueListModel",
+                    "read": "valueListModel",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "ValueListModel*",
+                    "user": false
+                }
+            ],
+            "qualifiedClassName": "Field",
+            "signals": [
+                {
+                    "access": "public",
+                    "index": 0,
+                    "name": "elementsChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 1,
+                    "name": "valuesChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "first",
+                            "type": "int"
+                        },
+                        {
+                            "name": "last",
+                            "type": "int"
+                        }
+                    ],
+                    "index": 2,
+                    "name": "valuesAdded",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "first",
+                            "type": "int"
+                        },
+                        {
+                            "name": "last",
+                            "type": "int"
+                        }
+                    ],
+                    "index": 3,
+                    "name": "valuesRemoved",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 4,
+                    "name": "allowedTypesChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 5,
+                    "name": "minOccursChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 6,
+                    "name": "maxOccursChanged",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "Node"
+                }
+            ]
+        }
+    ],
+    "inputFile": "field.h",
+    "outputRevision": 69
+}

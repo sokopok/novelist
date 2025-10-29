@@ -1,0 +1,21 @@
+module appnovelist
+typeinfo appnovelist.qmltypes
+prefer :/qt/qml/appnovelist/
+Main 254.0 qml/Main.qml
+SettingsPage 254.0 qml/SettingsPage.qml
+ChatPage 254.0 qml/ChatPage.qml
+RoundButton 254.0 qml/RoundButton.qml
+SquareBubble 254.0 qml/SquareBubble.qml
+ChatOutput 254.0 qml/ChatOutput.qml
+FieldListView 254.0 qml/FieldListView.qml
+NodeListView 254.0 qml/NodeListView.qml
+ValueListView 254.0 qml/ValueListView.qml
+Dot 254.0 qml/Dot.qml
+FieldTypeListView 254.0 qml/FieldTypeListView.qml
+ValueTypeListView 254.0 qml/ValueTypeListView.qml
+FieldTypeListViewDelegateRow 254.0 qml/FieldTypeListViewDelegateRow.qml
+ElementTreeView 254.0 qml/ElementTreeView.qml
+ElementTreeviewDelegateLabel 254.0 qml/ElementTreeviewDelegateLabel.qml
+ElementTreeviewDelegateValue 254.0 qml/ElementTreeviewDelegateValue.qml
+ElementTypeTableView 254.0 qml/ElementTypeTableView.qml
+

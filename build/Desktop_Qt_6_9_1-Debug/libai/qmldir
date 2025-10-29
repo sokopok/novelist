@@ -1,0 +1,7 @@
+module libai
+linktarget libaiplugin
+optional plugin libaiplugin
+classname libaiPlugin
+typeinfo libai.qmltypes
+prefer :/qt/qml/libai/
+

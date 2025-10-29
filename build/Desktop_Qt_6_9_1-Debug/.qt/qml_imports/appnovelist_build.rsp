@@ -1,0 +1,15 @@
+-rootPath
+/home/tomas/Source/novelist/new
+-cmake-output
+-output-file
+/home/tomas/Source/novelist/new/build/Desktop_Qt_6_9_1-Debug/.qt/qml_imports/appnovelist_build.cmake
+-importPath
+/home/tomas/Source/novelist/new/build/Desktop_Qt_6_9_1-Debug/appnovelist
+-importPath
+/home/tomas/Source/novelist/new/build/Desktop_Qt_6_9_1-Debug
+-importPath
+/home/tomas/Apps/Qt/6.9.1/gcc_64/qml
+-qrcFiles
+/home/tomas/Source/novelist/new/build/Desktop_Qt_6_9_1-Debug/.qt/rcc/qmake_appnovelist.qrc
+/home/tomas/Source/novelist/new/build/Desktop_Qt_6_9_1-Debug/.qt/rcc/appnovelist_raw_qml_0.qrc
+/home/tomas/Source/novelist/new/build/Desktop_Qt_6_9_1-Debug/.qt/rcc/appnovelist_raw_qml_0_extra_qmldirs.qrc

@@ -1,0 +1,3843 @@
+[
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "auto"
+                    },
+                    {
+                        "name": "QML.Creatable",
+                        "value": "false"
+                    },
+                    {
+                        "name": "QML.UncreatableReason",
+                        "value": "BaseStorage is a base class"
+                    }
+                ],
+                "className": "BaseStorage",
+                "lineNumber": 55,
+                "object": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 0,
+                        "name": "database",
+                        "notify": "databaseChanged",
+                        "read": "database",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QSqlDatabase",
+                        "user": false,
+                        "write": "setDatabase"
+                    }
+                ],
+                "qualifiedClassName": "BaseStorage",
+                "signals": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "node",
+                                "type": "Node*"
+                            }
+                        ],
+                        "index": 0,
+                        "name": "nodeCreated",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "node",
+                                "type": "Node*"
+                            }
+                        ],
+                        "index": 1,
+                        "name": "nodeRecycled",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "node",
+                                "type": "Node*"
+                            }
+                        ],
+                        "index": 2,
+                        "name": "nodeRevived",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "node",
+                                "type": "Node*"
+                            }
+                        ],
+                        "index": 3,
+                        "name": "nodeDestroyed",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "node",
+                                "type": "Node*"
+                            }
+                        ],
+                        "index": 4,
+                        "name": "nodeInserted",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "node",
+                                "type": "Node*"
+                            }
+                        ],
+                        "index": 5,
+                        "name": "nodeUpdated",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "node",
+                                "type": "Node*"
+                            }
+                        ],
+                        "index": 6,
+                        "name": "nodeSaved",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "node",
+                                "type": "Node*"
+                            }
+                        ],
+                        "index": 7,
+                        "name": "nodeReloaded",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "node",
+                                "type": "Node*"
+                            }
+                        ],
+                        "index": 8,
+                        "name": "nodeLoaded",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "node",
+                                "type": "Node*"
+                            }
+                        ],
+                        "index": 9,
+                        "name": "nodeRemoved",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 10,
+                        "name": "databaseChanged",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    },
+                    {
+                        "access": "public",
+                        "name": "ErrorHandler"
+                    }
+                ]
+            },
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "auto"
+                    },
+                    {
+                        "name": "QML.Creatable",
+                        "value": "false"
+                    },
+                    {
+                        "name": "QML.UncreatableReason",
+                        "value": "BaseTypeStorage is a base class"
+                    }
+                ],
+                "className": "BaseTypeStorage",
+                "lineNumber": 246,
+                "methods": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "name",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 0,
+                        "name": "nodeType",
+                        "returnType": "NodeType*"
+                    }
+                ],
+                "object": true,
+                "qualifiedClassName": "BaseTypeStorage",
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "BaseStorage"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "basestorage.h",
+        "outputRevision": 69
+    },
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "auto"
+                    },
+                    {
+                        "name": "QML.Creatable",
+                        "value": "false"
+                    },
+                    {
+                        "name": "QML.UncreatableReason",
+                        "value": ""
+                    }
+                ],
+                "className": "Element",
+                "lineNumber": 12,
+                "object": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 0,
+                        "name": "fields",
+                        "notify": "fieldsChanged",
+                        "read": "fields",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QList<Field*>",
+                        "user": false,
+                        "write": "setFields"
+                    },
+                    {
+                        "constant": true,
+                        "designable": true,
+                        "final": true,
+                        "index": 1,
+                        "name": "fieldListModel",
+                        "read": "fieldListModel",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "FieldListModel*",
+                        "user": false
+                    }
+                ],
+                "qualifiedClassName": "Element",
+                "signals": [
+                    {
+                        "access": "public",
+                        "index": 0,
+                        "name": "fieldsChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "first",
+                                "type": "int"
+                            },
+                            {
+                                "name": "last",
+                                "type": "int"
+                            }
+                        ],
+                        "index": 1,
+                        "name": "fieldsAdded",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "first",
+                                "type": "int"
+                            },
+                            {
+                                "name": "last",
+                                "type": "int"
+                            }
+                        ],
+                        "index": 2,
+                        "name": "fieldsRemoved",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "Node"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "element.h",
+        "outputRevision": 69
+    },
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "auto"
+                    }
+                ],
+                "className": "ElementStorage",
+                "lineNumber": 9,
+                "methods": [
+                    {
+                        "access": "public",
+                        "index": 0,
+                        "name": "element",
+                        "returnType": "Element*"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "rowid",
+                                "type": "int"
+                            }
+                        ],
+                        "index": 1,
+                        "name": "element",
+                        "returnType": "Element*"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "nodeType",
+                                "type": "ElementType*"
+                            },
+                            {
+                                "name": "label",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "info",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "icon",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 2,
+                        "name": "createElement",
+                        "returnType": "Element*"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "nodeType",
+                                "type": "ElementType*"
+                            },
+                            {
+                                "name": "label",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "info",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 3,
+                        "isCloned": true,
+                        "name": "createElement",
+                        "returnType": "Element*"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "nodeType",
+                                "type": "ElementType*"
+                            },
+                            {
+                                "name": "label",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 4,
+                        "isCloned": true,
+                        "name": "createElement",
+                        "returnType": "Element*"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "nodeType",
+                                "type": "ElementType*"
+                            }
+                        ],
+                        "index": 5,
+                        "isCloned": true,
+                        "name": "createElement",
+                        "returnType": "Element*"
+                    },
+                    {
+                        "access": "public",
+                        "index": 6,
+                        "isCloned": true,
+                        "name": "createElement",
+                        "returnType": "Element*"
+                    }
+                ],
+                "object": true,
+                "qualifiedClassName": "ElementStorage",
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "BaseStorage"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "elementstorage.h",
+        "outputRevision": 69
+    },
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "auto"
+                    },
+                    {
+                        "name": "QML.Creatable",
+                        "value": "false"
+                    },
+                    {
+                        "name": "QML.UncreatableReason",
+                        "value": ""
+                    }
+                ],
+                "className": "ElementType",
+                "lineNumber": 10,
+                "object": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 0,
+                        "name": "fieldTypes",
+                        "notify": "fieldTypesChanged",
+                        "read": "fieldTypes",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QList<FieldType*>",
+                        "user": false,
+                        "write": "setFieldTypes"
+                    },
+                    {
+                        "constant": true,
+                        "designable": true,
+                        "final": true,
+                        "index": 1,
+                        "name": "fieldTypeListModel",
+                        "read": "fieldTypeListModel",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "FieldTypeListModel*",
+                        "user": false
+                    }
+                ],
+                "qualifiedClassName": "ElementType",
+                "signals": [
+                    {
+                        "access": "public",
+                        "index": 0,
+                        "name": "fieldTypesChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "first",
+                                "type": "int"
+                            },
+                            {
+                                "name": "last",
+                                "type": "int"
+                            }
+                        ],
+                        "index": 1,
+                        "name": "fieldTypesAdded",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "first",
+                                "type": "int"
+                            },
+                            {
+                                "name": "last",
+                                "type": "int"
+                            }
+                        ],
+                        "index": 2,
+                        "name": "fieldTypesRemoved",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "NodeType"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "elementtype.h",
+        "outputRevision": 69
+    },
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "auto"
+                    }
+                ],
+                "className": "ElementTypeListModel",
+                "enums": [
+                    {
+                        "isClass": false,
+                        "isFlag": false,
+                        "name": "Role",
+                        "values": [
+                            "ElementTypeRole",
+                            "NameRole",
+                            "LabelRole",
+                            "InfoRole",
+                            "IconRole",
+                            "MinOccursRole",
+                            "MaxOccursRole",
+                            "AllowesTypesRole",
+                            "FieldTypesRole",
+                            "UserRole"
+                        ]
+                    }
+                ],
+                "lineNumber": 11,
+                "methods": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "parent",
+                                "type": "QModelIndex"
+                            }
+                        ],
+                        "index": 1,
+                        "isConst": true,
+                        "name": "rowCount",
+                        "returnType": "int"
+                    },
+                    {
+                        "access": "public",
+                        "index": 2,
+                        "isCloned": true,
+                        "isConst": true,
+                        "name": "rowCount",
+                        "returnType": "int"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "index",
+                                "type": "QModelIndex"
+                            },
+                            {
+                                "name": "role",
+                                "type": "int"
+                            }
+                        ],
+                        "index": 3,
+                        "isConst": true,
+                        "name": "data",
+                        "returnType": "QVariant"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "index",
+                                "type": "QModelIndex"
+                            }
+                        ],
+                        "index": 4,
+                        "isCloned": true,
+                        "isConst": true,
+                        "name": "data",
+                        "returnType": "QVariant"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "index",
+                                "type": "int"
+                            }
+                        ],
+                        "index": 5,
+                        "isConst": true,
+                        "name": "elementType",
+                        "returnType": "ElementType*"
+                    }
+                ],
+                "object": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 0,
+                        "name": "elementTypes",
+                        "notify": "elementTypesChanged",
+                        "read": "elementTypes",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QList<ElementType*>",
+                        "user": false,
+                        "write": "setElementTypes"
+                    }
+                ],
+                "qualifiedClassName": "ElementTypeListModel",
+                "signals": [
+                    {
+                        "access": "public",
+                        "index": 0,
+                        "name": "elementTypesChanged",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QAbstractListModel"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "elementtypelistmodel.h",
+        "outputRevision": 69
+    },
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "auto"
+                    }
+                ],
+                "className": "ElementTypeStorage",
+                "lineNumber": 7,
+                "methods": [
+                    {
+                        "access": "public",
+                        "index": 0,
+                        "name": "elementType",
+                        "returnType": "ElementType*"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "rowid",
+                                "type": "int"
+                            }
+                        ],
+                        "index": 1,
+                        "name": "elementType",
+                        "returnType": "ElementType*"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "name",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 2,
+                        "name": "elementType",
+                        "returnType": "ElementType*"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "name",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "label",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "info",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "icon",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 3,
+                        "name": "createElementType",
+                        "returnType": "ElementType*"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "name",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "label",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "info",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 4,
+                        "isCloned": true,
+                        "name": "createElementType",
+                        "returnType": "ElementType*"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "name",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "label",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 5,
+                        "isCloned": true,
+                        "name": "createElementType",
+                        "returnType": "ElementType*"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "name",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 6,
+                        "isCloned": true,
+                        "name": "createElementType",
+                        "returnType": "ElementType*"
+                    }
+                ],
+                "object": true,
+                "qualifiedClassName": "ElementTypeStorage",
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "BaseTypeStorage"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "elementtypestorage.h",
+        "outputRevision": 69
+    },
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "auto"
+                    }
+                ],
+                "className": "ElementTypeTableModel",
+                "lineNumber": 10,
+                "object": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 0,
+                        "name": "elementTypes",
+                        "notify": "elementTypesChanged",
+                        "read": "elementTypes",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QList<ElementType*>",
+                        "user": false,
+                        "write": "setElementTypes"
+                    }
+                ],
+                "qualifiedClassName": "ElementTypeTableModel",
+                "signals": [
+                    {
+                        "access": "public",
+                        "index": 0,
+                        "name": "elementTypesChanged",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QAbstractItemModel"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "elementtypetablemodel.h",
+        "outputRevision": 69
+    },
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "auto"
+                    }
+                ],
+                "className": "ElementTypeTreeModel",
+                "lineNumber": 10,
+                "object": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 0,
+                        "name": "elementTypes",
+                        "notify": "elementTypesChanged",
+                        "read": "elementTypes",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QList<ElementType*>",
+                        "user": false,
+                        "write": "setElementTypes"
+                    }
+                ],
+                "qualifiedClassName": "ElementTypeTreeModel",
+                "signals": [
+                    {
+                        "access": "public",
+                        "index": 0,
+                        "name": "elementTypesChanged",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QStandardItemModel"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "elementtypetreemodel.h",
+        "outputRevision": 69
+    },
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "auto"
+                    },
+                    {
+                        "name": "QML.Creatable",
+                        "value": "false"
+                    },
+                    {
+                        "name": "QML.UncreatableReason",
+                        "value": ""
+                    }
+                ],
+                "className": "Field",
+                "lineNumber": 18,
+                "methods": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "element",
+                                "type": "Element*"
+                            }
+                        ],
+                        "index": 7,
+                        "isConst": true,
+                        "name": "indexIn",
+                        "returnType": "int"
+                    }
+                ],
+                "object": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 0,
+                        "name": "elements",
+                        "notify": "elementsChanged",
+                        "read": "elements",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QList<Element*>",
+                        "user": false,
+                        "write": "setElements"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 1,
+                        "name": "values",
+                        "notify": "valuesChanged",
+                        "read": "values",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QList<Value*>",
+                        "user": false,
+                        "write": "setValues"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 2,
+                        "name": "allowedTypes",
+                        "notify": "allowedTypesChanged",
+                        "read": "allowedTypes",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QList<int>",
+                        "user": false,
+                        "write": "setAllowedTypes"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 3,
+                        "name": "allowedTypeNames",
+                        "notify": "allowedTypesChanged",
+                        "read": "allowedTypeNames",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QStringList",
+                        "user": false,
+                        "write": "setAllowedTypeNames"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 4,
+                        "name": "minOccurs",
+                        "notify": "minOccursChanged",
+                        "read": "minOccurs",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "int",
+                        "user": false,
+                        "write": "setMinOccurs"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 5,
+                        "name": "maxOccurs",
+                        "notify": "maxOccursChanged",
+                        "read": "maxOccurs",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "int",
+                        "user": false,
+                        "write": "setMaxOccurs"
+                    },
+                    {
+                        "constant": true,
+                        "designable": true,
+                        "final": true,
+                        "index": 6,
+                        "name": "valueListModel",
+                        "read": "valueListModel",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "ValueListModel*",
+                        "user": false
+                    }
+                ],
+                "qualifiedClassName": "Field",
+                "signals": [
+                    {
+                        "access": "public",
+                        "index": 0,
+                        "name": "elementsChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 1,
+                        "name": "valuesChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "first",
+                                "type": "int"
+                            },
+                            {
+                                "name": "last",
+                                "type": "int"
+                            }
+                        ],
+                        "index": 2,
+                        "name": "valuesAdded",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "first",
+                                "type": "int"
+                            },
+                            {
+                                "name": "last",
+                                "type": "int"
+                            }
+                        ],
+                        "index": 3,
+                        "name": "valuesRemoved",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 4,
+                        "name": "allowedTypesChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 5,
+                        "name": "minOccursChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 6,
+                        "name": "maxOccursChanged",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "Node"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "field.h",
+        "outputRevision": 69
+    },
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "auto"
+                    }
+                ],
+                "className": "FieldListModel",
+                "enums": [
+                    {
+                        "isClass": false,
+                        "isFlag": false,
+                        "name": "Role",
+                        "values": [
+                            "FieldRole",
+                            "NameRole",
+                            "LabelRole",
+                            "InfoRole",
+                            "IconRole",
+                            "MinOccursRole",
+                            "MaxOccursRole",
+                            "AllowesTypesRole",
+                            "ValuesRole",
+                            "UserRole"
+                        ]
+                    }
+                ],
+                "lineNumber": 13,
+                "methods": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "parent",
+                                "type": "QModelIndex"
+                            }
+                        ],
+                        "index": 2,
+                        "isConst": true,
+                        "name": "rowCount",
+                        "returnType": "int"
+                    },
+                    {
+                        "access": "public",
+                        "index": 3,
+                        "isCloned": true,
+                        "isConst": true,
+                        "name": "rowCount",
+                        "returnType": "int"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "index",
+                                "type": "QModelIndex"
+                            },
+                            {
+                                "name": "role",
+                                "type": "int"
+                            }
+                        ],
+                        "index": 4,
+                        "isConst": true,
+                        "name": "data",
+                        "returnType": "QVariant"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "index",
+                                "type": "QModelIndex"
+                            }
+                        ],
+                        "index": 5,
+                        "isCloned": true,
+                        "isConst": true,
+                        "name": "data",
+                        "returnType": "QVariant"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "index",
+                                "type": "int"
+                            }
+                        ],
+                        "index": 6,
+                        "isConst": true,
+                        "name": "field",
+                        "returnType": "Field*"
+                    }
+                ],
+                "object": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 0,
+                        "name": "fields",
+                        "notify": "fieldsChanged",
+                        "read": "fields",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QList<Field*>",
+                        "user": false,
+                        "write": "setFields"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 1,
+                        "name": "element",
+                        "notify": "elementChanged",
+                        "read": "element",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "Element*",
+                        "user": false,
+                        "write": "setElement"
+                    }
+                ],
+                "qualifiedClassName": "FieldListModel",
+                "signals": [
+                    {
+                        "access": "public",
+                        "index": 0,
+                        "name": "fieldsChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 1,
+                        "name": "elementChanged",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QAbstractListModel"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "fieldlistmodel.h",
+        "outputRevision": 69
+    },
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "auto"
+                    }
+                ],
+                "className": "FieldStorage",
+                "lineNumber": 7,
+                "methods": [
+                    {
+                        "access": "public",
+                        "index": 0,
+                        "name": "field",
+                        "returnType": "Field*"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "rowid",
+                                "type": "int"
+                            }
+                        ],
+                        "index": 1,
+                        "name": "field",
+                        "returnType": "Field*"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "nodeType",
+                                "type": "FieldType*"
+                            },
+                            {
+                                "name": "label",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "info",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "icon",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 2,
+                        "name": "createField",
+                        "returnType": "Field*"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "nodeType",
+                                "type": "FieldType*"
+                            },
+                            {
+                                "name": "label",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "info",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 3,
+                        "isCloned": true,
+                        "name": "createField",
+                        "returnType": "Field*"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "nodeType",
+                                "type": "FieldType*"
+                            },
+                            {
+                                "name": "label",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 4,
+                        "isCloned": true,
+                        "name": "createField",
+                        "returnType": "Field*"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "nodeType",
+                                "type": "FieldType*"
+                            }
+                        ],
+                        "index": 5,
+                        "isCloned": true,
+                        "name": "createField",
+                        "returnType": "Field*"
+                    },
+                    {
+                        "access": "public",
+                        "index": 6,
+                        "isCloned": true,
+                        "name": "createField",
+                        "returnType": "Field*"
+                    }
+                ],
+                "object": true,
+                "qualifiedClassName": "FieldStorage",
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "BaseStorage"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "fieldstorage.h",
+        "outputRevision": 69
+    },
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "auto"
+                    },
+                    {
+                        "name": "QML.Creatable",
+                        "value": "false"
+                    },
+                    {
+                        "name": "QML.UncreatableReason",
+                        "value": ""
+                    }
+                ],
+                "className": "FieldType",
+                "lineNumber": 11,
+                "object": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 0,
+                        "name": "elementTypes",
+                        "notify": "elementTypesChanged",
+                        "read": "elementTypes",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QList<ElementType*>",
+                        "user": false,
+                        "write": "setElementTypes"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 1,
+                        "name": "valueTypes",
+                        "notify": "valueTypesChanged",
+                        "read": "valueTypes",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QList<ValueType*>",
+                        "user": false,
+                        "write": "setValueTypes"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 2,
+                        "name": "allowedTypes",
+                        "notify": "allowedTypesChanged",
+                        "read": "allowedTypes",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QList<int>",
+                        "user": false,
+                        "write": "setAllowedTypes"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 3,
+                        "name": "allowedTypeNames",
+                        "notify": "allowedTypesChanged",
+                        "read": "allowedTypeNames",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QStringList",
+                        "user": false,
+                        "write": "setAllowedTypeNames"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 4,
+                        "name": "minOccurs",
+                        "notify": "minOccursChanged",
+                        "read": "minOccurs",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "int",
+                        "user": false,
+                        "write": "setMinOccurs"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 5,
+                        "name": "maxOccurs",
+                        "notify": "maxOccursChanged",
+                        "read": "maxOccurs",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "int",
+                        "user": false,
+                        "write": "setMaxOccurs"
+                    },
+                    {
+                        "constant": true,
+                        "designable": true,
+                        "final": true,
+                        "index": 6,
+                        "name": "valueTypeListModel",
+                        "read": "valueTypeListModel",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "ValueTypeListModel*",
+                        "user": false
+                    }
+                ],
+                "qualifiedClassName": "FieldType",
+                "signals": [
+                    {
+                        "access": "public",
+                        "index": 0,
+                        "name": "elementTypesChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 1,
+                        "name": "valueTypesChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "first",
+                                "type": "int"
+                            },
+                            {
+                                "name": "last",
+                                "type": "int"
+                            }
+                        ],
+                        "index": 2,
+                        "name": "valueTypesAdded",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "first",
+                                "type": "int"
+                            },
+                            {
+                                "name": "last",
+                                "type": "int"
+                            }
+                        ],
+                        "index": 3,
+                        "name": "valueTypesRemoved",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 4,
+                        "name": "allowedTypesChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 5,
+                        "name": "minOccursChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 6,
+                        "name": "maxOccursChanged",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "NodeType"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "fieldtype.h",
+        "outputRevision": 69
+    },
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "auto"
+                    }
+                ],
+                "className": "FieldTypeListModel",
+                "enums": [
+                    {
+                        "isClass": false,
+                        "isFlag": false,
+                        "name": "Role",
+                        "values": [
+                            "FieldTypeRole",
+                            "NameRole",
+                            "LabelRole",
+                            "InfoRole",
+                            "IconRole",
+                            "MinOccursRole",
+                            "MaxOccursRole",
+                            "AllowesTypesRole",
+                            "ValueTypesRole",
+                            "UserRole"
+                        ]
+                    }
+                ],
+                "lineNumber": 13,
+                "methods": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "parent",
+                                "type": "QModelIndex"
+                            }
+                        ],
+                        "index": 2,
+                        "isConst": true,
+                        "name": "rowCount",
+                        "returnType": "int"
+                    },
+                    {
+                        "access": "public",
+                        "index": 3,
+                        "isCloned": true,
+                        "isConst": true,
+                        "name": "rowCount",
+                        "returnType": "int"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "index",
+                                "type": "QModelIndex"
+                            },
+                            {
+                                "name": "role",
+                                "type": "int"
+                            }
+                        ],
+                        "index": 4,
+                        "isConst": true,
+                        "name": "data",
+                        "returnType": "QVariant"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "index",
+                                "type": "QModelIndex"
+                            }
+                        ],
+                        "index": 5,
+                        "isCloned": true,
+                        "isConst": true,
+                        "name": "data",
+                        "returnType": "QVariant"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "index",
+                                "type": "int"
+                            }
+                        ],
+                        "index": 6,
+                        "isConst": true,
+                        "name": "fieldType",
+                        "returnType": "FieldType*"
+                    }
+                ],
+                "object": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 0,
+                        "name": "fieldTypes",
+                        "notify": "fieldTypesChanged",
+                        "read": "fieldTypes",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QList<FieldType*>",
+                        "user": false,
+                        "write": "setFieldTypes"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 1,
+                        "name": "elementType",
+                        "notify": "elementTypeChanged",
+                        "read": "elementType",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "ElementType*",
+                        "user": false,
+                        "write": "setElementType"
+                    }
+                ],
+                "qualifiedClassName": "FieldTypeListModel",
+                "signals": [
+                    {
+                        "access": "public",
+                        "index": 0,
+                        "name": "fieldTypesChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 1,
+                        "name": "elementTypeChanged",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QAbstractListModel"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "fieldtypelistmodel.h",
+        "outputRevision": 69
+    },
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "auto"
+                    }
+                ],
+                "className": "FieldTypeStorage",
+                "lineNumber": 7,
+                "methods": [
+                    {
+                        "access": "public",
+                        "index": 0,
+                        "name": "fieldType",
+                        "returnType": "FieldType*"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "rowid",
+                                "type": "int"
+                            }
+                        ],
+                        "index": 1,
+                        "name": "fieldType",
+                        "returnType": "FieldType*"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "name",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 2,
+                        "name": "fieldType",
+                        "returnType": "FieldType*"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "name",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "label",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "info",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "icon",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 3,
+                        "name": "createFieldType",
+                        "returnType": "FieldType*"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "name",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "label",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "info",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 4,
+                        "isCloned": true,
+                        "name": "createFieldType",
+                        "returnType": "FieldType*"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "name",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "label",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 5,
+                        "isCloned": true,
+                        "name": "createFieldType",
+                        "returnType": "FieldType*"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "name",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 6,
+                        "isCloned": true,
+                        "name": "createFieldType",
+                        "returnType": "FieldType*"
+                    }
+                ],
+                "object": true,
+                "qualifiedClassName": "FieldTypeStorage",
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "BaseTypeStorage"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "fieldtypestorage.h",
+        "outputRevision": 69
+    },
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "auto"
+                    },
+                    {
+                        "name": "QML.Creatable",
+                        "value": "false"
+                    },
+                    {
+                        "name": "QML.UncreatableReason",
+                        "value": "Node is a base class"
+                    }
+                ],
+                "className": "Node",
+                "lineNumber": 11,
+                "object": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 0,
+                        "name": "name",
+                        "notify": "nameChanged",
+                        "read": "name",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QString",
+                        "user": false,
+                        "write": "setName"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 1,
+                        "name": "label",
+                        "notify": "labelChanged",
+                        "read": "label",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QString",
+                        "user": false,
+                        "write": "setLabel"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 2,
+                        "name": "info",
+                        "notify": "infoChanged",
+                        "read": "info",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QString",
+                        "user": false,
+                        "write": "setInfo"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 3,
+                        "name": "icon",
+                        "notify": "iconChanged",
+                        "read": "icon",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QString",
+                        "user": false,
+                        "write": "setIcon"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 4,
+                        "name": "nodeType",
+                        "notify": "nodeTypeChanged",
+                        "read": "nodeType",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "NodeType*",
+                        "user": false
+                    },
+                    {
+                        "constant": true,
+                        "designable": true,
+                        "final": true,
+                        "index": 5,
+                        "name": "nodeListModel",
+                        "read": "nodeListModel",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "NodeListModel*",
+                        "user": false
+                    }
+                ],
+                "qualifiedClassName": "Node",
+                "signals": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "newName",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "oldName",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 0,
+                        "name": "nameChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "newLabel",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "oldLabel",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 1,
+                        "name": "labelChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "newInfo",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "oldInfo",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 2,
+                        "name": "infoChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "newIcon",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "oldIcon",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 3,
+                        "name": "iconChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "newNodeType",
+                                "type": "NodeType*"
+                            },
+                            {
+                                "name": "oldNodeType",
+                                "type": "NodeType*"
+                            }
+                        ],
+                        "index": 4,
+                        "name": "nodeTypeChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "newChild",
+                                "type": "Node*"
+                            }
+                        ],
+                        "index": 5,
+                        "name": "childNodeAdded",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "oldChild",
+                                "type": "Node*"
+                            }
+                        ],
+                        "index": 6,
+                        "name": "childNodeRemoved",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "Storable"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "node.h",
+        "outputRevision": 69
+    },
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "auto"
+                    }
+                ],
+                "className": "NodeListModel",
+                "enums": [
+                    {
+                        "isClass": false,
+                        "isFlag": false,
+                        "name": "Role",
+                        "values": [
+                            "NodeRole",
+                            "NameRole",
+                            "LabelRole",
+                            "InfoRole",
+                            "IconRole",
+                            "UserRole"
+                        ]
+                    }
+                ],
+                "lineNumber": 9,
+                "object": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 0,
+                        "name": "nodes",
+                        "notify": "nodesChanged",
+                        "read": "nodes",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QList<Node*>",
+                        "user": false,
+                        "write": "setNodes"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 1,
+                        "name": "node",
+                        "notify": "nodeChanged",
+                        "read": "node",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "Node*",
+                        "user": false,
+                        "write": "setNode"
+                    }
+                ],
+                "qualifiedClassName": "NodeListModel",
+                "signals": [
+                    {
+                        "access": "public",
+                        "index": 0,
+                        "name": "nodesChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 1,
+                        "name": "nodeChanged",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QAbstractListModel"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "nodelistmodel.h",
+        "outputRevision": 69
+    },
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "auto"
+                    }
+                ],
+                "className": "NodeStorage",
+                "lineNumber": 15,
+                "object": true,
+                "qualifiedClassName": "NodeStorage",
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "BaseStorage"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "nodestorage.h",
+        "outputRevision": 69
+    },
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "auto"
+                    },
+                    {
+                        "name": "QML.Creatable",
+                        "value": "false"
+                    },
+                    {
+                        "name": "QML.UncreatableReason",
+                        "value": "NodeType is a base class"
+                    }
+                ],
+                "className": "NodeType",
+                "lineNumber": 6,
+                "object": true,
+                "qualifiedClassName": "NodeType",
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "Node"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "nodetype.h",
+        "outputRevision": 69
+    },
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "auto"
+                    }
+                ],
+                "className": "NodeTypeStorage",
+                "lineNumber": 7,
+                "object": true,
+                "qualifiedClassName": "NodeTypeStorage",
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "BaseTypeStorage"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "nodetypestorage.h",
+        "outputRevision": 69
+    },
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "auto"
+                    }
+                ],
+                "className": "Novelist",
+                "lineNumber": 12,
+                "object": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 0,
+                        "name": "project",
+                        "notify": "projectChanged",
+                        "read": "project",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "Project*",
+                        "user": false,
+                        "write": "setProject"
+                    }
+                ],
+                "qualifiedClassName": "Novelist",
+                "signals": [
+                    {
+                        "access": "public",
+                        "index": 0,
+                        "name": "projectChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 1,
+                        "name": "storageChanged",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "novelist.h",
+        "outputRevision": 69
+    },
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "auto"
+                    }
+                ],
+                "className": "Project",
+                "lineNumber": 11,
+                "object": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 0,
+                        "name": "databaseName",
+                        "notify": "databaseNameChanged",
+                        "read": "databaseName",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QString",
+                        "user": false,
+                        "write": "setDatabaseName"
+                    }
+                ],
+                "qualifiedClassName": "Project",
+                "signals": [
+                    {
+                        "access": "public",
+                        "index": 0,
+                        "name": "storageChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 1,
+                        "name": "databaseNameChanged",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "Element"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "project.h",
+        "outputRevision": 69
+    },
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "auto"
+                    }
+                ],
+                "className": "ProjectStorage",
+                "lineNumber": 7,
+                "methods": [
+                    {
+                        "access": "public",
+                        "index": 0,
+                        "name": "project",
+                        "returnType": "Project*"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "rowid",
+                                "type": "int"
+                            }
+                        ],
+                        "index": 1,
+                        "name": "project",
+                        "returnType": "Project*"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "type",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 2,
+                        "name": "createProject",
+                        "returnType": "Project*"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "nodeType",
+                                "type": "ProjectType*"
+                            }
+                        ],
+                        "index": 3,
+                        "name": "createProject",
+                        "returnType": "Project*"
+                    },
+                    {
+                        "access": "public",
+                        "index": 4,
+                        "isCloned": true,
+                        "name": "createProject",
+                        "returnType": "Project*"
+                    }
+                ],
+                "object": true,
+                "qualifiedClassName": "ProjectStorage",
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "BaseStorage"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "projectstorage.h",
+        "outputRevision": 69
+    },
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "auto"
+                    },
+                    {
+                        "name": "QML.Creatable",
+                        "value": "false"
+                    },
+                    {
+                        "name": "QML.UncreatableReason",
+                        "value": ""
+                    }
+                ],
+                "className": "ProjectType",
+                "lineNumber": 9,
+                "object": true,
+                "qualifiedClassName": "ProjectType",
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "ElementType"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "projecttype.h",
+        "outputRevision": 69
+    },
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "auto"
+                    }
+                ],
+                "className": "ProjectTypeStorage",
+                "lineNumber": 7,
+                "methods": [
+                    {
+                        "access": "public",
+                        "index": 0,
+                        "name": "projectType",
+                        "returnType": "ProjectType*"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "rowid",
+                                "type": "int"
+                            }
+                        ],
+                        "index": 1,
+                        "name": "projectType",
+                        "returnType": "ProjectType*"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "name",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 2,
+                        "name": "projectType",
+                        "returnType": "ProjectType*"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "name",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "label",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "info",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "icon",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 3,
+                        "name": "createProjectType",
+                        "returnType": "ProjectType*"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "name",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "label",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "info",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 4,
+                        "isCloned": true,
+                        "name": "createProjectType",
+                        "returnType": "ProjectType*"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "name",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "label",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 5,
+                        "isCloned": true,
+                        "name": "createProjectType",
+                        "returnType": "ProjectType*"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "name",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 6,
+                        "isCloned": true,
+                        "name": "createProjectType",
+                        "returnType": "ProjectType*"
+                    }
+                ],
+                "object": true,
+                "qualifiedClassName": "ProjectTypeStorage",
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "BaseTypeStorage"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "projecttypestorage.h",
+        "outputRevision": 69
+    },
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "auto"
+                    },
+                    {
+                        "name": "QML.Creatable",
+                        "value": "false"
+                    },
+                    {
+                        "name": "QML.UncreatableReason",
+                        "value": "Storable is a base class"
+                    }
+                ],
+                "className": "Storable",
+                "enums": [
+                    {
+                        "isClass": false,
+                        "isFlag": false,
+                        "name": "Type",
+                        "values": [
+                            "Type_Unknown",
+                            "Type_Storable",
+                            "Type_Node",
+                            "Type_Field",
+                            "Type_Element",
+                            "Type_Value",
+                            "Type_Project",
+                            "Type_NodeType",
+                            "Type_FieldType",
+                            "Type_ElementType",
+                            "Type_ValueType",
+                            "Type_ProjectType"
+                        ]
+                    },
+                    {
+                        "isClass": false,
+                        "isFlag": false,
+                        "name": "Flag",
+                        "values": [
+                            "NoFlag",
+                            "Flag_Modified",
+                            "Flag_Saving",
+                            "Flag_Loading"
+                        ]
+                    }
+                ],
+                "lineNumber": 14,
+                "object": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 0,
+                        "name": "rowid",
+                        "notify": "rowidChanged",
+                        "read": "rowid",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "int",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 1,
+                        "name": "type",
+                        "notify": "typeChanged",
+                        "read": "type",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "int",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 2,
+                        "name": "modified",
+                        "notify": "modifiedChanged",
+                        "read": "isModified",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "bool",
+                        "user": false,
+                        "write": "setModified"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 3,
+                        "name": "createdBy",
+                        "notify": "createdByChanged",
+                        "read": "createdBy",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QString",
+                        "user": false,
+                        "write": "setCreatedBy"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 4,
+                        "name": "updatedBy",
+                        "notify": "updatedByChanged",
+                        "read": "updatedBy",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QString",
+                        "user": false,
+                        "write": "setUpdatedBy"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 5,
+                        "name": "createdAt",
+                        "notify": "createdAtChanged",
+                        "read": "createdAt",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QDateTime",
+                        "user": false,
+                        "write": "setCreatedAt"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 6,
+                        "name": "updatedAt",
+                        "notify": "updatedAtChanged",
+                        "read": "updatedAt",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QDateTime",
+                        "user": false,
+                        "write": "setUpdatedAt"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 7,
+                        "name": "version",
+                        "notify": "versionChanged",
+                        "read": "version",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "int",
+                        "user": false,
+                        "write": "setVersion"
+                    }
+                ],
+                "qualifiedClassName": "Storable",
+                "signals": [
+                    {
+                        "access": "public",
+                        "index": 0,
+                        "name": "rowidChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 1,
+                        "name": "typeChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 2,
+                        "name": "storageChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 3,
+                        "name": "modifiedChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 4,
+                        "name": "createdByChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 5,
+                        "name": "updatedByChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 6,
+                        "name": "createdAtChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 7,
+                        "name": "updatedAtChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 8,
+                        "name": "reloaded",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 9,
+                        "name": "saved",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 10,
+                        "name": "recycled",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 11,
+                        "name": "versionChanged",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    },
+                    {
+                        "access": "public",
+                        "name": "ErrorHandler"
+                    },
+                    {
+                        "access": "public",
+                        "name": "Jsonable"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "storable.h",
+        "outputRevision": 69
+    },
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "auto"
+                    }
+                ],
+                "className": "Storage",
+                "lineNumber": 15,
+                "object": true,
+                "properties": [
+                    {
+                        "constant": true,
+                        "designable": true,
+                        "final": true,
+                        "index": 0,
+                        "name": "elementStorage",
+                        "read": "elementStorage",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "ElementStorage*",
+                        "user": false
+                    },
+                    {
+                        "constant": true,
+                        "designable": true,
+                        "final": true,
+                        "index": 1,
+                        "name": "elementTypeStorage",
+                        "read": "elementTypeStorage",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "ElementTypeStorage*",
+                        "user": false
+                    },
+                    {
+                        "constant": true,
+                        "designable": true,
+                        "final": true,
+                        "index": 2,
+                        "name": "fieldStorage",
+                        "read": "fieldStorage",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "FieldStorage*",
+                        "user": false
+                    },
+                    {
+                        "constant": true,
+                        "designable": true,
+                        "final": true,
+                        "index": 3,
+                        "name": "fieldTypeStorage",
+                        "read": "fieldTypeStorage",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "FieldTypeStorage*",
+                        "user": false
+                    },
+                    {
+                        "constant": true,
+                        "designable": true,
+                        "final": true,
+                        "index": 4,
+                        "name": "valueStorage",
+                        "read": "valueStorage",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "ValueStorage*",
+                        "user": false
+                    },
+                    {
+                        "constant": true,
+                        "designable": true,
+                        "final": true,
+                        "index": 5,
+                        "name": "valueTypeStorage",
+                        "read": "valueTypeStorage",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "ValueTypeStorage*",
+                        "user": false
+                    },
+                    {
+                        "constant": true,
+                        "designable": true,
+                        "final": true,
+                        "index": 6,
+                        "name": "projectStorage",
+                        "read": "projectStorage",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "ProjectStorage*",
+                        "user": false
+                    },
+                    {
+                        "constant": true,
+                        "designable": true,
+                        "final": true,
+                        "index": 7,
+                        "name": "projectTypeStorage",
+                        "read": "projectTypeStorage",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "ProjectTypeStorage*",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 8,
+                        "name": "databaseName",
+                        "notify": "databaseNameChanged",
+                        "read": "databaseName",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QString",
+                        "user": false,
+                        "write": "setDatabaseName"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 9,
+                        "name": "databaseConnectionName",
+                        "notify": "databaseConnectionNameChanged",
+                        "read": "databaseConnectionName",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QString",
+                        "user": false,
+                        "write": "setDatabaseConnectionName"
+                    }
+                ],
+                "qualifiedClassName": "Storage",
+                "signals": [
+                    {
+                        "access": "public",
+                        "index": 0,
+                        "name": "databaseChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 1,
+                        "name": "databaseNameChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 2,
+                        "name": "databaseConnectionNameChanged",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "storage.h",
+        "outputRevision": 69
+    },
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "auto"
+                    },
+                    {
+                        "name": "QML.Creatable",
+                        "value": "false"
+                    },
+                    {
+                        "name": "QML.UncreatableReason",
+                        "value": ""
+                    }
+                ],
+                "className": "Value",
+                "enums": [
+                    {
+                        "isClass": false,
+                        "isFlag": false,
+                        "name": "Type",
+                        "values": [
+                            "Type_Unknown",
+                            "Type_String",
+                            "Type_Int",
+                            "Type_Float",
+                            "Type_Double",
+                            "Type_Bool",
+                            "Type_Date",
+                            "Type_Time",
+                            "Type_DateTime",
+                            "Type_Node",
+                            "Type_NodeList"
+                        ]
+                    }
+                ],
+                "lineNumber": 10,
+                "methods": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "field",
+                                "type": "Field*"
+                            }
+                        ],
+                        "index": 3,
+                        "isConst": true,
+                        "name": "indexIn",
+                        "returnType": "int"
+                    }
+                ],
+                "object": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 0,
+                        "name": "fields",
+                        "notify": "fieldsChanged",
+                        "read": "fields",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QList<Field*>",
+                        "user": false,
+                        "write": "setFields"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 1,
+                        "name": "value",
+                        "notify": "valueChanged",
+                        "read": "value",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QVariant",
+                        "user": false,
+                        "write": "setValue"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 2,
+                        "name": "valueType",
+                        "notify": "valueTypeChanged",
+                        "read": "valueType",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "int",
+                        "user": false,
+                        "write": "setValueType"
+                    }
+                ],
+                "qualifiedClassName": "Value",
+                "signals": [
+                    {
+                        "access": "public",
+                        "index": 0,
+                        "name": "fieldsChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 1,
+                        "name": "valueChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 2,
+                        "name": "valueTypeChanged",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "Node"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "value.h",
+        "outputRevision": 69
+    },
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "auto"
+                    }
+                ],
+                "className": "ValueListModel",
+                "enums": [
+                    {
+                        "isClass": false,
+                        "isFlag": false,
+                        "name": "Role",
+                        "values": [
+                            "ValueRole",
+                            "NameRole",
+                            "LabelRole",
+                            "InfoRole",
+                            "IconRole",
+                            "ValueTypeRole",
+                            "ValueValueRole",
+                            "UserRole"
+                        ]
+                    }
+                ],
+                "lineNumber": 9,
+                "methods": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "parent",
+                                "type": "QModelIndex"
+                            }
+                        ],
+                        "index": 2,
+                        "isConst": true,
+                        "name": "rowCount",
+                        "returnType": "int"
+                    },
+                    {
+                        "access": "public",
+                        "index": 3,
+                        "isCloned": true,
+                        "isConst": true,
+                        "name": "rowCount",
+                        "returnType": "int"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "index",
+                                "type": "QModelIndex"
+                            },
+                            {
+                                "name": "role",
+                                "type": "int"
+                            }
+                        ],
+                        "index": 4,
+                        "isConst": true,
+                        "name": "data",
+                        "returnType": "QVariant"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "index",
+                                "type": "QModelIndex"
+                            }
+                        ],
+                        "index": 5,
+                        "isCloned": true,
+                        "isConst": true,
+                        "name": "data",
+                        "returnType": "QVariant"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "index",
+                                "type": "int"
+                            }
+                        ],
+                        "index": 6,
+                        "isConst": true,
+                        "name": "value",
+                        "returnType": "Value*"
+                    }
+                ],
+                "object": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 0,
+                        "name": "values",
+                        "notify": "valuesChanged",
+                        "read": "values",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QList<Value*>",
+                        "user": false,
+                        "write": "setValues"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 1,
+                        "name": "field",
+                        "notify": "fieldChanged",
+                        "read": "field",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "Field*",
+                        "user": false,
+                        "write": "setField"
+                    }
+                ],
+                "qualifiedClassName": "ValueListModel",
+                "signals": [
+                    {
+                        "access": "public",
+                        "index": 0,
+                        "name": "valuesChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 1,
+                        "name": "fieldChanged",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QAbstractListModel"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "valuelistmodel.h",
+        "outputRevision": 69
+    },
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "auto"
+                    }
+                ],
+                "className": "ValueStorage",
+                "lineNumber": 7,
+                "methods": [
+                    {
+                        "access": "public",
+                        "index": 0,
+                        "name": "value",
+                        "returnType": "Value*"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "rowid",
+                                "type": "int"
+                            }
+                        ],
+                        "index": 1,
+                        "name": "value",
+                        "returnType": "Value*"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "nodeType",
+                                "type": "ValueType*"
+                            },
+                            {
+                                "name": "label",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "info",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "icon",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 2,
+                        "name": "createValue",
+                        "returnType": "Value*"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "nodeType",
+                                "type": "ValueType*"
+                            },
+                            {
+                                "name": "label",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "info",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 3,
+                        "isCloned": true,
+                        "name": "createValue",
+                        "returnType": "Value*"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "nodeType",
+                                "type": "ValueType*"
+                            },
+                            {
+                                "name": "label",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 4,
+                        "isCloned": true,
+                        "name": "createValue",
+                        "returnType": "Value*"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "nodeType",
+                                "type": "ValueType*"
+                            }
+                        ],
+                        "index": 5,
+                        "isCloned": true,
+                        "name": "createValue",
+                        "returnType": "Value*"
+                    },
+                    {
+                        "access": "public",
+                        "index": 6,
+                        "isCloned": true,
+                        "name": "createValue",
+                        "returnType": "Value*"
+                    }
+                ],
+                "object": true,
+                "qualifiedClassName": "ValueStorage",
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "BaseStorage"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "valuestorage.h",
+        "outputRevision": 69
+    },
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "auto"
+                    },
+                    {
+                        "name": "QML.Creatable",
+                        "value": "false"
+                    },
+                    {
+                        "name": "QML.UncreatableReason",
+                        "value": ""
+                    }
+                ],
+                "className": "ValueType",
+                "lineNumber": 9,
+                "object": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 0,
+                        "name": "fieldTypes",
+                        "notify": "fieldTypesChanged",
+                        "read": "fieldTypes",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QList<FieldType*>",
+                        "user": false,
+                        "write": "setFieldTypes"
+                    }
+                ],
+                "qualifiedClassName": "ValueType",
+                "signals": [
+                    {
+                        "access": "public",
+                        "index": 0,
+                        "name": "fieldTypesChanged",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "NodeType"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "valuetype.h",
+        "outputRevision": 69
+    },
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "auto"
+                    }
+                ],
+                "className": "ValueTypeListModel",
+                "enums": [
+                    {
+                        "isClass": false,
+                        "isFlag": false,
+                        "name": "Role",
+                        "values": [
+                            "ValueTypeRole",
+                            "NameRole",
+                            "LabelRole",
+                            "InfoRole",
+                            "IconRole",
+                            "UserRole"
+                        ]
+                    }
+                ],
+                "lineNumber": 13,
+                "methods": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "parent",
+                                "type": "QModelIndex"
+                            }
+                        ],
+                        "index": 2,
+                        "isConst": true,
+                        "name": "rowCount",
+                        "returnType": "int"
+                    },
+                    {
+                        "access": "public",
+                        "index": 3,
+                        "isCloned": true,
+                        "isConst": true,
+                        "name": "rowCount",
+                        "returnType": "int"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "index",
+                                "type": "QModelIndex"
+                            },
+                            {
+                                "name": "role",
+                                "type": "int"
+                            }
+                        ],
+                        "index": 4,
+                        "isConst": true,
+                        "name": "data",
+                        "returnType": "QVariant"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "index",
+                                "type": "QModelIndex"
+                            }
+                        ],
+                        "index": 5,
+                        "isCloned": true,
+                        "isConst": true,
+                        "name": "data",
+                        "returnType": "QVariant"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "index",
+                                "type": "int"
+                            }
+                        ],
+                        "index": 6,
+                        "isConst": true,
+                        "name": "valueType",
+                        "returnType": "ValueType*"
+                    }
+                ],
+                "object": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 0,
+                        "name": "valueTypes",
+                        "notify": "valueTypesChanged",
+                        "read": "valueTypes",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QList<ValueType*>",
+                        "user": false,
+                        "write": "setValueTypes"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 1,
+                        "name": "fieldType",
+                        "notify": "fieldTypeChanged",
+                        "read": "fieldType",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "FieldType*",
+                        "user": false,
+                        "write": "setFieldType"
+                    }
+                ],
+                "qualifiedClassName": "ValueTypeListModel",
+                "signals": [
+                    {
+                        "access": "public",
+                        "index": 0,
+                        "name": "valueTypesChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 1,
+                        "name": "fieldTypeChanged",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QAbstractListModel"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "valuetypelistmodel.h",
+        "outputRevision": 69
+    },
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "auto"
+                    }
+                ],
+                "className": "ValueTypeStorage",
+                "lineNumber": 7,
+                "methods": [
+                    {
+                        "access": "public",
+                        "index": 0,
+                        "name": "valueType",
+                        "returnType": "ValueType*"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "rowid",
+                                "type": "int"
+                            }
+                        ],
+                        "index": 1,
+                        "name": "valueType",
+                        "returnType": "ValueType*"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "name",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 2,
+                        "name": "valueType",
+                        "returnType": "ValueType*"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "name",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "label",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "info",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "icon",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 3,
+                        "name": "createValueType",
+                        "returnType": "ValueType*"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "name",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "label",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "info",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 4,
+                        "isCloned": true,
+                        "name": "createValueType",
+                        "returnType": "ValueType*"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "name",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "label",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 5,
+                        "isCloned": true,
+                        "name": "createValueType",
+                        "returnType": "ValueType*"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "name",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 6,
+                        "isCloned": true,
+                        "name": "createValueType",
+                        "returnType": "ValueType*"
+                    }
+                ],
+                "object": true,
+                "qualifiedClassName": "ValueTypeStorage",
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "BaseTypeStorage"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "valuetypestorage.h",
+        "outputRevision": 69
+    }
+]

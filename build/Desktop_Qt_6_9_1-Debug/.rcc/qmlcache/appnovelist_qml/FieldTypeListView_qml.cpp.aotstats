@@ -1,0 +1,124 @@
+[
+    {
+        "moduleFiles": [
+            {
+                "entries": [
+                    {
+                        "codegenSuccessful": false,
+                        "column": 12,
+                        "durationMicroseconds": 213,
+                        "errorMessage": "Cannot generate efficient code for content pointer of unsupported wrapper type ElementType::fieldTypeListModel with type FieldTypeListModel (stored as QJSValue)",
+                        "functionName": "model",
+                        "line": 15
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 16,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Could not find property \"width\".",
+                        "functionName": "width",
+                        "line": 31
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 15,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Could not find property \"text\".",
+                        "functionName": "text",
+                        "line": 32
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 20,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Could not find signal \"clicked\".",
+                        "functionName": "onClicked",
+                        "line": 37
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 22,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Could not find property \"source\".",
+                        "functionName": "source",
+                        "line": 33
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 23,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Cannot resolve property type  for binding on text.",
+                        "functionName": "text",
+                        "line": 54
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 36,
+                        "durationMicroseconds": 24,
+                        "errorMessage": "Cannot access value for name delegate",
+                        "functionName": "bottomVisible",
+                        "line": 53
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 26,
+                        "durationMicroseconds": 17,
+                        "errorMessage": "Cannot access value for name delegate",
+                        "functionName": "visible",
+                        "line": 62
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 26,
+                        "durationMicroseconds": 22,
+                        "errorMessage": "Cannot access value for name delegate",
+                        "functionName": "visible",
+                        "line": 71
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 26,
+                        "durationMicroseconds": 16,
+                        "errorMessage": "Cannot access value for name delegate",
+                        "functionName": "visible",
+                        "line": 80
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 28,
+                        "durationMicroseconds": 9,
+                        "errorMessage": "Cannot access value for name delegate",
+                        "functionName": "fieldType",
+                        "line": 88
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 26,
+                        "durationMicroseconds": 7,
+                        "errorMessage": "Cannot access value for name delegate",
+                        "functionName": "visible",
+                        "line": 89
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 41,
+                        "durationMicroseconds": 10,
+                        "errorMessage": "Cannot access value for name count",
+                        "functionName": "preferredHeight",
+                        "line": 87
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 20,
+                        "durationMicroseconds": 44,
+                        "errorMessage": "Cannot access value for name delegate",
+                        "functionName": "color",
+                        "line": 94
+                    }
+                ],
+                "filePath": "/home/tomas/Source/novelist/new/qml/FieldTypeListView.qml"
+            }
+        ],
+        "moduleId": "appnovelist(appnovelist)"
+    }
+]

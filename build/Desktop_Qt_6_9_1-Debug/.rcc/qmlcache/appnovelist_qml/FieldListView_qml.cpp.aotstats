@@ -1,0 +1,140 @@
+[
+    {
+        "moduleFiles": [
+            {
+                "entries": [
+                    {
+                        "codegenSuccessful": false,
+                        "column": 12,
+                        "durationMicroseconds": 280,
+                        "errorMessage": "Cannot generate efficient code for content pointer of unsupported wrapper type Element::fieldListModel with type FieldListModel (stored as QJSValue)",
+                        "functionName": "model",
+                        "line": 20
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 16,
+                        "durationMicroseconds": 72,
+                        "errorMessage": "Cannot retrieve a non-object type by ID: delegate",
+                        "functionName": "color",
+                        "line": 14
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 16,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Could not find property \"width\".",
+                        "functionName": "width",
+                        "line": 36
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 15,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Could not find property \"text\".",
+                        "functionName": "text",
+                        "line": 37
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 20,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Could not find signal \"clicked\".",
+                        "functionName": "onClicked",
+                        "line": 42
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 22,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Could not find property \"source\".",
+                        "functionName": "source",
+                        "line": 38
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 37,
+                        "durationMicroseconds": 20,
+                        "errorMessage": "Cannot access value for name row",
+                        "functionName": "implicitHeight",
+                        "line": 61
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 36,
+                        "durationMicroseconds": 6,
+                        "errorMessage": "Cannot access value for name implicitHeight",
+                        "functionName": "implicitWidth",
+                        "line": 62
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 36,
+                        "durationMicroseconds": 16,
+                        "errorMessage": "Cannot access value for name delegate",
+                        "functionName": "bottomVisible",
+                        "line": 64
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 27,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Could not find property \"text\".",
+                        "functionName": "text",
+                        "line": 92
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 40,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Could not find property \"verticalAlignment\".",
+                        "functionName": "verticalAlignment",
+                        "line": 94
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 32,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Could not find property \"bold\".",
+                        "functionName": "bold",
+                        "line": 93
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 24,
+                        "durationMicroseconds": 9,
+                        "errorMessage": "Cannot access value for name delegate",
+                        "functionName": "field",
+                        "line": 100
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 26,
+                        "durationMicroseconds": 7,
+                        "errorMessage": "Cannot access value for name delegate",
+                        "functionName": "visible",
+                        "line": 101
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 41,
+                        "durationMicroseconds": 10,
+                        "errorMessage": "Cannot access value for name count",
+                        "functionName": "preferredHeight",
+                        "line": 99
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 20,
+                        "durationMicroseconds": 43,
+                        "errorMessage": "Cannot access value for name delegate",
+                        "functionName": "color",
+                        "line": 106
+                    }
+                ],
+                "filePath": "/home/tomas/Source/novelist/new/qml/FieldListView.qml"
+            }
+        ],
+        "moduleId": "appnovelist(appnovelist)"
+    }
+]

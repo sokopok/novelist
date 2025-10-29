@@ -1,0 +1,188 @@
+[
+    {
+        "moduleFiles": [
+            {
+                "entries": [
+                    {
+                        "codegenSuccessful": true,
+                        "column": 16,
+                        "durationMicroseconds": 76,
+                        "errorMessage": "",
+                        "functionName": "width",
+                        "line": 27
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 17,
+                        "durationMicroseconds": 151,
+                        "errorMessage": "",
+                        "functionName": "height",
+                        "line": 28
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 17,
+                        "durationMicroseconds": 61,
+                        "errorMessage": "",
+                        "functionName": "radius",
+                        "line": 29
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 16,
+                        "durationMicroseconds": 67,
+                        "errorMessage": "",
+                        "functionName": "color",
+                        "line": 30
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 18,
+                        "durationMicroseconds": 59,
+                        "errorMessage": "",
+                        "functionName": "opacity",
+                        "line": 31
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 22,
+                        "durationMicroseconds": 60,
+                        "errorMessage": "",
+                        "functionName": "top",
+                        "line": 23
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 25,
+                        "durationMicroseconds": 57,
+                        "errorMessage": "",
+                        "functionName": "bottom",
+                        "line": 24
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 35,
+                        "durationMicroseconds": 56,
+                        "errorMessage": "",
+                        "functionName": "horizontalCenter",
+                        "line": 26
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 16,
+                        "durationMicroseconds": 72,
+                        "errorMessage": "",
+                        "functionName": "width",
+                        "line": 45
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 17,
+                        "durationMicroseconds": 69,
+                        "errorMessage": "",
+                        "functionName": "height",
+                        "line": 46
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 17,
+                        "durationMicroseconds": 39,
+                        "errorMessage": "",
+                        "functionName": "radius",
+                        "line": 47
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 16,
+                        "durationMicroseconds": 55,
+                        "errorMessage": "",
+                        "functionName": "color",
+                        "line": 48
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 18,
+                        "durationMicroseconds": 54,
+                        "errorMessage": "",
+                        "functionName": "opacity",
+                        "line": 49
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 27,
+                        "durationMicroseconds": 31,
+                        "errorMessage": "",
+                        "functionName": "centerIn",
+                        "line": 44
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 16,
+                        "durationMicroseconds": 41,
+                        "errorMessage": "",
+                        "functionName": "width",
+                        "line": 66
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 17,
+                        "durationMicroseconds": 138,
+                        "errorMessage": "",
+                        "functionName": "height",
+                        "line": 67
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 17,
+                        "durationMicroseconds": 57,
+                        "errorMessage": "",
+                        "functionName": "radius",
+                        "line": 68
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 16,
+                        "durationMicroseconds": 55,
+                        "errorMessage": "",
+                        "functionName": "color",
+                        "line": 69
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 18,
+                        "durationMicroseconds": 55,
+                        "errorMessage": "",
+                        "functionName": "opacity",
+                        "line": 70
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 22,
+                        "durationMicroseconds": 57,
+                        "errorMessage": "",
+                        "functionName": "top",
+                        "line": 62
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 25,
+                        "durationMicroseconds": 53,
+                        "errorMessage": "",
+                        "functionName": "bottom",
+                        "line": 64
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 35,
+                        "durationMicroseconds": 52,
+                        "errorMessage": "",
+                        "functionName": "horizontalCenter",
+                        "line": 65
+                    }
+                ],
+                "filePath": "/home/tomas/Source/novelist/new/qml/Dot.qml"
+            }
+        ],
+        "moduleId": "appnovelist(appnovelist)"
+    }
+]

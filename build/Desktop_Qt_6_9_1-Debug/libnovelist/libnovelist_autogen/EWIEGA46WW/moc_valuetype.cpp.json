@@ -1,0 +1,57 @@
+{
+    "classes": [
+        {
+            "classInfos": [
+                {
+                    "name": "QML.Element",
+                    "value": "auto"
+                },
+                {
+                    "name": "QML.Creatable",
+                    "value": "false"
+                },
+                {
+                    "name": "QML.UncreatableReason",
+                    "value": ""
+                }
+            ],
+            "className": "ValueType",
+            "lineNumber": 9,
+            "object": true,
+            "properties": [
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 0,
+                    "name": "fieldTypes",
+                    "notify": "fieldTypesChanged",
+                    "read": "fieldTypes",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QList<FieldType*>",
+                    "user": false,
+                    "write": "setFieldTypes"
+                }
+            ],
+            "qualifiedClassName": "ValueType",
+            "signals": [
+                {
+                    "access": "public",
+                    "index": 0,
+                    "name": "fieldTypesChanged",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "NodeType"
+                }
+            ]
+        }
+    ],
+    "inputFile": "valuetype.h",
+    "outputRevision": 69
+}

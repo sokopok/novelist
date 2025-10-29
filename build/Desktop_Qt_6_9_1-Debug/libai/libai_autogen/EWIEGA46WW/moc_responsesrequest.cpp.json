@@ -1,0 +1,177 @@
+{
+    "classes": [
+        {
+            "classInfos": [
+                {
+                    "name": "QML.Element",
+                    "value": "responsesRequest"
+                },
+                {
+                    "name": "QML.Creatable",
+                    "value": "true"
+                },
+                {
+                    "name": "QML.CreationMethod",
+                    "value": "construct"
+                }
+            ],
+            "className": "ResponsesRequest",
+            "enums": [
+                {
+                    "isClass": false,
+                    "isFlag": false,
+                    "name": "Attribute",
+                    "values": [
+                        "BackgroundAttribute",
+                        "ConversationAttribute",
+                        "IncludeAttribute",
+                        "InputAttribute",
+                        "InstructionsAttribute",
+                        "MaxOutputTokensAttribute",
+                        "MaxToolCallsAttribute",
+                        "MetadataAttribute",
+                        "ModelAttribute",
+                        "ParallelToolCallsAttribute",
+                        "PreviousResponseIdAttribute",
+                        "PromptAttribute",
+                        "PromptCacheKeyAttribute",
+                        "ReasoningAttribute",
+                        "SafetyIdentifierAttribute",
+                        "ServiceTierAttribute",
+                        "StoredAttribute",
+                        "StreamingAttribute",
+                        "StreamOptionsAttribute",
+                        "TemperatureAttribute",
+                        "TextAttribute",
+                        "ToolChoiceAttribute",
+                        "ToolsAttribute",
+                        "TopLogprobsAttribute",
+                        "TopPAttribute",
+                        "TruncationAttribute",
+                        "NumAttributes"
+                    ]
+                },
+                {
+                    "isClass": false,
+                    "isFlag": false,
+                    "name": "Model",
+                    "values": [
+                        "Model_Gpt5",
+                        "Model_Gpt5Nano",
+                        "Model_Gpt5Mini",
+                        "Model_Gpt5Pro",
+                        "Model_Gpt41",
+                        "Model_Gpt41Mini",
+                        "Model_Custom"
+                    ]
+                },
+                {
+                    "isClass": false,
+                    "isFlag": false,
+                    "name": "ServiceTier",
+                    "values": [
+                        "ServiceTier_Auto",
+                        "ServiceTier_Default",
+                        "ServiceTier_Flex",
+                        "ServiceTier_Priority",
+                        "ServiceTier_Custom"
+                    ]
+                },
+                {
+                    "isClass": false,
+                    "isFlag": false,
+                    "name": "Truncation",
+                    "values": [
+                        "Truncation_Auto",
+                        "Truncation_Disabled",
+                        "Truncation_Custom"
+                    ]
+                }
+            ],
+            "gadget": true,
+            "lineNumber": 11,
+            "properties": [
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 0,
+                    "name": "background",
+                    "read": "background",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "bool",
+                    "user": false,
+                    "write": "setBackground"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 1,
+                    "name": "input",
+                    "read": "input",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "ai::Input",
+                    "user": false,
+                    "write": "setInput"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 2,
+                    "name": "instructions",
+                    "read": "instructions",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false,
+                    "write": "setInstructions"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 3,
+                    "name": "previousResponseId",
+                    "read": "previousResponseId",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false,
+                    "write": "setPreviousResponseId"
+                }
+            ],
+            "qualifiedClassName": "ai::ResponsesRequest",
+            "slots": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "text",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 0,
+                    "name": "setInput",
+                    "returnType": "bool"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "fullyQualifiedName": "ai::Request",
+                    "name": "Request"
+                }
+            ]
+        }
+    ],
+    "inputFile": "responsesrequest.h",
+    "outputRevision": 69
+}

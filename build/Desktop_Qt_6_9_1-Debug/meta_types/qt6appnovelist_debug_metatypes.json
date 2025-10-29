@@ -1,0 +1,100 @@
+[
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "auto"
+                    }
+                ],
+                "className": "TextAreaUtils",
+                "lineNumber": 9,
+                "methods": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "quickDoc",
+                                "type": "QQuickTextDocument*"
+                            },
+                            {
+                                "name": "position",
+                                "type": "int"
+                            },
+                            {
+                                "name": "html",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "color",
+                                "type": "QColor"
+                            }
+                        ],
+                        "index": 0,
+                        "isConst": true,
+                        "name": "insertHtmlAt",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "quickDoc",
+                                "type": "QQuickTextDocument*"
+                            },
+                            {
+                                "name": "position",
+                                "type": "int"
+                            },
+                            {
+                                "name": "html",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 1,
+                        "isCloned": true,
+                        "isConst": true,
+                        "name": "insertHtmlAt",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "quickDoc",
+                                "type": "QQuickTextDocument*"
+                            },
+                            {
+                                "name": "selStart",
+                                "type": "int"
+                            },
+                            {
+                                "name": "selEnd",
+                                "type": "int"
+                            },
+                            {
+                                "name": "html",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 2,
+                        "isConst": true,
+                        "name": "replaceSelectionWithHtml",
+                        "returnType": "void"
+                    }
+                ],
+                "object": true,
+                "qualifiedClassName": "TextAreaUtils",
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "textareautils.h",
+        "outputRevision": 69
+    }
+]

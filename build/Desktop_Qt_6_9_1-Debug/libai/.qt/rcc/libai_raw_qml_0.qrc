@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="/qt/qml/libai/">
+    <file alias="libai_nl_BE.ts">/home/tomas/Source/novelist/new/libai/libai_nl_BE.ts</file>
+  </qresource>
+</RCC>
+

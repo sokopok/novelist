@@ -1,0 +1,68 @@
+[
+    {
+        "moduleFiles": [
+            {
+                "entries": [
+                    {
+                        "codegenSuccessful": false,
+                        "column": 21,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Could not find property \"implicitHeight\".",
+                        "functionName": "implicitHeight",
+                        "line": 8
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 13,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Could not find property \"height\".",
+                        "functionName": "height",
+                        "line": 9
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 14,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Could not find property \"display\".",
+                        "functionName": "display",
+                        "line": 11
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 14,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Could not find property \"opacity\".",
+                        "functionName": "opacity",
+                        "line": 13
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 17,
+                        "durationMicroseconds": 26,
+                        "errorMessage": "Cannot access value for name width",
+                        "functionName": "radius",
+                        "line": 21
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 16,
+                        "durationMicroseconds": 134,
+                        "errorMessage": "Cannot access value for name enabled",
+                        "functionName": "color",
+                        "line": 22
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 23,
+                        "durationMicroseconds": 86,
+                        "errorMessage": "Cannot access value for name enabled",
+                        "functionName": "color",
+                        "line": 25
+                    }
+                ],
+                "filePath": "/home/tomas/Source/novelist/new/qml/RoundButton.qml"
+            }
+        ],
+        "moduleId": "appnovelist(appnovelist)"
+    }
+]

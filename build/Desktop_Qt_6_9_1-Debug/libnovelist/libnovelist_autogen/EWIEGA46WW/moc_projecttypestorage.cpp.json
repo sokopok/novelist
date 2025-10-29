@@ -1,0 +1,131 @@
+{
+    "classes": [
+        {
+            "classInfos": [
+                {
+                    "name": "QML.Element",
+                    "value": "auto"
+                }
+            ],
+            "className": "ProjectTypeStorage",
+            "lineNumber": 7,
+            "methods": [
+                {
+                    "access": "public",
+                    "index": 0,
+                    "name": "projectType",
+                    "returnType": "ProjectType*"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "rowid",
+                            "type": "int"
+                        }
+                    ],
+                    "index": 1,
+                    "name": "projectType",
+                    "returnType": "ProjectType*"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "name",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 2,
+                    "name": "projectType",
+                    "returnType": "ProjectType*"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "name",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "label",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "info",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "icon",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 3,
+                    "name": "createProjectType",
+                    "returnType": "ProjectType*"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "name",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "label",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "info",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 4,
+                    "isCloned": true,
+                    "name": "createProjectType",
+                    "returnType": "ProjectType*"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "name",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "label",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 5,
+                    "isCloned": true,
+                    "name": "createProjectType",
+                    "returnType": "ProjectType*"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "name",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 6,
+                    "isCloned": true,
+                    "name": "createProjectType",
+                    "returnType": "ProjectType*"
+                }
+            ],
+            "object": true,
+            "qualifiedClassName": "ProjectTypeStorage",
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "BaseTypeStorage"
+                }
+            ]
+        }
+    ],
+    "inputFile": "projecttypestorage.h",
+    "outputRevision": 69
+}

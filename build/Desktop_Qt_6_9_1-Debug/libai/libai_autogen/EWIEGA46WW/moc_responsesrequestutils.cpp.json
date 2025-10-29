@@ -1,0 +1,1182 @@
+{
+    "classes": [
+        {
+            "className": "Base",
+            "gadget": true,
+            "lineNumber": 11,
+            "properties": [
+                {
+                    "constant": true,
+                    "designable": true,
+                    "final": true,
+                    "index": 0,
+                    "name": "utilityType",
+                    "read": "utilityType",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "ai::UtilityType",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 1,
+                    "name": "extra",
+                    "read": "extra",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QJsonObject",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 2,
+                    "name": "empty",
+                    "read": "isEmpty",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "bool",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 3,
+                    "name": "valid",
+                    "read": "isValid",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "bool",
+                    "user": false
+                }
+            ],
+            "qualifiedClassName": "ai::Base"
+        },
+        {
+            "classInfos": [
+                {
+                    "name": "QML.Element",
+                    "value": "AiBase"
+                },
+                {
+                    "name": "QML.Creatable",
+                    "value": "false"
+                },
+                {
+                    "name": "QML.UncreatableReason",
+                    "value": "AiBase is an abstract base class"
+                }
+            ],
+            "className": "AiBase",
+            "lineNumber": 69,
+            "object": true,
+            "properties": [
+                {
+                    "constant": true,
+                    "designable": true,
+                    "final": true,
+                    "index": 0,
+                    "name": "utilityType",
+                    "read": "utilityType",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "ai::UtilityType",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 1,
+                    "name": "extra",
+                    "read": "extra",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QJsonObject",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 2,
+                    "name": "empty",
+                    "read": "isEmpty",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "bool",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 3,
+                    "name": "valid",
+                    "read": "isValid",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "bool",
+                    "user": false
+                }
+            ],
+            "qualifiedClassName": "ai::AiBase",
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QObject"
+                }
+            ]
+        },
+        {
+            "className": "Conversation",
+            "gadget": true,
+            "lineNumber": 103,
+            "properties": [
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 0,
+                    "name": "id",
+                    "read": "id",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false,
+                    "write": "setId"
+                }
+            ],
+            "qualifiedClassName": "ai::Conversation",
+            "superClasses": [
+                {
+                    "access": "public",
+                    "fullyQualifiedName": "ai::Base",
+                    "name": "Base"
+                }
+            ]
+        },
+        {
+            "className": "Message",
+            "enums": [
+                {
+                    "isClass": false,
+                    "isFlag": false,
+                    "name": "Status",
+                    "values": [
+                        "Status_InProgress",
+                        "Status_Completed",
+                        "Status_Incomplete",
+                        "Status_Custom"
+                    ]
+                },
+                {
+                    "isClass": false,
+                    "isFlag": false,
+                    "name": "Role",
+                    "values": [
+                        "Role_System",
+                        "Role_Assistant",
+                        "Role_User",
+                        "Role_Custom"
+                    ]
+                }
+            ],
+            "gadget": true,
+            "lineNumber": 180,
+            "properties": [
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 0,
+                    "name": "id",
+                    "read": "id",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false,
+                    "write": "setId"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 1,
+                    "name": "role",
+                    "read": "role",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "Role",
+                    "user": false,
+                    "write": "setRole"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 2,
+                    "name": "roleAsString",
+                    "read": "roleAsString",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false,
+                    "write": "setRole"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 3,
+                    "name": "status",
+                    "read": "status",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "Status",
+                    "user": false,
+                    "write": "setStatus"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 4,
+                    "name": "statusAsString",
+                    "read": "statusAsString",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false,
+                    "write": "setStatus"
+                }
+            ],
+            "qualifiedClassName": "ai::Message",
+            "superClasses": [
+                {
+                    "access": "public",
+                    "fullyQualifiedName": "ai::Base",
+                    "name": "Base"
+                }
+            ]
+        },
+        {
+            "className": "IncludeList",
+            "enums": [
+                {
+                    "isClass": false,
+                    "isFlag": false,
+                    "name": "Include",
+                    "values": [
+                        "NoInclude",
+                        "IncludeWebSearchCallActionSources",
+                        "IncludeCodeInterpreterCallOutputs",
+                        "IncludeMessageInputImageImageUrl",
+                        "IncludeMessageOutputTextLogProbs",
+                        "IncludeReasoningEncryptedContent",
+                        "IncludeComputerCallOutputImageUrl",
+                        "IncludeFileSearchCallResults"
+                    ]
+                }
+            ],
+            "gadget": true,
+            "lineNumber": 404,
+            "qualifiedClassName": "ai::IncludeList",
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "StringList"
+                }
+            ]
+        },
+        {
+            "className": "InputText",
+            "gadget": true,
+            "lineNumber": 491,
+            "properties": [
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 0,
+                    "name": "text",
+                    "read": "text",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false,
+                    "write": "setText"
+                }
+            ],
+            "qualifiedClassName": "ai::InputText",
+            "superClasses": [
+                {
+                    "access": "public",
+                    "fullyQualifiedName": "ai::Base",
+                    "name": "Base"
+                }
+            ]
+        },
+        {
+            "className": "InputImage",
+            "enums": [
+                {
+                    "isClass": false,
+                    "isFlag": false,
+                    "name": "Detail",
+                    "values": [
+                        "Detail_Auto",
+                        "Detail_Low",
+                        "Detail_High",
+                        "Detail_Custom"
+                    ]
+                }
+            ],
+            "gadget": true,
+            "lineNumber": 558,
+            "properties": [
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 0,
+                    "name": "detail",
+                    "read": "detail",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "Detail",
+                    "user": false,
+                    "write": "setDetail"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 1,
+                    "name": "detailAsString",
+                    "read": "detailAsString",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false,
+                    "write": "setDetail"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 2,
+                    "name": "fileId",
+                    "read": "fileId",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false,
+                    "write": "setFileId"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 3,
+                    "name": "imageUrl",
+                    "read": "imageUrl",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QUrl",
+                    "user": false,
+                    "write": "setImageUrl"
+                }
+            ],
+            "qualifiedClassName": "ai::InputImage",
+            "superClasses": [
+                {
+                    "access": "public",
+                    "fullyQualifiedName": "ai::Base",
+                    "name": "Base"
+                }
+            ]
+        },
+        {
+            "className": "InputFile",
+            "gadget": true,
+            "lineNumber": 727,
+            "properties": [
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 0,
+                    "name": "fileId",
+                    "read": "fileId",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false,
+                    "write": "setFileId"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 1,
+                    "name": "fileUrl",
+                    "read": "fileUrl",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QUrl",
+                    "user": false,
+                    "write": "setFileUrl"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 2,
+                    "name": "fileData",
+                    "read": "fileData",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QByteArray",
+                    "user": false,
+                    "write": "setFileData"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 3,
+                    "name": "filename",
+                    "read": "filename",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false,
+                    "write": "setFilename"
+                }
+            ],
+            "qualifiedClassName": "ai::InputFile",
+            "superClasses": [
+                {
+                    "access": "public",
+                    "fullyQualifiedName": "ai::Base",
+                    "name": "Base"
+                }
+            ]
+        },
+        {
+            "className": "InputAudio",
+            "gadget": true,
+            "lineNumber": 888,
+            "properties": [
+                {
+                    "constant": true,
+                    "designable": true,
+                    "final": true,
+                    "index": 0,
+                    "name": "utilityType",
+                    "read": "utilityType",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "ai::UtilityType",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 1,
+                    "name": "extra",
+                    "read": "extra",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QJsonObject",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 2,
+                    "name": "empty",
+                    "read": "isEmpty",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "bool",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 3,
+                    "name": "valid",
+                    "read": "isValid",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "bool",
+                    "user": false
+                }
+            ],
+            "qualifiedClassName": "ai::InputAudio"
+        },
+        {
+            "className": "InputMessageContent",
+            "gadget": true,
+            "lineNumber": 969,
+            "properties": [
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 0,
+                    "name": "isText",
+                    "read": "isText",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "bool",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 1,
+                    "name": "isImage",
+                    "read": "isImage",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "bool",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 2,
+                    "name": "isFile",
+                    "read": "isFile",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "bool",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 3,
+                    "name": "text",
+                    "read": "text",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "InputText",
+                    "user": false,
+                    "write": "setText"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 4,
+                    "name": "image",
+                    "read": "image",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "InputImage",
+                    "user": false,
+                    "write": "setImage"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 5,
+                    "name": "file",
+                    "read": "file",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "InputFile",
+                    "user": false,
+                    "write": "setFile"
+                }
+            ],
+            "qualifiedClassName": "ai::InputMessageContent",
+            "superClasses": [
+                {
+                    "access": "public",
+                    "fullyQualifiedName": "ai::Base",
+                    "name": "Base"
+                }
+            ]
+        },
+        {
+            "className": "InputMessage",
+            "gadget": true,
+            "lineNumber": 1111,
+            "properties": [
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 0,
+                    "name": "content",
+                    "read": "content",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QList<InputMessageContent>",
+                    "user": false,
+                    "write": "setContent"
+                }
+            ],
+            "qualifiedClassName": "ai::InputMessage",
+            "superClasses": [
+                {
+                    "access": "public",
+                    "fullyQualifiedName": "ai::Message",
+                    "name": "Message"
+                }
+            ]
+        },
+        {
+            "className": "ItemReference",
+            "gadget": true,
+            "lineNumber": 1208,
+            "properties": [
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 0,
+                    "name": "id",
+                    "read": "id",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false,
+                    "write": "setId"
+                }
+            ],
+            "qualifiedClassName": "ai::ItemReference",
+            "superClasses": [
+                {
+                    "access": "public",
+                    "fullyQualifiedName": "ai::Base",
+                    "name": "Base"
+                }
+            ]
+        },
+        {
+            "classInfos": [
+                {
+                    "name": "QML.Element",
+                    "value": "AiItemReference"
+                }
+            ],
+            "className": "AiItemReference",
+            "lineNumber": 1282,
+            "object": true,
+            "properties": [
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 0,
+                    "name": "id",
+                    "read": "id",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false,
+                    "write": "setId"
+                }
+            ],
+            "qualifiedClassName": "ai::AiItemReference",
+            "superClasses": [
+                {
+                    "access": "public",
+                    "fullyQualifiedName": "ai::AiBase",
+                    "name": "AiBase"
+                }
+            ]
+        },
+        {
+            "className": "InputItem",
+            "gadget": true,
+            "lineNumber": 1346,
+            "properties": [
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 0,
+                    "name": "isMessage",
+                    "read": "isMessage",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "bool",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 1,
+                    "name": "isItemReference",
+                    "read": "isItemReference",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "bool",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 2,
+                    "name": "message",
+                    "read": "message",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "InputMessage",
+                    "user": false,
+                    "write": "setMessage"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 3,
+                    "name": "itemReference",
+                    "read": "itemReference",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "ItemReference",
+                    "user": false,
+                    "write": "setItemReference"
+                }
+            ],
+            "qualifiedClassName": "ai::InputItem",
+            "superClasses": [
+                {
+                    "access": "public",
+                    "fullyQualifiedName": "ai::Base",
+                    "name": "Base"
+                }
+            ]
+        },
+        {
+            "classInfos": [
+                {
+                    "name": "QML.Element",
+                    "value": "aiInput"
+                }
+            ],
+            "className": "Input",
+            "gadget": true,
+            "lineNumber": 1524,
+            "properties": [
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 0,
+                    "name": "items",
+                    "read": "items",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QList<InputItem>",
+                    "user": false,
+                    "write": "setItems"
+                }
+            ],
+            "qualifiedClassName": "ai::Input",
+            "superClasses": [
+                {
+                    "access": "public",
+                    "fullyQualifiedName": "ai::Base",
+                    "name": "Base"
+                }
+            ]
+        },
+        {
+            "className": "Prompt",
+            "gadget": true,
+            "lineNumber": 1715,
+            "properties": [
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 0,
+                    "name": "variables",
+                    "read": "variables",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QVariantMap",
+                    "user": false,
+                    "write": "setVariables"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 1,
+                    "name": "id",
+                    "read": "id",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false,
+                    "write": "setId"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 2,
+                    "name": "version",
+                    "read": "version",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false,
+                    "write": "setVersion"
+                }
+            ],
+            "qualifiedClassName": "ai::Prompt",
+            "superClasses": [
+                {
+                    "access": "public",
+                    "fullyQualifiedName": "ai::Base",
+                    "name": "Base"
+                }
+            ]
+        },
+        {
+            "className": "Reasoning",
+            "enums": [
+                {
+                    "isClass": false,
+                    "isFlag": false,
+                    "name": "Effort",
+                    "values": [
+                        "Effort_Minimal",
+                        "Effort_Low",
+                        "Effort_Medium",
+                        "Effort_High",
+                        "Effort_Custom"
+                    ]
+                },
+                {
+                    "isClass": false,
+                    "isFlag": false,
+                    "name": "Summary",
+                    "values": [
+                        "Summary_Auto",
+                        "Summary_Concise",
+                        "Summary_Detailed",
+                        "Summary_Custom"
+                    ]
+                }
+            ],
+            "gadget": true,
+            "lineNumber": 1826,
+            "properties": [
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 0,
+                    "name": "effort",
+                    "read": "effort",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "Effort",
+                    "user": false,
+                    "write": "setEffort"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 1,
+                    "name": "effortAsString",
+                    "read": "effortAsString",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false,
+                    "write": "setEffort"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 2,
+                    "name": "summary",
+                    "read": "summary",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "Summary",
+                    "user": false,
+                    "write": "setSummary"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 3,
+                    "name": "summaryAsString",
+                    "read": "summaryAsString",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false,
+                    "write": "setSummary"
+                }
+            ],
+            "qualifiedClassName": "ai::Reasoning",
+            "superClasses": [
+                {
+                    "access": "public",
+                    "fullyQualifiedName": "ai::Base",
+                    "name": "Base"
+                }
+            ]
+        },
+        {
+            "className": "Refusal",
+            "gadget": true,
+            "lineNumber": 2003,
+            "properties": [
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 0,
+                    "name": "refusal",
+                    "read": "refusal",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false,
+                    "write": "setRefusal"
+                }
+            ],
+            "qualifiedClassName": "ai::Refusal",
+            "superClasses": [
+                {
+                    "access": "public",
+                    "fullyQualifiedName": "ai::Base",
+                    "name": "Base"
+                }
+            ]
+        },
+        {
+            "className": "StreamOptions",
+            "gadget": true,
+            "lineNumber": 2079,
+            "properties": [
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 0,
+                    "name": "includeObfuscation",
+                    "read": "includeObfuscation",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "bool",
+                    "user": false,
+                    "write": "setIncludeObfuscation"
+                }
+            ],
+            "qualifiedClassName": "ai::StreamOptions",
+            "superClasses": [
+                {
+                    "access": "public",
+                    "fullyQualifiedName": "ai::Base",
+                    "name": "Base"
+                }
+            ]
+        },
+        {
+            "className": "ImageGenerationTool",
+            "enums": [
+                {
+                    "isClass": false,
+                    "isFlag": false,
+                    "name": "Background",
+                    "values": [
+                        "Background_Auto",
+                        "Background_Transparent",
+                        "Background_Opaque",
+                        "Background_Custom"
+                    ]
+                },
+                {
+                    "isClass": false,
+                    "isFlag": false,
+                    "name": "InputFidelity",
+                    "values": [
+                        "InputFidelity_High",
+                        "InputFidelity_Low",
+                        "InputFidelity_Custom"
+                    ]
+                },
+                {
+                    "isClass": false,
+                    "isFlag": false,
+                    "name": "OutputFormat",
+                    "values": [
+                        "OutputFormat_Png",
+                        "OutputFormat_Jpeg",
+                        "OutputFormat_Webp",
+                        "OutputFormat_Custom"
+                    ]
+                },
+                {
+                    "isClass": false,
+                    "isFlag": false,
+                    "name": "Model",
+                    "values": [
+                        "Model_DallE2",
+                        "Model_DallE3",
+                        "Model_GptImage1",
+                        "Model_Custom"
+                    ]
+                },
+                {
+                    "isClass": false,
+                    "isFlag": false,
+                    "name": "Moderation",
+                    "values": [
+                        "Moderation_Auto",
+                        "Moderation_Low",
+                        "Moderation_Custom"
+                    ]
+                },
+                {
+                    "isClass": false,
+                    "isFlag": false,
+                    "name": "Quality",
+                    "values": [
+                        "Quality_Auto",
+                        "Quality_Low",
+                        "Quality_Medium",
+                        "Quality_High",
+                        "Quality_Custom"
+                    ]
+                },
+                {
+                    "isClass": false,
+                    "isFlag": false,
+                    "name": "Size",
+                    "values": [
+                        "Size_Auto",
+                        "Size_1024x1024",
+                        "Size_1024x1536",
+                        "Size_1536x1024",
+                        "Size_Custom"
+                    ]
+                }
+            ],
+            "gadget": true,
+            "lineNumber": 2159,
+            "qualifiedClassName": "ai::ImageGenerationTool",
+            "superClasses": [
+                {
+                    "access": "public",
+                    "fullyQualifiedName": "ai::Base",
+                    "name": "Base"
+                }
+            ]
+        },
+        {
+            "className": "Tool",
+            "gadget": true,
+            "lineNumber": 2514,
+            "properties": [
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 0,
+                    "name": "imageGeneration",
+                    "read": "imageGeneration",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "ImageGenerationTool",
+                    "user": false,
+                    "write": "setImageGeneration"
+                }
+            ],
+            "qualifiedClassName": "ai::Tool",
+            "superClasses": [
+                {
+                    "access": "public",
+                    "fullyQualifiedName": "ai::Base",
+                    "name": "Base"
+                }
+            ]
+        }
+    ],
+    "inputFile": "responsesrequestutils.h",
+    "outputRevision": 69
+}

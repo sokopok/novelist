@@ -1,0 +1,44 @@
+[
+    {
+        "moduleFiles": [
+            {
+                "entries": [
+                    {
+                        "codegenSuccessful": false,
+                        "column": 12,
+                        "durationMicroseconds": 180,
+                        "errorMessage": "Cannot generate efficient code for content pointer of unsupported wrapper type Node::nodeListModel with type NodeListModel (stored as QJSValue)",
+                        "functionName": "model",
+                        "line": 13
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 16,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Could not find property \"width\".",
+                        "functionName": "width",
+                        "line": 22
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 15,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Could not find property \"text\".",
+                        "functionName": "text",
+                        "line": 23
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 22,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Could not find property \"source\".",
+                        "functionName": "source",
+                        "line": 24
+                    }
+                ],
+                "filePath": "/home/tomas/Source/novelist/new/qml/NodeListView.qml"
+            }
+        ],
+        "moduleId": "appnovelist(appnovelist)"
+    }
+]

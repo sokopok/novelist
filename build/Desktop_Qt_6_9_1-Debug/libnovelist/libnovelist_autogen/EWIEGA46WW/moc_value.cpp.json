@@ -1,0 +1,134 @@
+{
+    "classes": [
+        {
+            "classInfos": [
+                {
+                    "name": "QML.Element",
+                    "value": "auto"
+                },
+                {
+                    "name": "QML.Creatable",
+                    "value": "false"
+                },
+                {
+                    "name": "QML.UncreatableReason",
+                    "value": ""
+                }
+            ],
+            "className": "Value",
+            "enums": [
+                {
+                    "isClass": false,
+                    "isFlag": false,
+                    "name": "Type",
+                    "values": [
+                        "Type_Unknown",
+                        "Type_String",
+                        "Type_Int",
+                        "Type_Float",
+                        "Type_Double",
+                        "Type_Bool",
+                        "Type_Date",
+                        "Type_Time",
+                        "Type_DateTime",
+                        "Type_Node",
+                        "Type_NodeList"
+                    ]
+                }
+            ],
+            "lineNumber": 10,
+            "methods": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "field",
+                            "type": "Field*"
+                        }
+                    ],
+                    "index": 3,
+                    "isConst": true,
+                    "name": "indexIn",
+                    "returnType": "int"
+                }
+            ],
+            "object": true,
+            "properties": [
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 0,
+                    "name": "fields",
+                    "notify": "fieldsChanged",
+                    "read": "fields",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QList<Field*>",
+                    "user": false,
+                    "write": "setFields"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 1,
+                    "name": "value",
+                    "notify": "valueChanged",
+                    "read": "value",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QVariant",
+                    "user": false,
+                    "write": "setValue"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 2,
+                    "name": "valueType",
+                    "notify": "valueTypeChanged",
+                    "read": "valueType",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "int",
+                    "user": false,
+                    "write": "setValueType"
+                }
+            ],
+            "qualifiedClassName": "Value",
+            "signals": [
+                {
+                    "access": "public",
+                    "index": 0,
+                    "name": "fieldsChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 1,
+                    "name": "valueChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 2,
+                    "name": "valueTypeChanged",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "Node"
+                }
+            ]
+        }
+    ],
+    "inputFile": "value.h",
+    "outputRevision": 69
+}

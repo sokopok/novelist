@@ -1,0 +1,300 @@
+{
+	"archive" : {},
+	"artifacts" : 
+	[
+		{
+			"path" : "libnovelist/liblibnovelistplugin.a"
+		}
+	],
+	"backtrace" : 6,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_library",
+			"_qt_internal_add_library",
+			"qt6_add_plugin",
+			"qt6_add_qml_plugin",
+			"qt6_add_qml_module",
+			"qt_add_qml_module",
+			"target_link_libraries",
+			"target_compile_definitions",
+			"target_sources"
+		],
+		"files" : 
+		[
+			"/home/tomas/Apps/Qt/6.9.1/gcc_64/lib/cmake/Qt6Core/Qt6CoreMacros.cmake",
+			"/home/tomas/Apps/Qt/6.9.1/gcc_64/lib/cmake/Qt6Qml/Qt6QmlMacros.cmake",
+			"libnovelist/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 2
+			},
+			{
+				"command" : 5,
+				"file" : 2,
+				"line" : 9,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 1,
+				"line" : 1252,
+				"parent" : 1
+			},
+			{
+				"command" : 3,
+				"file" : 1,
+				"line" : 885,
+				"parent" : 2
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 2508,
+				"parent" : 3
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 2589,
+				"parent" : 4
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 2779,
+				"parent" : 5
+			},
+			{
+				"command" : 6,
+				"file" : 1,
+				"line" : 2713,
+				"parent" : 3
+			},
+			{
+				"command" : 6,
+				"file" : 1,
+				"line" : 2709,
+				"parent" : 3
+			},
+			{
+				"command" : 7,
+				"file" : 0,
+				"line" : 2656,
+				"parent" : 4
+			},
+			{
+				"command" : 7,
+				"file" : 0,
+				"line" : 2594,
+				"parent" : 4
+			},
+			{
+				"command" : 8,
+				"file" : 1,
+				"line" : 2702,
+				"parent" : 3
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "-DQT_QML_DEBUG -g -std=gnu++23 -fdiagnostics-color=always"
+				},
+				{
+					"backtrace" : 8,
+					"fragment" : "-fPIC"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 8,
+					"define" : "QT_CORE_LIB"
+				},
+				{
+					"backtrace" : 9,
+					"define" : "QT_DEPRECATED_WARNINGS"
+				},
+				{
+					"backtrace" : 8,
+					"define" : "QT_NETWORK_LIB"
+				},
+				{
+					"backtrace" : 9,
+					"define" : "QT_PLUGIN"
+				},
+				{
+					"backtrace" : 8,
+					"define" : "QT_QMLINTEGRATION_LIB"
+				},
+				{
+					"backtrace" : 8,
+					"define" : "QT_QML_LIB"
+				},
+				{
+					"backtrace" : 10,
+					"define" : "QT_STATICPLUGIN"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 0,
+					"path" : "/home/tomas/Source/novelist/new/build/Desktop_Qt_6_9_1-Debug/libnovelist/libnovelistplugin_autogen/include"
+				},
+				{
+					"backtrace" : 8,
+					"isSystem" : true,
+					"path" : "/home/tomas/Apps/Qt/6.9.1/gcc_64/include/QtQml"
+				},
+				{
+					"backtrace" : 8,
+					"isSystem" : true,
+					"path" : "/home/tomas/Apps/Qt/6.9.1/gcc_64/include"
+				},
+				{
+					"backtrace" : 8,
+					"isSystem" : true,
+					"path" : "/home/tomas/Apps/Qt/6.9.1/gcc_64/include/QtCore"
+				},
+				{
+					"backtrace" : 8,
+					"isSystem" : true,
+					"path" : "/home/tomas/Apps/Qt/6.9.1/gcc_64/mkspecs/linux-g++"
+				},
+				{
+					"backtrace" : 8,
+					"isSystem" : true,
+					"path" : "/home/tomas/Apps/Qt/6.9.1/gcc_64/include/QtQmlIntegration"
+				},
+				{
+					"backtrace" : 8,
+					"isSystem" : true,
+					"path" : "/home/tomas/Apps/Qt/6.9.1/gcc_64/include/QtNetwork"
+				}
+			],
+			"language" : "CXX",
+			"languageStandard" : 
+			{
+				"backtraces" : 
+				[
+					8,
+					8
+				],
+				"standard" : "23"
+			},
+			"sourceIndexes" : 
+			[
+				0,
+				1
+			]
+		}
+	],
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 7,
+			"id" : "libai::@291a53915bf01762ee4a"
+		},
+		{
+			"backtrace" : 7,
+			"id" : "libai_resources_1::@291a53915bf01762ee4a"
+		},
+		{
+			"backtrace" : 7,
+			"id" : "libaiplugin::@291a53915bf01762ee4a"
+		},
+		{
+			"backtrace" : 7,
+			"id" : "libai_resources_2::@291a53915bf01762ee4a"
+		},
+		{
+			"backtrace" : 7,
+			"id" : "libaiplugin_init::@291a53915bf01762ee4a"
+		},
+		{
+			"backtrace" : 7,
+			"id" : "libnovelist::@1b824b7f2526f8fa12f5"
+		},
+		{
+			"backtrace" : 7,
+			"id" : "libnovelist_resources_1::@1b824b7f2526f8fa12f5"
+		},
+		{
+			"backtrace" : 7,
+			"id" : "libnovelist_resources_2::@1b824b7f2526f8fa12f5"
+		},
+		{
+			"id" : "libnovelistplugin_autogen_timestamp_deps::@1b824b7f2526f8fa12f5"
+		},
+		{
+			"backtrace" : 0,
+			"id" : "libnovelistplugin_autogen::@1b824b7f2526f8fa12f5"
+		}
+	],
+	"id" : "libnovelistplugin::@1b824b7f2526f8fa12f5",
+	"name" : "libnovelistplugin",
+	"nameOnDisk" : "liblibnovelistplugin.a",
+	"paths" : 
+	{
+		"build" : "libnovelist",
+		"source" : "libnovelist"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files\\Generated",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2
+			]
+		},
+		{
+			"name" : "CMake Rules",
+			"sourceIndexes" : 
+			[
+				3
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 0,
+			"compileGroupIndex" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_9_1-Debug/libnovelist/libnovelistplugin_autogen/mocs_compilation.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 11,
+			"compileGroupIndex" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_9_1-Debug/libnovelist/libnovelistplugin_libnovelistPlugin.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_9_1-Debug/libnovelist/libnovelistplugin_autogen/timestamp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_9_1-Debug/libnovelist/libnovelistplugin_autogen/timestamp.rule",
+			"sourceGroupIndex" : 1
+		}
+	],
+	"type" : "STATIC_LIBRARY"
+}

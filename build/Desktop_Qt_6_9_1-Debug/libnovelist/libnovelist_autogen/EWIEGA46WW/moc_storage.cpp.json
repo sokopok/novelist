@@ -1,0 +1,180 @@
+{
+    "classes": [
+        {
+            "classInfos": [
+                {
+                    "name": "QML.Element",
+                    "value": "auto"
+                }
+            ],
+            "className": "Storage",
+            "lineNumber": 15,
+            "object": true,
+            "properties": [
+                {
+                    "constant": true,
+                    "designable": true,
+                    "final": true,
+                    "index": 0,
+                    "name": "elementStorage",
+                    "read": "elementStorage",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "ElementStorage*",
+                    "user": false
+                },
+                {
+                    "constant": true,
+                    "designable": true,
+                    "final": true,
+                    "index": 1,
+                    "name": "elementTypeStorage",
+                    "read": "elementTypeStorage",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "ElementTypeStorage*",
+                    "user": false
+                },
+                {
+                    "constant": true,
+                    "designable": true,
+                    "final": true,
+                    "index": 2,
+                    "name": "fieldStorage",
+                    "read": "fieldStorage",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "FieldStorage*",
+                    "user": false
+                },
+                {
+                    "constant": true,
+                    "designable": true,
+                    "final": true,
+                    "index": 3,
+                    "name": "fieldTypeStorage",
+                    "read": "fieldTypeStorage",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "FieldTypeStorage*",
+                    "user": false
+                },
+                {
+                    "constant": true,
+                    "designable": true,
+                    "final": true,
+                    "index": 4,
+                    "name": "valueStorage",
+                    "read": "valueStorage",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "ValueStorage*",
+                    "user": false
+                },
+                {
+                    "constant": true,
+                    "designable": true,
+                    "final": true,
+                    "index": 5,
+                    "name": "valueTypeStorage",
+                    "read": "valueTypeStorage",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "ValueTypeStorage*",
+                    "user": false
+                },
+                {
+                    "constant": true,
+                    "designable": true,
+                    "final": true,
+                    "index": 6,
+                    "name": "projectStorage",
+                    "read": "projectStorage",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "ProjectStorage*",
+                    "user": false
+                },
+                {
+                    "constant": true,
+                    "designable": true,
+                    "final": true,
+                    "index": 7,
+                    "name": "projectTypeStorage",
+                    "read": "projectTypeStorage",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "ProjectTypeStorage*",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 8,
+                    "name": "databaseName",
+                    "notify": "databaseNameChanged",
+                    "read": "databaseName",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false,
+                    "write": "setDatabaseName"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 9,
+                    "name": "databaseConnectionName",
+                    "notify": "databaseConnectionNameChanged",
+                    "read": "databaseConnectionName",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false,
+                    "write": "setDatabaseConnectionName"
+                }
+            ],
+            "qualifiedClassName": "Storage",
+            "signals": [
+                {
+                    "access": "public",
+                    "index": 0,
+                    "name": "databaseChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 1,
+                    "name": "databaseNameChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 2,
+                    "name": "databaseConnectionNameChanged",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QObject"
+                }
+            ]
+        }
+    ],
+    "inputFile": "storage.h",
+    "outputRevision": 69
+}

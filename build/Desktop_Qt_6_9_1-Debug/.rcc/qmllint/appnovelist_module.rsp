@@ -1,0 +1,12 @@
+-I
+/home/tomas/Source/novelist/new/build/Desktop_Qt_6_9_1-Debug
+-I
+/home/tomas/Apps/Qt/6.9.1/gcc_64/qml
+--resource
+/home/tomas/Source/novelist/new/build/Desktop_Qt_6_9_1-Debug/.qt/rcc/qmake_appnovelist.qrc
+--resource
+/home/tomas/Source/novelist/new/build/Desktop_Qt_6_9_1-Debug/.qt/rcc/appnovelist_raw_qml_0.qrc
+--resource
+/home/tomas/Source/novelist/new/build/Desktop_Qt_6_9_1-Debug/.qt/rcc/appnovelist_raw_qml_0_extra_qmldirs.qrc
+--module
+appnovelist

@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="/qt/qml/libnovelist/">
+    <file alias="libnovelist_nl_BE.ts">/home/tomas/Source/novelist/new/libnovelist/libnovelist_nl_BE.ts</file>
+  </qresource>
+</RCC>
+

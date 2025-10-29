@@ -1,0 +1,55 @@
+{
+    "classes": [
+        {
+            "classInfos": [
+                {
+                    "name": "QML.Element",
+                    "value": "auto"
+                }
+            ],
+            "className": "Novelist",
+            "lineNumber": 12,
+            "object": true,
+            "properties": [
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 0,
+                    "name": "project",
+                    "notify": "projectChanged",
+                    "read": "project",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "Project*",
+                    "user": false,
+                    "write": "setProject"
+                }
+            ],
+            "qualifiedClassName": "Novelist",
+            "signals": [
+                {
+                    "access": "public",
+                    "index": 0,
+                    "name": "projectChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 1,
+                    "name": "storageChanged",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QObject"
+                }
+            ]
+        }
+    ],
+    "inputFile": "novelist.h",
+    "outputRevision": 69
+}

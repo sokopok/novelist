@@ -1,0 +1,2 @@
+libai(libai)
+libnovelist(libnovelist)

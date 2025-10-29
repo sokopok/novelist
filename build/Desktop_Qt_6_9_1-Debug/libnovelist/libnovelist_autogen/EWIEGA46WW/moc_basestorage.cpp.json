@@ -1,0 +1,221 @@
+{
+    "classes": [
+        {
+            "classInfos": [
+                {
+                    "name": "QML.Element",
+                    "value": "auto"
+                },
+                {
+                    "name": "QML.Creatable",
+                    "value": "false"
+                },
+                {
+                    "name": "QML.UncreatableReason",
+                    "value": "BaseStorage is a base class"
+                }
+            ],
+            "className": "BaseStorage",
+            "lineNumber": 55,
+            "object": true,
+            "properties": [
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 0,
+                    "name": "database",
+                    "notify": "databaseChanged",
+                    "read": "database",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QSqlDatabase",
+                    "user": false,
+                    "write": "setDatabase"
+                }
+            ],
+            "qualifiedClassName": "BaseStorage",
+            "signals": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "node",
+                            "type": "Node*"
+                        }
+                    ],
+                    "index": 0,
+                    "name": "nodeCreated",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "node",
+                            "type": "Node*"
+                        }
+                    ],
+                    "index": 1,
+                    "name": "nodeRecycled",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "node",
+                            "type": "Node*"
+                        }
+                    ],
+                    "index": 2,
+                    "name": "nodeRevived",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "node",
+                            "type": "Node*"
+                        }
+                    ],
+                    "index": 3,
+                    "name": "nodeDestroyed",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "node",
+                            "type": "Node*"
+                        }
+                    ],
+                    "index": 4,
+                    "name": "nodeInserted",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "node",
+                            "type": "Node*"
+                        }
+                    ],
+                    "index": 5,
+                    "name": "nodeUpdated",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "node",
+                            "type": "Node*"
+                        }
+                    ],
+                    "index": 6,
+                    "name": "nodeSaved",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "node",
+                            "type": "Node*"
+                        }
+                    ],
+                    "index": 7,
+                    "name": "nodeReloaded",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "node",
+                            "type": "Node*"
+                        }
+                    ],
+                    "index": 8,
+                    "name": "nodeLoaded",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "node",
+                            "type": "Node*"
+                        }
+                    ],
+                    "index": 9,
+                    "name": "nodeRemoved",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 10,
+                    "name": "databaseChanged",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QObject"
+                },
+                {
+                    "access": "public",
+                    "name": "ErrorHandler"
+                }
+            ]
+        },
+        {
+            "classInfos": [
+                {
+                    "name": "QML.Element",
+                    "value": "auto"
+                },
+                {
+                    "name": "QML.Creatable",
+                    "value": "false"
+                },
+                {
+                    "name": "QML.UncreatableReason",
+                    "value": "BaseTypeStorage is a base class"
+                }
+            ],
+            "className": "BaseTypeStorage",
+            "lineNumber": 246,
+            "methods": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "name",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 0,
+                    "name": "nodeType",
+                    "returnType": "NodeType*"
+                }
+            ],
+            "object": true,
+            "qualifiedClassName": "BaseTypeStorage",
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "BaseStorage"
+                }
+            ]
+        }
+    ],
+    "inputFile": "basestorage.h",
+    "outputRevision": 69
+}

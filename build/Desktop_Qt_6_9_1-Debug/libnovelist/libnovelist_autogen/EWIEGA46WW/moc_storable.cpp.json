@@ -1,0 +1,266 @@
+{
+    "classes": [
+        {
+            "classInfos": [
+                {
+                    "name": "QML.Element",
+                    "value": "auto"
+                },
+                {
+                    "name": "QML.Creatable",
+                    "value": "false"
+                },
+                {
+                    "name": "QML.UncreatableReason",
+                    "value": "Storable is a base class"
+                }
+            ],
+            "className": "Storable",
+            "enums": [
+                {
+                    "isClass": false,
+                    "isFlag": false,
+                    "name": "Type",
+                    "values": [
+                        "Type_Unknown",
+                        "Type_Storable",
+                        "Type_Node",
+                        "Type_Field",
+                        "Type_Element",
+                        "Type_Value",
+                        "Type_Project",
+                        "Type_NodeType",
+                        "Type_FieldType",
+                        "Type_ElementType",
+                        "Type_ValueType",
+                        "Type_ProjectType"
+                    ]
+                },
+                {
+                    "isClass": false,
+                    "isFlag": false,
+                    "name": "Flag",
+                    "values": [
+                        "NoFlag",
+                        "Flag_Modified",
+                        "Flag_Saving",
+                        "Flag_Loading"
+                    ]
+                }
+            ],
+            "lineNumber": 14,
+            "object": true,
+            "properties": [
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 0,
+                    "name": "rowid",
+                    "notify": "rowidChanged",
+                    "read": "rowid",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "int",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 1,
+                    "name": "type",
+                    "notify": "typeChanged",
+                    "read": "type",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "int",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 2,
+                    "name": "modified",
+                    "notify": "modifiedChanged",
+                    "read": "isModified",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "bool",
+                    "user": false,
+                    "write": "setModified"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 3,
+                    "name": "createdBy",
+                    "notify": "createdByChanged",
+                    "read": "createdBy",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false,
+                    "write": "setCreatedBy"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 4,
+                    "name": "updatedBy",
+                    "notify": "updatedByChanged",
+                    "read": "updatedBy",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false,
+                    "write": "setUpdatedBy"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 5,
+                    "name": "createdAt",
+                    "notify": "createdAtChanged",
+                    "read": "createdAt",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QDateTime",
+                    "user": false,
+                    "write": "setCreatedAt"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 6,
+                    "name": "updatedAt",
+                    "notify": "updatedAtChanged",
+                    "read": "updatedAt",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QDateTime",
+                    "user": false,
+                    "write": "setUpdatedAt"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 7,
+                    "name": "version",
+                    "notify": "versionChanged",
+                    "read": "version",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "int",
+                    "user": false,
+                    "write": "setVersion"
+                }
+            ],
+            "qualifiedClassName": "Storable",
+            "signals": [
+                {
+                    "access": "public",
+                    "index": 0,
+                    "name": "rowidChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 1,
+                    "name": "typeChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 2,
+                    "name": "storageChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 3,
+                    "name": "modifiedChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 4,
+                    "name": "createdByChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 5,
+                    "name": "updatedByChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 6,
+                    "name": "createdAtChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 7,
+                    "name": "updatedAtChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 8,
+                    "name": "reloaded",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 9,
+                    "name": "saved",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 10,
+                    "name": "recycled",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 11,
+                    "name": "versionChanged",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QObject"
+                },
+                {
+                    "access": "public",
+                    "name": "ErrorHandler"
+                },
+                {
+                    "access": "public",
+                    "name": "Jsonable"
+                }
+            ]
+        }
+    ],
+    "inputFile": "storable.h",
+    "outputRevision": 69
+}
